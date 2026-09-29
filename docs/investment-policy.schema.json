@@ -1,0 +1,407 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "const": "investment-policy-v3",
+      "default": "investment-policy-v3",
+      "title": "Version",
+      "type": "string"
+    },
+    "policy_revision": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Policy Revision",
+      "type": "string"
+    },
+    "analysis_scope": {
+      "const": "entire_portfolio",
+      "default": "entire_portfolio",
+      "title": "Analysis Scope",
+      "type": "string"
+    },
+    "auto_liquidate_existing_holdings": {
+      "const": false,
+      "default": false,
+      "title": "Auto Liquidate Existing Holdings",
+      "type": "boolean"
+    },
+    "automatic_rebalancing": {
+      "const": false,
+      "default": false,
+      "title": "Automatic Rebalancing",
+      "type": "boolean"
+    },
+    "audit_trail_required": {
+      "const": true,
+      "default": true,
+      "title": "Audit Trail Required",
+      "type": "boolean"
+    },
+    "thesis_required": {
+      "const": true,
+      "default": true,
+      "title": "Thesis Required",
+      "type": "boolean"
+    },
+    "entry_thesis_required": {
+      "const": true,
+      "default": true,
+      "title": "Entry Thesis Required",
+      "type": "boolean"
+    },
+    "exit_invalidation_thesis_required": {
+      "const": true,
+      "default": true,
+      "title": "Exit Invalidation Thesis Required",
+      "type": "boolean"
+    },
+    "concentration_warning": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "default": "0.20",
+      "title": "Concentration Warning"
+    },
+    "severe_concentration_warning": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "default": "0.30",
+      "title": "Severe Concentration Warning"
+    },
+    "environment": {
+      "default": "research",
+      "enum": [
+        "research",
+        "paper"
+      ],
+      "title": "Environment",
+      "type": "string"
+    },
+    "production_trading": {
+      "const": false,
+      "default": false,
+      "title": "Production Trading",
+      "type": "boolean"
+    },
+    "automated_trading": {
+      "const": false,
+      "default": false,
+      "title": "Automated Trading",
+      "type": "boolean"
+    },
+    "human_approval_required": {
+      "const": true,
+      "default": true,
+      "title": "Human Approval Required",
+      "type": "boolean"
+    },
+    "new_purchase_allowlist": {
+      "default": [
+        "AAPL",
+        "MSFT",
+        "SPY"
+      ],
+      "items": {
+        "pattern": "^[A-Z][A-Z0-9.\\-]{0,14}$",
+        "type": "string"
+      },
+      "title": "New Purchase Allowlist",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "research_universe": {
+      "anyOf": [
+        {
+          "items": {
+            "pattern": "^[A-Z][A-Z0-9.\\-]{0,14}$",
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": [
+        "AAPL",
+        "MSFT",
+        "SPY"
+      ],
+      "title": "Research Universe"
+    },
+    "long_only": {
+      "const": true,
+      "default": true,
+      "title": "Long Only",
+      "type": "boolean"
+    },
+    "buy_only": {
+      "const": true,
+      "default": true,
+      "title": "Buy Only",
+      "type": "boolean"
+    },
+    "margin_allowed": {
+      "const": false,
+      "default": false,
+      "title": "Margin Allowed",
+      "type": "boolean"
+    },
+    "options_allowed": {
+      "const": false,
+      "default": false,
+      "title": "Options Allowed",
+      "type": "boolean"
+    },
+    "short_selling_allowed": {
+      "const": false,
+      "default": false,
+      "title": "Short Selling Allowed",
+      "type": "boolean"
+    },
+    "leverage_allowed": {
+      "const": false,
+      "default": false,
+      "title": "Leverage Allowed",
+      "type": "boolean"
+    },
+    "fractional_orders_allowed": {
+      "const": false,
+      "default": false,
+      "title": "Fractional Orders Allowed",
+      "type": "boolean"
+    },
+    "complex_orders_allowed": {
+      "const": false,
+      "default": false,
+      "title": "Complex Orders Allowed",
+      "type": "boolean"
+    },
+    "kill_switch_required": {
+      "const": true,
+      "default": true,
+      "title": "Kill Switch Required",
+      "type": "boolean"
+    },
+    "currency": {
+      "const": "USD",
+      "default": "USD",
+      "title": "Currency",
+      "type": "string"
+    },
+    "agent_experimental_capital_limit": {
+      "anyOf": [
+        {
+          "maximum": 160.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": "160",
+      "title": "Agent Experimental Capital Limit"
+    },
+    "max_daily_loss": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Max Daily Loss"
+    },
+    "max_experimental_loss": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Max Experimental Loss"
+    },
+    "max_position_exposure": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Max Position Exposure"
+    },
+    "max_concentration": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Max Concentration"
+    },
+    "max_state_age_seconds": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Max State Age Seconds"
+    },
+    "daily_loss_timezone": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Daily Loss Timezone"
+    },
+    "objective": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": "Long-term capital growth",
+      "title": "Objective"
+    },
+    "holding_horizon": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": "Long-term",
+      "title": "Holding Horizon"
+    },
+    "benchmark": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": "VOO / S&P 500",
+      "title": "Benchmark"
+    },
+    "benchmark_comparison": {
+      "default": "VOO",
+      "title": "Benchmark Comparison",
+      "type": "string"
+    },
+    "rebalance_cadence": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": "Rule/event driven, not automatic",
+      "title": "Rebalance Cadence"
+    },
+    "review_cadence": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": "Weekly",
+      "title": "Review Cadence"
+    },
+    "research_review_cadence": {
+      "default": "Daily",
+      "title": "Research Review Cadence",
+      "type": "string"
+    },
+    "strategy_rules": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Strategy Rules"
+    }
+  },
+  "title": "InvestmentPolicy",
+  "type": "object"
+}

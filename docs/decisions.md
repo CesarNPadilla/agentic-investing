@@ -1,0 +1,23 @@
+# Architecture decision log
+
+Recorded 2026-09-28. ADR-001 through ADR-007 carry forward the accepted architecture discussion.
+
+| ID | Decision | Status |
+| --- | --- | --- |
+| ADR-001 | Python primary backend; FastAPI HTTP API | Accepted |
+| ADR-002 | PostgreSQL system of record | Accepted |
+| [ADR-003](adr-003.md) | Broker-independent adapters and normalized domain models | Synthetic read-only foundation implemented and tested |
+| ADR-004 | LLM cannot directly execute broker orders | Accepted |
+| ADR-005 | Deterministic risk controls outside agents | Accepted |
+| ADR-006 | Separate paper and live environments | Accepted; future phases |
+| ADR-007 | Home Lab initially research/paper infrastructure only | Accepted |
+| ADR-008 | Structured Pydantic research outputs with provenance and missing-data markers | Implemented foundation |
+| ADR-009 | Synthetic provider and disabled LLM are initial defaults | Implemented foundation |
+| ADR-010 | SQLite local fallback; PostgreSQL Docker deployment | Implemented; PostgreSQL startup, report storage, and restart persistence verified |
+| ADR-011 | Broker contract is read-only; no execution contract in Phase 1 | Implemented foundation |
+| ADR-012 | OneDrive project source; environment and active local data outside sync | Implemented setup guidance |
+| [ADR-013](adr-013.md) | Separate holdings, research universe, purchase allowlist and experimental capital; read-only reconciliation and position theses | Implemented; broker evidence gaps explicitly retained |
+
+ADR-005 now includes deterministic hypothetical investment-policy checks and portfolio
+intelligence; no production execution is enabled. ADR-006 preserves separate read-source
+environments and research/paper policy; production account reads do not authorize trading.

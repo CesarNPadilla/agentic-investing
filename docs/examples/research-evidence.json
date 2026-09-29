@@ -1,0 +1,57 @@
+{
+  "fundamentals": {
+    "symbol": "AAPL",
+    "source": "synthetic-example-not-company-financials",
+    "retrieved_at": "2026-09-27T12:00:00Z",
+    "currency": "USD",
+    "is_sample": true,
+    "current": {
+      "period_start": "2026-04-01",
+      "period_end": "2026-06-30",
+      "filed_at": "2026-07-31T12:00:00Z",
+      "source_url": "https://example.com/synthetic/current",
+      "revenue": "120000000",
+      "net_income": "24000000",
+      "operating_cash_flow": "30000000",
+      "capital_expenditures": "10000000",
+      "current_assets": "60000000",
+      "current_liabilities": "30000000",
+      "total_debt": "50000000",
+      "cash": "20000000",
+      "equity": "100000000"
+    },
+    "previous": {
+      "period_start": "2025-04-01",
+      "period_end": "2025-06-30",
+      "filed_at": "2025-07-31T12:00:00Z",
+      "source_url": "https://example.com/synthetic/prior",
+      "revenue": "100000000"
+    }
+  },
+  "news": {
+    "symbol": "AAPL",
+    "source": "synthetic-example-not-real-news",
+    "retrieved_at": "2026-09-27T12:00:00Z",
+    "window_start": "2026-09-20T00:00:00Z",
+    "is_sample": true,
+    "articles": [
+      {
+        "id": "synthetic-earnings-1",
+        "headline": "Synthetic company announces quarterly earnings date",
+        "url": "https://example.com/synthetic/earnings",
+        "publisher": "Synthetic Example Publisher",
+        "published_at": "2026-09-26T12:00:00Z",
+        "symbols": ["AAPL"]
+      }
+    ],
+    "catalysts": [
+      {
+        "title": "Synthetic quarterly earnings event",
+        "category": "earnings",
+        "event_at": "2026-10-28T20:00:00Z",
+        "evidence_id": "synthetic-earnings-1",
+        "certainty": "estimated"
+      }
+    ]
+  }
+}

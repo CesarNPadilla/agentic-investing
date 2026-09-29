@@ -1,0 +1,14 @@
+
+# Local research database
+*.db
+*.db-shm
+*.db-wal
+
+# Local credentials and authentication artifacts
+**/.env
+**/.env.*
+!**/.env.example
+**/webull*.env
+/conf/token.txt
+/webull_trade_sdk.log*
+/.venv/

@@ -1,0 +1,17 @@
+tzdata>=2025.1
+httpx<1,>=0.28
+fastapi<1,>=0.115
+uvicorn<1,>=0.34
+pydantic<3,>=2.10
+pydantic-settings<3,>=2.7
+sqlalchemy<3,>=2.0
+psycopg[binary]<4,>=3.2
+
+[dev]
+pytest<10,>=8
+httpx<1,>=0.28
+ruff<1,>=0.11
+
+[webull]
+python-dotenv<2,>=1
+webull-openapi-python-sdk<4,>=3.0.2

@@ -1,0 +1,6 @@
+services:
+  api:
+    environment:
+      AIL_MARKET_PROVIDER: alpaca
+      AIL_ALPACA_API_KEY: ${AIL_ALPACA_API_KEY:?Set Alpaca key in external env file}
+      AIL_ALPACA_API_SECRET: ${AIL_ALPACA_API_SECRET:?Set Alpaca secret in external env file}
