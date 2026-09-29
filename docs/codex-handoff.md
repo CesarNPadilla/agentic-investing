@@ -108,6 +108,50 @@ fixtures only; never replace them with real credentials or private account paylo
 Preserve unrelated user changes. No commit, deployment or broker connection is required
 to validate this phase. Review staged artifacts separately before any publication.
 
-Latest verification: 273 tests passed; Ruff lint passed. Changed Python files pass formatting.
+Latest verification: 282 tests passed; Ruff lint passed. Changed Python files pass formatting.
 Repository-wide formatting has pre-existing differences outside this phase. All broker fixtures
 are synthetic; no broker credentials were read and no broker connection or order action occurred.
+
+
+## Latest incremental Phase 2 pass (ADR-015)
+
+Inspected existing code, roadmap, architecture and v0.2 policy before editing. Most v0.2
+foundation was already implemented; preserve it. The initial tree for this pass was clean.
+[Gap analysis](phase2-policy-gap-analysis.md) distinguishes completed work from external-data,
+operational and owner-decision gaps. No broker implementation was changed or connected.
+
+Closed three practical gaps:
+
+1. `AIL_INVESTMENT_POLICY_FILE` loads reviewed UTF-8 JSON at startup via `risk.policy`.
+   Unset path retains safe defaults. Missing/invalid configured files stop startup with
+   sanitized errors; file plus Python injection is rejected. No runtime policy mutation.
+2. Analysis enrichment now preserves omitted experimental attribution, references,
+   correlations and performance evidence. Explicit null/empty values clear them. Derived
+   observations retain their parent ID; no existing observation is mutated. This is not
+   automatic inheritance across fresh broker snapshots.
+3. Authenticated thesis revision history is available at
+   `/broker/accounts/{account_id}/theses/{symbol}/history`, ordered ascending, with
+   `after_revision` (default 0) and `limit` (default 100, maximum 500). It reads only local
+   storage and returns an empty list if no revisions match. Existing latest-thesis reads work.
+
+Changed code: `api/config.py`, `api/main.py`, `api/broker.py`, `risk/policy.py`,
+`portfolio/storage.py`. Added `tests/test_phase2_foundation.py` (9 cases). Updated the
+architecture, roadmap, policy contract, Webull runbook and decisions; added ADR-015 and
+phase2-policy-gap-analysis.md. No schema/table version change was needed.
+
+Validation: full pytest suite 282 passed, including broker contracts and execution-safety
+regressions; Ruff lint passed. One existing Starlette/httpx deprecation warning remains.
+Tests use temporary databases and synthetic data. No .env/credentials or private broker data
+were read for this task, and no order was submitted, canceled or modified.
+
+Recommended next task: an authenticated complete-ledger import with source/provenance and
+reconciliation against stored broker observations. First test synthetic settlement changes,
+transfers, corporate actions and partial fills. Never infer missing share movements from
+cash activities or clear the non-atomic broker flag without corroborating evidence.
+Operational migrations and restore tests remain required before production data deployment.
+
+Owner decisions are unchanged: explicit experimental baseline/attribution; daily and
+experimental loss limits; freshness tolerance/day boundary; current theses and position
+allocation targets; any purchase-list changes; swing controls. Daily/weekly scheduling,
+review-request completion, reliable live references and actual forward validation are still
+pending. No new investment decision or strategy signal was assumed in this pass.

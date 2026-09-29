@@ -355,3 +355,14 @@ position/loss/holding-period/stop rules, position targets and experimental attri
 Concentration >20%/>30% and sleeve ranges are informational. They do not authorize selling.
 Provider verification, complete reconciled ledgers, backtest/bias checks and 60 sequential
 non-synthetic forward sessions remain separate gates. None enables production execution.
+
+
+### Incremental Phase 2 operation
+
+An optional `AIL_INVESTMENT_POLICY_FILE` selects reviewed JSON at process startup; invalid
+configuration stops startup. Restart to adopt changes. This setting does not enable trading.
+Analysis enrichment preserves omitted fields: send explicit null/empty collections only
+when intentionally clearing evidence. Retain returned observation IDs for audit lineage.
+Use authenticated `/broker/accounts/{id}/theses/{symbol}/history` with `after_revision`
+and bounded `limit` to inspect prior theses. These local operations never load the broker.
+See [ADR-015](adr-015.md) and [gap analysis](phase2-policy-gap-analysis.md).

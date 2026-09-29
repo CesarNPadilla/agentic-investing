@@ -34,6 +34,12 @@ calculations, automated tests, and a reviewed deployment boundary. No trading.
 
 ## Phase 2 - Portfolio intelligence
 
+Incremental foundation review (ADR-015): startup JSON policy configuration, evidence-preserving
+analysis updates and authenticated thesis revision history are implemented. See the
+[current gap analysis](phase2-policy-gap-analysis.md). Next: a provenance-preserving complete
+ledger import/reconciliation workflow, with synthetic settlement/corporate-action tests and
+no order actions. Database migrations/restore validation remain an operational gate.
+
 Investment Policy v0.2 (ADR-014) adds monitoring-only sleeves, the approved position registry,
 UNKNOWN original theses, persistent material events/review history and quarterly strategic
 review requests. News can only request thesis review. Separate long-term/swing strategy

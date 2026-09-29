@@ -19,6 +19,7 @@ class Settings(BaseSettings):
     broker_read_enabled: bool = False
     broker_read_token: SecretStr = SecretStr("")
     webull_production_env_file: Path | None = None
+    investment_policy_file: Path | None = None
 
     @model_validator(mode="after")
     def require_provider_credentials(self):

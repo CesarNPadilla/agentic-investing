@@ -22,7 +22,7 @@ from portfolio.storage import PortfolioStore
 from reports.inputs import ResearchEvidence
 from reports.markdown import render_markdown
 from reports.models import ResearchReport
-from risk.policy import InvestmentPolicy
+from risk.policy import InvestmentPolicy, load_investment_policy
 from simulation.engine import evaluate
 from simulation.models import PaperAdvance, SimulationInput, SimulationRun
 from trading.api import trading_router
@@ -36,7 +36,9 @@ def create_app(
     investment_policy: InvestmentPolicy | None = None,
 ) -> FastAPI:
     settings = settings or Settings()
-    investment_policy = investment_policy or InvestmentPolicy()
+    if investment_policy is not None and settings.investment_policy_file is not None:
+        raise ValueError("Configure one investment policy source, not both file and injection")
+    investment_policy = investment_policy or load_investment_policy(settings.investment_policy_file)
     repository = SQLReportRepository(settings.database_url)
     trading = TradingService(repository.engine) if settings.trading_enabled else None
     if market_data is None:

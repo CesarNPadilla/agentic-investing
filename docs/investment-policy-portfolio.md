@@ -300,3 +300,23 @@ legacy semantics, news boundaries, quarterly dates, policy/proposal binding, ris
 review requirements, swing controls, experimental accounting, correlations and flow-adjusted
 performance. Broker/API tests cover authenticated reads, persistence, reconciliation gaps
 and absence of order methods. All fixtures are synthetic; no broker orders are exercised.
+
+## Startup configuration and incremental evidence (ADR-015)
+
+Set `AIL_INVESTMENT_POLICY_FILE` to an explicitly reviewed UTF-8 JSON policy file to configure
+normal application startup. The existing schema and initial JSON are suitable templates.
+When no path is configured, safe model defaults apply. An explicitly configured unreadable/invalid file aborts
+startup without echoing its content. Python injection and file configuration cannot both be
+selected. Safety literals remain enforced, missing controls remain null and changes require
+restart. No policy-write endpoint or production execution capability is introduced.
+
+`POST /broker/portfolio/{id}/analysis` now preserves omitted attribution, references,
+correlations and performance evidence from its parent. Explicit `null` clears attribution
+or performance; `[]` clears references or correlations. Each update stores a new observation
+with `derived_from_id`, leaving its parent untouched. These semantics apply to enrichment
+of the same snapshot only; new broker captures do not inherit old attribution automatically.
+
+`GET /broker/accounts/{account_id}/theses/{symbol}/history?after_revision=0&limit=100`
+returns stored revisions in ascending order. Limit is 1-500; use the last returned revision
+as the next cursor. Empty results mean no matching revisions. Authentication is mandatory,
+and no broker reader is loaded. See [gap analysis](phase2-policy-gap-analysis.md).

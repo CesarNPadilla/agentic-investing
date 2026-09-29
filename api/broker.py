@@ -3,7 +3,7 @@ from collections.abc import Callable
 from datetime import UTC, datetime
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, Header, HTTPException
+from fastapi import APIRouter, Depends, Header, HTTPException, Query
 from pydantic import AwareDatetime, SecretStr
 from sqlalchemy.exc import SQLAlchemyError
 
@@ -159,6 +159,7 @@ def broker_read_router(
     )
     def analyze(observation_id: str, request: AnalysisInput):
         previous = observation(observation_id)
+        request = request.resolve(previous)
         state = PortfolioState.model_validate(
             previous.state.model_dump()
             | {"experimental_attribution": request.experimental_attribution}
@@ -197,6 +198,19 @@ def broker_read_router(
         if result is None:
             raise HTTPException(404, "Position thesis not found")
         return result
+
+    @router.get(
+        "/accounts/{account_id}/theses/{symbol}/history",
+        response_model=tuple[StoredThesis, ...],
+        dependencies=auth,
+    )
+    def thesis_history(
+        account_id: str,
+        symbol: str,
+        after_revision: int = Query(default=0, ge=0),
+        limit: int = Query(default=100, ge=1, le=500),
+    ):
+        return call(storage().thesis_history, account_id, symbol.upper(), after_revision, limit)
 
     @router.put(
         "/portfolio/{observation_id}/thesis", response_model=StoredThesis, dependencies=auth

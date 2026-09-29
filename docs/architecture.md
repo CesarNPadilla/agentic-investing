@@ -66,3 +66,11 @@ without broker dependencies; deterministic checks always run, regardless of conf
 `portfolio.intelligence` and `portfolio.performance` require explicit timestamped evidence.
 Policy defaults live in the v4 schema; [ADR-014](adr-014.md) and the
 [policy contract](investment-policy-portfolio.md) define monitoring ranges and remaining gates.
+
+## Incremental foundation (ADR-015)
+
+Application startup chooses one validated policy source: explicit file, injected model or
+safe defaults. External content cannot configure policy. Local analysis merges only explicit
+changes into prior evidence and persists a new derived observation. Authenticated, bounded
+thesis-history reads expose retained revisions without broker access. Existing broker adapters,
+reconciliation contracts and all execution boundaries remain unchanged.

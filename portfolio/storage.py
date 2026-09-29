@@ -36,6 +36,16 @@ class AnalysisInput(Record):
     correlations: tuple[CorrelationEvidence, ...] = ()
     performance_evidence: PerformanceEvidence | None = None
 
+    def resolve(self, previous: PortfolioObservation):
+        """Omitted fields inherit; explicit null/empty values clear prior evidence."""
+        baseline = {
+            "experimental_attribution": previous.state.experimental_attribution,
+            "references": previous.reference_data,
+            "correlations": previous.correlation_evidence,
+            "performance_evidence": previous.performance_evidence,
+        }
+        return AnalysisInput.model_validate(baseline | self.model_dump(exclude_unset=True))
+
 
 class ThesisInput(Record):
     expected_revision: int = Field(ge=0)
@@ -138,6 +148,25 @@ class PortfolioStore:
         except IntegrityError:
             raise ValueError("Thesis revision conflict") from None
         return StoredThesis(revision=revision, thesis=thesis)
+
+    def thesis_history(self, account_id: str, symbol: str, after_revision: int, limit: int):
+        with Session(self.engine) as session:
+            rows = session.scalars(
+                select(ThesisRow)
+                .where(
+                    ThesisRow.account_id == account_id,
+                    ThesisRow.symbol == symbol,
+                    ThesisRow.revision > after_revision,
+                )
+                .order_by(ThesisRow.revision)
+                .limit(limit)
+            )
+            return tuple(
+                StoredThesis(
+                    revision=row.revision, thesis=PositionThesis.model_validate(row.payload)
+                )
+                for row in rows
+            )
 
     def initialize_theses(self, state: PortfolioState):
         values = [p.marked_value for p in state.positions]

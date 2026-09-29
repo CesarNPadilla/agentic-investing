@@ -1,9 +1,17 @@
 """Owner-configurable research policy. Safety boundaries cannot be configured away."""
 
 from decimal import Decimal
+from pathlib import Path
 from typing import Annotated, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, field_serializer, model_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    ValidationError,
+    field_serializer,
+    model_validator,
+)
 
 from market_data.models import Symbol
 
@@ -104,3 +112,14 @@ class InvestmentPolicy(BaseModel):
         return symbol in (self.research_universe or ()) or any(
             holding.symbol == symbol and holding.quantity != 0 for holding in portfolio_holdings
         )
+
+
+def load_investment_policy(path: Path | None) -> InvestmentPolicy:
+    """Explicit configuration errors stop startup; never silently use default controls."""
+    if path is None:
+        return InvestmentPolicy()
+    try:
+        return InvestmentPolicy.model_validate_json(path.read_text(encoding="utf-8-sig"))
+    except (OSError, UnicodeError, ValidationError):
+        # Do not echo file contents, paths or rejected input values into logs.
+        raise ValueError("Investment policy file is unreadable or invalid") from None
