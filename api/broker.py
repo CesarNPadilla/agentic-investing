@@ -1,5 +1,6 @@
 import secrets
 from collections.abc import Callable
+from datetime import UTC, datetime
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, Header, HTTPException
@@ -7,10 +8,16 @@ from pydantic import AwareDatetime, SecretStr
 from sqlalchemy.exc import SQLAlchemyError
 
 from integrations.brokers.base import AccountNotFound, BrokerReader, BrokerUnavailable
+from news.thesis_review import (
+    NewsReviewInput,
+    ThesisReviewRequest,
+    news_to_reviews,
+    scheduled_reviews,
+)
 from portfolio.intelligence import analyze_portfolio
 from portfolio.models import Account, CashBalance, Position
 from portfolio.reconciliation import reconcile
-from portfolio.state import PortfolioState, StateOrder, Transaction
+from portfolio.state import PortfolioState, Record, StateOrder, Transaction
 from portfolio.storage import (
     AnalysisInput,
     PortfolioObservation,
@@ -18,7 +25,17 @@ from portfolio.storage import (
     StoredThesis,
     ThesisInput,
 )
+from risk.evaluator import KillSwitch
 from risk.policy import InvestmentPolicy
+from risk.proposals import TradeProposal
+from risk.workflow import StrategyValidation, review_proposal
+
+
+class ProposalReviewInput(Record):
+    opening_id: str
+    proposal: TradeProposal
+    kill_switch: KillSwitch
+    validation: StrategyValidation | None = None
 
 
 def broker_read_router(
@@ -117,10 +134,13 @@ def broker_read_router(
         if opening and opening.state.as_of != history_start:
             raise HTTPException(422, "History must start at the opening snapshot cutoff")
         state = call(lambda: method(reader, "read_state")(history_start=history_start))
+        theses = call(storage().initialize_theses, state)
         result = PortfolioObservation(
+            policy=policy,
+            theses=theses,
             opening_id=opening_id,
             state=state,
-            intelligence=analyze_portfolio(state, policy),
+            intelligence=analyze_portfolio(state, policy, theses=theses),
             reconciliation=reconcile(opening.state, state) if opening else None,
         )
         call(storage().save, result)
@@ -143,15 +163,28 @@ def broker_read_router(
             previous.state.model_dump()
             | {"experimental_attribution": request.experimental_attribution}
         )
-        intelligence = analyze_portfolio(state, policy, request.references)
+        theses = call(storage().initialize_theses, state)
+        intelligence = analyze_portfolio(
+            state,
+            policy,
+            request.references,
+            theses,
+            request.correlations,
+            request.performance_evidence,
+        )
         if request.experimental_attribution and not intelligence.experimental_capital.valid:
             raise HTTPException(422, "Experimental attribution does not match broker inventory")
         result = PortfolioObservation(
+            policy=policy,
+            derived_from_id=previous.id,
+            theses=theses,
             state=state,
             opening_id=previous.opening_id,
             reconciliation=previous.reconciliation,
             intelligence=intelligence,
             reference_data=request.references,
+            correlation_evidence=request.correlations,
+            performance_evidence=request.performance_evidence,
         )
         call(storage().save, result)
         return result
@@ -179,5 +212,69 @@ def broker_read_router(
             return call(storage().save_thesis, request)
         except ValueError as exc:
             raise HTTPException(409, str(exc)) from None
+
+    @router.post(
+        "/portfolio/{observation_id}/news-review",
+        response_model=tuple[ThesisReviewRequest, ...],
+        dependencies=auth,
+    )
+    def news_review(observation_id: str, request: NewsReviewInput):
+        state = observation(observation_id).state
+        theses = call(storage().initialize_theses, state)
+        try:
+            requests = news_to_reviews(request, theses, now=datetime.now(UTC))
+        except ValueError:
+            raise HTTPException(422, "News review evidence is invalid") from None
+        call(storage().save_review_requests, requests, request)
+        return requests
+
+    @router.get(
+        "/portfolio/{observation_id}/review-queue",
+        response_model=tuple[ThesisReviewRequest, ...],
+        dependencies=auth,
+    )
+    def review_queue(observation_id: str):
+        state = observation(observation_id).state
+        theses = call(storage().initialize_theses, state)
+        requests = scheduled_reviews(theses, now=datetime.now(UTC))
+        call(storage().save_review_requests, requests)
+        return call(storage().review_requests, state)
+
+    @router.post("/portfolio/{observation_id}/proposal-review", dependencies=auth)
+    def proposal_review(observation_id: str, request: ProposalReviewInput):
+        closing = observation(observation_id)
+        opening = observation(request.opening_id)
+        stored = call(
+            storage().get_thesis, request.proposal.trade.account_id, request.proposal.trade.symbol
+        )
+        thesis = stored.thesis if stored else None
+        result = review_proposal(
+            policy,
+            opening.state,
+            closing.state,
+            request.proposal,
+            request.kill_switch,
+            thesis,
+            now=datetime.now(UTC),
+            validation=request.validation,
+        )
+        identifier = call(
+            storage().save_risk_review,
+            result,
+            policy,
+            opening.id,
+            closing.id,
+            thesis,
+            request.validation,
+            request.kill_switch,
+        )
+        return {"id": identifier, "review": result}
+
+    @router.get("/proposal-reviews/{review_id}", dependencies=auth)
+    def get_proposal_review(review_id: str):
+        result = call(storage().get_risk_review, review_id)
+        if result is None:
+            raise HTTPException(404, "Proposal review not found")
+        return result
 
     return router

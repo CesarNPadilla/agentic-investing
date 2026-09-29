@@ -77,19 +77,30 @@ def reconcile(opening: PortfolioState, closing: PortfolioState) -> Reconciliatio
                 > Decimal("0.01")
             ):
                 issue("position_market_value_mismatch")
-            if (position.quantity >= 0 and position.marked_value is not None
-                    and position.cost_basis is not None and position.broker_unrealized_pnl is not None
-                    and abs(position.marked_value-position.cost_basis-position.broker_unrealized_pnl)
-                    > Decimal("0.01")):
+            if (
+                position.quantity >= 0
+                and position.marked_value is not None
+                and position.cost_basis is not None
+                and position.broker_unrealized_pnl is not None
+                and abs(
+                    position.marked_value - position.cost_basis - position.broker_unrealized_pnl
+                )
+                > Decimal("0.01")
+            ):
                 issue("broker_unrealized_pnl_mismatch")
         for account in state.accounts:
             holdings = [p for p in state.positions if p.account_id == account.account_id]
             if all(p.marked_value is not None and p.currency == account.currency for p in holdings):
                 total = sum((p.marked_value for p in holdings), ZERO)
-                if account.broker_market_value is not None and abs(total-account.broker_market_value) > Decimal("0.01"):
+                if account.broker_market_value is not None and abs(
+                    total - account.broker_market_value
+                ) > Decimal("0.01"):
                     issue("broker_market_value_mismatch")
-                if (account.broker_equity is not None and account.cash is not None
-                        and abs(total+account.cash-account.broker_equity) > Decimal("0.01")):
+                if (
+                    account.broker_equity is not None
+                    and account.cash is not None
+                    and abs(total + account.cash - account.broker_equity) > Decimal("0.01")
+                ):
                     issue("broker_equity_mismatch")
         for transaction in state.transactions:
             if not state.history_start < transaction.posted_at <= state.as_of:

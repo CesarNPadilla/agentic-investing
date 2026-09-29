@@ -30,7 +30,7 @@ class PortfolioRepository:
     def __init__(self, path: Path):
         self.path = path
         with sqlite3.connect(path) as connection:
-            connection.execute("""CREATE TABLE IF NOT EXISTS portfolio_evidence_v3 (
+            connection.execute("""CREATE TABLE IF NOT EXISTS portfolio_evidence_v4 (
                 id TEXT PRIMARY KEY, checksum TEXT NOT NULL, payload TEXT NOT NULL
             )""")
 
@@ -58,11 +58,11 @@ class PortfolioRepository:
         checksum = digest(evidence)
         with sqlite3.connect(self.path) as connection:
             connection.execute(
-                "INSERT OR IGNORE INTO portfolio_evidence_v3 VALUES (?, ?, ?)",
+                "INSERT OR IGNORE INTO portfolio_evidence_v4 VALUES (?, ?, ?)",
                 (decision.input_digest, checksum, payload),
             )
             row = connection.execute(
-                "SELECT checksum FROM portfolio_evidence_v3 WHERE id = ?", (decision.input_digest,)
+                "SELECT checksum FROM portfolio_evidence_v4 WHERE id = ?", (decision.input_digest,)
             ).fetchone()
             if row[0] != checksum:
                 raise ValueError("Conflicting evidence for identical inputs")
@@ -72,7 +72,7 @@ class PortfolioRepository:
     def get(self, evidence_id: str) -> EvaluationEvidence | None:
         with sqlite3.connect(self.path) as connection:
             row = connection.execute(
-                "SELECT checksum, payload FROM portfolio_evidence_v3 WHERE id = ?", (evidence_id,)
+                "SELECT checksum, payload FROM portfolio_evidence_v4 WHERE id = ?", (evidence_id,)
             ).fetchone()
         if row is None:
             return None

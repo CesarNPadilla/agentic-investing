@@ -1,17 +1,160 @@
 {
+  "$defs": {
+    "AllocationRange": {
+      "additionalProperties": false,
+      "properties": {
+        "minimum": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Minimum"
+        },
+        "maximum": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Maximum"
+        }
+      },
+      "required": [
+        "minimum",
+        "maximum"
+      ],
+      "title": "AllocationRange",
+      "type": "object"
+    },
+    "SwingControls": {
+      "additionalProperties": false,
+      "properties": {
+        "max_position_capital": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max Position Capital"
+        },
+        "max_loss": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max Loss"
+        },
+        "max_holding_days": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max Holding Days"
+        },
+        "stop_rule": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Stop Rule"
+        }
+      },
+      "title": "SwingControls",
+      "type": "object"
+    }
+  },
   "additionalProperties": false,
   "properties": {
     "version": {
-      "const": "investment-policy-v3",
-      "default": "investment-policy-v3",
+      "const": "investment-policy-v4",
+      "default": "investment-policy-v4",
       "title": "Version",
       "type": "string"
     },
     "policy_revision": {
-      "const": "0.1",
-      "default": "0.1",
+      "const": "0.2",
+      "default": "0.2",
       "title": "Policy Revision",
       "type": "string"
+    },
+    "core_monitoring_range": {
+      "$ref": "#/$defs/AllocationRange",
+      "default": {
+        "minimum": "0.30",
+        "maximum": "0.45"
+      }
+    },
+    "strategic_monitoring_range": {
+      "$ref": "#/$defs/AllocationRange",
+      "default": {
+        "minimum": "0.40",
+        "maximum": "0.55"
+      }
+    },
+    "satellite_monitoring_range": {
+      "$ref": "#/$defs/AllocationRange",
+      "default": {
+        "minimum": "0.10",
+        "maximum": "0.20"
+      }
+    },
+    "strategic_thesis_review_months": {
+      "const": 3,
+      "default": 3,
+      "title": "Strategic Thesis Review Months",
+      "type": "integer"
+    },
+    "swing_controls": {
+      "$ref": "#/$defs/SwingControls",
+      "default": {
+        "max_position_capital": null,
+        "max_loss": null,
+        "max_holding_days": null,
+        "stop_rule": null
+      }
     },
     "analysis_scope": {
       "const": "entire_portfolio",
@@ -142,8 +285,13 @@
       ],
       "default": [
         "AAPL",
+        "AMZN",
+        "GOOG",
+        "GOOGL",
+        "META",
         "MSFT",
-        "SPY"
+        "NVDA",
+        "TSLA"
       ],
       "title": "Research Universe"
     },
@@ -169,6 +317,12 @@
       "const": false,
       "default": false,
       "title": "Options Allowed",
+      "type": "boolean"
+    },
+    "futures_allowed": {
+      "const": false,
+      "default": false,
+      "title": "Futures Allowed",
       "type": "boolean"
     },
     "short_selling_allowed": {
@@ -340,7 +494,7 @@
           "type": "null"
         }
       ],
-      "default": "Long-term",
+      "default": "5\u201310+ years",
       "title": "Holding Horizon"
     },
     "benchmark": {

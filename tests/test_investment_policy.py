@@ -336,8 +336,8 @@ def test_durable_evidence_and_idempotency(inputs, tmp_path):
     repo.evaluate_and_record(*inputs, now=NOW)
     assert PortfolioRepository(path).get(evidence.evaluation.input_digest) == evidence
     with sqlite3.connect(path) as connection:
-        assert connection.execute("SELECT count(*) FROM portfolio_evidence_v3").fetchone()[0] == 1
-        connection.execute("UPDATE portfolio_evidence_v3 SET checksum = 'damaged'")
+        assert connection.execute("SELECT count(*) FROM portfolio_evidence_v4").fetchone()[0] == 1
+        connection.execute("UPDATE portfolio_evidence_v4 SET checksum = 'damaged'")
     with pytest.raises(ValueError, match="checksum"):
         repo.get(evidence.evaluation.input_digest)
 
@@ -443,8 +443,7 @@ def test_bad_numeric_and_timestamp_inputs(inputs):
         replace(s, as_of=NOW.replace(tzinfo=None))
     with pytest.raises(ValueError, match="timezone"):
         evaluate(*inputs, now=NOW.replace(tzinfo=None))
-    with pytest.raises(ValidationError):
-        InvestmentPolicy(new_purchase_allowlist={"TSLA"})
+    assert InvestmentPolicy(new_purchase_allowlist={"TSLA"}).new_purchase_allowlist == {"TSLA"}
 
 
 def test_initial_policy_and_schema_are_current():

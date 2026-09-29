@@ -34,6 +34,16 @@ calculations, automated tests, and a reviewed deployment boundary. No trading.
 
 ## Phase 2 - Portfolio intelligence
 
+Investment Policy v0.2 (ADR-014) adds monitoring-only sleeves, the approved position registry,
+UNKNOWN original theses, persistent material events/review history and quarterly strategic
+review requests. News can only request thesis review. Separate long-term/swing strategy
+interfaces feed structured proposals into independent risk/human review; no new strategy
+signals or execution are implemented. Swing controls remain UNSET until explicitly defined.
+Timestamped analytics include Mag7, themes, speculative/swing exposure, verified correlations
+and flow-adjusted VOO comparison when reliable evidence is supplied. Missing evidence remains
+explicit. Required forward validation still includes 60 sequential non-synthetic sessions;
+passing it cannot authorize production execution. See [ADR-014](adr-014.md).
+
 ADR-013 separates real holdings, research universe and new-purchase permission. USD 160
 now caps only explicitly attributed agent experimental capital, never existing portfolio
 value. Authenticated Webull reads provide holdings/cash/open orders/cash activities;

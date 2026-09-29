@@ -17,6 +17,7 @@ Recorded 2026-09-28. ADR-001 through ADR-007 carry forward the accepted architec
 | ADR-011 | Broker contract is read-only; no execution contract in Phase 1 | Implemented foundation |
 | ADR-012 | OneDrive project source; environment and active local data outside sync | Implemented setup guidance |
 | [ADR-013](adr-013.md) | Separate holdings, research universe, purchase allowlist and experimental capital; read-only reconciliation and position theses | Implemented; broker evidence gaps explicitly retained |
+| [ADR-014](adr-014.md) | Investment Policy v0.2: thesis-led research, sleeve monitoring, isolated strategy interfaces and nonexecuting risk reviews | Implemented; no execution authorization |
 
 ADR-005 now includes deterministic hypothetical investment-policy checks and portfolio
 intelligence; no production execution is enabled. ADR-006 preserves separate read-source

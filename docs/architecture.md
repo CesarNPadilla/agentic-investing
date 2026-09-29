@@ -54,3 +54,15 @@ and [extended workflow](research-workflow.md).
 Implementation references:
 - https://fastapi.tiangolo.com/tutorial/testing/
 - https://docs.sqlalchemy.org/en/20/orm/session_basics.html
+
+## Investment Policy v0.2 boundary (ADR-014)
+
+Research -> Thesis -> Strategy -> Proposal -> Risk -> Human Approval -> Broker.
+News/LLM -> Broker is forbidden. The implemented v0.2 path ends with research risk review.
+`portfolio.registry`, `portfolio.theses` and `portfolio.storage` retain owner classifications,
+UNKNOWN original theses, revisions and review evidence. `news.thesis_review` creates review
+requests only. `risk.proposals` and `risk.workflow` expose separate long-term/swing interfaces
+without broker dependencies; deterministic checks always run, regardless of confidence.
+`portfolio.intelligence` and `portfolio.performance` require explicit timestamped evidence.
+Policy defaults live in the v4 schema; [ADR-014](adr-014.md) and the
+[policy contract](investment-policy-portfolio.md) define monitoring ranges and remaining gates.

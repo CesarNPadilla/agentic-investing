@@ -1,6 +1,25 @@
 {
-  "version": "investment-policy-v3",
-  "policy_revision": "0.1",
+  "version": "investment-policy-v4",
+  "policy_revision": "0.2",
+  "core_monitoring_range": {
+    "minimum": "0.30",
+    "maximum": "0.45"
+  },
+  "strategic_monitoring_range": {
+    "minimum": "0.40",
+    "maximum": "0.55"
+  },
+  "satellite_monitoring_range": {
+    "minimum": "0.10",
+    "maximum": "0.20"
+  },
+  "strategic_thesis_review_months": 3,
+  "swing_controls": {
+    "max_position_capital": null,
+    "max_loss": null,
+    "max_holding_days": null,
+    "stop_rule": null
+  },
   "analysis_scope": "entire_portfolio",
   "auto_liquidate_existing_holdings": false,
   "automatic_rebalancing": false,
@@ -21,13 +40,19 @@
   ],
   "research_universe": [
     "AAPL",
+    "AMZN",
+    "GOOG",
+    "GOOGL",
+    "META",
     "MSFT",
-    "SPY"
+    "NVDA",
+    "TSLA"
   ],
   "long_only": true,
   "buy_only": true,
   "margin_allowed": false,
   "options_allowed": false,
+  "futures_allowed": false,
   "short_selling_allowed": false,
   "leverage_allowed": false,
   "fractional_orders_allowed": false,
@@ -42,7 +67,7 @@
   "max_state_age_seconds": null,
   "daily_loss_timezone": null,
   "objective": "Long-term capital growth",
-  "holding_horizon": "Long-term",
+  "holding_horizon": "5\u201310+ years",
   "benchmark": "VOO / S&P 500",
   "benchmark_comparison": "VOO",
   "rebalance_cadence": "Rule/event driven, not automatic",

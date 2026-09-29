@@ -1,7 +1,7 @@
 """Read-only complete-state contract for future verified broker adapters.
 
-The existing Webull reader does not implement this contract. Adapters must exhaust
-pagination, preserve unavailable fields as None, and declare incomplete reads.
+The Webull reader implements this contract with explicit incomplete-ledger and
+non-atomic-read flags. Adapters must exhaust pagination and preserve unavailable fields as None.
 Never translate request errors into empty collections or promote buying power to cash.
 """
 

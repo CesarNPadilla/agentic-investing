@@ -3,18 +3,44 @@
 from decimal import Decimal
 from typing import Annotated, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
+from pydantic import BaseModel, ConfigDict, Field, field_serializer, model_validator
 
 from market_data.models import Symbol
 
 Money = Annotated[Decimal, Field(ge=0, allow_inf_nan=False)]
+MAGNIFICENT_SEVEN = frozenset({"AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "GOOG", "META", "TSLA"})
+
+
+class AllocationRange(BaseModel):
+    model_config = ConfigDict(frozen=True, extra="forbid")
+    minimum: Decimal = Field(ge=0, le=1, allow_inf_nan=False)
+    maximum: Decimal = Field(ge=0, le=1, allow_inf_nan=False)
+
+    @model_validator(mode="after")
+    def ordered(self):
+        if self.minimum > self.maximum:
+            raise ValueError("Allocation minimum exceeds maximum")
+        return self
+
+
+class SwingControls(BaseModel):
+    model_config = ConfigDict(frozen=True, extra="forbid")
+    max_position_capital: Money | None = None
+    max_loss: Money | None = None
+    max_holding_days: int | None = Field(default=None, gt=0)
+    stop_rule: str | None = None
 
 
 class InvestmentPolicy(BaseModel):
     model_config = ConfigDict(frozen=True, extra="forbid")
 
-    version: Literal["investment-policy-v3"] = "investment-policy-v3"
-    policy_revision: Literal["0.1"] = "0.1"
+    version: Literal["investment-policy-v4"] = "investment-policy-v4"
+    policy_revision: Literal["0.2"] = "0.2"
+    core_monitoring_range: AllocationRange = AllocationRange(minimum="0.30", maximum="0.45")
+    strategic_monitoring_range: AllocationRange = AllocationRange(minimum="0.40", maximum="0.55")
+    satellite_monitoring_range: AllocationRange = AllocationRange(minimum="0.10", maximum="0.20")
+    strategic_thesis_review_months: Literal[3] = 3
+    swing_controls: SwingControls = SwingControls()
     analysis_scope: Literal["entire_portfolio"] = "entire_portfolio"
     auto_liquidate_existing_holdings: Literal[False] = False
     automatic_rebalancing: Literal[False] = False
@@ -34,13 +60,14 @@ class InvestmentPolicy(BaseModel):
     )
     # Independent from purchase permission; None permits holdings analysis only.
     research_universe: frozenset[Symbol] | None = Field(
-        default=frozenset({"AAPL", "MSFT", "SPY"}),
-        json_schema_extra={"default": ["AAPL", "MSFT", "SPY"]},
+        default=MAGNIFICENT_SEVEN,
+        json_schema_extra={"default": sorted(MAGNIFICENT_SEVEN)},
     )
     long_only: Literal[True] = True
     buy_only: Literal[True] = True
     margin_allowed: Literal[False] = False
     options_allowed: Literal[False] = False
+    futures_allowed: Literal[False] = False
     short_selling_allowed: Literal[False] = False
     leverage_allowed: Literal[False] = False
     fractional_orders_allowed: Literal[False] = False
@@ -55,7 +82,7 @@ class InvestmentPolicy(BaseModel):
     max_state_age_seconds: int | None = Field(default=None, gt=0, strict=True)
     daily_loss_timezone: str | None = None
     objective: str | None = "Long-term capital growth"
-    holding_horizon: str | None = "Long-term"
+    holding_horizon: str | None = "5–10+ years"
     benchmark: str | None = "VOO / S&P 500"
     benchmark_comparison: str = "VOO"
     rebalance_cadence: str | None = "Rule/event driven, not automatic"
@@ -63,12 +90,9 @@ class InvestmentPolicy(BaseModel):
     research_review_cadence: str = "Daily"
     strategy_rules: str | None = None
 
-    @field_validator("new_purchase_allowlist")
-    @classmethod
-    def restricted_symbols(cls, value):
-        if not value <= {"AAPL", "MSFT", "SPY"}:
-            raise ValueError("Experimental universe cannot be expanded in this phase")
-        return value
+    @field_serializer("research_universe", "new_purchase_allowlist", when_used="json")
+    def ordered_universes(self, value):
+        return sorted(value) if value is not None else None
 
     @model_validator(mode="after")
     def warning_order(self):

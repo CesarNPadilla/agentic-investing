@@ -1,7 +1,7 @@
 # Codex handoff: Agentic Investing
 
 Status date: 2026-09-29. Current work: Investment Policy + Portfolio Intelligence,
-including real existing portfolio / experimental capital separation (ADR-013).
+including approved Investment Policy v0.2 (ADR-014) and portfolio/capital separation (ADR-013).
 
 ## Safety boundary
 
@@ -21,11 +21,11 @@ outside the repository and OneDrive. No production broker calls were made for th
 - Existing Phase 3 backtests/local paper simulation and Phase 4 synthetic execution are
   separate. The synthetic trading routes and broker-read routes remain disabled by default.
 - Three scopes are explicit: all actual `portfolio_holdings`; configurable
-  `research_universe`; independent `new_purchase_allowlist`. Research and purchase sets
-  initially retain AAPL/MSFT/SPY, but holdings outside them are valid to analyze. VOO is
+  `research_universe`; independent `new_purchase_allowlist`. Research includes the Magnificent Seven plus actual holdings. Purchases independently
+  retain AAPL/MSFT/SPY until explicitly changed; holdings outside remain valid to analyze. VOO is
   a benchmark, not automatic purchase permission. Authenticated holdings can authorize
   research outside the configured universe; user-supplied evidence cannot grant permission.
-- Owner policy v0.1 records long-term growth, VOO / S&P 500 benchmark, daily research,
+- Owner policy v0.2 records long-term growth, VOO / S&P 500 benchmark, daily research,
   weekly portfolio review, nonautomatic rule/event-driven rebalancing, required theses,
   mandatory audit/kill switch and future human approval.
 - `agent_experimental_capital_limit = 160` replaces the earlier whole-portfolio USD 160
@@ -46,10 +46,32 @@ outside the repository and OneDrive. No production broker calls were made for th
 - Position theses contain ownership reason, original/current thesis, catalysts, risks,
   invalidation conditions, target allocation, last review and append-only agent reviews.
   Original thesis and old revisions are retained; concurrent edits fail with revision conflict.
-- Policy/evaluator schemas are v3, state schema v2; new database tables are additive.
+- Policy/evaluator schemas are v4, state schema v2; new database tables are additive.
   Older evidence tables remain untouched and require their matching reader.
 - `/trading/automation/status` remains fail-closed with `execution_available: false`.
   No scheduler, production execution adapter or automated-order route is added.
+
+## v0.2 additions
+
+- Monitoring sleeves: Core 30-45%, Strategic 40-55%, Satellite 10-20%. Unspecified position
+  sleeve assignments remain UNASSIGNED; ranges do not trigger orders.
+- The approved 14-symbol registry seeds actual observed holdings. Original theses remain
+  UNKNOWN; current research theses, conviction, targets and catalysts are not invented.
+- Expanded theses retain material events, review history, human notes and original rationale.
+  News creates review requests only; quarterly strategic reviews are enqueued on demand.
+- Separate long-term/swing interfaces emit digest-bound TradeProposals into independent risk
+  review. Successful checks return REQUIRE_HUMAN_REVIEW, always execution_available false.
+  Swing limits, stop rules and holding periods remain unset; 60-session evidence is required.
+- Metrics add Mag7, market cap, speculative, crypto, themes and swing vs swing-eligible
+  exposure. Correlations need verified references; VOO return/volatility/drawdown need aligned
+  adjusted flow-aware history. Missing risk-free/annualization inputs remain null.
+- Experimental capital records assigned cost, open commitments, realized/unrealized P/L
+  and explicit strategy IDs. It never caps the existing portfolio value.
+- New authenticated local routes persist news-review requests, review queues and proposal
+  risk reviews. No route submits/cancels/modifies orders. Structured audits include reasons
+  and digests; private stored records retain full evidence links.
+- Architecture: Research -> Thesis -> Strategy -> Proposal -> Risk -> Human Approval -> Broker.
+  Never News/LLM -> Broker. The implemented path stops at risk review.
 
 ## Required decisions and remaining work
 
@@ -73,7 +95,7 @@ outside the repository and OneDrive. No production broker calls were made for th
 
 ## References and verification
 
-Read [ADR-013](adr-013.md), [policy/API/metrics contract](investment-policy-portfolio.md),
+Read [ADR-014](adr-014.md), [approved v0.2 policy](investment-policy-v0.2.md), [ADR-013](adr-013.md), [policy/API/metrics contract](investment-policy-portfolio.md),
 [roadmap](roadmap.md), [human-approved synthetic workflow](human-approved-trading.md) and
 [Webull runbook](webull-automated-trading-runbook.md). Historical sandbox walkthroughs are
 not authorization for this phase. Source/schema defaults are in `risk/policy.py` and
@@ -81,7 +103,11 @@ not authorization for this phase. Source/schema defaults are in `risk/policy.py`
 
 Run the complete pytest suite and Ruff. Focused coverage is in
 `tests/test_portfolio_intelligence.py`, `tests/test_investment_policy.py`,
-`tests/test_policy_v01.py` and `tests/test_broker_contract.py`. Tests use synthetic broker
+`tests/test_policy_v01.py`, `tests/test_policy_v02.py` and `tests/test_broker_contract.py`. Tests use synthetic broker
 fixtures only; never replace them with real credentials or private account payloads.
-The workspace has an existing staged initial repository snapshot; do not discard or
-commit unrelated user changes. Review staged artifacts separately before any publication.
+Preserve unrelated user changes. No commit, deployment or broker connection is required
+to validate this phase. Review staged artifacts separately before any publication.
+
+Latest verification: 273 tests passed; Ruff lint passed. Changed Python files pass formatting.
+Repository-wide formatting has pre-existing differences outside this phase. All broker fixtures
+are synthetic; no broker credentials were read and no broker connection or order action occurred.

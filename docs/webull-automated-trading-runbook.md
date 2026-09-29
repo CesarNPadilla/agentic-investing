@@ -8,7 +8,7 @@ Reviewed 2026-09-29.
 
 ## Current experimental phase override
 
-Owner policy v0.1 now also requires proposal/entry/invalidation theses, daily research
+Owner policy v0.2 now also requires proposal/entry/invalidation theses, daily research
 and weekly portfolio review, advisory concentration warnings above 20%/30%, mandatory
 audit, no auto-liquidation and no automatic rebalancing. VOO is the benchmark only.
 Experimental loss remains separately UNSET. See the adopted policy documentation;
@@ -16,7 +16,8 @@ none of these declarations authorize use of the historical order walkthroughs be
 
 The current phase is **Investment Policy + Portfolio Intelligence**, paper/research only.
 Production and automated trading are disabled; future live execution requires human approval.
-Allowed securities are AAPL/MSFT/SPY, long-only, buy-only, cash-only, with no margin, options,
+The initial new-purchase allowlist is AAPL/MSFT/SPY; existing holdings remain valid outside it.
+New proposals are long-only, buy-only, cash-only, with no margin, options,
 shorts, leverage, fractional or complex orders. The agent experimental capital limit is USD 160; it is not a cap on existing portfolio value. Daily loss remains UNSET; a kill switch is mandatory.
 The [policy/reconciliation library](investment-policy-portfolio.md) evaluates
 hypothetical proposals only. It does not enforce policy on the older standalone CLIs.
@@ -326,3 +327,31 @@ trading. The next software steps are portfolio reconciliation, explicit strategy
 forward-paper validation, and independent production risk-control review, not order execution.
 No $160 of real buying power will be moved or traded by the current repository. Sandbox
 order responses stay in your terminal; do not share account IDs or output here.
+
+
+## Investment Policy v0.2 research-only operating procedure
+
+The [approved v0.2 policy](investment-policy-v0.2.md) and [ADR-014](adr-014.md) govern this
+phase. Historical sandbox steps above are not authorization to run order lifecycles.
+Do not place, cancel or modify orders; do not auto-rebalance or implement new strategy signals.
+
+1. Use the existing isolated read-only configuration and authenticated portfolio-read API.
+   Preserve all actual holdings, including legacy/outside-purchase-universe symbols.
+2. Store timestamped observations and review their completeness/staleness/conflict flags.
+   Webull cash history alone cannot pass strict share/settlement reconciliation.
+3. Verify seeded classifications against the owner registry. Original theses remain UNKNOWN.
+   Supply current research theses and reviews through revision-controlled local thesis writes.
+4. Supply explicit experimental baseline/allocations before evaluating experimental capital.
+   $160 is an experimental deployed-capital cap, never the existing portfolio's value limit.
+5. Add verified reference/correlation data and adjusted flow-aware performance history only
+   when available. Inspect unknown/unassigned exposure and missing coverage alongside totals.
+6. Use the local news-review/review-queue routes for review requests. Quarterly strategic
+   reviews are queued on demand; daily research and weekly portfolio cadences are manual.
+7. Evaluate proposals through the local proposal-review route; inspect all reasons and retain
+   the returned audit ID. Successful checks require human review and never authorize orders.
+
+Unresolved controls remain null: daily/experimental loss, freshness/day boundary, swing
+position/loss/holding-period/stop rules, position targets and experimental attribution.
+Concentration >20%/>30% and sleeve ranges are informational. They do not authorize selling.
+Provider verification, complete reconciled ledgers, backtest/bias checks and 60 sequential
+non-synthetic forward sessions remain separate gates. None enables production execution.

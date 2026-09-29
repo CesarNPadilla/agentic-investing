@@ -69,11 +69,13 @@ class Check(Record):
 
 
 class RiskEvaluation(Record):
-    version: Literal["investment-risk-v3"] = "investment-risk-v3"
+    version: Literal["investment-risk-v4"] = "investment-risk-v4"
     evaluated_at: AwareDatetime
     input_digest: str
     policy_digest: str
     allowed: bool
+    status: Literal["PASS", "REJECT", "REQUIRE_HUMAN_REVIEW", "INSUFFICIENT_DATA"]
+    human_approval_required: Literal[True] = True
     execution_available: Literal[False] = False
     checks: tuple[Check, ...]
     warnings: tuple[str, ...] = ()
@@ -179,7 +181,6 @@ def evaluate(
     def permitted_instrument(item):
         return (
             item.symbol in policy.new_purchase_allowlist
-            and item.symbol in {"AAPL", "MSFT", "SPY"}
             and item.asset_type == "equity"
             and item.leverage_factor == 1
             and item.quantity >= 0
@@ -337,11 +338,32 @@ def evaluate(
                 warnings.append(f"concentration:{symbol}")
     else:
         warnings.append("concentration_unavailable")
+    passed = all(c.passed for c in checks)
+    missing = (
+        any(
+            not c.passed
+            and (
+                c.code.startswith("configured_")
+                or c.code
+                in {
+                    "reconciled",
+                    "fresh_state",
+                    "fresh_prices",
+                    "experimental_attribution",
+                    "known_fees",
+                }
+            )
+            for c in checks
+        )
+        or policy.max_experimental_loss is None
+        or state.experimental_pnl is None
+    )
     result = RiskEvaluation(
         evaluated_at=now,
         input_digest=digest((policy, opening, state, trade, kill_switch, now)),
         policy_digest=digest(policy),
-        allowed=all(c.passed for c in checks),
+        allowed=passed,
+        status="REQUIRE_HUMAN_REVIEW" if passed else "INSUFFICIENT_DATA" if missing else "REJECT",
         checks=tuple(checks),
         warnings=tuple(warnings),
         projected_exposure=projected,
@@ -357,6 +379,7 @@ def evaluate(
                 "input_digest": result.input_digest,
                 "policy_digest": result.policy_digest,
                 "allowed": result.allowed,
+                "status": result.status,
                 "execution_available": False,
                 "checks": [{"code": c.code, "passed": c.passed} for c in checks],
                 "warning_count": len(result.warnings),

@@ -6,8 +6,11 @@ from typing import Literal
 from pydantic import AwareDatetime, Field
 
 from market_data.models import Symbol
+from portfolio.performance import PerformanceEvidence, PortfolioPerformance, performance
+from portfolio.registry import initial_thesis
 from portfolio.state import PortfolioState, Record
-from risk.policy import InvestmentPolicy
+from portfolio.theses import PositionThesis
+from risk.policy import MAGNIFICENT_SEVEN, InvestmentPolicy
 
 ZERO = Decimal(0)
 
@@ -21,6 +24,20 @@ class SecurityReference(Record):
     security_type: Literal["individual_equity", "etf", "other", "unknown"] = "unknown"
     sector: str | None = None
     industry: str | None = None
+    market_cap_bucket: Literal["mega", "large", "mid", "small", "micro", "unknown"] = "unknown"
+    themes: tuple[str, ...] = ()
+
+
+class CorrelationEvidence(Record):
+    symbol_a: Symbol
+    symbol_b: Symbol
+    correlation: Decimal = Field(ge=-1, le=1, allow_inf_nan=False)
+    observations: int = Field(ge=2)
+    source: str = Field(min_length=1)
+    window_start: AwareDatetime
+    window_end: AwareDatetime
+    valid_until: AwareDatetime
+    verified: bool = False
 
 
 class ExperimentalUtilization(Record):
@@ -31,6 +48,19 @@ class ExperimentalUtilization(Record):
     utilized: Decimal | None = None
     remaining: Decimal | None = None
     utilization: Decimal | None = None
+    realized_pnl: Decimal | None = None
+    unrealized_pnl: Decimal | None = None
+    strategy_attribution: dict[str, Decimal] = Field(default_factory=dict)
+
+
+class CorrelatedExposure(Record):
+    symbols: tuple[Symbol, Symbol]
+    correlation: Decimal
+    combined_gross_exposure: Decimal
+    observations: int
+    source: str
+    window_start: AwareDatetime
+    window_end: AwareDatetime
 
 
 def experimental_utilization(state: PortfolioState, policy: InvestmentPolicy):
@@ -43,7 +73,8 @@ def experimental_utilization(state: PortfolioState, policy: InvestmentPolicy):
     if not all((state.accounts_complete, state.positions_complete, state.orders_complete)):
         reasons.append("experimental_broker_inventory_incomplete")
     if any(a.currency != "USD" for a in state.accounts) or any(
-        p.currency != "USD" for p in state.positions):
+        p.currency != "USD" for p in state.positions
+    ):
         reasons.append("unsupported_experimental_currency")
     accounts = {a.account_id for a in state.accounts}
     if (
@@ -69,8 +100,11 @@ def experimental_utilization(state: PortfolioState, policy: InvestmentPolicy):
             or actual.quantity < 0
             or (allocation.quantity == 0 and allocation.cost_basis != 0)
             or (actual.cost_basis is not None and allocation.cost_basis > actual.cost_basis)
-            or (actual.cost_basis is not None and allocation.quantity == actual.quantity
-                and allocation.cost_basis != actual.cost_basis)
+            or (
+                actual.cost_basis is not None
+                and allocation.quantity == actual.quantity
+                and allocation.cost_basis != actual.cost_basis
+            )
         ):
             reasons.append("invalid_experimental_position")
         seen.add(key)
@@ -98,6 +132,26 @@ def experimental_utilization(state: PortfolioState, policy: InvestmentPolicy):
         return ExperimentalUtilization(valid=False, reasons=tuple(sorted(set(reasons))))
     limit = policy.agent_experimental_capital_limit
     utilized = used + reserved
+    unrealized = ZERO
+    strategies = {}
+    for allocation in attribution.positions:
+        actual = positions[(allocation.account_id, allocation.symbol)]
+        if actual.marked_value is None:
+            unrealized = None
+        elif unrealized is not None and allocation.quantity:
+            unrealized += (
+                actual.marked_value * allocation.quantity / actual.quantity - allocation.cost_basis
+            )
+        strategy = allocation.strategy_id or "unknown"
+        strategies[strategy] = strategies.get(strategy, ZERO) + allocation.cost_basis
+    for allocation in attribution.open_orders:
+        actual = orders[(allocation.account_id, allocation.order_id)]
+        strategy = allocation.strategy_id or "unknown"
+        strategies[strategy] = (
+            strategies.get(strategy, ZERO)
+            + (actual.quantity - actual.filled_quantity) * actual.limit_price
+            + actual.remaining_fees
+        )
     return ExperimentalUtilization(
         valid=True,
         reasons=(),
@@ -106,6 +160,9 @@ def experimental_utilization(state: PortfolioState, policy: InvestmentPolicy):
         utilized=utilized,
         remaining=limit - utilized if limit is not None else None,
         utilization=utilized / limit if limit else None,
+        realized_pnl=attribution.realized_pnl,
+        unrealized_pnl=unrealized,
+        strategy_attribution=strategies,
     )
 
 
@@ -118,23 +175,45 @@ class SecurityAllocation(Record):
 
 
 class PortfolioIntelligence(Record):
+    as_of: AwareDatetime
     total_position_market_value: Decimal | None
     total_portfolio_market_value: Decimal | None
     total_cost_basis: Decimal | None
     unrealized_pnl: Decimal | None
     cash: Decimal | None
     cash_allocation: Decimal | None
+    settled_cash: Decimal | None
+    unsettled_cash: Decimal | None
+    buying_power: Decimal | None
+    realized_pnl: Decimal | None
     allocation_by_security: tuple[SecurityAllocation, ...]
     top_concentrations: tuple[SecurityAllocation, ...]
     exposure_by_security_type: dict[str, Decimal]
     sector_exposure: dict[str, Decimal]
     industry_exposure: dict[str, Decimal]
+    market_cap_exposure: dict[str, Decimal]
+    magnificent_seven_exposure: Decimal | None
+    technology_exposure: Decimal | None
+    speculative_exposure: Decimal | None
+    crypto_related_exposure: Decimal | None
+    swing_exposure: Decimal | None
+    swing_eligible_exposure: Decimal | None
+    thematic_exposure: dict[str, Decimal]
+    sleeve_exposure: dict[str, Decimal]
+    sleeve_monitoring: dict[str, str]
+    correlated_exposure: tuple[CorrelatedExposure, ...] | None = None
+    performance: PortfolioPerformance
     experimental_capital: ExperimentalUtilization
     data_gaps: tuple[str, ...]
 
 
 def analyze_portfolio(
-    state: PortfolioState, policy: InvestmentPolicy, references: tuple[SecurityReference, ...] = ()
+    state: PortfolioState,
+    policy: InvestmentPolicy,
+    references: tuple[SecurityReference, ...] = (),
+    theses: tuple[PositionThesis, ...] = (),
+    correlations: tuple[CorrelationEvidence, ...] = (),
+    performance_evidence: PerformanceEvidence | None = None,
 ) -> PortfolioIntelligence:
     gaps = list(state.data_gaps)
     unique = len({(p.account_id, p.symbol) for p in state.positions}) == len(state.positions)
@@ -175,7 +254,20 @@ def analyze_portfolio(
         if ref.symbol in reference_map:
             duplicates.add(ref.symbol)
         reference_map[ref.symbol] = ref
-    values, gross, types, sectors, industries = {}, {}, {}, {}, {}
+    values, gross, types, sectors, industries, caps, themes, sleeves = (
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+    )
+    thesis_map = {(t.account_id, t.symbol): t for t in theses}
+    if len(thesis_map) != len(theses):
+        raise ValueError("Duplicate position thesis")
+    speculative, crypto, swing, eligible = ZERO, ZERO, ZERO, ZERO
     if valued:
         for position in state.positions:
             value = position.marked_value
@@ -190,6 +282,7 @@ def analyze_portfolio(
                 and ref.as_of <= state.as_of <= ref.valid_until
             )
             security_type = ref.security_type if reliable else "unknown"
+            cap = ref.market_cap_bucket if reliable else "unknown"
             # Fund look-through is not inferred from an ETF's issuer classification.
             sector = ref.sector if reliable and security_type == "individual_equity" else None
             industry = ref.industry if reliable and security_type == "individual_equity" else None
@@ -197,10 +290,82 @@ def analyze_portfolio(
                 (types, security_type),
                 (sectors, sector or "unknown"),
                 (industries, industry or "unknown"),
+                (caps, cap),
             ):
                 group[key] = group.get(key, ZERO) + abs(value)
             if not reliable:
                 gaps.append("reference_data_unavailable:" + symbol)
+                gaps.append("thematic_exposure_partial")
+            thesis = thesis_map.get((position.account_id, symbol)) or initial_thesis(
+                position.account_id, symbol
+            )
+            if thesis.classification == "UNCLASSIFIED":
+                gaps.append("speculative_classification_incomplete:" + symbol)
+            sleeve = thesis.sleeve or "UNASSIGNED"
+            sleeves[sleeve] = sleeves.get(sleeve, ZERO) + abs(value)
+            if thesis.classification.startswith("SPECULATIVE"):
+                speculative += abs(value)
+            if symbol in {"COIN", "RIOT"} or (reliable and "crypto_related" in ref.themes):
+                crypto += abs(value)
+            elif not reliable:
+                gaps.append("crypto_related_exposure_partial")
+            if thesis.strategy_domain == "swing" and swing is not None:
+                swing += abs(value)
+            elif thesis.strategy_domain is None:
+                swing = None
+            if "SWING_ELIGIBLE" in thesis.secondary_classifications:
+                eligible += abs(value)
+            for theme in ref.themes if reliable else ():
+                themes[theme] = themes.get(theme, ZERO) + abs(value)
+    if cash is not None:
+        sleeves["CASH"] = cash
+    monitoring = {}
+    for key, band in (
+        ("CORE", policy.core_monitoring_range),
+        ("STRATEGIC", policy.strategic_monitoring_range),
+        ("SATELLITE", policy.satellite_monitoring_range),
+    ):
+        weight = (
+            sleeves.get(key, ZERO) / total if valued and total is not None and total > 0 else None
+        )
+        monitoring[key] = (
+            "INSUFFICIENT_DATA"
+            if weight is None or sleeves.get("UNASSIGNED", ZERO)
+            else "BELOW_MONITORING_RANGE"
+            if weight < band.minimum
+            else "ABOVE_MONITORING_RANGE"
+            if weight > band.maximum
+            else "IN_MONITORING_RANGE"
+        )
+    pairs, seen_pairs = [], set()
+    pair_keys = [tuple(sorted((c.symbol_a, c.symbol_b))) for c in correlations]
+    for evidence in correlations:
+        key = tuple(sorted((evidence.symbol_a, evidence.symbol_b)))
+        if (
+            not evidence.verified
+            or evidence.symbol_a == evidence.symbol_b
+            or pair_keys.count(key) > 1
+            or key in seen_pairs
+            or not evidence.window_start
+            < evidence.window_end
+            <= state.as_of
+            <= evidence.valid_until
+            or not all(symbol in gross for symbol in key)
+        ):
+            gaps.append("correlation_evidence_unavailable")
+            continue
+        seen_pairs.add(key)
+        pairs.append(
+            CorrelatedExposure(
+                symbols=key,
+                correlation=evidence.correlation,
+                combined_gross_exposure=sum((gross[s] for s in key), ZERO),
+                observations=evidence.observations,
+                source=evidence.source,
+                window_start=evidence.window_start,
+                window_end=evidence.window_end,
+            )
+        )
     rows = []
     for symbol in sorted(values):
         weight = gross[symbol] / total if total is not None and total > 0 else None
@@ -220,6 +385,7 @@ def analyze_portfolio(
             )
         )
     return PortfolioIntelligence(
+        as_of=state.as_of,
         total_position_market_value=position_value,
         total_portfolio_market_value=total,
         total_cost_basis=basis,
@@ -228,11 +394,41 @@ def analyze_portfolio(
         else None,
         cash=cash,
         cash_allocation=cash / total if total is not None and total > 0 else None,
+        settled_cash=sum((a.settled_cash for a in state.accounts), ZERO)
+        if complete and all(a.settled_cash is not None for a in state.accounts)
+        else None,
+        unsettled_cash=sum((a.unsettled_cash for a in state.accounts), ZERO)
+        if complete and all(a.unsettled_cash is not None for a in state.accounts)
+        else None,
+        buying_power=sum((a.buying_power for a in state.accounts), ZERO)
+        if complete and all(a.buying_power is not None for a in state.accounts)
+        else None,
+        realized_pnl=state.realized_pnl if complete else None,
         allocation_by_security=tuple(rows),
         top_concentrations=tuple(sorted(rows, key=lambda r: (-gross[r.symbol], r.symbol))[:10]),
         exposure_by_security_type=types,
         sector_exposure=sectors,
         industry_exposure=industries,
+        market_cap_exposure=caps,
+        magnificent_seven_exposure=sum(
+            (v for s, v in gross.items() if s in MAGNIFICENT_SEVEN), ZERO
+        )
+        if valued
+        else None,
+        technology_exposure=sum(
+            (v for s, v in sectors.items() if s in {"Technology", "Information Technology"}), ZERO
+        )
+        if valued and "unknown" not in sectors
+        else None,
+        speculative_exposure=speculative if valued else None,
+        crypto_related_exposure=crypto if valued else None,
+        swing_exposure=swing if valued else None,
+        swing_eligible_exposure=eligible if valued else None,
+        thematic_exposure=themes,
+        sleeve_exposure=sleeves,
+        sleeve_monitoring=monitoring,
+        correlated_exposure=tuple(pairs) if pairs else None,
+        performance=performance(performance_evidence, as_of=state.as_of),
         experimental_capital=experimental_utilization(state, policy),
         data_gaps=tuple(sorted(set(gaps))),
     )

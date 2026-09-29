@@ -1,7 +1,7 @@
 # Investment policy and portfolio intelligence
 
-Owner policy revision: **0.1**. Current software schemas: `investment-policy-v3`,
-`portfolio-state-v2`, `investment-risk-v3`. This replaces the earlier whole-portfolio
+Owner policy revision: **0.2**. Current software schemas: `investment-policy-v4`,
+`portfolio-state-v2`, `investment-risk-v4`. This replaces the earlier whole-portfolio
 USD 160 interpretation. Production/automated execution and automatic rebalancing remain
 disabled. No broker submission, cancellation or modification is added.
 
@@ -13,7 +13,9 @@ disabled. No broker submission, cancellation or modification is added.
 | `research_universe` | Explicit permitted research/monitoring set | Research unheld securities; no purchase permission |
 | `new_purchase_allowlist` | Explicit permitted new-purchase set | Create a research BUY TradeProposal; never execute it |
 
-Research and new-purchase defaults independently retain AAPL/MSFT/SPY. A null research
+Research defaults to the Magnificent Seven (including both GOOG/GOOGL) plus actual holdings.
+The independently configurable purchase allowlist retains AAPL/MSFT/SPY; v0.2 does not
+authorize additional purchases. A null research
 universe permits holdings research only; an empty purchase allowlist permits no purchases.
 VOO is the benchmark, not an implicit purchase authorization. Existing holdings, including
 other symbols and fractional holdings, are not classified as forbidden purchases or marked
@@ -70,14 +72,16 @@ remain null; they are separate from informational warnings.
 The [initial configuration](investment-policy.initial.json) and
 [JSON Schema](investment-policy.schema.json) record long-term capital growth, VOO / S&P 500
 benchmark, VOO comparison, daily research review, weekly portfolio review and rule/event-driven
-rebalancing without automatic execution. These are policy declarations, not scheduled jobs
-or calculated benchmark performance. No entry/exit signals are implemented.
+rebalancing without automatic execution. Daily/weekly cadences are policy declarations, not background jobs. Benchmark performance
+is calculated only from explicit adjusted total-return and cash-flow history. No entry/exit signals are implemented.
 
 Kill switch, audit and future human approval remain mandatory. Proposals require nonblank
 ownership, entry and exit/invalidation theses; presence does not certify investment quality.
 Maximum experimental loss, maximum daily loss, freshness tolerance and daily-loss timezone
-remain null and fail closed. Experiment baseline/attribution and any target allocations
-must be explicitly supplied. No loss limits, target allocations or thesis content are invented.
+remain null and fail closed. Experiment baseline/attribution and individual target allocations must be explicitly supplied.
+The approved sleeve monitoring ranges are Core 30-45%, Strategic 40-55%, Satellite 10-20%;
+they neither require equal weights nor cause purchases or rebalancing. No additional loss
+limits, position targets or thesis content are invented.
 
 The deterministic evaluator recomputes reconciliation, checks required controls and current
 kill-switch state, account cash semantics, marks, permitted new order behavior, experimental
@@ -170,19 +174,25 @@ ETF sector/industry exposure remains unknown until reliable constituent data is 
 
 ## Position theses and persistence
 
-`PositionThesis` stores reason for ownership, original/current thesis, expected catalysts,
-risks, invalidation conditions, target allocation, last review date and agent review history.
+`PositionThesis` stores portfolio role, primary/secondary classification, status,
+reason for ownership, original/current thesis, catalysts, fundamental drivers, primary risks,
+invalidation conditions, target allocation range/current allocation, conviction, horizon,
+benchmark, last/next review, material events, human notes and agent review history.
+Unknown original rationale remains `original_thesis_status: UNKNOWN`; a current research
+thesis can become ACTIVE independently. Cost basis is a performance/tax input, never a
+generated ownership rationale. Current allocation stored on a thesis is its reviewed value;
+timestamped portfolio metrics provide the latest observed allocation.
 Unspecified decisions are null. Each agent review includes a unique ID, agent identity,
 review time, assessment and evidence references. Reviews are chronological and append-only;
 original thesis cannot be overwritten once supplied. Concurrent/stale revisions return 409.
 Prior thesis versions remain in storage; missing theses never cause holdings to disappear.
 
-Application persistence uses new additive `portfolio_observations_v3` and `position_theses_v1`
+Application persistence uses new additive `portfolio_observations_v4` and `position_theses_v1`
 tables in the configured SQLAlchemy database (local SQLite / intended PostgreSQL). Broker
 observations, metrics, references, attribution and reconciliation are retained privately.
 Thesis and analysis writes affect only the local application database. No broker credentials
 are stored in evidence. The offline evaluation repository separately uses
-`portfolio_evidence_v3`; older v1/v2 tables remain untouched and require their matching reader.
+`portfolio_evidence_v4`; older v1/v2 tables remain untouched and require their matching reader.
 Policy/state versions prevent silently reinterpreting old capital semantics.
 
 The normal evaluator emits redacted structured JSON checks and digests; full explanations
@@ -204,3 +214,89 @@ freshness/day boundaries; position thesis content and targets; verified referenc
 full share/settlement/corporate-action evidence and coherent broker observations; FX and
 non-equity valuation; operational migrations/backups. Do not enable sandbox/live execution,
 automatic liquidation/rebalancing or strategy-specific entry/exit signals in this phase.
+
+## Policy v0.2 implementation boundaries
+
+The [approved owner policy](investment-policy-v0.2.md) is the authoritative intent.
+[ADR-014](adr-014.md) records the required flow:
+
+`Research -> Thesis -> Strategy -> Proposal -> Risk -> Human Approval -> Broker`
+
+The implemented flow stops at a durable research risk review. `News/LLM -> Broker` is
+forbidden. No new execution, approval-to-execution bridge or strategy signal is implemented.
+The older synthetic Phase 4 service is separate and remains disabled by default.
+
+`portfolio.registry` initializes only actual observed holdings using the owner's 14-symbol
+registry. VOO is Core; MSFT/NVDA are Strategic. INTC/PLTR retain informational concentration
+flags, COIN/RIOT are swing-eligible, and F/GNW/OPK are legacy. Other approved classifications
+are preserved exactly. Unspecified sleeve assignments remain UNASSIGNED; unknown symbols
+below 0.5% may default to legacy. Seeding never invents historical/current research theses,
+catalysts, conviction or sale decisions, and never overwrites an existing thesis revision.
+
+`portfolio.intelligence` also reports direct Mag7, speculative, crypto-related, thematic,
+market-cap and sleeve exposures. Theme/classification coverage gaps are explicit; known
+crypto/speculative/theme amounts are identified exposure, not proof of exhaustive coverage.
+ETF constituent look-through is unavailable. Swing eligibility is reported independently
+from actual swing exposure; unspecified strategy domains leave actual swing exposure null.
+Unassigned sleeves make target-range comparisons INSUFFICIENT_DATA. Correlated exposure
+reports verified pair coefficients and combined gross values, not an estimated portfolio
+risk reduction; pair totals overlap and must not be summed. Every report uses `state.as_of`.
+
+`portfolio.performance` requires aligned, adjusted portfolio equity, VOO total-return index,
+explicit external flows and period-start/end flow convention, plus calendar validation.
+It calculates time-weighted return, benchmark/excess return, period volatility and drawdown.
+Annualization needs an explicit periods-per-year value; Sharpe also needs an explicit
+per-period risk-free return. History start/end are retained. Snapshot prices alone cannot
+establish total return, volatility or drawdown. Verification flags are importer assertions,
+not a replacement for independently validating source data.
+
+Experimental realized P/L is explicit reviewed input; unrealized P/L uses assigned quantity
+marks less assigned remaining basis. Strategy attribution uses explicit IDs; unknown
+attribution remains unknown. These P/L values do not change the $160 deployed-cost limit.
+
+## Review and proposal interfaces
+
+`news.thesis_review` accepts untrusted articles and creates relevant holding thesis-review
+requests for earnings, guidance, regulatory, management, corporate, competitive, product,
+macro, valuation, invalidation and concentration events. It has no broker dependency.
+Quarterly strategic reviews use calendar months; an unknown review date requests a baseline
+review. Review queues are created on demand, with no scheduler or order side effects.
+The module is a deterministic relevance/trigger boundary, not a live news crawler or LLM
+research/thesis writer. Human/agent assessments are recorded through revisioned thesis updates.
+
+`risk.proposals` provides a structured proposal schema with strategy/domain, thesis reference,
+rationale, catalysts/risks, horizon/invalidation, portfolio impact, proposed entry/exit logic,
+confidence metadata and supporting references. Policy and proposal digests bind the inputs.
+`risk.workflow` defines separate LongTermStrategy/SwingStrategy interfaces and routes every
+output through independent risk evaluation. No concrete strategy signals are supplied.
+Current thesis references must match an ACTIVE persisted thesis. Confidence never overrides
+risk checks. Review statuses are PASS, REJECT, REQUIRE_HUMAN_REVIEW or INSUFFICIENT_DATA;
+this phase returns REQUIRE_HUMAN_REVIEW for successful checks, never execution permission.
+
+Swing controls remain null until separately supplied, must be stricter than parent limits,
+and require attributed strategy P/L/capital, holding period, stop rule and validation evidence
+including 60 sequential non-synthetic forward sessions. Evidence references and flags are
+reviewed assertions; they do not automatically qualify a strategy for production or replace
+the independent existing qualification service. Human approval remains mandatory regardless.
+
+Additional authenticated local-only routes:
+
+| Endpoint | Behavior |
+| --- | --- |
+| `POST /broker/portfolio/{id}/news-review` | Persist relevant untrusted-news review requests |
+| `GET /broker/portfolio/{id}/review-queue` | Enqueue due strategic reviews and retrieve review requests |
+| `POST /broker/portfolio/{id}/proposal-review` | Evaluate against opening/closing evidence and current thesis; persist audit |
+| `GET /broker/proposal-reviews/{id}` | Retrieve proposal, risk checks, policy, thesis and input links |
+
+All routes use the existing dedicated token. Review routes never call the broker. Analysis
+accepts reviewed references, correlations, performance evidence and experimental attribution,
+and creates derived evidence linked to the original observation. Thesis seeding and review
+queues are local database writes. Additive tables `thesis_review_requests_v1` and
+`proposal_risk_reviews_v1` retain immutable review evidence. Public structured logs use
+reason codes and digests; private database records hold complete explanations/input links.
+
+`tests/test_policy_v02.py` covers the approved registry, UNKNOWN theses, monitoring and
+legacy semantics, news boundaries, quarterly dates, policy/proposal binding, risk and human
+review requirements, swing controls, experimental accounting, correlations and flow-adjusted
+performance. Broker/API tests cover authenticated reads, persistence, reconciliation gaps
+and absence of order methods. All fixtures are synthetic; no broker orders are exercised.

@@ -117,11 +117,14 @@ class ExperimentalPosition(Record):
     symbol: Symbol
     quantity: Nonnegative
     cost_basis: Nonnegative
+    strategy_id: str | None = None
+    strategy_domain: Literal["long_term", "swing"] | None = None
 
 
 class ExperimentalOrder(Record):
     account_id: Identifier
     order_id: Identifier
+    strategy_id: str | None = None
 
 
 class ExperimentalAttribution(Record):
@@ -134,6 +137,7 @@ class ExperimentalAttribution(Record):
     account_ids: tuple[Identifier, ...]
     positions: tuple[ExperimentalPosition, ...]
     open_orders: tuple[ExperimentalOrder, ...]
+    realized_pnl: Number | None = None
 
 
 class PortfolioState(Record):
@@ -159,6 +163,8 @@ class PortfolioState(Record):
     # Flow-adjusted account-wide realized + unrealized P&L; never inferred from cash.
     daily_pnl: Number | None = None
     experimental_pnl: Number | None = None
+    experimental_strategy_pnl: dict[str, Number] | None = None
+    realized_pnl: Number | None = None
     daily_pnl_start: AwareDatetime | None = None
     daily_pnl_as_of: AwareDatetime | None = None
 
