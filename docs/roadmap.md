@@ -1,14 +1,24 @@
 # Roadmap and phase gates
 
+## Backtesting & Strategy Validation Engine v0.1 (2026-09-30)
+
+Implemented an offline shared-strategy harness with point-in-time views, raw-price
+next-session fills, independent risk review/rechecks, corporate-action ledger, metrics,
+immutable experiments, explicit holdout folds and paper-eligibility reports. See
+[completion report](backtesting-completion.md) and [runbook](backtesting-runbook.md).
+Current whole-share/buy-only/USD 160 sleeve and swing forward-evidence policy remain
+enforced, limiting experiments accordingly. No paper/live broker orders or optimization.
+Next proposed work: provenance-validated historical data and action/calendar vintages,
+plus owner review of the documented policy constraints. Stop for human review first.
+
 ## Opportunity & Strategy Engine v0.1 completed (2026-09-30)
 
 Persistent opportunities now bridge structured research/theses to separate versioned
 long-term and experimental swing strategies, deterministic indicators, bounded proposals
 and independent risk/human review. Production execution remains disabled. See
 [completion report](opportunity-strategy-completion.md) and [runbook](opportunity-strategy-runbook.md).
-Next proposed task: offline point-in-time backtesting using these exact interfaces,
-vetted dataset/calendar vintages and explicit simulated fills/costs. Not started;
-owner review and existing policy/provider/qualification gates remain required.
+The offline backtesting task is now implemented above. Historical provider and
+policy/qualification gaps remain; no strategy has qualified for forward paper trading.
 
 ## Phase 1 - Research (current)
 

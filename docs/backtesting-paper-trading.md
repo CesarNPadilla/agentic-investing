@@ -1,5 +1,10 @@
 # Phase 3: backtesting and local paper trading
 
+This page documents the **legacy simulation-v1 API**. For the shared-strategy,
+point-in-time Risk Engine workflow use [Backtesting & Strategy Validation v0.1](backtesting-runbook.md).
+New work stops at eligibility reporting; do not advance legacy paper sessions as part
+of this phase. Legacy results are not automatically qualifying evidence for the new engine.
+
 The API now runs deterministic, versioned `buy_and_hold` and `sma` strategies.
 Both are long-only, fully invested or cash, with fractional shares. SMA holds cash
 until its slow window is available, then targets long when fast SMA > slow SMA.

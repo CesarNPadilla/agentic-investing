@@ -30,11 +30,22 @@ class _ResearchStrategy:
     """Shared evidence/sizing plumbing; subclasses supply distinct entry rules."""
 
     def evaluate(
-        self, opportunity, assessment, thesis, state, policy, version, *, now, fees, history=None
+        self,
+        opportunity,
+        assessment,
+        thesis,
+        state,
+        policy,
+        version,
+        *,
+        now,
+        fees,
+        history=None,
+        historical_replay=False,
     ):
         if version.strategy_domain != self.domain or opportunity.strategy_domain != self.domain:
             return StrategyEvaluation(status="REJECTED", reasons=("strategy_domain_mismatch",))
-        if version.status == "RETIRED" or version.created_at > now:
+        if version.status == "RETIRED" or (version.created_at > now and not historical_replay):
             return StrategyEvaluation(status="REJECTED", reasons=("strategy_unavailable",))
         if opportunity.opportunity_status == "EXPIRED":
             return StrategyEvaluation(status="REJECTED", reasons=("opportunity_expired",))

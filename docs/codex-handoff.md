@@ -1,5 +1,60 @@
 # Codex handoff: Agentic Investing
 
+## Latest: Backtesting & Strategy Validation Engine v0.1 (2026-09-30)
+
+This section supersedes earlier next-task/latest-work notes. Read [ADR-018](adr-018.md),
+[gap analysis](backtesting-gap-analysis.md), [runbook](backtesting-runbook.md) and
+[completion report](backtesting-completion.md). Implemented path:
+Research -> Thesis -> Opportunity -> Strategy -> Backtest -> Validation -> Paper Eligibility.
+STOP before paper orders. Production trading remains disabled.
+
+`backtesting/` adds immutable config/data/result/report contracts, provider-neutral archives,
+materialized cutoff-only views, shared strategy/risk replay, next-session ledger and cost
+rechecks, portfolio/performance/risk analytics, comparison, holdout-fold service and atomic
+SQL experiment registry. Current APIs, scheduler and broker adapters are unchanged.
+The shared digest now supports date objects without changing datetime encoding.
+Shared strategies/review have an explicit historical_replay option; later-authored versions
+retain timestamps and retrospective-bias warnings. Current callers preserve default behavior.
+
+Every generated proposal receives the existing deterministic risk/replay review and admitted
+fills receive another actual-cost risk check. Human review defaults to SKIP. Internal assumed
+approval must be explicit. No rejected/insufficient proposal fills. Buy limits stay binding.
+Research capital is configurable synthetic cash; current policy still caps attributed
+acquisitions at USD 160. Sell/fractional ledger mechanics confer no policy permission.
+Swing remains blocked by its pre-existing forward-evidence gate; no historical evidence is
+fabricated to clear it. These are documented functional limits, not hidden exemptions.
+
+Raw execution prices and separately vintage adjusted indicator histories prevent double
+counting actions. Splits/reverse splits and same-close cash dividends are handled; separate
+dividend payment schedules, symbol changes, delistings and mergers fail closed. Missing
+historical fundamentals/research, unverified calendars/provenance and survivorship risks
+are explicit. No actual historical provider or historical thesis archive has been installed.
+
+Run `python -m backtesting.demo`: five synthetic sessions, one internal fill, ending equity
+162.8505 from 160, validation FAIL / NOT_ELIGIBLE. Software test only; no investment
+conclusion. Backtests always contribute zero toward at least 60 sequential non-synthetic
+forward sessions. No strategy qualifies for production, and no execution is available.
+
+Experiment tables are additive local bootstrap, not production migration. Exact strategy
+definitions and experiment IDs are immutable; full datasets/configuration/results/reports
+persist atomically. Active private data belongs outside sync. PostgreSQL operational
+validation and future API authorization remain pending.
+
+Owner settings remain unresolved: attribution/baseline, daily/experimental loss ceilings,
+freshness/day boundary, reviewed valuation/fit/sizing/concentration and authorization,
+swing controls, drawdown/observation/trade/turnover/data-quality validation gates and
+optional risk-free assumptions. No production thresholds are inferred from fixture values.
+
+Next recommended task: validated historical provider/import with calendar/action/revision
+provenance and archived thesis availability, then explicit policy review of the limitations.
+Do not automatically begin paper trading, optimization or deployment. Stop for human review.
+
+Verification: 419 tests passed, 0 failed (47 new); repository Ruff lint and all 14
+changed/new Python formatting checks passed. Existing Starlette/httpx warning remains.
+Synthetic fixtures/temporary SQLite only. No broker execution was invoked by the
+backtesting engine; no real broker connection or paper/production order was made.
+Existing legacy tests still exercise their own synthetic execution fixtures.
+
 ## Latest: Opportunity & Strategy Engine v0.1 (2026-09-30)
 
 This section supersedes earlier latest-work and next-task notes below. Implemented ADR-017:

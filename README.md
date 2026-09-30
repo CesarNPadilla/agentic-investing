@@ -12,6 +12,11 @@ The earlier `C:\AI\agentic-investing` copy is no longer the working location.
 
 ## Implemented
 
+- Backtesting & Strategy Validation v0.1: offline point-in-time replay of shared strategies,
+  deterministic risk review, next-session accounting and immutable experiments. See the
+  [runbook](docs/backtesting-runbook.md), [ADR-018](docs/adr-018.md) and
+  [completion report](docs/backtesting-completion.md). `python -m backtesting.demo` runs a
+  synthetic software demonstration only. No paper/live orders or optimization are enabled.
 - Opportunity & Strategy Engine v0.1: persistent opportunities, separate versioned long-term
   and experimental swing strategies, deterministic point-in-time indicators, bounded data-only
   TradeProposals and independent risk/human review. USD 160 experimental capital remains

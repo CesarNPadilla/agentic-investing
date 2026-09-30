@@ -1,5 +1,15 @@
 # Phase 1 architecture
 
+## Backtesting & Strategy Validation Engine v0.1 (ADR-018)
+
+Research -> Thesis -> Opportunity -> Strategy -> Backtest -> Validation -> Paper Eligibility.
+`backtesting/` provides a provider-neutral archive/cutoff layer, shared-strategy replay,
+deterministic risk review and fill-time recheck, internal next-session accounting,
+analytics, immutable experiment registry and separate validation reports. No broker,
+HTTP route, scheduler or paper-order execution is added. See [ADR-018](adr-018.md)
+and [runbook with formulas and limitations](backtesting-runbook.md). Legacy simulation
+remains separate. Historical sessions contribute zero to the required 60 forward sessions.
+
 ## Opportunity & Strategy Engine v0.1 (ADR-017)
 
 Research -> Thesis -> Opportunity -> separate Long-Term / Swing Strategy -> TradeProposal

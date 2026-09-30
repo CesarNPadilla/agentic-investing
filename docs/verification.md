@@ -1,5 +1,22 @@
 # Verification - 2026-09-28
 
+## Backtesting & Strategy Validation v0.1 — 2026-09-30
+
+- Full suite: **419 passed, 0 failed**, including 47 new backtesting cases.
+- Repository Ruff lint passed; all 14 changed/new Python files pass Ruff formatting.
+- Tests cover cutoff isolation for prices/fundamentals/news/vintages, nested future-source
+  rejection, shared strategy/risk replay, calendar gaps, split/reverse-split/dividend
+  accounting and reconciliation, same-date benchmark bases, costs/slippage/cash/limits,
+  capital modes, unapproved securities, long-only/fraction mechanics, swing forward gate,
+  metrics, cadence, immutable registry, replay equality, bias/holdout/validation gates,
+  prompt-injection inertness and broker method/network sentinels.
+- `python -B -m backtesting.demo` completed using synthetic fixtures only. Saved output:
+  [demo result](examples/backtesting-demo-result.json). Validation FAIL / NOT_ELIGIBLE;
+  zero forward-paper credit. This establishes software behavior, not investment performance.
+- One pre-existing Starlette/httpx deprecation warning remains. No dependency upgrades,
+  credentials, private databases or broker connectivity were needed. Temporary SQLite;
+  PostgreSQL migrations/concurrency/restore remain unverified.
+
 ## Long-Term Research Agent v0.1 — 2026-09-29
 
 - Full suite: 311 passed, including 29 new long-term research cases.

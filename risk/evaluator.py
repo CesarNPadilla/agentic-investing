@@ -3,7 +3,7 @@
 import hashlib
 import json
 import logging
-from datetime import datetime
+from datetime import date, datetime
 from decimal import Decimal
 from typing import Literal
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
@@ -30,7 +30,7 @@ def digest(value) -> str:
             return sorted(canonical(v) for v in item)
         if isinstance(item, (tuple, list)):
             return [canonical(v) for v in item]
-        if isinstance(item, (Decimal, datetime)):
+        if isinstance(item, (Decimal, date)):
             return str(item)
         return item
 

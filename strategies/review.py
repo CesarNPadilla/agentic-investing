@@ -19,6 +19,7 @@ def review_strategy_proposal(
     now,
     history=None,
     validation=None,
+    historical_replay=False,
 ):
     base = review_proposal(
         policy,
@@ -45,6 +46,7 @@ def review_strategy_proposal(
         now=now,
         fees=proposal.trade.estimated_fees,
         history=history,
+        historical_replay=historical_replay,
     )
     # Recompute strategy decisions; an LLM or caller cannot self-assert eligibility.
     excluded = {"proposal_id", "proposal_digest", "timestamp", "confidence", "confidence_method"}
