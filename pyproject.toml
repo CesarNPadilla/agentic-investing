@@ -18,7 +18,7 @@ dev = ["pytest>=8,<10", "httpx>=0.28,<1", "ruff>=0.11,<1"]
 webull = ["python-dotenv>=1,<2", "webull-openapi-python-sdk>=3.0.2,<4"]
 
 [tool.setuptools.packages.find]
-include = ["api*", "agents*", "market_data*", "portfolio*", "fundamentals*", "technical*", "news*", "risk*", "reports*", "database*", "workers*", "scheduler*", "integrations*", "simulation*", "trading*"]
+include = ["api*", "agents*", "market_data*", "portfolio*", "fundamentals*", "technical*", "news*", "risk*", "reports*", "database*", "workers*", "scheduler*", "integrations*", "simulation*", "trading*", "strategies*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

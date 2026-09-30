@@ -1,5 +1,52 @@
 # Codex handoff: Agentic Investing
 
+## Latest: Opportunity & Strategy Engine v0.1 (2026-09-30)
+
+This section supersedes earlier latest-work and next-task notes below. Implemented ADR-017:
+Research -> Thesis -> Opportunity -> separate Long-Term/Swing Strategy -> TradeProposal
+-> deterministic Risk -> Human Review / Reject -> STOP. Production execution stays DISABLED.
+
+Read [ADR-017](adr-017.md), [runbook](opportunity-strategy-runbook.md),
+[gap analysis](opportunity-strategy-gap-analysis.md) and
+[completion report](opportunity-strategy-completion.md) before continuing.
+
+`strategies/` contains models, OpportunityEngine, separate concrete strategies, sizing,
+independent replay/review, SQL storage and OpportunityStrategyService. Technical indicators
+are in `technical/indicators.py`. Existing ResearchAssessment, thesis reviews, policy,
+experimental accounting and deterministic risk are reused. Proposal fields are additive;
+generic risk review alone cannot qualify opportunity-backed proposals.
+
+Trusted internal entry point: OpportunityStrategyService(store).run with assessment, current
+thesis, opening/current state, policy, immutable strategy version, kill switch, explicit
+time/fees and optional swing history/validation. The thesis must contain the assessment's
+matching review. No API, scheduler or broker capability is added. Strategy authorization,
+valuation/fit and swing controls are reviewed local inputs; defaults remain fail-closed.
+
+StrategyStore bootstraps additive version/evaluation tables. Each evaluation atomically stores
+opportunity, analysis, proposal/review when present, full inputs, experimental accounting and
+correlated timestamped audit events. Version registration is separate and immutable; duplicate
+content is idempotent, changed content conflicts. Persistence failures propagate. These
+bundles contain private input data and must remain outside public logs and synced active DBs.
+
+Indicators use exact supplied session calendars, availability timestamps, adjusted OHLCV and
+adjustment vintages. No future bars or future-known adjustments are used. Provider/calendar
+trust remains adapter-attested. No universal score, automatic selling, rebalancing, broker
+translation or production parameters. Long-term horizons remain 5-10+ years; swing is research
+only. Existing USD 160 attributed experimental cap, loss gates and qualification remain intact.
+
+Verification: 372 tests passed (61 new), 0 failed. Repository Ruff passed; all 12 changed/new
+Python files pass formatting. Existing Starlette/httpx warning remains. Used the documented
+external venv, synthetic fixtures and temporary SQLite. No credentials, private database or
+SDK logs read; no broker connection/order action, deployment, scheduler activation or commit.
+
+Remaining owner values: attribution/baseline, loss controls, risk freshness/timezone, reviewed
+valuation/fit/sizing/concentration, strategy authorization and swing settings. Provider gaps:
+validated fundamentals/news/references, fees/marks, coherent complete ledger, ETF look-through,
+historical data/calendar vintages. PostgreSQL migrations/concurrency/restore and API scope
+authorization remain pending. Recommend an offline point-in-time backtesting harness reusing
+these exact strategies with simulated next-session fills/costs and leakage tests. Do not begin
+that phase automatically; this task ends for human review.
+
 Status date: 2026-09-29. Latest work: Long-Term Research Agent v0.1 (ADR-016),
 building on approved Investment Policy v0.2 and Portfolio Intelligence (ADRs 013–015).
 

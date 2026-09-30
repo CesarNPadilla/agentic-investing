@@ -1,6 +1,15 @@
 
 # Webull Automated Trading Runbook
 
+## Opportunity/strategy boundary (2026-09-30)
+
+Opportunity & Strategy Engine v0.1 is an internal research workflow ending at human risk
+review. It has no Webull execution dependency and submits, modifies or cancels no orders.
+Historical sandbox instructions below are not authorization for this phase. Production
+trading and automated execution remain disabled. Use the
+[opportunity/strategy runbook](opportunity-strategy-runbook.md) with validated local snapshots;
+missing coherent ledger data, attribution or policy values must remain blocking gaps.
+
 ## Long-term research boundary (2026-09-29)
 
 The new Long-Term Research Agent consumes stored portfolio observations and read-only

@@ -1,6 +1,7 @@
 """Research proposals are evidence only, with no execution/service integration."""
 
 from datetime import UTC, datetime
+from decimal import Decimal
 from typing import Literal
 from uuid import uuid4
 
@@ -11,7 +12,21 @@ from risk.evaluator import HypotheticalTrade, digest
 from risk.policy import InvestmentPolicy
 
 
-class TradeProposal(Record):
+class OpportunityProposalFields(Record):
+    strategy_version: str | None = None
+    strategy_configuration_digest: str | None = None
+    opportunity_id: str | None = None
+    research_assessment_id: str | None = None
+    concentration_before: Decimal | None = None
+    concentration_after: Decimal | None = None
+    experimental_capital_required: Decimal | None = None
+    data_timestamp: AwareDatetime | None = None
+    status: Literal[
+        "DRAFT", "RISK_REVIEW", "REJECTED", "HUMAN_REVIEW", "APPROVED_FOR_PAPER", "EXPIRED"
+    ] = "DRAFT"
+
+
+class TradeProposal(OpportunityProposalFields):
     proposal_id: str
     timestamp: AwareDatetime
     proposal_digest: str
@@ -35,7 +50,7 @@ class TradeProposal(Record):
     execution_available: Literal[False] = False
 
 
-class ProposalDetails(Record):
+class ProposalDetails(OpportunityProposalFields):
     strategy_id: str | None = None
     strategy_domain: Literal["long_term", "swing"] | None = None
     thesis_reference: str | None = None
@@ -51,6 +66,18 @@ class ProposalDetails(Record):
     confidence: float | None = Field(default=None, ge=0, le=1, allow_inf_nan=False)
     confidence_method: str | None = None
     supporting_data_references: tuple[str, ...] = ()
+
+
+def proposal_binding_valid(proposal: TradeProposal) -> bool:
+    """Read old research proposals without changing their original digest contract."""
+    payload = proposal.model_dump(exclude={"proposal_digest"})
+    if proposal.proposal_digest == digest(payload):
+        return True
+    defaults = OpportunityProposalFields().model_dump()
+    if any(payload[name] != default for name, default in defaults.items()):
+        return False
+    legacy = {name: value for name, value in payload.items() if name not in defaults}
+    return proposal.proposal_digest == digest(legacy)
 
 
 def create_trade_proposal(

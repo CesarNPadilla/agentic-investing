@@ -988,3 +988,15 @@ Never:
 **News/LLM → Broker**
 
 The system exists to improve investment research, portfolio intelligence, experimentation, and risk management while retaining explicit human control over production capital.
+
+## Implementation notes: Opportunity & Strategy Engine v0.1
+
+Implemented path: Research -> Thesis -> Opportunity -> separate Long-Term/Swing Strategy
+-> TradeProposal -> Risk -> Human Review / Reject. Execution remains outside this boundary.
+The approved policy values are unchanged. Reviewed valuation/fit and strategy parameters
+are versioned local configuration, never headline/LLM instructions. UNSET controls fail closed.
+Opportunity identification grants no purchase permission; legacy holdings remain valid
+without authorizing additions. No universal score, automatic Mag7 purchase, sell or rebalance.
+The USD 160 limit applies only to explicitly attributed experimental costs and commitments.
+Existing deterministic risk independently checks every proposal; a pass executes nothing.
+See [ADR-017](adr-017.md) and the [runbook](opportunity-strategy-runbook.md).

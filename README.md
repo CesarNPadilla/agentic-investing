@@ -12,6 +12,13 @@ The earlier `C:\AI\agentic-investing` copy is no longer the working location.
 
 ## Implemented
 
+- Opportunity & Strategy Engine v0.1: persistent opportunities, separate versioned long-term
+  and experimental swing strategies, deterministic point-in-time indicators, bounded data-only
+  TradeProposals and independent risk/human review. USD 160 experimental capital remains
+  separate from existing holdings. Execution is disabled. See the
+  [runbook](docs/opportunity-strategy-runbook.md), [ADR-017](docs/adr-017.md) and
+  [completion report](docs/opportunity-strategy-completion.md).
+
 - Long-Term Research Agent v0.1: persistent sourced assessments, reviewed thesis assumptions,
   extensible company metrics, reported valuation methods, portfolio/concentration context,
   and targeted daily/quarterly review workflows. Internal services only; no trade signals,

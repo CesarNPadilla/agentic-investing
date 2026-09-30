@@ -1,5 +1,15 @@
 # Phase 1 architecture
 
+## Opportunity & Strategy Engine v0.1 (ADR-017)
+
+Research -> Thesis -> Opportunity -> separate Long-Term / Swing Strategy -> TradeProposal
+-> deterministic Risk -> Human Review / Reject. The implemented path stops here; execution
+remains outside this boundary. `strategies/` adds persistent opportunities, immutable versions,
+bounded sizing, independent replay and atomic input/audit bundles. `technical/indicators.py`
+uses injected time, adjusted OHLCV and explicit exchange-session calendars. No broker capability
+or new HTTP/scheduler route is introduced. See [ADR-017](adr-017.md) and the
+[runbook](opportunity-strategy-runbook.md). Existing research and synthetic workflows remain.
+
 ## Long-Term Research Agent v0.1
 
 Research Data -> `agents.long_term.service.LongTermResearchAgent` -> ResearchAssessment

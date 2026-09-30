@@ -1,5 +1,15 @@
 # Roadmap and phase gates
 
+## Opportunity & Strategy Engine v0.1 completed (2026-09-30)
+
+Persistent opportunities now bridge structured research/theses to separate versioned
+long-term and experimental swing strategies, deterministic indicators, bounded proposals
+and independent risk/human review. Production execution remains disabled. See
+[completion report](opportunity-strategy-completion.md) and [runbook](opportunity-strategy-runbook.md).
+Next proposed task: offline point-in-time backtesting using these exact interfaces,
+vetted dataset/calendar vintages and explicit simulated fills/costs. Not started;
+owner review and existing policy/provider/qualification gates remain required.
+
 ## Phase 1 - Research (current)
 
 Completed foundation: local API, normalized quote and account models, provider boundary,

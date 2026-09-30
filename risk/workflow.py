@@ -12,7 +12,7 @@ from portfolio.state import PortfolioState, Record
 from portfolio.theses import PositionThesis
 from risk.evaluator import KillSwitch, RiskEvaluation, digest, evaluate
 from risk.policy import InvestmentPolicy
-from risk.proposals import TradeProposal
+from risk.proposals import TradeProposal, proposal_binding_valid
 
 logger = logging.getLogger("investment_policy.audit")
 
@@ -67,13 +67,16 @@ def review_proposal(
     *,
     now: datetime,
     validation: StrategyValidation | None = None,
+    strategy_evidence_verified: bool = False,
 ) -> ProposalReview:
     # Independently evaluate even if confidence is high or strategy labels itself approved.
     risk = evaluate(policy, opening, closing, proposal.trade, kill_switch, now=now)
     rejected, missing = [], []
-    if proposal.policy_digest != digest(policy) or proposal.proposal_digest != digest(
-        proposal.model_dump(exclude={"proposal_digest"})
-    ):
+    if proposal.status in {"REJECTED", "EXPIRED"}:
+        rejected.append("proposal_not_reviewable")
+    if proposal.opportunity_id is not None and not strategy_evidence_verified:
+        missing.append("opportunity_strategy_evidence_required")
+    if proposal.policy_digest != digest(policy) or not proposal_binding_valid(proposal):
         rejected.append("proposal_or_policy_binding_mismatch")
     if proposal.timestamp > now:
         rejected.append("future_proposal")
