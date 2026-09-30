@@ -9,7 +9,7 @@ from backtesting.models import BacktestConfig, BacktestResult
 from backtesting.portfolio import PortfolioSimulator
 from risk.evaluator import KillSwitch, digest, evaluate
 from risk.proposals import TradeProposal
-from strategies.engine import LongTermStrategy, SwingStrategy
+from strategies.dispatch import strategy_for
 from strategies.opportunities import OpportunityEngine
 from strategies.review import review_strategy_proposal
 
@@ -65,11 +65,7 @@ class BacktestEngine:
         if fatal.intersection(findings) or len(sessions) < 2:
             status = "INVALID_DATA"
         else:
-            implementation = (
-                LongTermStrategy()
-                if config.strategy.strategy_domain == "long_term"
-                else SwingStrategy()
-            )
+            implementation = strategy_for(config.strategy)
             opening = portfolio.initial_state(sessions[0])
             peak = config.initial_capital
             previous_marks = {}
@@ -261,6 +257,10 @@ class BacktestEngine:
                                 "opportunity": opportunity.model_dump(mode="json"),
                                 "research_observation_id": observation.observation_id,
                             }
+                            if result.diagnostics:
+                                decision["diagnostics"] = [
+                                    c.model_dump(mode="json") for c in result.diagnostics
+                                ]
                             if result.proposal:
                                 proposal = stable_proposal(result.proposal, identity + "-proposal")
                                 review = review_strategy_proposal(

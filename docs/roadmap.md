@@ -1,5 +1,19 @@
 # Roadmap and phase gates
 
+## Strategy Experiment Lab v0.1 (2026-09-30)
+
+Implemented LONG_TERM_QUALITY_GROWTH v1.0.0 and SWING_TREND_MOMENTUM v1.0.0,
+visible eligibility/exit-review diagnostics, immutable preregistration, durable OOS
+exposure protection and three predetermined development-only probes. All 15 synthetic
+runs replay identically; both hypotheses are NOT_ELIGIBLE. See the
+[human review](strategy-experiment-review.md), [runbook](experiment-lab-runbook.md)
+and [completion report](experiment-lab-completion.md).
+
+Next proposed task: a validated PIT historical market/fundamental/thesis import with
+calendar/action/revision provenance, plus explicit owner review of UNSET controls and
+simulation-policy restrictions. No real historical investment validation, optimization,
+forward-paper session, broker order or production enablement is claimed. Stop for review.
+
 ## Backtesting & Strategy Validation Engine v0.1 (2026-09-30)
 
 Implemented an offline shared-strategy harness with point-in-time views, raw-price

@@ -25,6 +25,12 @@ def metrics(config, curve, trades, decisions):
     downside_excess = sqrt(mean(min(r, 0) ** 2 for r in excess)) if excess else None
     total = equities[-1] / initial - 1
     benchmark = Decimal(curve[-1]["benchmark_equity"]) / initial - 1
+    benchmark_equities = [Decimal(p["benchmark_equity"]) for p in curve]
+    benchmark_peak = benchmark_equities[0]
+    benchmark_drawdown = Decimal(0)
+    for equity in benchmark_equities:
+        benchmark_peak = max(benchmark_peak, equity)
+        benchmark_drawdown = max(benchmark_drawdown, 1 - equity / benchmark_peak)
     days = (config.end_date - config.start_date).days
     streak = longest = 0
     for value in pnl:
@@ -40,6 +46,7 @@ def metrics(config, curve, trades, decisions):
         if days >= 365
         else None,
         "benchmark_return": str(benchmark),
+        "benchmark_maximum_drawdown": str(benchmark_drawdown),
         "benchmark_basis": config.benchmark_basis,
         "strategy_return_basis": "total_return_cash_dividends_not_reinvested",
         "excess_return": str(total - benchmark),

@@ -1,5 +1,72 @@
 # Codex handoff: Agentic Investing
 
+## Latest: Strategy Experiment Lab v0.1 (2026-09-30)
+
+This section supersedes earlier latest-work/next-task notes. Read [ADR-019](adr-019.md),
+[gap analysis](experiment-lab-gap-analysis.md), [runbook](experiment-lab-runbook.md),
+[human review](strategy-experiment-review.md) and [completion](experiment-lab-completion.md).
+
+Implemented exactly two baseline research hypotheses, both immutable BACKTEST v1.0.0:
+LONG_TERM_QUALITY_GROWTH (monthly, 5–10+ years) and SWING_TREND_MOMENTUM (daily).
+Research -> Thesis -> Opportunity -> Strategy -> Backtest -> Validation -> Human Review
+-> Future Paper Eligibility. Neither is a recommendation, paper approval or live permission.
+
+`strategies/experiment_models.py`, `experiments.py` and `dispatch.py` add typed separate
+dimension gates and the SMA200/SMA50, RSI14 50–75, prior-volume20, ATR14 swing baseline.
+Research service, backtester and independent replay share dispatch and existing sizing,
+proposal, indicator and Risk Engine logic. Absent experiment/diagnostic fields are omitted
+from serialized legacy models to preserve old version bindings. No InvestmentPolicy
+default, Risk Engine rule, execution endpoint or broker adapter was relaxed.
+
+`experiment_lab/` freezes complete multi-period plans and registers strategy versions
+before evaluation. A serialized database reservation records exposures before runs.
+Overlapping OOS security/benchmark dates cannot be renamed into unseen data; failures
+retain exposure. The two baselines share a preregistered cohort; completed replays return
+cached evidence, never new unseen claims. Only three fixed development-only swing probes
+are permitted (SMA50->55, RSI lower50->52, ATR2->2.2), with separate immutable versions.
+No optimizer, automatic ranking or best-version selection exists.
+
+The fixed synthetic study has 220 warm-up weekday observations and three six-session
+periods: development 2020-11-05..12, validation 2020-11-13..20, OOS 2020-11-23..30.
+These are generated fixtures, not real historical market regimes. Both capital modes
+(research USD 100,000; experimental USD 160) retain the USD 160 policy sleeve ceiling.
+Fractional simulation is requested in the smaller mode but remains BLOCKED_BY_POLICY.
+Both hypotheses have UNSET mandatory controls and no qualifying entries. All 15 runs
+reproduce exactly; both final reports are FAIL / NOT_ELIGIBLE. Zero fills/cash-only
+performance does not validate investment behavior. RSI sensitivity changed gate counts;
+no probe changed performance, and execution robustness remains unmeasurable.
+
+Artifacts: `docs/examples/strategy-experiment-lab-v01/{plan.json,results.json,human-review.md}`;
+concise human review in `docs/strategy-experiment-review.md`. Full datasets/runs persist
+in the synthetic-only external registry at
+`C:/Users/cesar/.codex/artifacts/strategy-experiment-lab-v01/synthetic.sqlite`.
+Do not confuse that fixture database with actual holdings or deploy it as financial data.
+Relevant source hash and data pins are recorded. Plan/source changes conflict with an
+existing ID; preserve exposure receipts, never delete them to simulate unseen holdout.
+
+Mandatory lab gates add exact replay equality, preregistered OOS and required strategy/
+risk controls to existing StrategyValidationReport; human_review_required is always true.
+Benchmark maximum drawdown is now included. No live eligibility status exists, and
+historical/OOS/synthetic sessions earn zero toward 60 sequential non-synthetic forward
+paper sessions. The forward-validation requirement remains unsatisfied.
+
+Verification: 462 tests passed, 0 failed (43 new); repository Ruff passed. One existing
+Starlette/httpx deprecation warning remains. Synthetic fixtures and temporary/local test
+SQLite only; no credentials, private records, actual broker calls, order submission,
+cancellation/modification, optimization, deployment, scheduler activation or commit.
+
+Remaining gates: validated PIT fundamentals/theses/calendar/actions/universe provenance;
+owner-approved fundamental/health thresholds, valuation/fit/concentration/sizing and
+authorization; daily/experimental loss/freshness/day-boundary and swing risk controls;
+validation thresholds and optional risk-free inputs. Current buy-only/whole-share and
+swing forward-evidence restrictions are preserved, not hidden simulation exceptions.
+Registry exposure checks cover only retained local history; external research and human
+prior knowledge cannot be certified. PostgreSQL migrations/restore/auth remain pending.
+
+Next recommended task: provenance-validated historical import and explicit review of
+the UNSET controls/simulation-policy conflicts. STOP for human review. Do not begin
+forward paper trading or automated optimization automatically.
+
 ## Latest: Backtesting & Strategy Validation Engine v0.1 (2026-09-30)
 
 This section supersedes earlier next-task/latest-work notes. Read [ADR-018](adr-018.md),

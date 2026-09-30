@@ -1,5 +1,23 @@
 # Verification - 2026-09-28
 
+## Strategy Experiment Lab v0.1 — 2026-09-30
+
+- Full suite: **462 passed, 0 failed**, including 43 new lab tests. Existing
+  strategy/backtesting baseline was verified before code changes (108 focused passes).
+- Repository Ruff lint passed. New tests cover exact definitions and legacy digests,
+  long-term dimension/unit/source/threshold gates, strict SMA/RSI/volume conditions,
+  real indicator calculations and future-candle exclusion, ATR exit review, shared sizing
+  and risk replay, swing's unsatisfied forward gate, periods/costs/capital/sensitivity
+  constraints, immutable preregistration, renamed-data OOS contamination, failed-run
+  receipts, concurrent claims, cached results, report generation and broker isolation.
+- All 15 preregistered synthetic runs completed and reproduced identically. Both
+  baseline hypotheses: NOT_ELIGIBLE. No investment conclusions or parameter selection.
+- Full experiment datasets/results are in the explicitly synthetic local SQLite registry
+  outside OneDrive. Repository artifacts contain the plan, structured summaries and
+  human reports. Tests use temporary SQLite. PostgreSQL operational review is pending.
+- No real broker connectivity, credential/private record access, paper/production order,
+  deployment or scheduler activation occurred. One existing Starlette/httpx warning remains.
+
 ## Backtesting & Strategy Validation v0.1 — 2026-09-30
 
 - Full suite: **419 passed, 0 failed**, including 47 new backtesting cases.

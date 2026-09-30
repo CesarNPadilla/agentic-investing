@@ -1,0 +1,3837 @@
+{
+  "schema_version": "strategy-experiment-lab-v1",
+  "plan_id": "strategy-experiment-lab-v1-synthetic",
+  "created_at": "2026-09-30T00:00:00Z",
+  "hypotheses": [
+    {
+      "strategy_id": "LONG_TERM_QUALITY_GROWTH",
+      "strategy_version": "1.0.0",
+      "strategy_domain": "long_term",
+      "configuration": {
+        "max_research_age_seconds": 86400,
+        "min_evidence_sources": 1,
+        "allow_test_data": true,
+        "source_freshness": {
+          "market_max_age_hours": 24,
+          "news_max_age_hours": 24,
+          "retrieval_max_age_days": 7,
+          "financial_period_max_age_days": 150,
+          "valuation_max_age_days": 7,
+          "incomplete_retry_hours": 24,
+          "full_review_max_age_days": 90,
+          "aliases": {
+            "GOOG": "GOOGL"
+          },
+          "comparison_symbols": [
+            "AAPL",
+            "MSFT",
+            "NVDA",
+            "AMZN",
+            "GOOGL",
+            "META",
+            "TSLA"
+          ],
+          "allow_test_data": false
+        },
+        "valuation_decision": "UNSET",
+        "portfolio_fit_decision": "UNSET",
+        "concentration_ceiling": null,
+        "fixed_notional": null
+      },
+      "swing": {
+        "parameters_status": "UNSET",
+        "fast_period": null,
+        "slow_period": null,
+        "stop_atr_multiple": null,
+        "profit_atr_multiple": null,
+        "max_holding_sessions": null,
+        "max_holding_days": null,
+        "risk_budget": null,
+        "max_notional": null
+      },
+      "created_at": "2026-09-30T00:00:00Z",
+      "authorization_reference": null,
+      "status": "BACKTEST",
+      "experiment": {
+        "hypothesis": "LONG_TERM_QUALITY_GROWTH",
+        "label": "EXPERIMENTAL_NOT_PRODUCTION",
+        "permitted_symbols": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "AMZN",
+          "GOOGL",
+          "GOOG",
+          "META",
+          "TSLA",
+          "PLTR",
+          "INTC"
+        ],
+        "metric_rules": [
+          {
+            "name": "revenue_growth",
+            "dimension": "growth_durability",
+            "metric": "revenue_growth",
+            "unit": "fraction",
+            "basis": "annual",
+            "operator": "ge",
+            "threshold": null
+          },
+          {
+            "name": "free_cash_flow",
+            "dimension": "fundamental_quality",
+            "metric": "free_cash_flow",
+            "unit": "USD",
+            "basis": "annual",
+            "operator": "ge",
+            "threshold": null
+          },
+          {
+            "name": "net_debt_to_ebitda",
+            "dimension": "financial_health",
+            "metric": "net_debt_to_ebitda",
+            "unit": "ratio",
+            "basis": "ttm",
+            "operator": "le",
+            "threshold": null
+          }
+        ],
+        "trend_period": 200,
+        "intermediate_period": 50,
+        "rsi_period": 14,
+        "rsi_lower": "50",
+        "rsi_upper": "75",
+        "volume_period": 20,
+        "require_volume": true,
+        "atr_period": 14,
+        "atr_stop_multiple": null,
+        "max_holding_sessions": null,
+        "max_holding_days": null,
+        "parameters_approved_reference": null
+      }
+    },
+    {
+      "strategy_id": "SWING_TREND_MOMENTUM",
+      "strategy_version": "1.0.0",
+      "strategy_domain": "swing",
+      "configuration": {
+        "max_research_age_seconds": 86400,
+        "min_evidence_sources": 1,
+        "allow_test_data": true,
+        "source_freshness": {
+          "market_max_age_hours": 24,
+          "news_max_age_hours": 24,
+          "retrieval_max_age_days": 7,
+          "financial_period_max_age_days": 150,
+          "valuation_max_age_days": 7,
+          "incomplete_retry_hours": 24,
+          "full_review_max_age_days": 90,
+          "aliases": {
+            "GOOG": "GOOGL"
+          },
+          "comparison_symbols": [
+            "AAPL",
+            "MSFT",
+            "NVDA",
+            "AMZN",
+            "GOOGL",
+            "META",
+            "TSLA"
+          ],
+          "allow_test_data": false
+        },
+        "valuation_decision": "UNSET",
+        "portfolio_fit_decision": "UNSET",
+        "concentration_ceiling": null,
+        "fixed_notional": null
+      },
+      "swing": {
+        "parameters_status": "UNSET",
+        "fast_period": 50,
+        "slow_period": 200,
+        "stop_atr_multiple": "2",
+        "profit_atr_multiple": null,
+        "max_holding_sessions": 20,
+        "max_holding_days": 30,
+        "risk_budget": null,
+        "max_notional": null
+      },
+      "created_at": "2026-09-30T00:00:00Z",
+      "authorization_reference": null,
+      "status": "BACKTEST",
+      "experiment": {
+        "hypothesis": "SWING_TREND_MOMENTUM",
+        "label": "EXPERIMENTAL_NOT_PRODUCTION",
+        "permitted_symbols": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "AMZN",
+          "GOOGL",
+          "META",
+          "TSLA",
+          "PLTR",
+          "INTC"
+        ],
+        "metric_rules": [],
+        "trend_period": 200,
+        "intermediate_period": 50,
+        "rsi_period": 14,
+        "rsi_lower": "50",
+        "rsi_upper": "75",
+        "volume_period": 20,
+        "require_volume": true,
+        "atr_period": 14,
+        "atr_stop_multiple": "2",
+        "max_holding_sessions": 20,
+        "max_holding_days": 30,
+        "parameters_approved_reference": null
+      }
+    }
+  ],
+  "periods": [
+    {
+      "role": "development",
+      "start": "2020-11-05",
+      "end": "2020-11-12"
+    },
+    {
+      "role": "validation",
+      "start": "2020-11-13",
+      "end": "2020-11-20"
+    },
+    {
+      "role": "out_of_sample",
+      "start": "2020-11-23",
+      "end": "2020-11-30"
+    }
+  ],
+  "runs": [
+    {
+      "config": {
+        "schema_version": "backtest-config-v1",
+        "backtest_id": "lab-v1-LONG_TERM_QUALITY_GROWTH-STRATEGY_RESEARCH-development",
+        "strategy": {
+          "strategy_id": "LONG_TERM_QUALITY_GROWTH",
+          "strategy_version": "1.0.0",
+          "strategy_domain": "long_term",
+          "configuration": {
+            "max_research_age_seconds": 86400,
+            "min_evidence_sources": 1,
+            "allow_test_data": true,
+            "source_freshness": {
+              "market_max_age_hours": 24,
+              "news_max_age_hours": 24,
+              "retrieval_max_age_days": 7,
+              "financial_period_max_age_days": 150,
+              "valuation_max_age_days": 7,
+              "incomplete_retry_hours": 24,
+              "full_review_max_age_days": 90,
+              "aliases": {
+                "GOOG": "GOOGL"
+              },
+              "comparison_symbols": [
+                "AAPL",
+                "MSFT",
+                "NVDA",
+                "AMZN",
+                "GOOGL",
+                "META",
+                "TSLA"
+              ],
+              "allow_test_data": false
+            },
+            "valuation_decision": "UNSET",
+            "portfolio_fit_decision": "UNSET",
+            "concentration_ceiling": null,
+            "fixed_notional": null
+          },
+          "swing": {
+            "parameters_status": "UNSET",
+            "fast_period": null,
+            "slow_period": null,
+            "stop_atr_multiple": null,
+            "profit_atr_multiple": null,
+            "max_holding_sessions": null,
+            "max_holding_days": null,
+            "risk_budget": null,
+            "max_notional": null
+          },
+          "created_at": "2026-09-30T00:00:00Z",
+          "authorization_reference": null,
+          "status": "BACKTEST",
+          "experiment": {
+            "hypothesis": "LONG_TERM_QUALITY_GROWTH",
+            "label": "EXPERIMENTAL_NOT_PRODUCTION",
+            "permitted_symbols": [
+              "AAPL",
+              "MSFT",
+              "NVDA",
+              "AMZN",
+              "GOOGL",
+              "GOOG",
+              "META",
+              "TSLA",
+              "PLTR",
+              "INTC"
+            ],
+            "metric_rules": [
+              {
+                "name": "revenue_growth",
+                "dimension": "growth_durability",
+                "metric": "revenue_growth",
+                "unit": "fraction",
+                "basis": "annual",
+                "operator": "ge",
+                "threshold": null
+              },
+              {
+                "name": "free_cash_flow",
+                "dimension": "fundamental_quality",
+                "metric": "free_cash_flow",
+                "unit": "USD",
+                "basis": "annual",
+                "operator": "ge",
+                "threshold": null
+              },
+              {
+                "name": "net_debt_to_ebitda",
+                "dimension": "financial_health",
+                "metric": "net_debt_to_ebitda",
+                "unit": "ratio",
+                "basis": "ttm",
+                "operator": "le",
+                "threshold": null
+              }
+            ],
+            "trend_period": 200,
+            "intermediate_period": 50,
+            "rsi_period": 14,
+            "rsi_lower": "50",
+            "rsi_upper": "75",
+            "volume_period": 20,
+            "require_volume": true,
+            "atr_period": 14,
+            "atr_stop_multiple": null,
+            "max_holding_sessions": null,
+            "max_holding_days": null,
+            "parameters_approved_reference": null
+          }
+        },
+        "risk_policy": {
+          "version": "investment-policy-v4",
+          "policy_revision": "0.2",
+          "core_monitoring_range": {
+            "minimum": "0.30",
+            "maximum": "0.45"
+          },
+          "strategic_monitoring_range": {
+            "minimum": "0.40",
+            "maximum": "0.55"
+          },
+          "satellite_monitoring_range": {
+            "minimum": "0.10",
+            "maximum": "0.20"
+          },
+          "strategic_thesis_review_months": 3,
+          "swing_controls": {
+            "max_position_capital": null,
+            "max_loss": null,
+            "max_holding_days": null,
+            "stop_rule": null
+          },
+          "analysis_scope": "entire_portfolio",
+          "auto_liquidate_existing_holdings": false,
+          "automatic_rebalancing": false,
+          "audit_trail_required": true,
+          "thesis_required": true,
+          "entry_thesis_required": true,
+          "exit_invalidation_thesis_required": true,
+          "concentration_warning": "0.20",
+          "severe_concentration_warning": "0.30",
+          "environment": "research",
+          "production_trading": false,
+          "automated_trading": false,
+          "human_approval_required": true,
+          "new_purchase_allowlist": [
+            "AAPL",
+            "MSFT",
+            "SPY"
+          ],
+          "research_universe": [
+            "AAPL",
+            "AMZN",
+            "GOOG",
+            "GOOGL",
+            "META",
+            "MSFT",
+            "NVDA",
+            "TSLA"
+          ],
+          "long_only": true,
+          "buy_only": true,
+          "margin_allowed": false,
+          "options_allowed": false,
+          "futures_allowed": false,
+          "short_selling_allowed": false,
+          "leverage_allowed": false,
+          "fractional_orders_allowed": false,
+          "complex_orders_allowed": false,
+          "kill_switch_required": true,
+          "currency": "USD",
+          "agent_experimental_capital_limit": "160",
+          "max_daily_loss": null,
+          "max_experimental_loss": null,
+          "max_position_exposure": null,
+          "max_concentration": null,
+          "max_state_age_seconds": null,
+          "daily_loss_timezone": null,
+          "objective": "Long-term capital growth",
+          "holding_horizon": "5–10+ years",
+          "benchmark": "VOO / S&P 500",
+          "benchmark_comparison": "VOO",
+          "rebalance_cadence": "Rule/event driven, not automatic",
+          "review_cadence": "Weekly",
+          "research_review_cadence": "Daily",
+          "strategy_rules": null
+        },
+        "start_date": "2020-11-05",
+        "end_date": "2020-11-12",
+        "initial_capital": "100000",
+        "capital_mode": "STRATEGY_RESEARCH",
+        "benchmark": "VOO",
+        "benchmark_basis": "total_return",
+        "security_universe": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "AMZN",
+          "GOOGL",
+          "GOOG",
+          "META",
+          "TSLA",
+          "PLTR",
+          "INTC"
+        ],
+        "universe_scope": "targeted",
+        "evaluation_frequency": "monthly",
+        "execution": {
+          "timing": "next_session_close",
+          "commission_fixed": "0.10",
+          "commission_bps": "0",
+          "slippage_bps": "5",
+          "spread_bps": "2",
+          "fractional_shares": false,
+          "cash_rule": "no_borrowing_instant_simulated_settlement",
+          "session_rule": "supplied_exchange_closes",
+          "human_review": "SKIP",
+          "max_exposure": "1",
+          "max_position_value": null
+        },
+        "periods": [
+          {
+            "role": "development",
+            "start": "2020-11-05",
+            "end": "2020-11-12"
+          },
+          {
+            "role": "validation",
+            "start": "2020-11-13",
+            "end": "2020-11-20"
+          },
+          {
+            "role": "out_of_sample",
+            "start": "2020-11-23",
+            "end": "2020-11-30"
+          }
+        ],
+        "evaluated_role": "development",
+        "data_source_metadata": {
+          "kind": "SYNTHETIC SOFTWARE ONLY",
+          "dividends": "NONE IN FIXTURE",
+          "corporate_actions": "NONE IN FIXTURE; complete synthetic action ledger"
+        },
+        "created_at": "2026-09-30T00:00:00Z",
+        "code_version": "lab-v0.1-source-sha256:e2ad202c6de191501e34bf9b1adb0d1b8b5ea370a6373ae00bf02c32811476fe",
+        "account_id": "backtest",
+        "annual_sessions": 252,
+        "annual_risk_free_rate": null,
+        "max_observation_age_seconds": 86400
+      },
+      "dataset": {
+        "dataset_id": "LAB-SYNTHETIC-NOT-MARKET-HISTORY-development",
+        "version": "1",
+        "content_digest": "5f4afd17a7e50434eea34eb12c9b4ea19ce77f5e7bd973c60a18d0ddefd81885",
+        "lineage": "SYNTHETIC-FORMULA-V1"
+      },
+      "purpose": "baseline"
+    },
+    {
+      "config": {
+        "schema_version": "backtest-config-v1",
+        "backtest_id": "lab-v1-LONG_TERM_QUALITY_GROWTH-STRATEGY_RESEARCH-validation",
+        "strategy": {
+          "strategy_id": "LONG_TERM_QUALITY_GROWTH",
+          "strategy_version": "1.0.0",
+          "strategy_domain": "long_term",
+          "configuration": {
+            "max_research_age_seconds": 86400,
+            "min_evidence_sources": 1,
+            "allow_test_data": true,
+            "source_freshness": {
+              "market_max_age_hours": 24,
+              "news_max_age_hours": 24,
+              "retrieval_max_age_days": 7,
+              "financial_period_max_age_days": 150,
+              "valuation_max_age_days": 7,
+              "incomplete_retry_hours": 24,
+              "full_review_max_age_days": 90,
+              "aliases": {
+                "GOOG": "GOOGL"
+              },
+              "comparison_symbols": [
+                "AAPL",
+                "MSFT",
+                "NVDA",
+                "AMZN",
+                "GOOGL",
+                "META",
+                "TSLA"
+              ],
+              "allow_test_data": false
+            },
+            "valuation_decision": "UNSET",
+            "portfolio_fit_decision": "UNSET",
+            "concentration_ceiling": null,
+            "fixed_notional": null
+          },
+          "swing": {
+            "parameters_status": "UNSET",
+            "fast_period": null,
+            "slow_period": null,
+            "stop_atr_multiple": null,
+            "profit_atr_multiple": null,
+            "max_holding_sessions": null,
+            "max_holding_days": null,
+            "risk_budget": null,
+            "max_notional": null
+          },
+          "created_at": "2026-09-30T00:00:00Z",
+          "authorization_reference": null,
+          "status": "BACKTEST",
+          "experiment": {
+            "hypothesis": "LONG_TERM_QUALITY_GROWTH",
+            "label": "EXPERIMENTAL_NOT_PRODUCTION",
+            "permitted_symbols": [
+              "AAPL",
+              "MSFT",
+              "NVDA",
+              "AMZN",
+              "GOOGL",
+              "GOOG",
+              "META",
+              "TSLA",
+              "PLTR",
+              "INTC"
+            ],
+            "metric_rules": [
+              {
+                "name": "revenue_growth",
+                "dimension": "growth_durability",
+                "metric": "revenue_growth",
+                "unit": "fraction",
+                "basis": "annual",
+                "operator": "ge",
+                "threshold": null
+              },
+              {
+                "name": "free_cash_flow",
+                "dimension": "fundamental_quality",
+                "metric": "free_cash_flow",
+                "unit": "USD",
+                "basis": "annual",
+                "operator": "ge",
+                "threshold": null
+              },
+              {
+                "name": "net_debt_to_ebitda",
+                "dimension": "financial_health",
+                "metric": "net_debt_to_ebitda",
+                "unit": "ratio",
+                "basis": "ttm",
+                "operator": "le",
+                "threshold": null
+              }
+            ],
+            "trend_period": 200,
+            "intermediate_period": 50,
+            "rsi_period": 14,
+            "rsi_lower": "50",
+            "rsi_upper": "75",
+            "volume_period": 20,
+            "require_volume": true,
+            "atr_period": 14,
+            "atr_stop_multiple": null,
+            "max_holding_sessions": null,
+            "max_holding_days": null,
+            "parameters_approved_reference": null
+          }
+        },
+        "risk_policy": {
+          "version": "investment-policy-v4",
+          "policy_revision": "0.2",
+          "core_monitoring_range": {
+            "minimum": "0.30",
+            "maximum": "0.45"
+          },
+          "strategic_monitoring_range": {
+            "minimum": "0.40",
+            "maximum": "0.55"
+          },
+          "satellite_monitoring_range": {
+            "minimum": "0.10",
+            "maximum": "0.20"
+          },
+          "strategic_thesis_review_months": 3,
+          "swing_controls": {
+            "max_position_capital": null,
+            "max_loss": null,
+            "max_holding_days": null,
+            "stop_rule": null
+          },
+          "analysis_scope": "entire_portfolio",
+          "auto_liquidate_existing_holdings": false,
+          "automatic_rebalancing": false,
+          "audit_trail_required": true,
+          "thesis_required": true,
+          "entry_thesis_required": true,
+          "exit_invalidation_thesis_required": true,
+          "concentration_warning": "0.20",
+          "severe_concentration_warning": "0.30",
+          "environment": "research",
+          "production_trading": false,
+          "automated_trading": false,
+          "human_approval_required": true,
+          "new_purchase_allowlist": [
+            "AAPL",
+            "MSFT",
+            "SPY"
+          ],
+          "research_universe": [
+            "AAPL",
+            "AMZN",
+            "GOOG",
+            "GOOGL",
+            "META",
+            "MSFT",
+            "NVDA",
+            "TSLA"
+          ],
+          "long_only": true,
+          "buy_only": true,
+          "margin_allowed": false,
+          "options_allowed": false,
+          "futures_allowed": false,
+          "short_selling_allowed": false,
+          "leverage_allowed": false,
+          "fractional_orders_allowed": false,
+          "complex_orders_allowed": false,
+          "kill_switch_required": true,
+          "currency": "USD",
+          "agent_experimental_capital_limit": "160",
+          "max_daily_loss": null,
+          "max_experimental_loss": null,
+          "max_position_exposure": null,
+          "max_concentration": null,
+          "max_state_age_seconds": null,
+          "daily_loss_timezone": null,
+          "objective": "Long-term capital growth",
+          "holding_horizon": "5–10+ years",
+          "benchmark": "VOO / S&P 500",
+          "benchmark_comparison": "VOO",
+          "rebalance_cadence": "Rule/event driven, not automatic",
+          "review_cadence": "Weekly",
+          "research_review_cadence": "Daily",
+          "strategy_rules": null
+        },
+        "start_date": "2020-11-13",
+        "end_date": "2020-11-20",
+        "initial_capital": "100000",
+        "capital_mode": "STRATEGY_RESEARCH",
+        "benchmark": "VOO",
+        "benchmark_basis": "total_return",
+        "security_universe": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "AMZN",
+          "GOOGL",
+          "GOOG",
+          "META",
+          "TSLA",
+          "PLTR",
+          "INTC"
+        ],
+        "universe_scope": "targeted",
+        "evaluation_frequency": "monthly",
+        "execution": {
+          "timing": "next_session_close",
+          "commission_fixed": "0.10",
+          "commission_bps": "0",
+          "slippage_bps": "5",
+          "spread_bps": "2",
+          "fractional_shares": false,
+          "cash_rule": "no_borrowing_instant_simulated_settlement",
+          "session_rule": "supplied_exchange_closes",
+          "human_review": "SKIP",
+          "max_exposure": "1",
+          "max_position_value": null
+        },
+        "periods": [
+          {
+            "role": "development",
+            "start": "2020-11-05",
+            "end": "2020-11-12"
+          },
+          {
+            "role": "validation",
+            "start": "2020-11-13",
+            "end": "2020-11-20"
+          },
+          {
+            "role": "out_of_sample",
+            "start": "2020-11-23",
+            "end": "2020-11-30"
+          }
+        ],
+        "evaluated_role": "validation",
+        "data_source_metadata": {
+          "kind": "SYNTHETIC SOFTWARE ONLY",
+          "dividends": "NONE IN FIXTURE",
+          "corporate_actions": "NONE IN FIXTURE; complete synthetic action ledger"
+        },
+        "created_at": "2026-09-30T00:00:00Z",
+        "code_version": "lab-v0.1-source-sha256:e2ad202c6de191501e34bf9b1adb0d1b8b5ea370a6373ae00bf02c32811476fe",
+        "account_id": "backtest",
+        "annual_sessions": 252,
+        "annual_risk_free_rate": null,
+        "max_observation_age_seconds": 86400
+      },
+      "dataset": {
+        "dataset_id": "LAB-SYNTHETIC-NOT-MARKET-HISTORY-validation",
+        "version": "1",
+        "content_digest": "98c9525425f3b2a9127d9d837c803806712143a0bb2d0f1228d2e96723d25a7e",
+        "lineage": "SYNTHETIC-FORMULA-V1"
+      },
+      "purpose": "baseline"
+    },
+    {
+      "config": {
+        "schema_version": "backtest-config-v1",
+        "backtest_id": "lab-v1-LONG_TERM_QUALITY_GROWTH-STRATEGY_RESEARCH-out_of_sample",
+        "strategy": {
+          "strategy_id": "LONG_TERM_QUALITY_GROWTH",
+          "strategy_version": "1.0.0",
+          "strategy_domain": "long_term",
+          "configuration": {
+            "max_research_age_seconds": 86400,
+            "min_evidence_sources": 1,
+            "allow_test_data": true,
+            "source_freshness": {
+              "market_max_age_hours": 24,
+              "news_max_age_hours": 24,
+              "retrieval_max_age_days": 7,
+              "financial_period_max_age_days": 150,
+              "valuation_max_age_days": 7,
+              "incomplete_retry_hours": 24,
+              "full_review_max_age_days": 90,
+              "aliases": {
+                "GOOG": "GOOGL"
+              },
+              "comparison_symbols": [
+                "AAPL",
+                "MSFT",
+                "NVDA",
+                "AMZN",
+                "GOOGL",
+                "META",
+                "TSLA"
+              ],
+              "allow_test_data": false
+            },
+            "valuation_decision": "UNSET",
+            "portfolio_fit_decision": "UNSET",
+            "concentration_ceiling": null,
+            "fixed_notional": null
+          },
+          "swing": {
+            "parameters_status": "UNSET",
+            "fast_period": null,
+            "slow_period": null,
+            "stop_atr_multiple": null,
+            "profit_atr_multiple": null,
+            "max_holding_sessions": null,
+            "max_holding_days": null,
+            "risk_budget": null,
+            "max_notional": null
+          },
+          "created_at": "2026-09-30T00:00:00Z",
+          "authorization_reference": null,
+          "status": "BACKTEST",
+          "experiment": {
+            "hypothesis": "LONG_TERM_QUALITY_GROWTH",
+            "label": "EXPERIMENTAL_NOT_PRODUCTION",
+            "permitted_symbols": [
+              "AAPL",
+              "MSFT",
+              "NVDA",
+              "AMZN",
+              "GOOGL",
+              "GOOG",
+              "META",
+              "TSLA",
+              "PLTR",
+              "INTC"
+            ],
+            "metric_rules": [
+              {
+                "name": "revenue_growth",
+                "dimension": "growth_durability",
+                "metric": "revenue_growth",
+                "unit": "fraction",
+                "basis": "annual",
+                "operator": "ge",
+                "threshold": null
+              },
+              {
+                "name": "free_cash_flow",
+                "dimension": "fundamental_quality",
+                "metric": "free_cash_flow",
+                "unit": "USD",
+                "basis": "annual",
+                "operator": "ge",
+                "threshold": null
+              },
+              {
+                "name": "net_debt_to_ebitda",
+                "dimension": "financial_health",
+                "metric": "net_debt_to_ebitda",
+                "unit": "ratio",
+                "basis": "ttm",
+                "operator": "le",
+                "threshold": null
+              }
+            ],
+            "trend_period": 200,
+            "intermediate_period": 50,
+            "rsi_period": 14,
+            "rsi_lower": "50",
+            "rsi_upper": "75",
+            "volume_period": 20,
+            "require_volume": true,
+            "atr_period": 14,
+            "atr_stop_multiple": null,
+            "max_holding_sessions": null,
+            "max_holding_days": null,
+            "parameters_approved_reference": null
+          }
+        },
+        "risk_policy": {
+          "version": "investment-policy-v4",
+          "policy_revision": "0.2",
+          "core_monitoring_range": {
+            "minimum": "0.30",
+            "maximum": "0.45"
+          },
+          "strategic_monitoring_range": {
+            "minimum": "0.40",
+            "maximum": "0.55"
+          },
+          "satellite_monitoring_range": {
+            "minimum": "0.10",
+            "maximum": "0.20"
+          },
+          "strategic_thesis_review_months": 3,
+          "swing_controls": {
+            "max_position_capital": null,
+            "max_loss": null,
+            "max_holding_days": null,
+            "stop_rule": null
+          },
+          "analysis_scope": "entire_portfolio",
+          "auto_liquidate_existing_holdings": false,
+          "automatic_rebalancing": false,
+          "audit_trail_required": true,
+          "thesis_required": true,
+          "entry_thesis_required": true,
+          "exit_invalidation_thesis_required": true,
+          "concentration_warning": "0.20",
+          "severe_concentration_warning": "0.30",
+          "environment": "research",
+          "production_trading": false,
+          "automated_trading": false,
+          "human_approval_required": true,
+          "new_purchase_allowlist": [
+            "AAPL",
+            "MSFT",
+            "SPY"
+          ],
+          "research_universe": [
+            "AAPL",
+            "AMZN",
+            "GOOG",
+            "GOOGL",
+            "META",
+            "MSFT",
+            "NVDA",
+            "TSLA"
+          ],
+          "long_only": true,
+          "buy_only": true,
+          "margin_allowed": false,
+          "options_allowed": false,
+          "futures_allowed": false,
+          "short_selling_allowed": false,
+          "leverage_allowed": false,
+          "fractional_orders_allowed": false,
+          "complex_orders_allowed": false,
+          "kill_switch_required": true,
+          "currency": "USD",
+          "agent_experimental_capital_limit": "160",
+          "max_daily_loss": null,
+          "max_experimental_loss": null,
+          "max_position_exposure": null,
+          "max_concentration": null,
+          "max_state_age_seconds": null,
+          "daily_loss_timezone": null,
+          "objective": "Long-term capital growth",
+          "holding_horizon": "5–10+ years",
+          "benchmark": "VOO / S&P 500",
+          "benchmark_comparison": "VOO",
+          "rebalance_cadence": "Rule/event driven, not automatic",
+          "review_cadence": "Weekly",
+          "research_review_cadence": "Daily",
+          "strategy_rules": null
+        },
+        "start_date": "2020-11-23",
+        "end_date": "2020-11-30",
+        "initial_capital": "100000",
+        "capital_mode": "STRATEGY_RESEARCH",
+        "benchmark": "VOO",
+        "benchmark_basis": "total_return",
+        "security_universe": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "AMZN",
+          "GOOGL",
+          "GOOG",
+          "META",
+          "TSLA",
+          "PLTR",
+          "INTC"
+        ],
+        "universe_scope": "targeted",
+        "evaluation_frequency": "monthly",
+        "execution": {
+          "timing": "next_session_close",
+          "commission_fixed": "0.10",
+          "commission_bps": "0",
+          "slippage_bps": "5",
+          "spread_bps": "2",
+          "fractional_shares": false,
+          "cash_rule": "no_borrowing_instant_simulated_settlement",
+          "session_rule": "supplied_exchange_closes",
+          "human_review": "SKIP",
+          "max_exposure": "1",
+          "max_position_value": null
+        },
+        "periods": [
+          {
+            "role": "development",
+            "start": "2020-11-05",
+            "end": "2020-11-12"
+          },
+          {
+            "role": "validation",
+            "start": "2020-11-13",
+            "end": "2020-11-20"
+          },
+          {
+            "role": "out_of_sample",
+            "start": "2020-11-23",
+            "end": "2020-11-30"
+          }
+        ],
+        "evaluated_role": "out_of_sample",
+        "data_source_metadata": {
+          "kind": "SYNTHETIC SOFTWARE ONLY",
+          "dividends": "NONE IN FIXTURE",
+          "corporate_actions": "NONE IN FIXTURE; complete synthetic action ledger"
+        },
+        "created_at": "2026-09-30T00:00:00Z",
+        "code_version": "lab-v0.1-source-sha256:e2ad202c6de191501e34bf9b1adb0d1b8b5ea370a6373ae00bf02c32811476fe",
+        "account_id": "backtest",
+        "annual_sessions": 252,
+        "annual_risk_free_rate": null,
+        "max_observation_age_seconds": 86400
+      },
+      "dataset": {
+        "dataset_id": "LAB-SYNTHETIC-NOT-MARKET-HISTORY-out_of_sample",
+        "version": "1",
+        "content_digest": "f485c2d7c41d3bc1917cb822572153bb6dd94b27aac270cb2df37690e4bac367",
+        "lineage": "SYNTHETIC-FORMULA-V1"
+      },
+      "purpose": "baseline"
+    },
+    {
+      "config": {
+        "schema_version": "backtest-config-v1",
+        "backtest_id": "lab-v1-LONG_TERM_QUALITY_GROWTH-EXPERIMENTAL-development",
+        "strategy": {
+          "strategy_id": "LONG_TERM_QUALITY_GROWTH",
+          "strategy_version": "1.0.0",
+          "strategy_domain": "long_term",
+          "configuration": {
+            "max_research_age_seconds": 86400,
+            "min_evidence_sources": 1,
+            "allow_test_data": true,
+            "source_freshness": {
+              "market_max_age_hours": 24,
+              "news_max_age_hours": 24,
+              "retrieval_max_age_days": 7,
+              "financial_period_max_age_days": 150,
+              "valuation_max_age_days": 7,
+              "incomplete_retry_hours": 24,
+              "full_review_max_age_days": 90,
+              "aliases": {
+                "GOOG": "GOOGL"
+              },
+              "comparison_symbols": [
+                "AAPL",
+                "MSFT",
+                "NVDA",
+                "AMZN",
+                "GOOGL",
+                "META",
+                "TSLA"
+              ],
+              "allow_test_data": false
+            },
+            "valuation_decision": "UNSET",
+            "portfolio_fit_decision": "UNSET",
+            "concentration_ceiling": null,
+            "fixed_notional": null
+          },
+          "swing": {
+            "parameters_status": "UNSET",
+            "fast_period": null,
+            "slow_period": null,
+            "stop_atr_multiple": null,
+            "profit_atr_multiple": null,
+            "max_holding_sessions": null,
+            "max_holding_days": null,
+            "risk_budget": null,
+            "max_notional": null
+          },
+          "created_at": "2026-09-30T00:00:00Z",
+          "authorization_reference": null,
+          "status": "BACKTEST",
+          "experiment": {
+            "hypothesis": "LONG_TERM_QUALITY_GROWTH",
+            "label": "EXPERIMENTAL_NOT_PRODUCTION",
+            "permitted_symbols": [
+              "AAPL",
+              "MSFT",
+              "NVDA",
+              "AMZN",
+              "GOOGL",
+              "GOOG",
+              "META",
+              "TSLA",
+              "PLTR",
+              "INTC"
+            ],
+            "metric_rules": [
+              {
+                "name": "revenue_growth",
+                "dimension": "growth_durability",
+                "metric": "revenue_growth",
+                "unit": "fraction",
+                "basis": "annual",
+                "operator": "ge",
+                "threshold": null
+              },
+              {
+                "name": "free_cash_flow",
+                "dimension": "fundamental_quality",
+                "metric": "free_cash_flow",
+                "unit": "USD",
+                "basis": "annual",
+                "operator": "ge",
+                "threshold": null
+              },
+              {
+                "name": "net_debt_to_ebitda",
+                "dimension": "financial_health",
+                "metric": "net_debt_to_ebitda",
+                "unit": "ratio",
+                "basis": "ttm",
+                "operator": "le",
+                "threshold": null
+              }
+            ],
+            "trend_period": 200,
+            "intermediate_period": 50,
+            "rsi_period": 14,
+            "rsi_lower": "50",
+            "rsi_upper": "75",
+            "volume_period": 20,
+            "require_volume": true,
+            "atr_period": 14,
+            "atr_stop_multiple": null,
+            "max_holding_sessions": null,
+            "max_holding_days": null,
+            "parameters_approved_reference": null
+          }
+        },
+        "risk_policy": {
+          "version": "investment-policy-v4",
+          "policy_revision": "0.2",
+          "core_monitoring_range": {
+            "minimum": "0.30",
+            "maximum": "0.45"
+          },
+          "strategic_monitoring_range": {
+            "minimum": "0.40",
+            "maximum": "0.55"
+          },
+          "satellite_monitoring_range": {
+            "minimum": "0.10",
+            "maximum": "0.20"
+          },
+          "strategic_thesis_review_months": 3,
+          "swing_controls": {
+            "max_position_capital": null,
+            "max_loss": null,
+            "max_holding_days": null,
+            "stop_rule": null
+          },
+          "analysis_scope": "entire_portfolio",
+          "auto_liquidate_existing_holdings": false,
+          "automatic_rebalancing": false,
+          "audit_trail_required": true,
+          "thesis_required": true,
+          "entry_thesis_required": true,
+          "exit_invalidation_thesis_required": true,
+          "concentration_warning": "0.20",
+          "severe_concentration_warning": "0.30",
+          "environment": "research",
+          "production_trading": false,
+          "automated_trading": false,
+          "human_approval_required": true,
+          "new_purchase_allowlist": [
+            "AAPL",
+            "MSFT",
+            "SPY"
+          ],
+          "research_universe": [
+            "AAPL",
+            "AMZN",
+            "GOOG",
+            "GOOGL",
+            "META",
+            "MSFT",
+            "NVDA",
+            "TSLA"
+          ],
+          "long_only": true,
+          "buy_only": true,
+          "margin_allowed": false,
+          "options_allowed": false,
+          "futures_allowed": false,
+          "short_selling_allowed": false,
+          "leverage_allowed": false,
+          "fractional_orders_allowed": false,
+          "complex_orders_allowed": false,
+          "kill_switch_required": true,
+          "currency": "USD",
+          "agent_experimental_capital_limit": "160",
+          "max_daily_loss": null,
+          "max_experimental_loss": null,
+          "max_position_exposure": null,
+          "max_concentration": null,
+          "max_state_age_seconds": null,
+          "daily_loss_timezone": null,
+          "objective": "Long-term capital growth",
+          "holding_horizon": "5–10+ years",
+          "benchmark": "VOO / S&P 500",
+          "benchmark_comparison": "VOO",
+          "rebalance_cadence": "Rule/event driven, not automatic",
+          "review_cadence": "Weekly",
+          "research_review_cadence": "Daily",
+          "strategy_rules": null
+        },
+        "start_date": "2020-11-05",
+        "end_date": "2020-11-12",
+        "initial_capital": "160",
+        "capital_mode": "EXPERIMENTAL",
+        "benchmark": "VOO",
+        "benchmark_basis": "total_return",
+        "security_universe": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "AMZN",
+          "GOOGL",
+          "GOOG",
+          "META",
+          "TSLA",
+          "PLTR",
+          "INTC"
+        ],
+        "universe_scope": "targeted",
+        "evaluation_frequency": "monthly",
+        "execution": {
+          "timing": "next_session_close",
+          "commission_fixed": "0.10",
+          "commission_bps": "0",
+          "slippage_bps": "5",
+          "spread_bps": "2",
+          "fractional_shares": true,
+          "cash_rule": "no_borrowing_instant_simulated_settlement",
+          "session_rule": "supplied_exchange_closes",
+          "human_review": "SKIP",
+          "max_exposure": "1",
+          "max_position_value": null
+        },
+        "periods": [
+          {
+            "role": "development",
+            "start": "2020-11-05",
+            "end": "2020-11-12"
+          },
+          {
+            "role": "validation",
+            "start": "2020-11-13",
+            "end": "2020-11-20"
+          },
+          {
+            "role": "out_of_sample",
+            "start": "2020-11-23",
+            "end": "2020-11-30"
+          }
+        ],
+        "evaluated_role": "development",
+        "data_source_metadata": {
+          "kind": "SYNTHETIC SOFTWARE ONLY",
+          "dividends": "NONE IN FIXTURE",
+          "corporate_actions": "NONE IN FIXTURE; complete synthetic action ledger"
+        },
+        "created_at": "2026-09-30T00:00:00Z",
+        "code_version": "lab-v0.1-source-sha256:e2ad202c6de191501e34bf9b1adb0d1b8b5ea370a6373ae00bf02c32811476fe",
+        "account_id": "backtest",
+        "annual_sessions": 252,
+        "annual_risk_free_rate": null,
+        "max_observation_age_seconds": 86400
+      },
+      "dataset": {
+        "dataset_id": "LAB-SYNTHETIC-NOT-MARKET-HISTORY-development",
+        "version": "1",
+        "content_digest": "5f4afd17a7e50434eea34eb12c9b4ea19ce77f5e7bd973c60a18d0ddefd81885",
+        "lineage": "SYNTHETIC-FORMULA-V1"
+      },
+      "purpose": "baseline"
+    },
+    {
+      "config": {
+        "schema_version": "backtest-config-v1",
+        "backtest_id": "lab-v1-LONG_TERM_QUALITY_GROWTH-EXPERIMENTAL-validation",
+        "strategy": {
+          "strategy_id": "LONG_TERM_QUALITY_GROWTH",
+          "strategy_version": "1.0.0",
+          "strategy_domain": "long_term",
+          "configuration": {
+            "max_research_age_seconds": 86400,
+            "min_evidence_sources": 1,
+            "allow_test_data": true,
+            "source_freshness": {
+              "market_max_age_hours": 24,
+              "news_max_age_hours": 24,
+              "retrieval_max_age_days": 7,
+              "financial_period_max_age_days": 150,
+              "valuation_max_age_days": 7,
+              "incomplete_retry_hours": 24,
+              "full_review_max_age_days": 90,
+              "aliases": {
+                "GOOG": "GOOGL"
+              },
+              "comparison_symbols": [
+                "AAPL",
+                "MSFT",
+                "NVDA",
+                "AMZN",
+                "GOOGL",
+                "META",
+                "TSLA"
+              ],
+              "allow_test_data": false
+            },
+            "valuation_decision": "UNSET",
+            "portfolio_fit_decision": "UNSET",
+            "concentration_ceiling": null,
+            "fixed_notional": null
+          },
+          "swing": {
+            "parameters_status": "UNSET",
+            "fast_period": null,
+            "slow_period": null,
+            "stop_atr_multiple": null,
+            "profit_atr_multiple": null,
+            "max_holding_sessions": null,
+            "max_holding_days": null,
+            "risk_budget": null,
+            "max_notional": null
+          },
+          "created_at": "2026-09-30T00:00:00Z",
+          "authorization_reference": null,
+          "status": "BACKTEST",
+          "experiment": {
+            "hypothesis": "LONG_TERM_QUALITY_GROWTH",
+            "label": "EXPERIMENTAL_NOT_PRODUCTION",
+            "permitted_symbols": [
+              "AAPL",
+              "MSFT",
+              "NVDA",
+              "AMZN",
+              "GOOGL",
+              "GOOG",
+              "META",
+              "TSLA",
+              "PLTR",
+              "INTC"
+            ],
+            "metric_rules": [
+              {
+                "name": "revenue_growth",
+                "dimension": "growth_durability",
+                "metric": "revenue_growth",
+                "unit": "fraction",
+                "basis": "annual",
+                "operator": "ge",
+                "threshold": null
+              },
+              {
+                "name": "free_cash_flow",
+                "dimension": "fundamental_quality",
+                "metric": "free_cash_flow",
+                "unit": "USD",
+                "basis": "annual",
+                "operator": "ge",
+                "threshold": null
+              },
+              {
+                "name": "net_debt_to_ebitda",
+                "dimension": "financial_health",
+                "metric": "net_debt_to_ebitda",
+                "unit": "ratio",
+                "basis": "ttm",
+                "operator": "le",
+                "threshold": null
+              }
+            ],
+            "trend_period": 200,
+            "intermediate_period": 50,
+            "rsi_period": 14,
+            "rsi_lower": "50",
+            "rsi_upper": "75",
+            "volume_period": 20,
+            "require_volume": true,
+            "atr_period": 14,
+            "atr_stop_multiple": null,
+            "max_holding_sessions": null,
+            "max_holding_days": null,
+            "parameters_approved_reference": null
+          }
+        },
+        "risk_policy": {
+          "version": "investment-policy-v4",
+          "policy_revision": "0.2",
+          "core_monitoring_range": {
+            "minimum": "0.30",
+            "maximum": "0.45"
+          },
+          "strategic_monitoring_range": {
+            "minimum": "0.40",
+            "maximum": "0.55"
+          },
+          "satellite_monitoring_range": {
+            "minimum": "0.10",
+            "maximum": "0.20"
+          },
+          "strategic_thesis_review_months": 3,
+          "swing_controls": {
+            "max_position_capital": null,
+            "max_loss": null,
+            "max_holding_days": null,
+            "stop_rule": null
+          },
+          "analysis_scope": "entire_portfolio",
+          "auto_liquidate_existing_holdings": false,
+          "automatic_rebalancing": false,
+          "audit_trail_required": true,
+          "thesis_required": true,
+          "entry_thesis_required": true,
+          "exit_invalidation_thesis_required": true,
+          "concentration_warning": "0.20",
+          "severe_concentration_warning": "0.30",
+          "environment": "research",
+          "production_trading": false,
+          "automated_trading": false,
+          "human_approval_required": true,
+          "new_purchase_allowlist": [
+            "AAPL",
+            "MSFT",
+            "SPY"
+          ],
+          "research_universe": [
+            "AAPL",
+            "AMZN",
+            "GOOG",
+            "GOOGL",
+            "META",
+            "MSFT",
+            "NVDA",
+            "TSLA"
+          ],
+          "long_only": true,
+          "buy_only": true,
+          "margin_allowed": false,
+          "options_allowed": false,
+          "futures_allowed": false,
+          "short_selling_allowed": false,
+          "leverage_allowed": false,
+          "fractional_orders_allowed": false,
+          "complex_orders_allowed": false,
+          "kill_switch_required": true,
+          "currency": "USD",
+          "agent_experimental_capital_limit": "160",
+          "max_daily_loss": null,
+          "max_experimental_loss": null,
+          "max_position_exposure": null,
+          "max_concentration": null,
+          "max_state_age_seconds": null,
+          "daily_loss_timezone": null,
+          "objective": "Long-term capital growth",
+          "holding_horizon": "5–10+ years",
+          "benchmark": "VOO / S&P 500",
+          "benchmark_comparison": "VOO",
+          "rebalance_cadence": "Rule/event driven, not automatic",
+          "review_cadence": "Weekly",
+          "research_review_cadence": "Daily",
+          "strategy_rules": null
+        },
+        "start_date": "2020-11-13",
+        "end_date": "2020-11-20",
+        "initial_capital": "160",
+        "capital_mode": "EXPERIMENTAL",
+        "benchmark": "VOO",
+        "benchmark_basis": "total_return",
+        "security_universe": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "AMZN",
+          "GOOGL",
+          "GOOG",
+          "META",
+          "TSLA",
+          "PLTR",
+          "INTC"
+        ],
+        "universe_scope": "targeted",
+        "evaluation_frequency": "monthly",
+        "execution": {
+          "timing": "next_session_close",
+          "commission_fixed": "0.10",
+          "commission_bps": "0",
+          "slippage_bps": "5",
+          "spread_bps": "2",
+          "fractional_shares": true,
+          "cash_rule": "no_borrowing_instant_simulated_settlement",
+          "session_rule": "supplied_exchange_closes",
+          "human_review": "SKIP",
+          "max_exposure": "1",
+          "max_position_value": null
+        },
+        "periods": [
+          {
+            "role": "development",
+            "start": "2020-11-05",
+            "end": "2020-11-12"
+          },
+          {
+            "role": "validation",
+            "start": "2020-11-13",
+            "end": "2020-11-20"
+          },
+          {
+            "role": "out_of_sample",
+            "start": "2020-11-23",
+            "end": "2020-11-30"
+          }
+        ],
+        "evaluated_role": "validation",
+        "data_source_metadata": {
+          "kind": "SYNTHETIC SOFTWARE ONLY",
+          "dividends": "NONE IN FIXTURE",
+          "corporate_actions": "NONE IN FIXTURE; complete synthetic action ledger"
+        },
+        "created_at": "2026-09-30T00:00:00Z",
+        "code_version": "lab-v0.1-source-sha256:e2ad202c6de191501e34bf9b1adb0d1b8b5ea370a6373ae00bf02c32811476fe",
+        "account_id": "backtest",
+        "annual_sessions": 252,
+        "annual_risk_free_rate": null,
+        "max_observation_age_seconds": 86400
+      },
+      "dataset": {
+        "dataset_id": "LAB-SYNTHETIC-NOT-MARKET-HISTORY-validation",
+        "version": "1",
+        "content_digest": "98c9525425f3b2a9127d9d837c803806712143a0bb2d0f1228d2e96723d25a7e",
+        "lineage": "SYNTHETIC-FORMULA-V1"
+      },
+      "purpose": "baseline"
+    },
+    {
+      "config": {
+        "schema_version": "backtest-config-v1",
+        "backtest_id": "lab-v1-LONG_TERM_QUALITY_GROWTH-EXPERIMENTAL-out_of_sample",
+        "strategy": {
+          "strategy_id": "LONG_TERM_QUALITY_GROWTH",
+          "strategy_version": "1.0.0",
+          "strategy_domain": "long_term",
+          "configuration": {
+            "max_research_age_seconds": 86400,
+            "min_evidence_sources": 1,
+            "allow_test_data": true,
+            "source_freshness": {
+              "market_max_age_hours": 24,
+              "news_max_age_hours": 24,
+              "retrieval_max_age_days": 7,
+              "financial_period_max_age_days": 150,
+              "valuation_max_age_days": 7,
+              "incomplete_retry_hours": 24,
+              "full_review_max_age_days": 90,
+              "aliases": {
+                "GOOG": "GOOGL"
+              },
+              "comparison_symbols": [
+                "AAPL",
+                "MSFT",
+                "NVDA",
+                "AMZN",
+                "GOOGL",
+                "META",
+                "TSLA"
+              ],
+              "allow_test_data": false
+            },
+            "valuation_decision": "UNSET",
+            "portfolio_fit_decision": "UNSET",
+            "concentration_ceiling": null,
+            "fixed_notional": null
+          },
+          "swing": {
+            "parameters_status": "UNSET",
+            "fast_period": null,
+            "slow_period": null,
+            "stop_atr_multiple": null,
+            "profit_atr_multiple": null,
+            "max_holding_sessions": null,
+            "max_holding_days": null,
+            "risk_budget": null,
+            "max_notional": null
+          },
+          "created_at": "2026-09-30T00:00:00Z",
+          "authorization_reference": null,
+          "status": "BACKTEST",
+          "experiment": {
+            "hypothesis": "LONG_TERM_QUALITY_GROWTH",
+            "label": "EXPERIMENTAL_NOT_PRODUCTION",
+            "permitted_symbols": [
+              "AAPL",
+              "MSFT",
+              "NVDA",
+              "AMZN",
+              "GOOGL",
+              "GOOG",
+              "META",
+              "TSLA",
+              "PLTR",
+              "INTC"
+            ],
+            "metric_rules": [
+              {
+                "name": "revenue_growth",
+                "dimension": "growth_durability",
+                "metric": "revenue_growth",
+                "unit": "fraction",
+                "basis": "annual",
+                "operator": "ge",
+                "threshold": null
+              },
+              {
+                "name": "free_cash_flow",
+                "dimension": "fundamental_quality",
+                "metric": "free_cash_flow",
+                "unit": "USD",
+                "basis": "annual",
+                "operator": "ge",
+                "threshold": null
+              },
+              {
+                "name": "net_debt_to_ebitda",
+                "dimension": "financial_health",
+                "metric": "net_debt_to_ebitda",
+                "unit": "ratio",
+                "basis": "ttm",
+                "operator": "le",
+                "threshold": null
+              }
+            ],
+            "trend_period": 200,
+            "intermediate_period": 50,
+            "rsi_period": 14,
+            "rsi_lower": "50",
+            "rsi_upper": "75",
+            "volume_period": 20,
+            "require_volume": true,
+            "atr_period": 14,
+            "atr_stop_multiple": null,
+            "max_holding_sessions": null,
+            "max_holding_days": null,
+            "parameters_approved_reference": null
+          }
+        },
+        "risk_policy": {
+          "version": "investment-policy-v4",
+          "policy_revision": "0.2",
+          "core_monitoring_range": {
+            "minimum": "0.30",
+            "maximum": "0.45"
+          },
+          "strategic_monitoring_range": {
+            "minimum": "0.40",
+            "maximum": "0.55"
+          },
+          "satellite_monitoring_range": {
+            "minimum": "0.10",
+            "maximum": "0.20"
+          },
+          "strategic_thesis_review_months": 3,
+          "swing_controls": {
+            "max_position_capital": null,
+            "max_loss": null,
+            "max_holding_days": null,
+            "stop_rule": null
+          },
+          "analysis_scope": "entire_portfolio",
+          "auto_liquidate_existing_holdings": false,
+          "automatic_rebalancing": false,
+          "audit_trail_required": true,
+          "thesis_required": true,
+          "entry_thesis_required": true,
+          "exit_invalidation_thesis_required": true,
+          "concentration_warning": "0.20",
+          "severe_concentration_warning": "0.30",
+          "environment": "research",
+          "production_trading": false,
+          "automated_trading": false,
+          "human_approval_required": true,
+          "new_purchase_allowlist": [
+            "AAPL",
+            "MSFT",
+            "SPY"
+          ],
+          "research_universe": [
+            "AAPL",
+            "AMZN",
+            "GOOG",
+            "GOOGL",
+            "META",
+            "MSFT",
+            "NVDA",
+            "TSLA"
+          ],
+          "long_only": true,
+          "buy_only": true,
+          "margin_allowed": false,
+          "options_allowed": false,
+          "futures_allowed": false,
+          "short_selling_allowed": false,
+          "leverage_allowed": false,
+          "fractional_orders_allowed": false,
+          "complex_orders_allowed": false,
+          "kill_switch_required": true,
+          "currency": "USD",
+          "agent_experimental_capital_limit": "160",
+          "max_daily_loss": null,
+          "max_experimental_loss": null,
+          "max_position_exposure": null,
+          "max_concentration": null,
+          "max_state_age_seconds": null,
+          "daily_loss_timezone": null,
+          "objective": "Long-term capital growth",
+          "holding_horizon": "5–10+ years",
+          "benchmark": "VOO / S&P 500",
+          "benchmark_comparison": "VOO",
+          "rebalance_cadence": "Rule/event driven, not automatic",
+          "review_cadence": "Weekly",
+          "research_review_cadence": "Daily",
+          "strategy_rules": null
+        },
+        "start_date": "2020-11-23",
+        "end_date": "2020-11-30",
+        "initial_capital": "160",
+        "capital_mode": "EXPERIMENTAL",
+        "benchmark": "VOO",
+        "benchmark_basis": "total_return",
+        "security_universe": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "AMZN",
+          "GOOGL",
+          "GOOG",
+          "META",
+          "TSLA",
+          "PLTR",
+          "INTC"
+        ],
+        "universe_scope": "targeted",
+        "evaluation_frequency": "monthly",
+        "execution": {
+          "timing": "next_session_close",
+          "commission_fixed": "0.10",
+          "commission_bps": "0",
+          "slippage_bps": "5",
+          "spread_bps": "2",
+          "fractional_shares": true,
+          "cash_rule": "no_borrowing_instant_simulated_settlement",
+          "session_rule": "supplied_exchange_closes",
+          "human_review": "SKIP",
+          "max_exposure": "1",
+          "max_position_value": null
+        },
+        "periods": [
+          {
+            "role": "development",
+            "start": "2020-11-05",
+            "end": "2020-11-12"
+          },
+          {
+            "role": "validation",
+            "start": "2020-11-13",
+            "end": "2020-11-20"
+          },
+          {
+            "role": "out_of_sample",
+            "start": "2020-11-23",
+            "end": "2020-11-30"
+          }
+        ],
+        "evaluated_role": "out_of_sample",
+        "data_source_metadata": {
+          "kind": "SYNTHETIC SOFTWARE ONLY",
+          "dividends": "NONE IN FIXTURE",
+          "corporate_actions": "NONE IN FIXTURE; complete synthetic action ledger"
+        },
+        "created_at": "2026-09-30T00:00:00Z",
+        "code_version": "lab-v0.1-source-sha256:e2ad202c6de191501e34bf9b1adb0d1b8b5ea370a6373ae00bf02c32811476fe",
+        "account_id": "backtest",
+        "annual_sessions": 252,
+        "annual_risk_free_rate": null,
+        "max_observation_age_seconds": 86400
+      },
+      "dataset": {
+        "dataset_id": "LAB-SYNTHETIC-NOT-MARKET-HISTORY-out_of_sample",
+        "version": "1",
+        "content_digest": "f485c2d7c41d3bc1917cb822572153bb6dd94b27aac270cb2df37690e4bac367",
+        "lineage": "SYNTHETIC-FORMULA-V1"
+      },
+      "purpose": "baseline"
+    },
+    {
+      "config": {
+        "schema_version": "backtest-config-v1",
+        "backtest_id": "lab-v1-SWING_TREND_MOMENTUM-STRATEGY_RESEARCH-development",
+        "strategy": {
+          "strategy_id": "SWING_TREND_MOMENTUM",
+          "strategy_version": "1.0.0",
+          "strategy_domain": "swing",
+          "configuration": {
+            "max_research_age_seconds": 86400,
+            "min_evidence_sources": 1,
+            "allow_test_data": true,
+            "source_freshness": {
+              "market_max_age_hours": 24,
+              "news_max_age_hours": 24,
+              "retrieval_max_age_days": 7,
+              "financial_period_max_age_days": 150,
+              "valuation_max_age_days": 7,
+              "incomplete_retry_hours": 24,
+              "full_review_max_age_days": 90,
+              "aliases": {
+                "GOOG": "GOOGL"
+              },
+              "comparison_symbols": [
+                "AAPL",
+                "MSFT",
+                "NVDA",
+                "AMZN",
+                "GOOGL",
+                "META",
+                "TSLA"
+              ],
+              "allow_test_data": false
+            },
+            "valuation_decision": "UNSET",
+            "portfolio_fit_decision": "UNSET",
+            "concentration_ceiling": null,
+            "fixed_notional": null
+          },
+          "swing": {
+            "parameters_status": "UNSET",
+            "fast_period": 50,
+            "slow_period": 200,
+            "stop_atr_multiple": "2",
+            "profit_atr_multiple": null,
+            "max_holding_sessions": 20,
+            "max_holding_days": 30,
+            "risk_budget": null,
+            "max_notional": null
+          },
+          "created_at": "2026-09-30T00:00:00Z",
+          "authorization_reference": null,
+          "status": "BACKTEST",
+          "experiment": {
+            "hypothesis": "SWING_TREND_MOMENTUM",
+            "label": "EXPERIMENTAL_NOT_PRODUCTION",
+            "permitted_symbols": [
+              "AAPL",
+              "MSFT",
+              "NVDA",
+              "AMZN",
+              "GOOGL",
+              "META",
+              "TSLA",
+              "PLTR",
+              "INTC"
+            ],
+            "metric_rules": [],
+            "trend_period": 200,
+            "intermediate_period": 50,
+            "rsi_period": 14,
+            "rsi_lower": "50",
+            "rsi_upper": "75",
+            "volume_period": 20,
+            "require_volume": true,
+            "atr_period": 14,
+            "atr_stop_multiple": "2",
+            "max_holding_sessions": 20,
+            "max_holding_days": 30,
+            "parameters_approved_reference": null
+          }
+        },
+        "risk_policy": {
+          "version": "investment-policy-v4",
+          "policy_revision": "0.2",
+          "core_monitoring_range": {
+            "minimum": "0.30",
+            "maximum": "0.45"
+          },
+          "strategic_monitoring_range": {
+            "minimum": "0.40",
+            "maximum": "0.55"
+          },
+          "satellite_monitoring_range": {
+            "minimum": "0.10",
+            "maximum": "0.20"
+          },
+          "strategic_thesis_review_months": 3,
+          "swing_controls": {
+            "max_position_capital": null,
+            "max_loss": null,
+            "max_holding_days": null,
+            "stop_rule": null
+          },
+          "analysis_scope": "entire_portfolio",
+          "auto_liquidate_existing_holdings": false,
+          "automatic_rebalancing": false,
+          "audit_trail_required": true,
+          "thesis_required": true,
+          "entry_thesis_required": true,
+          "exit_invalidation_thesis_required": true,
+          "concentration_warning": "0.20",
+          "severe_concentration_warning": "0.30",
+          "environment": "research",
+          "production_trading": false,
+          "automated_trading": false,
+          "human_approval_required": true,
+          "new_purchase_allowlist": [
+            "AAPL",
+            "MSFT",
+            "SPY"
+          ],
+          "research_universe": [
+            "AAPL",
+            "AMZN",
+            "GOOG",
+            "GOOGL",
+            "META",
+            "MSFT",
+            "NVDA",
+            "TSLA"
+          ],
+          "long_only": true,
+          "buy_only": true,
+          "margin_allowed": false,
+          "options_allowed": false,
+          "futures_allowed": false,
+          "short_selling_allowed": false,
+          "leverage_allowed": false,
+          "fractional_orders_allowed": false,
+          "complex_orders_allowed": false,
+          "kill_switch_required": true,
+          "currency": "USD",
+          "agent_experimental_capital_limit": "160",
+          "max_daily_loss": null,
+          "max_experimental_loss": null,
+          "max_position_exposure": null,
+          "max_concentration": null,
+          "max_state_age_seconds": null,
+          "daily_loss_timezone": null,
+          "objective": "Long-term capital growth",
+          "holding_horizon": "5–10+ years",
+          "benchmark": "VOO / S&P 500",
+          "benchmark_comparison": "VOO",
+          "rebalance_cadence": "Rule/event driven, not automatic",
+          "review_cadence": "Weekly",
+          "research_review_cadence": "Daily",
+          "strategy_rules": null
+        },
+        "start_date": "2020-11-05",
+        "end_date": "2020-11-12",
+        "initial_capital": "100000",
+        "capital_mode": "STRATEGY_RESEARCH",
+        "benchmark": "VOO",
+        "benchmark_basis": "total_return",
+        "security_universe": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "AMZN",
+          "GOOGL",
+          "META",
+          "TSLA",
+          "PLTR",
+          "INTC"
+        ],
+        "universe_scope": "targeted",
+        "evaluation_frequency": "daily",
+        "execution": {
+          "timing": "next_session_close",
+          "commission_fixed": "0.10",
+          "commission_bps": "0",
+          "slippage_bps": "5",
+          "spread_bps": "2",
+          "fractional_shares": false,
+          "cash_rule": "no_borrowing_instant_simulated_settlement",
+          "session_rule": "supplied_exchange_closes",
+          "human_review": "SKIP",
+          "max_exposure": "1",
+          "max_position_value": null
+        },
+        "periods": [
+          {
+            "role": "development",
+            "start": "2020-11-05",
+            "end": "2020-11-12"
+          },
+          {
+            "role": "validation",
+            "start": "2020-11-13",
+            "end": "2020-11-20"
+          },
+          {
+            "role": "out_of_sample",
+            "start": "2020-11-23",
+            "end": "2020-11-30"
+          }
+        ],
+        "evaluated_role": "development",
+        "data_source_metadata": {
+          "kind": "SYNTHETIC SOFTWARE ONLY",
+          "dividends": "NONE IN FIXTURE",
+          "corporate_actions": "NONE IN FIXTURE; complete synthetic action ledger"
+        },
+        "created_at": "2026-09-30T00:00:00Z",
+        "code_version": "lab-v0.1-source-sha256:e2ad202c6de191501e34bf9b1adb0d1b8b5ea370a6373ae00bf02c32811476fe",
+        "account_id": "backtest",
+        "annual_sessions": 252,
+        "annual_risk_free_rate": null,
+        "max_observation_age_seconds": 86400
+      },
+      "dataset": {
+        "dataset_id": "LAB-SYNTHETIC-NOT-MARKET-HISTORY-development",
+        "version": "1",
+        "content_digest": "5f4afd17a7e50434eea34eb12c9b4ea19ce77f5e7bd973c60a18d0ddefd81885",
+        "lineage": "SYNTHETIC-FORMULA-V1"
+      },
+      "purpose": "baseline"
+    },
+    {
+      "config": {
+        "schema_version": "backtest-config-v1",
+        "backtest_id": "lab-v1-SWING_TREND_MOMENTUM-STRATEGY_RESEARCH-validation",
+        "strategy": {
+          "strategy_id": "SWING_TREND_MOMENTUM",
+          "strategy_version": "1.0.0",
+          "strategy_domain": "swing",
+          "configuration": {
+            "max_research_age_seconds": 86400,
+            "min_evidence_sources": 1,
+            "allow_test_data": true,
+            "source_freshness": {
+              "market_max_age_hours": 24,
+              "news_max_age_hours": 24,
+              "retrieval_max_age_days": 7,
+              "financial_period_max_age_days": 150,
+              "valuation_max_age_days": 7,
+              "incomplete_retry_hours": 24,
+              "full_review_max_age_days": 90,
+              "aliases": {
+                "GOOG": "GOOGL"
+              },
+              "comparison_symbols": [
+                "AAPL",
+                "MSFT",
+                "NVDA",
+                "AMZN",
+                "GOOGL",
+                "META",
+                "TSLA"
+              ],
+              "allow_test_data": false
+            },
+            "valuation_decision": "UNSET",
+            "portfolio_fit_decision": "UNSET",
+            "concentration_ceiling": null,
+            "fixed_notional": null
+          },
+          "swing": {
+            "parameters_status": "UNSET",
+            "fast_period": 50,
+            "slow_period": 200,
+            "stop_atr_multiple": "2",
+            "profit_atr_multiple": null,
+            "max_holding_sessions": 20,
+            "max_holding_days": 30,
+            "risk_budget": null,
+            "max_notional": null
+          },
+          "created_at": "2026-09-30T00:00:00Z",
+          "authorization_reference": null,
+          "status": "BACKTEST",
+          "experiment": {
+            "hypothesis": "SWING_TREND_MOMENTUM",
+            "label": "EXPERIMENTAL_NOT_PRODUCTION",
+            "permitted_symbols": [
+              "AAPL",
+              "MSFT",
+              "NVDA",
+              "AMZN",
+              "GOOGL",
+              "META",
+              "TSLA",
+              "PLTR",
+              "INTC"
+            ],
+            "metric_rules": [],
+            "trend_period": 200,
+            "intermediate_period": 50,
+            "rsi_period": 14,
+            "rsi_lower": "50",
+            "rsi_upper": "75",
+            "volume_period": 20,
+            "require_volume": true,
+            "atr_period": 14,
+            "atr_stop_multiple": "2",
+            "max_holding_sessions": 20,
+            "max_holding_days": 30,
+            "parameters_approved_reference": null
+          }
+        },
+        "risk_policy": {
+          "version": "investment-policy-v4",
+          "policy_revision": "0.2",
+          "core_monitoring_range": {
+            "minimum": "0.30",
+            "maximum": "0.45"
+          },
+          "strategic_monitoring_range": {
+            "minimum": "0.40",
+            "maximum": "0.55"
+          },
+          "satellite_monitoring_range": {
+            "minimum": "0.10",
+            "maximum": "0.20"
+          },
+          "strategic_thesis_review_months": 3,
+          "swing_controls": {
+            "max_position_capital": null,
+            "max_loss": null,
+            "max_holding_days": null,
+            "stop_rule": null
+          },
+          "analysis_scope": "entire_portfolio",
+          "auto_liquidate_existing_holdings": false,
+          "automatic_rebalancing": false,
+          "audit_trail_required": true,
+          "thesis_required": true,
+          "entry_thesis_required": true,
+          "exit_invalidation_thesis_required": true,
+          "concentration_warning": "0.20",
+          "severe_concentration_warning": "0.30",
+          "environment": "research",
+          "production_trading": false,
+          "automated_trading": false,
+          "human_approval_required": true,
+          "new_purchase_allowlist": [
+            "AAPL",
+            "MSFT",
+            "SPY"
+          ],
+          "research_universe": [
+            "AAPL",
+            "AMZN",
+            "GOOG",
+            "GOOGL",
+            "META",
+            "MSFT",
+            "NVDA",
+            "TSLA"
+          ],
+          "long_only": true,
+          "buy_only": true,
+          "margin_allowed": false,
+          "options_allowed": false,
+          "futures_allowed": false,
+          "short_selling_allowed": false,
+          "leverage_allowed": false,
+          "fractional_orders_allowed": false,
+          "complex_orders_allowed": false,
+          "kill_switch_required": true,
+          "currency": "USD",
+          "agent_experimental_capital_limit": "160",
+          "max_daily_loss": null,
+          "max_experimental_loss": null,
+          "max_position_exposure": null,
+          "max_concentration": null,
+          "max_state_age_seconds": null,
+          "daily_loss_timezone": null,
+          "objective": "Long-term capital growth",
+          "holding_horizon": "5–10+ years",
+          "benchmark": "VOO / S&P 500",
+          "benchmark_comparison": "VOO",
+          "rebalance_cadence": "Rule/event driven, not automatic",
+          "review_cadence": "Weekly",
+          "research_review_cadence": "Daily",
+          "strategy_rules": null
+        },
+        "start_date": "2020-11-13",
+        "end_date": "2020-11-20",
+        "initial_capital": "100000",
+        "capital_mode": "STRATEGY_RESEARCH",
+        "benchmark": "VOO",
+        "benchmark_basis": "total_return",
+        "security_universe": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "AMZN",
+          "GOOGL",
+          "META",
+          "TSLA",
+          "PLTR",
+          "INTC"
+        ],
+        "universe_scope": "targeted",
+        "evaluation_frequency": "daily",
+        "execution": {
+          "timing": "next_session_close",
+          "commission_fixed": "0.10",
+          "commission_bps": "0",
+          "slippage_bps": "5",
+          "spread_bps": "2",
+          "fractional_shares": false,
+          "cash_rule": "no_borrowing_instant_simulated_settlement",
+          "session_rule": "supplied_exchange_closes",
+          "human_review": "SKIP",
+          "max_exposure": "1",
+          "max_position_value": null
+        },
+        "periods": [
+          {
+            "role": "development",
+            "start": "2020-11-05",
+            "end": "2020-11-12"
+          },
+          {
+            "role": "validation",
+            "start": "2020-11-13",
+            "end": "2020-11-20"
+          },
+          {
+            "role": "out_of_sample",
+            "start": "2020-11-23",
+            "end": "2020-11-30"
+          }
+        ],
+        "evaluated_role": "validation",
+        "data_source_metadata": {
+          "kind": "SYNTHETIC SOFTWARE ONLY",
+          "dividends": "NONE IN FIXTURE",
+          "corporate_actions": "NONE IN FIXTURE; complete synthetic action ledger"
+        },
+        "created_at": "2026-09-30T00:00:00Z",
+        "code_version": "lab-v0.1-source-sha256:e2ad202c6de191501e34bf9b1adb0d1b8b5ea370a6373ae00bf02c32811476fe",
+        "account_id": "backtest",
+        "annual_sessions": 252,
+        "annual_risk_free_rate": null,
+        "max_observation_age_seconds": 86400
+      },
+      "dataset": {
+        "dataset_id": "LAB-SYNTHETIC-NOT-MARKET-HISTORY-validation",
+        "version": "1",
+        "content_digest": "98c9525425f3b2a9127d9d837c803806712143a0bb2d0f1228d2e96723d25a7e",
+        "lineage": "SYNTHETIC-FORMULA-V1"
+      },
+      "purpose": "baseline"
+    },
+    {
+      "config": {
+        "schema_version": "backtest-config-v1",
+        "backtest_id": "lab-v1-SWING_TREND_MOMENTUM-STRATEGY_RESEARCH-out_of_sample",
+        "strategy": {
+          "strategy_id": "SWING_TREND_MOMENTUM",
+          "strategy_version": "1.0.0",
+          "strategy_domain": "swing",
+          "configuration": {
+            "max_research_age_seconds": 86400,
+            "min_evidence_sources": 1,
+            "allow_test_data": true,
+            "source_freshness": {
+              "market_max_age_hours": 24,
+              "news_max_age_hours": 24,
+              "retrieval_max_age_days": 7,
+              "financial_period_max_age_days": 150,
+              "valuation_max_age_days": 7,
+              "incomplete_retry_hours": 24,
+              "full_review_max_age_days": 90,
+              "aliases": {
+                "GOOG": "GOOGL"
+              },
+              "comparison_symbols": [
+                "AAPL",
+                "MSFT",
+                "NVDA",
+                "AMZN",
+                "GOOGL",
+                "META",
+                "TSLA"
+              ],
+              "allow_test_data": false
+            },
+            "valuation_decision": "UNSET",
+            "portfolio_fit_decision": "UNSET",
+            "concentration_ceiling": null,
+            "fixed_notional": null
+          },
+          "swing": {
+            "parameters_status": "UNSET",
+            "fast_period": 50,
+            "slow_period": 200,
+            "stop_atr_multiple": "2",
+            "profit_atr_multiple": null,
+            "max_holding_sessions": 20,
+            "max_holding_days": 30,
+            "risk_budget": null,
+            "max_notional": null
+          },
+          "created_at": "2026-09-30T00:00:00Z",
+          "authorization_reference": null,
+          "status": "BACKTEST",
+          "experiment": {
+            "hypothesis": "SWING_TREND_MOMENTUM",
+            "label": "EXPERIMENTAL_NOT_PRODUCTION",
+            "permitted_symbols": [
+              "AAPL",
+              "MSFT",
+              "NVDA",
+              "AMZN",
+              "GOOGL",
+              "META",
+              "TSLA",
+              "PLTR",
+              "INTC"
+            ],
+            "metric_rules": [],
+            "trend_period": 200,
+            "intermediate_period": 50,
+            "rsi_period": 14,
+            "rsi_lower": "50",
+            "rsi_upper": "75",
+            "volume_period": 20,
+            "require_volume": true,
+            "atr_period": 14,
+            "atr_stop_multiple": "2",
+            "max_holding_sessions": 20,
+            "max_holding_days": 30,
+            "parameters_approved_reference": null
+          }
+        },
+        "risk_policy": {
+          "version": "investment-policy-v4",
+          "policy_revision": "0.2",
+          "core_monitoring_range": {
+            "minimum": "0.30",
+            "maximum": "0.45"
+          },
+          "strategic_monitoring_range": {
+            "minimum": "0.40",
+            "maximum": "0.55"
+          },
+          "satellite_monitoring_range": {
+            "minimum": "0.10",
+            "maximum": "0.20"
+          },
+          "strategic_thesis_review_months": 3,
+          "swing_controls": {
+            "max_position_capital": null,
+            "max_loss": null,
+            "max_holding_days": null,
+            "stop_rule": null
+          },
+          "analysis_scope": "entire_portfolio",
+          "auto_liquidate_existing_holdings": false,
+          "automatic_rebalancing": false,
+          "audit_trail_required": true,
+          "thesis_required": true,
+          "entry_thesis_required": true,
+          "exit_invalidation_thesis_required": true,
+          "concentration_warning": "0.20",
+          "severe_concentration_warning": "0.30",
+          "environment": "research",
+          "production_trading": false,
+          "automated_trading": false,
+          "human_approval_required": true,
+          "new_purchase_allowlist": [
+            "AAPL",
+            "MSFT",
+            "SPY"
+          ],
+          "research_universe": [
+            "AAPL",
+            "AMZN",
+            "GOOG",
+            "GOOGL",
+            "META",
+            "MSFT",
+            "NVDA",
+            "TSLA"
+          ],
+          "long_only": true,
+          "buy_only": true,
+          "margin_allowed": false,
+          "options_allowed": false,
+          "futures_allowed": false,
+          "short_selling_allowed": false,
+          "leverage_allowed": false,
+          "fractional_orders_allowed": false,
+          "complex_orders_allowed": false,
+          "kill_switch_required": true,
+          "currency": "USD",
+          "agent_experimental_capital_limit": "160",
+          "max_daily_loss": null,
+          "max_experimental_loss": null,
+          "max_position_exposure": null,
+          "max_concentration": null,
+          "max_state_age_seconds": null,
+          "daily_loss_timezone": null,
+          "objective": "Long-term capital growth",
+          "holding_horizon": "5–10+ years",
+          "benchmark": "VOO / S&P 500",
+          "benchmark_comparison": "VOO",
+          "rebalance_cadence": "Rule/event driven, not automatic",
+          "review_cadence": "Weekly",
+          "research_review_cadence": "Daily",
+          "strategy_rules": null
+        },
+        "start_date": "2020-11-23",
+        "end_date": "2020-11-30",
+        "initial_capital": "100000",
+        "capital_mode": "STRATEGY_RESEARCH",
+        "benchmark": "VOO",
+        "benchmark_basis": "total_return",
+        "security_universe": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "AMZN",
+          "GOOGL",
+          "META",
+          "TSLA",
+          "PLTR",
+          "INTC"
+        ],
+        "universe_scope": "targeted",
+        "evaluation_frequency": "daily",
+        "execution": {
+          "timing": "next_session_close",
+          "commission_fixed": "0.10",
+          "commission_bps": "0",
+          "slippage_bps": "5",
+          "spread_bps": "2",
+          "fractional_shares": false,
+          "cash_rule": "no_borrowing_instant_simulated_settlement",
+          "session_rule": "supplied_exchange_closes",
+          "human_review": "SKIP",
+          "max_exposure": "1",
+          "max_position_value": null
+        },
+        "periods": [
+          {
+            "role": "development",
+            "start": "2020-11-05",
+            "end": "2020-11-12"
+          },
+          {
+            "role": "validation",
+            "start": "2020-11-13",
+            "end": "2020-11-20"
+          },
+          {
+            "role": "out_of_sample",
+            "start": "2020-11-23",
+            "end": "2020-11-30"
+          }
+        ],
+        "evaluated_role": "out_of_sample",
+        "data_source_metadata": {
+          "kind": "SYNTHETIC SOFTWARE ONLY",
+          "dividends": "NONE IN FIXTURE",
+          "corporate_actions": "NONE IN FIXTURE; complete synthetic action ledger"
+        },
+        "created_at": "2026-09-30T00:00:00Z",
+        "code_version": "lab-v0.1-source-sha256:e2ad202c6de191501e34bf9b1adb0d1b8b5ea370a6373ae00bf02c32811476fe",
+        "account_id": "backtest",
+        "annual_sessions": 252,
+        "annual_risk_free_rate": null,
+        "max_observation_age_seconds": 86400
+      },
+      "dataset": {
+        "dataset_id": "LAB-SYNTHETIC-NOT-MARKET-HISTORY-out_of_sample",
+        "version": "1",
+        "content_digest": "f485c2d7c41d3bc1917cb822572153bb6dd94b27aac270cb2df37690e4bac367",
+        "lineage": "SYNTHETIC-FORMULA-V1"
+      },
+      "purpose": "baseline"
+    },
+    {
+      "config": {
+        "schema_version": "backtest-config-v1",
+        "backtest_id": "lab-v1-SWING_TREND_MOMENTUM-EXPERIMENTAL-development",
+        "strategy": {
+          "strategy_id": "SWING_TREND_MOMENTUM",
+          "strategy_version": "1.0.0",
+          "strategy_domain": "swing",
+          "configuration": {
+            "max_research_age_seconds": 86400,
+            "min_evidence_sources": 1,
+            "allow_test_data": true,
+            "source_freshness": {
+              "market_max_age_hours": 24,
+              "news_max_age_hours": 24,
+              "retrieval_max_age_days": 7,
+              "financial_period_max_age_days": 150,
+              "valuation_max_age_days": 7,
+              "incomplete_retry_hours": 24,
+              "full_review_max_age_days": 90,
+              "aliases": {
+                "GOOG": "GOOGL"
+              },
+              "comparison_symbols": [
+                "AAPL",
+                "MSFT",
+                "NVDA",
+                "AMZN",
+                "GOOGL",
+                "META",
+                "TSLA"
+              ],
+              "allow_test_data": false
+            },
+            "valuation_decision": "UNSET",
+            "portfolio_fit_decision": "UNSET",
+            "concentration_ceiling": null,
+            "fixed_notional": null
+          },
+          "swing": {
+            "parameters_status": "UNSET",
+            "fast_period": 50,
+            "slow_period": 200,
+            "stop_atr_multiple": "2",
+            "profit_atr_multiple": null,
+            "max_holding_sessions": 20,
+            "max_holding_days": 30,
+            "risk_budget": null,
+            "max_notional": null
+          },
+          "created_at": "2026-09-30T00:00:00Z",
+          "authorization_reference": null,
+          "status": "BACKTEST",
+          "experiment": {
+            "hypothesis": "SWING_TREND_MOMENTUM",
+            "label": "EXPERIMENTAL_NOT_PRODUCTION",
+            "permitted_symbols": [
+              "AAPL",
+              "MSFT",
+              "NVDA",
+              "AMZN",
+              "GOOGL",
+              "META",
+              "TSLA",
+              "PLTR",
+              "INTC"
+            ],
+            "metric_rules": [],
+            "trend_period": 200,
+            "intermediate_period": 50,
+            "rsi_period": 14,
+            "rsi_lower": "50",
+            "rsi_upper": "75",
+            "volume_period": 20,
+            "require_volume": true,
+            "atr_period": 14,
+            "atr_stop_multiple": "2",
+            "max_holding_sessions": 20,
+            "max_holding_days": 30,
+            "parameters_approved_reference": null
+          }
+        },
+        "risk_policy": {
+          "version": "investment-policy-v4",
+          "policy_revision": "0.2",
+          "core_monitoring_range": {
+            "minimum": "0.30",
+            "maximum": "0.45"
+          },
+          "strategic_monitoring_range": {
+            "minimum": "0.40",
+            "maximum": "0.55"
+          },
+          "satellite_monitoring_range": {
+            "minimum": "0.10",
+            "maximum": "0.20"
+          },
+          "strategic_thesis_review_months": 3,
+          "swing_controls": {
+            "max_position_capital": null,
+            "max_loss": null,
+            "max_holding_days": null,
+            "stop_rule": null
+          },
+          "analysis_scope": "entire_portfolio",
+          "auto_liquidate_existing_holdings": false,
+          "automatic_rebalancing": false,
+          "audit_trail_required": true,
+          "thesis_required": true,
+          "entry_thesis_required": true,
+          "exit_invalidation_thesis_required": true,
+          "concentration_warning": "0.20",
+          "severe_concentration_warning": "0.30",
+          "environment": "research",
+          "production_trading": false,
+          "automated_trading": false,
+          "human_approval_required": true,
+          "new_purchase_allowlist": [
+            "AAPL",
+            "MSFT",
+            "SPY"
+          ],
+          "research_universe": [
+            "AAPL",
+            "AMZN",
+            "GOOG",
+            "GOOGL",
+            "META",
+            "MSFT",
+            "NVDA",
+            "TSLA"
+          ],
+          "long_only": true,
+          "buy_only": true,
+          "margin_allowed": false,
+          "options_allowed": false,
+          "futures_allowed": false,
+          "short_selling_allowed": false,
+          "leverage_allowed": false,
+          "fractional_orders_allowed": false,
+          "complex_orders_allowed": false,
+          "kill_switch_required": true,
+          "currency": "USD",
+          "agent_experimental_capital_limit": "160",
+          "max_daily_loss": null,
+          "max_experimental_loss": null,
+          "max_position_exposure": null,
+          "max_concentration": null,
+          "max_state_age_seconds": null,
+          "daily_loss_timezone": null,
+          "objective": "Long-term capital growth",
+          "holding_horizon": "5–10+ years",
+          "benchmark": "VOO / S&P 500",
+          "benchmark_comparison": "VOO",
+          "rebalance_cadence": "Rule/event driven, not automatic",
+          "review_cadence": "Weekly",
+          "research_review_cadence": "Daily",
+          "strategy_rules": null
+        },
+        "start_date": "2020-11-05",
+        "end_date": "2020-11-12",
+        "initial_capital": "160",
+        "capital_mode": "EXPERIMENTAL",
+        "benchmark": "VOO",
+        "benchmark_basis": "total_return",
+        "security_universe": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "AMZN",
+          "GOOGL",
+          "META",
+          "TSLA",
+          "PLTR",
+          "INTC"
+        ],
+        "universe_scope": "targeted",
+        "evaluation_frequency": "daily",
+        "execution": {
+          "timing": "next_session_close",
+          "commission_fixed": "0.10",
+          "commission_bps": "0",
+          "slippage_bps": "5",
+          "spread_bps": "2",
+          "fractional_shares": true,
+          "cash_rule": "no_borrowing_instant_simulated_settlement",
+          "session_rule": "supplied_exchange_closes",
+          "human_review": "SKIP",
+          "max_exposure": "1",
+          "max_position_value": null
+        },
+        "periods": [
+          {
+            "role": "development",
+            "start": "2020-11-05",
+            "end": "2020-11-12"
+          },
+          {
+            "role": "validation",
+            "start": "2020-11-13",
+            "end": "2020-11-20"
+          },
+          {
+            "role": "out_of_sample",
+            "start": "2020-11-23",
+            "end": "2020-11-30"
+          }
+        ],
+        "evaluated_role": "development",
+        "data_source_metadata": {
+          "kind": "SYNTHETIC SOFTWARE ONLY",
+          "dividends": "NONE IN FIXTURE",
+          "corporate_actions": "NONE IN FIXTURE; complete synthetic action ledger"
+        },
+        "created_at": "2026-09-30T00:00:00Z",
+        "code_version": "lab-v0.1-source-sha256:e2ad202c6de191501e34bf9b1adb0d1b8b5ea370a6373ae00bf02c32811476fe",
+        "account_id": "backtest",
+        "annual_sessions": 252,
+        "annual_risk_free_rate": null,
+        "max_observation_age_seconds": 86400
+      },
+      "dataset": {
+        "dataset_id": "LAB-SYNTHETIC-NOT-MARKET-HISTORY-development",
+        "version": "1",
+        "content_digest": "5f4afd17a7e50434eea34eb12c9b4ea19ce77f5e7bd973c60a18d0ddefd81885",
+        "lineage": "SYNTHETIC-FORMULA-V1"
+      },
+      "purpose": "baseline"
+    },
+    {
+      "config": {
+        "schema_version": "backtest-config-v1",
+        "backtest_id": "lab-v1-SWING_TREND_MOMENTUM-EXPERIMENTAL-validation",
+        "strategy": {
+          "strategy_id": "SWING_TREND_MOMENTUM",
+          "strategy_version": "1.0.0",
+          "strategy_domain": "swing",
+          "configuration": {
+            "max_research_age_seconds": 86400,
+            "min_evidence_sources": 1,
+            "allow_test_data": true,
+            "source_freshness": {
+              "market_max_age_hours": 24,
+              "news_max_age_hours": 24,
+              "retrieval_max_age_days": 7,
+              "financial_period_max_age_days": 150,
+              "valuation_max_age_days": 7,
+              "incomplete_retry_hours": 24,
+              "full_review_max_age_days": 90,
+              "aliases": {
+                "GOOG": "GOOGL"
+              },
+              "comparison_symbols": [
+                "AAPL",
+                "MSFT",
+                "NVDA",
+                "AMZN",
+                "GOOGL",
+                "META",
+                "TSLA"
+              ],
+              "allow_test_data": false
+            },
+            "valuation_decision": "UNSET",
+            "portfolio_fit_decision": "UNSET",
+            "concentration_ceiling": null,
+            "fixed_notional": null
+          },
+          "swing": {
+            "parameters_status": "UNSET",
+            "fast_period": 50,
+            "slow_period": 200,
+            "stop_atr_multiple": "2",
+            "profit_atr_multiple": null,
+            "max_holding_sessions": 20,
+            "max_holding_days": 30,
+            "risk_budget": null,
+            "max_notional": null
+          },
+          "created_at": "2026-09-30T00:00:00Z",
+          "authorization_reference": null,
+          "status": "BACKTEST",
+          "experiment": {
+            "hypothesis": "SWING_TREND_MOMENTUM",
+            "label": "EXPERIMENTAL_NOT_PRODUCTION",
+            "permitted_symbols": [
+              "AAPL",
+              "MSFT",
+              "NVDA",
+              "AMZN",
+              "GOOGL",
+              "META",
+              "TSLA",
+              "PLTR",
+              "INTC"
+            ],
+            "metric_rules": [],
+            "trend_period": 200,
+            "intermediate_period": 50,
+            "rsi_period": 14,
+            "rsi_lower": "50",
+            "rsi_upper": "75",
+            "volume_period": 20,
+            "require_volume": true,
+            "atr_period": 14,
+            "atr_stop_multiple": "2",
+            "max_holding_sessions": 20,
+            "max_holding_days": 30,
+            "parameters_approved_reference": null
+          }
+        },
+        "risk_policy": {
+          "version": "investment-policy-v4",
+          "policy_revision": "0.2",
+          "core_monitoring_range": {
+            "minimum": "0.30",
+            "maximum": "0.45"
+          },
+          "strategic_monitoring_range": {
+            "minimum": "0.40",
+            "maximum": "0.55"
+          },
+          "satellite_monitoring_range": {
+            "minimum": "0.10",
+            "maximum": "0.20"
+          },
+          "strategic_thesis_review_months": 3,
+          "swing_controls": {
+            "max_position_capital": null,
+            "max_loss": null,
+            "max_holding_days": null,
+            "stop_rule": null
+          },
+          "analysis_scope": "entire_portfolio",
+          "auto_liquidate_existing_holdings": false,
+          "automatic_rebalancing": false,
+          "audit_trail_required": true,
+          "thesis_required": true,
+          "entry_thesis_required": true,
+          "exit_invalidation_thesis_required": true,
+          "concentration_warning": "0.20",
+          "severe_concentration_warning": "0.30",
+          "environment": "research",
+          "production_trading": false,
+          "automated_trading": false,
+          "human_approval_required": true,
+          "new_purchase_allowlist": [
+            "AAPL",
+            "MSFT",
+            "SPY"
+          ],
+          "research_universe": [
+            "AAPL",
+            "AMZN",
+            "GOOG",
+            "GOOGL",
+            "META",
+            "MSFT",
+            "NVDA",
+            "TSLA"
+          ],
+          "long_only": true,
+          "buy_only": true,
+          "margin_allowed": false,
+          "options_allowed": false,
+          "futures_allowed": false,
+          "short_selling_allowed": false,
+          "leverage_allowed": false,
+          "fractional_orders_allowed": false,
+          "complex_orders_allowed": false,
+          "kill_switch_required": true,
+          "currency": "USD",
+          "agent_experimental_capital_limit": "160",
+          "max_daily_loss": null,
+          "max_experimental_loss": null,
+          "max_position_exposure": null,
+          "max_concentration": null,
+          "max_state_age_seconds": null,
+          "daily_loss_timezone": null,
+          "objective": "Long-term capital growth",
+          "holding_horizon": "5–10+ years",
+          "benchmark": "VOO / S&P 500",
+          "benchmark_comparison": "VOO",
+          "rebalance_cadence": "Rule/event driven, not automatic",
+          "review_cadence": "Weekly",
+          "research_review_cadence": "Daily",
+          "strategy_rules": null
+        },
+        "start_date": "2020-11-13",
+        "end_date": "2020-11-20",
+        "initial_capital": "160",
+        "capital_mode": "EXPERIMENTAL",
+        "benchmark": "VOO",
+        "benchmark_basis": "total_return",
+        "security_universe": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "AMZN",
+          "GOOGL",
+          "META",
+          "TSLA",
+          "PLTR",
+          "INTC"
+        ],
+        "universe_scope": "targeted",
+        "evaluation_frequency": "daily",
+        "execution": {
+          "timing": "next_session_close",
+          "commission_fixed": "0.10",
+          "commission_bps": "0",
+          "slippage_bps": "5",
+          "spread_bps": "2",
+          "fractional_shares": true,
+          "cash_rule": "no_borrowing_instant_simulated_settlement",
+          "session_rule": "supplied_exchange_closes",
+          "human_review": "SKIP",
+          "max_exposure": "1",
+          "max_position_value": null
+        },
+        "periods": [
+          {
+            "role": "development",
+            "start": "2020-11-05",
+            "end": "2020-11-12"
+          },
+          {
+            "role": "validation",
+            "start": "2020-11-13",
+            "end": "2020-11-20"
+          },
+          {
+            "role": "out_of_sample",
+            "start": "2020-11-23",
+            "end": "2020-11-30"
+          }
+        ],
+        "evaluated_role": "validation",
+        "data_source_metadata": {
+          "kind": "SYNTHETIC SOFTWARE ONLY",
+          "dividends": "NONE IN FIXTURE",
+          "corporate_actions": "NONE IN FIXTURE; complete synthetic action ledger"
+        },
+        "created_at": "2026-09-30T00:00:00Z",
+        "code_version": "lab-v0.1-source-sha256:e2ad202c6de191501e34bf9b1adb0d1b8b5ea370a6373ae00bf02c32811476fe",
+        "account_id": "backtest",
+        "annual_sessions": 252,
+        "annual_risk_free_rate": null,
+        "max_observation_age_seconds": 86400
+      },
+      "dataset": {
+        "dataset_id": "LAB-SYNTHETIC-NOT-MARKET-HISTORY-validation",
+        "version": "1",
+        "content_digest": "98c9525425f3b2a9127d9d837c803806712143a0bb2d0f1228d2e96723d25a7e",
+        "lineage": "SYNTHETIC-FORMULA-V1"
+      },
+      "purpose": "baseline"
+    },
+    {
+      "config": {
+        "schema_version": "backtest-config-v1",
+        "backtest_id": "lab-v1-SWING_TREND_MOMENTUM-EXPERIMENTAL-out_of_sample",
+        "strategy": {
+          "strategy_id": "SWING_TREND_MOMENTUM",
+          "strategy_version": "1.0.0",
+          "strategy_domain": "swing",
+          "configuration": {
+            "max_research_age_seconds": 86400,
+            "min_evidence_sources": 1,
+            "allow_test_data": true,
+            "source_freshness": {
+              "market_max_age_hours": 24,
+              "news_max_age_hours": 24,
+              "retrieval_max_age_days": 7,
+              "financial_period_max_age_days": 150,
+              "valuation_max_age_days": 7,
+              "incomplete_retry_hours": 24,
+              "full_review_max_age_days": 90,
+              "aliases": {
+                "GOOG": "GOOGL"
+              },
+              "comparison_symbols": [
+                "AAPL",
+                "MSFT",
+                "NVDA",
+                "AMZN",
+                "GOOGL",
+                "META",
+                "TSLA"
+              ],
+              "allow_test_data": false
+            },
+            "valuation_decision": "UNSET",
+            "portfolio_fit_decision": "UNSET",
+            "concentration_ceiling": null,
+            "fixed_notional": null
+          },
+          "swing": {
+            "parameters_status": "UNSET",
+            "fast_period": 50,
+            "slow_period": 200,
+            "stop_atr_multiple": "2",
+            "profit_atr_multiple": null,
+            "max_holding_sessions": 20,
+            "max_holding_days": 30,
+            "risk_budget": null,
+            "max_notional": null
+          },
+          "created_at": "2026-09-30T00:00:00Z",
+          "authorization_reference": null,
+          "status": "BACKTEST",
+          "experiment": {
+            "hypothesis": "SWING_TREND_MOMENTUM",
+            "label": "EXPERIMENTAL_NOT_PRODUCTION",
+            "permitted_symbols": [
+              "AAPL",
+              "MSFT",
+              "NVDA",
+              "AMZN",
+              "GOOGL",
+              "META",
+              "TSLA",
+              "PLTR",
+              "INTC"
+            ],
+            "metric_rules": [],
+            "trend_period": 200,
+            "intermediate_period": 50,
+            "rsi_period": 14,
+            "rsi_lower": "50",
+            "rsi_upper": "75",
+            "volume_period": 20,
+            "require_volume": true,
+            "atr_period": 14,
+            "atr_stop_multiple": "2",
+            "max_holding_sessions": 20,
+            "max_holding_days": 30,
+            "parameters_approved_reference": null
+          }
+        },
+        "risk_policy": {
+          "version": "investment-policy-v4",
+          "policy_revision": "0.2",
+          "core_monitoring_range": {
+            "minimum": "0.30",
+            "maximum": "0.45"
+          },
+          "strategic_monitoring_range": {
+            "minimum": "0.40",
+            "maximum": "0.55"
+          },
+          "satellite_monitoring_range": {
+            "minimum": "0.10",
+            "maximum": "0.20"
+          },
+          "strategic_thesis_review_months": 3,
+          "swing_controls": {
+            "max_position_capital": null,
+            "max_loss": null,
+            "max_holding_days": null,
+            "stop_rule": null
+          },
+          "analysis_scope": "entire_portfolio",
+          "auto_liquidate_existing_holdings": false,
+          "automatic_rebalancing": false,
+          "audit_trail_required": true,
+          "thesis_required": true,
+          "entry_thesis_required": true,
+          "exit_invalidation_thesis_required": true,
+          "concentration_warning": "0.20",
+          "severe_concentration_warning": "0.30",
+          "environment": "research",
+          "production_trading": false,
+          "automated_trading": false,
+          "human_approval_required": true,
+          "new_purchase_allowlist": [
+            "AAPL",
+            "MSFT",
+            "SPY"
+          ],
+          "research_universe": [
+            "AAPL",
+            "AMZN",
+            "GOOG",
+            "GOOGL",
+            "META",
+            "MSFT",
+            "NVDA",
+            "TSLA"
+          ],
+          "long_only": true,
+          "buy_only": true,
+          "margin_allowed": false,
+          "options_allowed": false,
+          "futures_allowed": false,
+          "short_selling_allowed": false,
+          "leverage_allowed": false,
+          "fractional_orders_allowed": false,
+          "complex_orders_allowed": false,
+          "kill_switch_required": true,
+          "currency": "USD",
+          "agent_experimental_capital_limit": "160",
+          "max_daily_loss": null,
+          "max_experimental_loss": null,
+          "max_position_exposure": null,
+          "max_concentration": null,
+          "max_state_age_seconds": null,
+          "daily_loss_timezone": null,
+          "objective": "Long-term capital growth",
+          "holding_horizon": "5–10+ years",
+          "benchmark": "VOO / S&P 500",
+          "benchmark_comparison": "VOO",
+          "rebalance_cadence": "Rule/event driven, not automatic",
+          "review_cadence": "Weekly",
+          "research_review_cadence": "Daily",
+          "strategy_rules": null
+        },
+        "start_date": "2020-11-23",
+        "end_date": "2020-11-30",
+        "initial_capital": "160",
+        "capital_mode": "EXPERIMENTAL",
+        "benchmark": "VOO",
+        "benchmark_basis": "total_return",
+        "security_universe": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "AMZN",
+          "GOOGL",
+          "META",
+          "TSLA",
+          "PLTR",
+          "INTC"
+        ],
+        "universe_scope": "targeted",
+        "evaluation_frequency": "daily",
+        "execution": {
+          "timing": "next_session_close",
+          "commission_fixed": "0.10",
+          "commission_bps": "0",
+          "slippage_bps": "5",
+          "spread_bps": "2",
+          "fractional_shares": true,
+          "cash_rule": "no_borrowing_instant_simulated_settlement",
+          "session_rule": "supplied_exchange_closes",
+          "human_review": "SKIP",
+          "max_exposure": "1",
+          "max_position_value": null
+        },
+        "periods": [
+          {
+            "role": "development",
+            "start": "2020-11-05",
+            "end": "2020-11-12"
+          },
+          {
+            "role": "validation",
+            "start": "2020-11-13",
+            "end": "2020-11-20"
+          },
+          {
+            "role": "out_of_sample",
+            "start": "2020-11-23",
+            "end": "2020-11-30"
+          }
+        ],
+        "evaluated_role": "out_of_sample",
+        "data_source_metadata": {
+          "kind": "SYNTHETIC SOFTWARE ONLY",
+          "dividends": "NONE IN FIXTURE",
+          "corporate_actions": "NONE IN FIXTURE; complete synthetic action ledger"
+        },
+        "created_at": "2026-09-30T00:00:00Z",
+        "code_version": "lab-v0.1-source-sha256:e2ad202c6de191501e34bf9b1adb0d1b8b5ea370a6373ae00bf02c32811476fe",
+        "account_id": "backtest",
+        "annual_sessions": 252,
+        "annual_risk_free_rate": null,
+        "max_observation_age_seconds": 86400
+      },
+      "dataset": {
+        "dataset_id": "LAB-SYNTHETIC-NOT-MARKET-HISTORY-out_of_sample",
+        "version": "1",
+        "content_digest": "f485c2d7c41d3bc1917cb822572153bb6dd94b27aac270cb2df37690e4bac367",
+        "lineage": "SYNTHETIC-FORMULA-V1"
+      },
+      "purpose": "baseline"
+    },
+    {
+      "config": {
+        "schema_version": "backtest-config-v1",
+        "backtest_id": "lab-v1-SWING_TREND_MOMENTUM-1.0.0-sensitivity.sma",
+        "strategy": {
+          "strategy_id": "SWING_TREND_MOMENTUM",
+          "strategy_version": "1.0.0-sensitivity.sma",
+          "strategy_domain": "swing",
+          "configuration": {
+            "max_research_age_seconds": 86400,
+            "min_evidence_sources": 1,
+            "allow_test_data": true,
+            "source_freshness": {
+              "market_max_age_hours": 24,
+              "news_max_age_hours": 24,
+              "retrieval_max_age_days": 7,
+              "financial_period_max_age_days": 150,
+              "valuation_max_age_days": 7,
+              "incomplete_retry_hours": 24,
+              "full_review_max_age_days": 90,
+              "aliases": {
+                "GOOG": "GOOGL"
+              },
+              "comparison_symbols": [
+                "AAPL",
+                "MSFT",
+                "NVDA",
+                "AMZN",
+                "GOOGL",
+                "META",
+                "TSLA"
+              ],
+              "allow_test_data": false
+            },
+            "valuation_decision": "UNSET",
+            "portfolio_fit_decision": "UNSET",
+            "concentration_ceiling": null,
+            "fixed_notional": null
+          },
+          "swing": {
+            "parameters_status": "UNSET",
+            "fast_period": 50,
+            "slow_period": 200,
+            "stop_atr_multiple": "2",
+            "profit_atr_multiple": null,
+            "max_holding_sessions": 20,
+            "max_holding_days": 30,
+            "risk_budget": null,
+            "max_notional": null
+          },
+          "created_at": "2026-09-30T00:00:00Z",
+          "authorization_reference": null,
+          "status": "BACKTEST",
+          "experiment": {
+            "hypothesis": "SWING_TREND_MOMENTUM",
+            "label": "EXPERIMENTAL_NOT_PRODUCTION",
+            "permitted_symbols": [
+              "AAPL",
+              "MSFT",
+              "NVDA",
+              "AMZN",
+              "GOOGL",
+              "META",
+              "TSLA",
+              "PLTR",
+              "INTC"
+            ],
+            "metric_rules": [],
+            "trend_period": 200,
+            "intermediate_period": 55,
+            "rsi_period": 14,
+            "rsi_lower": "50",
+            "rsi_upper": "75",
+            "volume_period": 20,
+            "require_volume": true,
+            "atr_period": 14,
+            "atr_stop_multiple": "2",
+            "max_holding_sessions": 20,
+            "max_holding_days": 30,
+            "parameters_approved_reference": null
+          }
+        },
+        "risk_policy": {
+          "version": "investment-policy-v4",
+          "policy_revision": "0.2",
+          "core_monitoring_range": {
+            "minimum": "0.30",
+            "maximum": "0.45"
+          },
+          "strategic_monitoring_range": {
+            "minimum": "0.40",
+            "maximum": "0.55"
+          },
+          "satellite_monitoring_range": {
+            "minimum": "0.10",
+            "maximum": "0.20"
+          },
+          "strategic_thesis_review_months": 3,
+          "swing_controls": {
+            "max_position_capital": null,
+            "max_loss": null,
+            "max_holding_days": null,
+            "stop_rule": null
+          },
+          "analysis_scope": "entire_portfolio",
+          "auto_liquidate_existing_holdings": false,
+          "automatic_rebalancing": false,
+          "audit_trail_required": true,
+          "thesis_required": true,
+          "entry_thesis_required": true,
+          "exit_invalidation_thesis_required": true,
+          "concentration_warning": "0.20",
+          "severe_concentration_warning": "0.30",
+          "environment": "research",
+          "production_trading": false,
+          "automated_trading": false,
+          "human_approval_required": true,
+          "new_purchase_allowlist": [
+            "AAPL",
+            "MSFT",
+            "SPY"
+          ],
+          "research_universe": [
+            "AAPL",
+            "AMZN",
+            "GOOG",
+            "GOOGL",
+            "META",
+            "MSFT",
+            "NVDA",
+            "TSLA"
+          ],
+          "long_only": true,
+          "buy_only": true,
+          "margin_allowed": false,
+          "options_allowed": false,
+          "futures_allowed": false,
+          "short_selling_allowed": false,
+          "leverage_allowed": false,
+          "fractional_orders_allowed": false,
+          "complex_orders_allowed": false,
+          "kill_switch_required": true,
+          "currency": "USD",
+          "agent_experimental_capital_limit": "160",
+          "max_daily_loss": null,
+          "max_experimental_loss": null,
+          "max_position_exposure": null,
+          "max_concentration": null,
+          "max_state_age_seconds": null,
+          "daily_loss_timezone": null,
+          "objective": "Long-term capital growth",
+          "holding_horizon": "5–10+ years",
+          "benchmark": "VOO / S&P 500",
+          "benchmark_comparison": "VOO",
+          "rebalance_cadence": "Rule/event driven, not automatic",
+          "review_cadence": "Weekly",
+          "research_review_cadence": "Daily",
+          "strategy_rules": null
+        },
+        "start_date": "2020-11-05",
+        "end_date": "2020-11-12",
+        "initial_capital": "100000",
+        "capital_mode": "STRATEGY_RESEARCH",
+        "benchmark": "VOO",
+        "benchmark_basis": "total_return",
+        "security_universe": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "AMZN",
+          "GOOGL",
+          "META",
+          "TSLA",
+          "PLTR",
+          "INTC"
+        ],
+        "universe_scope": "targeted",
+        "evaluation_frequency": "daily",
+        "execution": {
+          "timing": "next_session_close",
+          "commission_fixed": "0.10",
+          "commission_bps": "0",
+          "slippage_bps": "5",
+          "spread_bps": "2",
+          "fractional_shares": false,
+          "cash_rule": "no_borrowing_instant_simulated_settlement",
+          "session_rule": "supplied_exchange_closes",
+          "human_review": "SKIP",
+          "max_exposure": "1",
+          "max_position_value": null
+        },
+        "periods": [
+          {
+            "role": "development",
+            "start": "2020-11-05",
+            "end": "2020-11-12"
+          },
+          {
+            "role": "validation",
+            "start": "2020-11-13",
+            "end": "2020-11-20"
+          },
+          {
+            "role": "out_of_sample",
+            "start": "2020-11-23",
+            "end": "2020-11-30"
+          }
+        ],
+        "evaluated_role": "development",
+        "data_source_metadata": {
+          "kind": "SYNTHETIC SOFTWARE ONLY",
+          "dividends": "NONE IN FIXTURE",
+          "corporate_actions": "NONE IN FIXTURE; complete synthetic action ledger"
+        },
+        "created_at": "2026-09-30T00:00:00Z",
+        "code_version": "lab-v0.1-source-sha256:e2ad202c6de191501e34bf9b1adb0d1b8b5ea370a6373ae00bf02c32811476fe",
+        "account_id": "backtest",
+        "annual_sessions": 252,
+        "annual_risk_free_rate": null,
+        "max_observation_age_seconds": 86400
+      },
+      "dataset": {
+        "dataset_id": "LAB-SYNTHETIC-NOT-MARKET-HISTORY-development",
+        "version": "1",
+        "content_digest": "5f4afd17a7e50434eea34eb12c9b4ea19ce77f5e7bd973c60a18d0ddefd81885",
+        "lineage": "SYNTHETIC-FORMULA-V1"
+      },
+      "purpose": "sensitivity"
+    },
+    {
+      "config": {
+        "schema_version": "backtest-config-v1",
+        "backtest_id": "lab-v1-SWING_TREND_MOMENTUM-1.0.0-sensitivity.rsi",
+        "strategy": {
+          "strategy_id": "SWING_TREND_MOMENTUM",
+          "strategy_version": "1.0.0-sensitivity.rsi",
+          "strategy_domain": "swing",
+          "configuration": {
+            "max_research_age_seconds": 86400,
+            "min_evidence_sources": 1,
+            "allow_test_data": true,
+            "source_freshness": {
+              "market_max_age_hours": 24,
+              "news_max_age_hours": 24,
+              "retrieval_max_age_days": 7,
+              "financial_period_max_age_days": 150,
+              "valuation_max_age_days": 7,
+              "incomplete_retry_hours": 24,
+              "full_review_max_age_days": 90,
+              "aliases": {
+                "GOOG": "GOOGL"
+              },
+              "comparison_symbols": [
+                "AAPL",
+                "MSFT",
+                "NVDA",
+                "AMZN",
+                "GOOGL",
+                "META",
+                "TSLA"
+              ],
+              "allow_test_data": false
+            },
+            "valuation_decision": "UNSET",
+            "portfolio_fit_decision": "UNSET",
+            "concentration_ceiling": null,
+            "fixed_notional": null
+          },
+          "swing": {
+            "parameters_status": "UNSET",
+            "fast_period": 50,
+            "slow_period": 200,
+            "stop_atr_multiple": "2",
+            "profit_atr_multiple": null,
+            "max_holding_sessions": 20,
+            "max_holding_days": 30,
+            "risk_budget": null,
+            "max_notional": null
+          },
+          "created_at": "2026-09-30T00:00:00Z",
+          "authorization_reference": null,
+          "status": "BACKTEST",
+          "experiment": {
+            "hypothesis": "SWING_TREND_MOMENTUM",
+            "label": "EXPERIMENTAL_NOT_PRODUCTION",
+            "permitted_symbols": [
+              "AAPL",
+              "MSFT",
+              "NVDA",
+              "AMZN",
+              "GOOGL",
+              "META",
+              "TSLA",
+              "PLTR",
+              "INTC"
+            ],
+            "metric_rules": [],
+            "trend_period": 200,
+            "intermediate_period": 50,
+            "rsi_period": 14,
+            "rsi_lower": "52",
+            "rsi_upper": "75",
+            "volume_period": 20,
+            "require_volume": true,
+            "atr_period": 14,
+            "atr_stop_multiple": "2",
+            "max_holding_sessions": 20,
+            "max_holding_days": 30,
+            "parameters_approved_reference": null
+          }
+        },
+        "risk_policy": {
+          "version": "investment-policy-v4",
+          "policy_revision": "0.2",
+          "core_monitoring_range": {
+            "minimum": "0.30",
+            "maximum": "0.45"
+          },
+          "strategic_monitoring_range": {
+            "minimum": "0.40",
+            "maximum": "0.55"
+          },
+          "satellite_monitoring_range": {
+            "minimum": "0.10",
+            "maximum": "0.20"
+          },
+          "strategic_thesis_review_months": 3,
+          "swing_controls": {
+            "max_position_capital": null,
+            "max_loss": null,
+            "max_holding_days": null,
+            "stop_rule": null
+          },
+          "analysis_scope": "entire_portfolio",
+          "auto_liquidate_existing_holdings": false,
+          "automatic_rebalancing": false,
+          "audit_trail_required": true,
+          "thesis_required": true,
+          "entry_thesis_required": true,
+          "exit_invalidation_thesis_required": true,
+          "concentration_warning": "0.20",
+          "severe_concentration_warning": "0.30",
+          "environment": "research",
+          "production_trading": false,
+          "automated_trading": false,
+          "human_approval_required": true,
+          "new_purchase_allowlist": [
+            "AAPL",
+            "MSFT",
+            "SPY"
+          ],
+          "research_universe": [
+            "AAPL",
+            "AMZN",
+            "GOOG",
+            "GOOGL",
+            "META",
+            "MSFT",
+            "NVDA",
+            "TSLA"
+          ],
+          "long_only": true,
+          "buy_only": true,
+          "margin_allowed": false,
+          "options_allowed": false,
+          "futures_allowed": false,
+          "short_selling_allowed": false,
+          "leverage_allowed": false,
+          "fractional_orders_allowed": false,
+          "complex_orders_allowed": false,
+          "kill_switch_required": true,
+          "currency": "USD",
+          "agent_experimental_capital_limit": "160",
+          "max_daily_loss": null,
+          "max_experimental_loss": null,
+          "max_position_exposure": null,
+          "max_concentration": null,
+          "max_state_age_seconds": null,
+          "daily_loss_timezone": null,
+          "objective": "Long-term capital growth",
+          "holding_horizon": "5–10+ years",
+          "benchmark": "VOO / S&P 500",
+          "benchmark_comparison": "VOO",
+          "rebalance_cadence": "Rule/event driven, not automatic",
+          "review_cadence": "Weekly",
+          "research_review_cadence": "Daily",
+          "strategy_rules": null
+        },
+        "start_date": "2020-11-05",
+        "end_date": "2020-11-12",
+        "initial_capital": "100000",
+        "capital_mode": "STRATEGY_RESEARCH",
+        "benchmark": "VOO",
+        "benchmark_basis": "total_return",
+        "security_universe": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "AMZN",
+          "GOOGL",
+          "META",
+          "TSLA",
+          "PLTR",
+          "INTC"
+        ],
+        "universe_scope": "targeted",
+        "evaluation_frequency": "daily",
+        "execution": {
+          "timing": "next_session_close",
+          "commission_fixed": "0.10",
+          "commission_bps": "0",
+          "slippage_bps": "5",
+          "spread_bps": "2",
+          "fractional_shares": false,
+          "cash_rule": "no_borrowing_instant_simulated_settlement",
+          "session_rule": "supplied_exchange_closes",
+          "human_review": "SKIP",
+          "max_exposure": "1",
+          "max_position_value": null
+        },
+        "periods": [
+          {
+            "role": "development",
+            "start": "2020-11-05",
+            "end": "2020-11-12"
+          },
+          {
+            "role": "validation",
+            "start": "2020-11-13",
+            "end": "2020-11-20"
+          },
+          {
+            "role": "out_of_sample",
+            "start": "2020-11-23",
+            "end": "2020-11-30"
+          }
+        ],
+        "evaluated_role": "development",
+        "data_source_metadata": {
+          "kind": "SYNTHETIC SOFTWARE ONLY",
+          "dividends": "NONE IN FIXTURE",
+          "corporate_actions": "NONE IN FIXTURE; complete synthetic action ledger"
+        },
+        "created_at": "2026-09-30T00:00:00Z",
+        "code_version": "lab-v0.1-source-sha256:e2ad202c6de191501e34bf9b1adb0d1b8b5ea370a6373ae00bf02c32811476fe",
+        "account_id": "backtest",
+        "annual_sessions": 252,
+        "annual_risk_free_rate": null,
+        "max_observation_age_seconds": 86400
+      },
+      "dataset": {
+        "dataset_id": "LAB-SYNTHETIC-NOT-MARKET-HISTORY-development",
+        "version": "1",
+        "content_digest": "5f4afd17a7e50434eea34eb12c9b4ea19ce77f5e7bd973c60a18d0ddefd81885",
+        "lineage": "SYNTHETIC-FORMULA-V1"
+      },
+      "purpose": "sensitivity"
+    },
+    {
+      "config": {
+        "schema_version": "backtest-config-v1",
+        "backtest_id": "lab-v1-SWING_TREND_MOMENTUM-1.0.0-sensitivity.atr",
+        "strategy": {
+          "strategy_id": "SWING_TREND_MOMENTUM",
+          "strategy_version": "1.0.0-sensitivity.atr",
+          "strategy_domain": "swing",
+          "configuration": {
+            "max_research_age_seconds": 86400,
+            "min_evidence_sources": 1,
+            "allow_test_data": true,
+            "source_freshness": {
+              "market_max_age_hours": 24,
+              "news_max_age_hours": 24,
+              "retrieval_max_age_days": 7,
+              "financial_period_max_age_days": 150,
+              "valuation_max_age_days": 7,
+              "incomplete_retry_hours": 24,
+              "full_review_max_age_days": 90,
+              "aliases": {
+                "GOOG": "GOOGL"
+              },
+              "comparison_symbols": [
+                "AAPL",
+                "MSFT",
+                "NVDA",
+                "AMZN",
+                "GOOGL",
+                "META",
+                "TSLA"
+              ],
+              "allow_test_data": false
+            },
+            "valuation_decision": "UNSET",
+            "portfolio_fit_decision": "UNSET",
+            "concentration_ceiling": null,
+            "fixed_notional": null
+          },
+          "swing": {
+            "parameters_status": "UNSET",
+            "fast_period": 50,
+            "slow_period": 200,
+            "stop_atr_multiple": "2",
+            "profit_atr_multiple": null,
+            "max_holding_sessions": 20,
+            "max_holding_days": 30,
+            "risk_budget": null,
+            "max_notional": null
+          },
+          "created_at": "2026-09-30T00:00:00Z",
+          "authorization_reference": null,
+          "status": "BACKTEST",
+          "experiment": {
+            "hypothesis": "SWING_TREND_MOMENTUM",
+            "label": "EXPERIMENTAL_NOT_PRODUCTION",
+            "permitted_symbols": [
+              "AAPL",
+              "MSFT",
+              "NVDA",
+              "AMZN",
+              "GOOGL",
+              "META",
+              "TSLA",
+              "PLTR",
+              "INTC"
+            ],
+            "metric_rules": [],
+            "trend_period": 200,
+            "intermediate_period": 50,
+            "rsi_period": 14,
+            "rsi_lower": "50",
+            "rsi_upper": "75",
+            "volume_period": 20,
+            "require_volume": true,
+            "atr_period": 14,
+            "atr_stop_multiple": "2.2",
+            "max_holding_sessions": 20,
+            "max_holding_days": 30,
+            "parameters_approved_reference": null
+          }
+        },
+        "risk_policy": {
+          "version": "investment-policy-v4",
+          "policy_revision": "0.2",
+          "core_monitoring_range": {
+            "minimum": "0.30",
+            "maximum": "0.45"
+          },
+          "strategic_monitoring_range": {
+            "minimum": "0.40",
+            "maximum": "0.55"
+          },
+          "satellite_monitoring_range": {
+            "minimum": "0.10",
+            "maximum": "0.20"
+          },
+          "strategic_thesis_review_months": 3,
+          "swing_controls": {
+            "max_position_capital": null,
+            "max_loss": null,
+            "max_holding_days": null,
+            "stop_rule": null
+          },
+          "analysis_scope": "entire_portfolio",
+          "auto_liquidate_existing_holdings": false,
+          "automatic_rebalancing": false,
+          "audit_trail_required": true,
+          "thesis_required": true,
+          "entry_thesis_required": true,
+          "exit_invalidation_thesis_required": true,
+          "concentration_warning": "0.20",
+          "severe_concentration_warning": "0.30",
+          "environment": "research",
+          "production_trading": false,
+          "automated_trading": false,
+          "human_approval_required": true,
+          "new_purchase_allowlist": [
+            "AAPL",
+            "MSFT",
+            "SPY"
+          ],
+          "research_universe": [
+            "AAPL",
+            "AMZN",
+            "GOOG",
+            "GOOGL",
+            "META",
+            "MSFT",
+            "NVDA",
+            "TSLA"
+          ],
+          "long_only": true,
+          "buy_only": true,
+          "margin_allowed": false,
+          "options_allowed": false,
+          "futures_allowed": false,
+          "short_selling_allowed": false,
+          "leverage_allowed": false,
+          "fractional_orders_allowed": false,
+          "complex_orders_allowed": false,
+          "kill_switch_required": true,
+          "currency": "USD",
+          "agent_experimental_capital_limit": "160",
+          "max_daily_loss": null,
+          "max_experimental_loss": null,
+          "max_position_exposure": null,
+          "max_concentration": null,
+          "max_state_age_seconds": null,
+          "daily_loss_timezone": null,
+          "objective": "Long-term capital growth",
+          "holding_horizon": "5–10+ years",
+          "benchmark": "VOO / S&P 500",
+          "benchmark_comparison": "VOO",
+          "rebalance_cadence": "Rule/event driven, not automatic",
+          "review_cadence": "Weekly",
+          "research_review_cadence": "Daily",
+          "strategy_rules": null
+        },
+        "start_date": "2020-11-05",
+        "end_date": "2020-11-12",
+        "initial_capital": "100000",
+        "capital_mode": "STRATEGY_RESEARCH",
+        "benchmark": "VOO",
+        "benchmark_basis": "total_return",
+        "security_universe": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "AMZN",
+          "GOOGL",
+          "META",
+          "TSLA",
+          "PLTR",
+          "INTC"
+        ],
+        "universe_scope": "targeted",
+        "evaluation_frequency": "daily",
+        "execution": {
+          "timing": "next_session_close",
+          "commission_fixed": "0.10",
+          "commission_bps": "0",
+          "slippage_bps": "5",
+          "spread_bps": "2",
+          "fractional_shares": false,
+          "cash_rule": "no_borrowing_instant_simulated_settlement",
+          "session_rule": "supplied_exchange_closes",
+          "human_review": "SKIP",
+          "max_exposure": "1",
+          "max_position_value": null
+        },
+        "periods": [
+          {
+            "role": "development",
+            "start": "2020-11-05",
+            "end": "2020-11-12"
+          },
+          {
+            "role": "validation",
+            "start": "2020-11-13",
+            "end": "2020-11-20"
+          },
+          {
+            "role": "out_of_sample",
+            "start": "2020-11-23",
+            "end": "2020-11-30"
+          }
+        ],
+        "evaluated_role": "development",
+        "data_source_metadata": {
+          "kind": "SYNTHETIC SOFTWARE ONLY",
+          "dividends": "NONE IN FIXTURE",
+          "corporate_actions": "NONE IN FIXTURE; complete synthetic action ledger"
+        },
+        "created_at": "2026-09-30T00:00:00Z",
+        "code_version": "lab-v0.1-source-sha256:e2ad202c6de191501e34bf9b1adb0d1b8b5ea370a6373ae00bf02c32811476fe",
+        "account_id": "backtest",
+        "annual_sessions": 252,
+        "annual_risk_free_rate": null,
+        "max_observation_age_seconds": 86400
+      },
+      "dataset": {
+        "dataset_id": "LAB-SYNTHETIC-NOT-MARKET-HISTORY-development",
+        "version": "1",
+        "content_digest": "5f4afd17a7e50434eea34eb12c9b4ea19ce77f5e7bd973c60a18d0ddefd81885",
+        "lineage": "SYNTHETIC-FORMULA-V1"
+      },
+      "purpose": "sensitivity"
+    }
+  ],
+  "validation_gates": {
+    "max_drawdown": null,
+    "minimum_observations": null,
+    "minimum_trades": null,
+    "max_turnover": null,
+    "acceptable_data_quality": null,
+    "zero_lookahead_violations": true,
+    "zero_policy_bypasses": true
+  },
+  "human_review_required": true,
+  "optimization_allowed": false
+}

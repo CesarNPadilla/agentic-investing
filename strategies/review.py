@@ -2,7 +2,7 @@
 
 from risk.evaluator import digest
 from risk.workflow import ProposalReview, review_proposal
-from strategies.engine import LongTermStrategy, SwingStrategy
+from strategies.dispatch import strategy_for
 
 
 def review_strategy_proposal(
@@ -33,9 +33,7 @@ def review_strategy_proposal(
         strategy_evidence_verified=True,
     )
     reasons = list(base.reasons)
-    implementation = (
-        LongTermStrategy() if version.strategy_domain == "long_term" else SwingStrategy()
-    )
+    implementation = strategy_for(version)
     replay = implementation.evaluate(
         opportunity,
         assessment,

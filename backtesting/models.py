@@ -152,3 +152,4 @@ class StrategyValidationReport(Record):
     forward_paper_sessions: Literal[0] = 0
     required_forward_paper_sessions: Literal[60] = 60
     execution_available: Literal[False] = False
+    human_review_required: Literal[True] = True

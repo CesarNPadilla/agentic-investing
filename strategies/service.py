@@ -2,7 +2,7 @@
 
 from portfolio.intelligence import experimental_utilization
 from risk.evaluator import digest
-from strategies.engine import LongTermStrategy, SwingStrategy
+from strategies.dispatch import strategy_for
 from strategies.opportunities import OpportunityEngine
 from strategies.review import review_strategy_proposal
 
@@ -36,7 +36,7 @@ class OpportunityStrategyService:
             now=now,
             domain=version.strategy_domain,
         )
-        strategy = LongTermStrategy() if version.strategy_domain == "long_term" else SwingStrategy()
+        strategy = strategy_for(version)
         evaluation = strategy.evaluate(
             opportunity,
             assessment,

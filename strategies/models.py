@@ -3,12 +3,13 @@
 from decimal import Decimal
 from typing import Literal
 
-from pydantic import AwareDatetime, Field
+from pydantic import AwareDatetime, Field, model_serializer, model_validator
 
 from agents.long_term.models import Freshness, ResearchConfig, ValuationContext
 from market_data.models import Symbol
 from portfolio.state import Identifier, Nonnegative, Record
 from risk.proposals import TradeProposal
+from strategies.experiment_models import DimensionCheck, ExperimentParameters
 
 Domain = Literal["long_term", "swing"]
 OpportunityType = Literal[
@@ -58,6 +59,26 @@ class StrategyVersion(Record):
     created_at: AwareDatetime
     authorization_reference: Identifier | None = None
     status: Literal["DEVELOPMENT", "BACKTEST", "PAPER", "RETIRED"] = "DEVELOPMENT"
+    experiment: ExperimentParameters | None = None
+
+    @model_validator(mode="after")
+    def experiment_identity(self):
+        named = {"LONG_TERM_QUALITY_GROWTH": "long_term", "SWING_TREND_MOMENTUM": "swing"}
+        if (self.strategy_id in named or self.experiment is not None) and (
+            self.experiment is None
+            or self.strategy_id != self.experiment.hypothesis
+            or self.strategy_domain != named.get(self.strategy_id)
+            or self.status not in {"BACKTEST", "RETIRED"}
+        ):
+            raise ValueError("Named research experiments require matching BACKTEST definitions")
+        return self
+
+    @model_serializer(mode="wrap")
+    def compatible_dump(self, handler):
+        value = handler(self)
+        if self.experiment is None:
+            value.pop("experiment", None)
+        return value
 
 
 class InvestmentOpportunity(Record):
@@ -106,3 +127,11 @@ class StrategyEvaluation(Record):
     reasons: tuple[str, ...]
     proposal: TradeProposal | None = None
     execution_available: Literal[False] = False
+    diagnostics: tuple[DimensionCheck, ...] = ()
+
+    @model_serializer(mode="wrap")
+    def compatible_dump(self, handler):
+        value = handler(self)
+        if not self.diagnostics:
+            value.pop("diagnostics", None)
+        return value

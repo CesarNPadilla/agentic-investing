@@ -12,6 +12,10 @@ The earlier `C:\AI\agentic-investing` copy is no longer the working location.
 
 ## Implemented
 
+- Strategy Experiment Lab v0.1: two immutable quality-growth/trend-momentum hypotheses,
+  preregistered multi-period studies, durable OOS exposure receipts and limited sensitivity.
+  Both synthetic baselines are NOT_ELIGIBLE; no optimization or trading. See the
+  [human review](docs/strategy-experiment-review.md) and [runbook](docs/experiment-lab-runbook.md).
 - Backtesting & Strategy Validation v0.1: offline point-in-time replay of shared strategies,
   deterministic risk review, next-session accounting and immutable experiments. See the
   [runbook](docs/backtesting-runbook.md), [ADR-018](docs/adr-018.md) and

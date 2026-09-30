@@ -1,5 +1,17 @@
 # Phase 1 architecture
 
+## Strategy Experiment Lab v0.1 (ADR-019)
+
+Research -> Thesis -> Opportunity -> Strategy -> Backtest -> Validation -> Human Review
+-> Future Paper Eligibility. The two initial BACKTEST v1.0.0 hypotheses use a shared
+strategy dispatch path for current research, historical replay and independent risk review.
+Typed experiment parameters retain visible gates; missing owner thresholds remain UNSET.
+`experiment_lab/` adds immutable preregistration, serialized OOS exposure reservations,
+fixed development-only sensitivity, deterministic replay checks and human review artifacts.
+Existing ExperimentRegistry stores full runs. No broker, API or scheduler is added.
+See [ADR-019](adr-019.md), [runbook](experiment-lab-runbook.md) and
+[initial review](strategy-experiment-review.md). Both synthetic baselines are NOT_ELIGIBLE.
+
 ## Backtesting & Strategy Validation Engine v0.1 (ADR-018)
 
 Research -> Thesis -> Opportunity -> Strategy -> Backtest -> Validation -> Paper Eligibility.
