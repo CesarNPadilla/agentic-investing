@@ -1,5 +1,10 @@
 # Technical, portfolio, risk, and research-report workflow
 
+Long-Term Research Agent v0.1 is an additional internal service with persistent assessments,
+thesis history and targeted daily/quarterly cycles. See its [runbook](long-term-research-runbook.md).
+The HTTP report workflow below is retained unchanged; it does not automatically invoke the
+new agent or expose private assessments.
+
 For strategy evaluation after research, see [Phase 3 backtesting and paper trading](backtesting-paper-trading.md).
 
 The existing `POST /research/{symbol}` now accepts four optional evidence sections:

@@ -34,6 +34,16 @@ calculations, automated tests, and a reviewed deployment boundary. No trading.
 
 ## Phase 2 - Portfolio intelligence
 
+Long-Term Research Agent v0.1 (ADR-016) adds persistent evidence-linked assessments,
+reviewed KPI assumption evaluation, separate thesis direction/lifecycle, multi-method
+reported valuation, observation-linked portfolio context, and targeted daily/quarterly
+research with durable run audits and event receipts. It exposes internal latest/history
+and unranked Mag7 comparison interfaces. No broker or strategy capability is added.
+Next research task: a provenance-validated SEC/IR fundamental adapter with amendment,
+period/unit and company-KPI tests, followed by reviewed company research plans. Live news,
+reference coverage, authenticated API exposure and operational worker/migration work remain.
+See [research runbook](long-term-research-runbook.md).
+
 Incremental foundation review (ADR-015): startup JSON policy configuration, evidence-preserving
 analysis updates and authenticated thesis revision history are implemented. See the
 [current gap analysis](phase2-policy-gap-analysis.md). Next: a provenance-preserving complete

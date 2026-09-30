@@ -1,7 +1,59 @@
 # Codex handoff: Agentic Investing
 
-Status date: 2026-09-29. Current work: Investment Policy + Portfolio Intelligence,
-including approved Investment Policy v0.2 (ADR-014) and portfolio/capital separation (ADR-013).
+Status date: 2026-09-29. Latest work: Long-Term Research Agent v0.1 (ADR-016),
+building on approved Investment Policy v0.2 and Portfolio Intelligence (ADRs 013–015).
+
+## Latest: Long-Term Research Agent v0.1
+
+Implemented in `agents/long_term/`: models, provider interfaces/statement bridge, pure
+assumption and portfolio analysis, valuation interface, SQL storage, and service. Existing
+ResearchOrchestrator/API, broker adapters, risk controls and policy defaults are unchanged.
+Read [ADR-016](adr-016.md), [gap analysis](long-term-research-gap-analysis.md),
+[runbook](long-term-research-runbook.md), [schema](long-term-research.schema.json), and
+[completion report](long-term-research-completion.md) before extending it.
+
+`LongTermResearchAgent.run`, `daily_cycle`, `quarterly_review`, `compare` are trusted internal
+Python entry points. `ResearchStore.initialize` bootstraps additive v1 assessment, head,
+run and completed-event tables. Assessment/thesis-review/event/completed-audit persistence
+is atomic with optimistic revision conflict detection. STARTED audits precede provider calls;
+FAILED records sanitize exception details. Crash-abandoned STARTED runs need investigation.
+Latest/history readers and existing thesis history provide dashboard foundations; no new
+HTTP route or installed scheduler is introduced. Scope authorization must precede API exposure.
+
+Universe = configured policy universe plus actual holdings from a persisted observation ID.
+GOOG/GOOGL research is canonicalized without merging real holdings or thesis revisions.
+ResearchPlan is reviewed local configuration, never news instructions. Metric assumptions
+use explicit unit/basis/period; incompatible periods and unknown inputs fail closed.
+Direction states are separate from old thesis lifecycle; no BUY/SELL decisions exist.
+Current thesis text can be updated from the reviewed plan while retaining original owner
+rationale, human notes and all revisions. Omitted plans reuse the last assessment's plan.
+
+News relevance requests review only. Completed-event receipts avoid repeated full research
+after restart. Daily cycles poll quotes/news and research new events, due reviews, changed
+plans or missing baselines; incomplete assessments retry at configured intervals. Explicit
+quarterly reviews refresh full inputs and retain metric/assumption changes. Cost basis is
+context only. STRONGER is not BUY and WEAKER is not SELL. No broker capability is injected.
+
+Default source/sample checks reject synthetic research evidence. Tests opt in explicitly.
+No new live adapter is configured: missing providers yield insufficient data. Statement
+bridge trust defaults false. Source reliability is adapter-attested; production provenance
+still needs validation. Valuation has its own 7-day default publication freshness, distinct
+from reported financial-period freshness. Defaults are research heuristics, never unset
+risk-policy controls. ETF look-through and diversification effects remain unknown.
+
+Verification: 311 tests passed, including 29 new long-term cases; repository Ruff lint and
+new-file formatting passed. Existing Starlette/httpx warning remains. Synthetic fixtures,
+temporary SQLite and local checks only. No credential file, private broker payload or log
+was read; no broker/network/order action, deployment or commit was performed.
+
+Recommended next research task: implement a provenance-validated SEC/IR adapter with tests
+for amendments, fiscal periods, units and company KPIs, then supply reviewed company plans.
+Other outstanding work: live news/reference inputs, authenticated scope-aware API exposure,
+worker installation/leases, PostgreSQL migrations/concurrency/restore validation, and the
+previous complete-ledger reconciliation task. Production trading stays disabled.
+
+The sections below retain the earlier foundation history; their historical test counts and
+recommended-next-task paragraphs are superseded by this latest section where applicable.
 
 ## Safety boundary
 

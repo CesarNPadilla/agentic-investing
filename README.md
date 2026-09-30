@@ -12,6 +12,12 @@ The earlier `C:\AI\agentic-investing` copy is no longer the working location.
 
 ## Implemented
 
+- Long-Term Research Agent v0.1: persistent sourced assessments, reviewed thesis assumptions,
+  extensible company metrics, reported valuation methods, portfolio/concentration context,
+  and targeted daily/quarterly review workflows. Internal services only; no trade signals,
+  broker execution or new paid provider requirement. See the
+  [research runbook](docs/long-term-research-runbook.md) and [ADR-016](docs/adr-016.md).
+
 - Human-approved trade proposals, deterministic risk checks, separate agent/human
   credentials, persistent kill switch, audit events, idempotent synthetic execution,
   and ledger reconciliation. See [Phase 4 workflow](docs/human-approved-trading.md).

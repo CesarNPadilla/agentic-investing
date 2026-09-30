@@ -1,0 +1,1237 @@
+{
+  "$defs": {
+    "Article": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "headline": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Headline",
+          "type": "string"
+        },
+        "url": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Url",
+          "type": "string"
+        },
+        "publisher": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Publisher",
+          "type": "string"
+        },
+        "published_at": {
+          "format": "date-time",
+          "title": "Published At",
+          "type": "string"
+        },
+        "symbols": {
+          "items": {
+            "pattern": "^[A-Z][A-Z0-9.\\-]{0,14}$",
+            "type": "string"
+          },
+          "maxItems": 100,
+          "minItems": 1,
+          "title": "Symbols",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "headline",
+        "url",
+        "publisher",
+        "published_at",
+        "symbols"
+      ],
+      "title": "Article",
+      "type": "object"
+    },
+    "Assumption": {
+      "additionalProperties": false,
+      "description": "Reviewed configuration, never populated from publisher instructions.",
+      "properties": {
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "metric": {
+          "minLength": 1,
+          "title": "Metric",
+          "type": "string"
+        },
+        "unit": {
+          "minLength": 1,
+          "title": "Unit",
+          "type": "string"
+        },
+        "basis": {
+          "enum": [
+            "quarter",
+            "annual",
+            "ttm",
+            "point_in_time",
+            "forward"
+          ],
+          "title": "Basis",
+          "type": "string"
+        },
+        "operator": {
+          "enum": [
+            "ge",
+            "le"
+          ],
+          "title": "Operator",
+          "type": "string"
+        },
+        "threshold": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Threshold"
+        },
+        "invalidates_when_false": {
+          "default": false,
+          "title": "Invalidates When False",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "metric",
+        "unit",
+        "basis",
+        "operator",
+        "threshold"
+      ],
+      "title": "Assumption",
+      "type": "object"
+    },
+    "Catalyst": {
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "category": {
+          "enum": [
+            "earnings",
+            "product",
+            "regulatory",
+            "corporate_action",
+            "other"
+          ],
+          "title": "Category",
+          "type": "string"
+        },
+        "event_at": {
+          "format": "date-time",
+          "title": "Event At",
+          "type": "string"
+        },
+        "evidence_id": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "certainty": {
+          "default": "estimated",
+          "enum": [
+            "confirmed",
+            "estimated"
+          ],
+          "title": "Certainty",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "category",
+        "event_at",
+        "evidence_id"
+      ],
+      "title": "Catalyst",
+      "type": "object"
+    },
+    "Claim": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "evidence_references": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence References",
+          "type": "array"
+        },
+        "kind": {
+          "default": "interpretation",
+          "enum": [
+            "fact",
+            "interpretation"
+          ],
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text",
+        "evidence_references"
+      ],
+      "title": "Claim",
+      "type": "object"
+    },
+    "Freshness": {
+      "additionalProperties": false,
+      "properties": {
+        "state": {
+          "enum": [
+            "CURRENT",
+            "LATEST_REPORTED",
+            "HISTORICAL",
+            "STALE",
+            "UNAVAILABLE"
+          ],
+          "title": "State",
+          "type": "string"
+        },
+        "as_of": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "As Of"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "state"
+      ],
+      "title": "Freshness",
+      "type": "object"
+    },
+    "FundamentalData": {
+      "additionalProperties": false,
+      "properties": {
+        "symbol": {
+          "pattern": "^[A-Z][A-Z0-9.\\-]{0,14}$",
+          "title": "Symbol",
+          "type": "string"
+        },
+        "retrieved_at": {
+          "format": "date-time",
+          "title": "Retrieved At",
+          "type": "string"
+        },
+        "sources": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Source"
+          },
+          "title": "Sources",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Metric"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "claims": {
+          "additionalProperties": {
+            "items": {
+              "$ref": "#/$defs/Claim"
+            },
+            "type": "array"
+          },
+          "propertyNames": {
+            "enum": [
+              "business_summary",
+              "investment_thesis",
+              "positive_drivers",
+              "negative_drivers",
+              "catalysts",
+              "risks",
+              "invalidation_conditions",
+              "financial_health",
+              "growth_context",
+              "profitability_context",
+              "competitive_position",
+              "ai_exposure",
+              "cash_generation"
+            ]
+          },
+          "title": "Claims",
+          "type": "object"
+        }
+      },
+      "required": [
+        "symbol",
+        "retrieved_at"
+      ],
+      "title": "FundamentalData",
+      "type": "object"
+    },
+    "Metric": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Value"
+        },
+        "unit": {
+          "minLength": 1,
+          "title": "Unit",
+          "type": "string"
+        },
+        "source_id": {
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "period_start": {
+          "format": "date",
+          "title": "Period Start",
+          "type": "string"
+        },
+        "period_end": {
+          "format": "date",
+          "title": "Period End",
+          "type": "string"
+        },
+        "basis": {
+          "enum": [
+            "quarter",
+            "annual",
+            "ttm",
+            "point_in_time",
+            "forward"
+          ],
+          "title": "Basis",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "unit",
+        "source_id",
+        "period_start",
+        "period_end",
+        "basis"
+      ],
+      "title": "Metric",
+      "type": "object"
+    },
+    "NewsEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "symbol": {
+          "pattern": "^[A-Z][A-Z0-9.\\-]{0,14}$",
+          "title": "Symbol",
+          "type": "string"
+        },
+        "source": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Source",
+          "type": "string"
+        },
+        "retrieved_at": {
+          "format": "date-time",
+          "title": "Retrieved At",
+          "type": "string"
+        },
+        "window_start": {
+          "format": "date-time",
+          "title": "Window Start",
+          "type": "string"
+        },
+        "is_sample": {
+          "default": false,
+          "title": "Is Sample",
+          "type": "boolean"
+        },
+        "articles": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Article"
+          },
+          "maxItems": 200,
+          "title": "Articles",
+          "type": "array"
+        },
+        "catalysts": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Catalyst"
+          },
+          "maxItems": 100,
+          "title": "Catalysts",
+          "type": "array"
+        }
+      },
+      "required": [
+        "symbol",
+        "source",
+        "retrieved_at",
+        "window_start"
+      ],
+      "title": "NewsEvidence",
+      "type": "object"
+    },
+    "PortfolioContext": {
+      "additionalProperties": false,
+      "properties": {
+        "observation_id": {
+          "title": "Observation Id",
+          "type": "string"
+        },
+        "as_of": {
+          "format": "date-time",
+          "title": "As Of",
+          "type": "string"
+        },
+        "actual_symbols": {
+          "items": {
+            "pattern": "^[A-Z][A-Z0-9.\\-]{0,14}$",
+            "type": "string"
+          },
+          "title": "Actual Symbols",
+          "type": "array"
+        },
+        "current_allocation": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Current Allocation"
+        },
+        "current_market_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Current Market Value"
+        },
+        "cost_basis": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cost Basis"
+        },
+        "unrealized_pnl": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unrealized Pnl"
+        },
+        "classifications": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Classifications",
+          "type": "array"
+        },
+        "concentration_flags": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Concentration Flags",
+          "type": "array"
+        },
+        "data_gaps": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Data Gaps",
+          "type": "array"
+        },
+        "portfolio_overlap": {
+          "default": "Direct holdings only; ETF look-through unknown",
+          "title": "Portfolio Overlap",
+          "type": "string"
+        },
+        "diversification_impact": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Diversification Impact"
+        }
+      },
+      "required": [
+        "observation_id",
+        "as_of",
+        "actual_symbols"
+      ],
+      "title": "PortfolioContext",
+      "type": "object"
+    },
+    "Quote": {
+      "additionalProperties": false,
+      "properties": {
+        "symbol": {
+          "pattern": "^[A-Z][A-Z0-9.\\-]{0,14}$",
+          "title": "Symbol",
+          "type": "string"
+        },
+        "price": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Price"
+        },
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency",
+          "type": "string"
+        },
+        "as_of": {
+          "format": "date-time",
+          "title": "As Of",
+          "type": "string"
+        },
+        "source": {
+          "title": "Source",
+          "type": "string"
+        },
+        "is_sample": {
+          "title": "Is Sample",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "symbol",
+        "price",
+        "currency",
+        "as_of",
+        "source",
+        "is_sample"
+      ],
+      "title": "Quote",
+      "type": "object"
+    },
+    "ResearchPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "minLength": 1,
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "symbol": {
+          "pattern": "^[A-Z][A-Z0-9.\\-]{0,14}$",
+          "title": "Symbol",
+          "type": "string"
+        },
+        "reviewed_by": {
+          "minLength": 1,
+          "title": "Reviewed By",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "thesis": {
+          "minLength": 1,
+          "title": "Thesis",
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "$ref": "#/$defs/Assumption"
+          },
+          "minItems": 1,
+          "title": "Assumptions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "plan_id",
+        "symbol",
+        "reviewed_by",
+        "reviewed_at",
+        "thesis",
+        "assumptions"
+      ],
+      "title": "ResearchPlan",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "symbol": {
+          "pattern": "^[A-Z][A-Z0-9.\\-]{0,14}$",
+          "title": "Symbol",
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "title": "Source",
+          "type": "string"
+        },
+        "source_type": {
+          "enum": [
+            "sec",
+            "investor_relations",
+            "earnings_release",
+            "market_data",
+            "news",
+            "other"
+          ],
+          "title": "Source Type",
+          "type": "string"
+        },
+        "published_at": {
+          "format": "date-time",
+          "title": "Published At",
+          "type": "string"
+        },
+        "retrieved_at": {
+          "format": "date-time",
+          "title": "Retrieved At",
+          "type": "string"
+        },
+        "period_start": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Period Start"
+        },
+        "period_end": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Period End"
+        },
+        "relevant_claim": {
+          "minLength": 1,
+          "title": "Relevant Claim",
+          "type": "string"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Url"
+        },
+        "reliable": {
+          "default": false,
+          "title": "Reliable",
+          "type": "boolean"
+        },
+        "is_sample": {
+          "default": false,
+          "title": "Is Sample",
+          "type": "boolean"
+        },
+        "historical": {
+          "default": false,
+          "title": "Historical",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "source_id",
+        "symbol",
+        "source",
+        "source_type",
+        "published_at",
+        "retrieved_at",
+        "relevant_claim"
+      ],
+      "title": "Source",
+      "type": "object"
+    },
+    "ValuationContext": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "default": "INSUFFICIENT_DATA",
+          "enum": [
+            "AVAILABLE",
+            "INSUFFICIENT_DATA"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "methods": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Metric"
+          },
+          "title": "Methods",
+          "type": "array"
+        },
+        "conclusions": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "title": "Conclusions",
+          "type": "array"
+        }
+      },
+      "title": "ValuationContext",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "long-term-research-v1",
+      "default": "long-term-research-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "assessment_id": {
+      "title": "Assessment Id",
+      "type": "string"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "scope_id": {
+      "title": "Scope Id",
+      "type": "string"
+    },
+    "symbol": {
+      "pattern": "^[A-Z][A-Z0-9.\\-]{0,14}$",
+      "title": "Symbol",
+      "type": "string"
+    },
+    "timestamp": {
+      "format": "date-time",
+      "title": "Timestamp",
+      "type": "string"
+    },
+    "research_horizon": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Research Horizon"
+    },
+    "portfolio_role": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Portfolio Role",
+      "type": "array"
+    },
+    "thesis_reference": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Thesis Reference",
+      "type": "array"
+    },
+    "previous_assessment_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Previous Assessment Id"
+    },
+    "current_price": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Current Price"
+    },
+    "price_currency": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Price Currency"
+    },
+    "market_data_timestamp": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Market Data Timestamp"
+    },
+    "fundamental_data_timestamp": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Fundamental Data Timestamp"
+    },
+    "business_summary": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Claim"
+      },
+      "title": "Business Summary",
+      "type": "array"
+    },
+    "investment_thesis": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Investment Thesis"
+    },
+    "thesis_status": {
+      "default": "INSUFFICIENT_DATA",
+      "enum": [
+        "STRONGER",
+        "UNCHANGED",
+        "WEAKER",
+        "UNDER_REVIEW",
+        "INVALIDATED",
+        "INSUFFICIENT_DATA"
+      ],
+      "title": "Thesis Status",
+      "type": "string"
+    },
+    "thesis_changes": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Thesis Changes",
+      "type": "array"
+    },
+    "positive_drivers": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Claim"
+      },
+      "title": "Positive Drivers",
+      "type": "array"
+    },
+    "negative_drivers": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Claim"
+      },
+      "title": "Negative Drivers",
+      "type": "array"
+    },
+    "catalysts": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Claim"
+      },
+      "title": "Catalysts",
+      "type": "array"
+    },
+    "risks": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Claim"
+      },
+      "title": "Risks",
+      "type": "array"
+    },
+    "invalidation_conditions": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Invalidation Conditions",
+      "type": "array"
+    },
+    "valuation_context": {
+      "$ref": "#/$defs/ValuationContext",
+      "default": {
+        "status": "INSUFFICIENT_DATA",
+        "methods": [],
+        "conclusions": []
+      }
+    },
+    "financial_health": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Claim"
+      },
+      "title": "Financial Health",
+      "type": "array"
+    },
+    "growth_context": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Claim"
+      },
+      "title": "Growth Context",
+      "type": "array"
+    },
+    "profitability_context": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Claim"
+      },
+      "title": "Profitability Context",
+      "type": "array"
+    },
+    "competitive_position": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Claim"
+      },
+      "title": "Competitive Position",
+      "type": "array"
+    },
+    "ai_exposure": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Claim"
+      },
+      "title": "Ai Exposure",
+      "type": "array"
+    },
+    "cash_generation": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Claim"
+      },
+      "title": "Cash Generation",
+      "type": "array"
+    },
+    "portfolio_fit": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/PortfolioContext"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "concentration_impact": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Concentration Impact",
+      "type": "array"
+    },
+    "relevant_news": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/NewsEvidence"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "data_sources": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Source"
+      },
+      "title": "Data Sources",
+      "type": "array"
+    },
+    "data_quality": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Freshness"
+      },
+      "title": "Data Quality",
+      "type": "object"
+    },
+    "missing_data": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Missing Data",
+      "type": "array"
+    },
+    "uncertainty": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Uncertainty",
+      "type": "array"
+    },
+    "agent_summary": {
+      "title": "Agent Summary",
+      "type": "string"
+    },
+    "metrics": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Metric"
+      },
+      "title": "Metrics",
+      "type": "array"
+    },
+    "assumption_results": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "title": "Assumption Results",
+      "type": "object"
+    },
+    "plan": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ResearchPlan"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "quote": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Quote"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "fundamental_data": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/FundamentalData"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "reference_data": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reference Data"
+    },
+    "review_kind": {
+      "enum": [
+        "baseline",
+        "targeted",
+        "quarterly"
+      ],
+      "title": "Review Kind",
+      "type": "string"
+    },
+    "execution_available": {
+      "const": false,
+      "default": false,
+      "title": "Execution Available",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "run_id",
+    "scope_id",
+    "symbol",
+    "timestamp",
+    "research_horizon",
+    "agent_summary",
+    "review_kind"
+  ],
+  "title": "ResearchAssessment",
+  "type": "object"
+}

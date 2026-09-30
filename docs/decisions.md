@@ -19,6 +19,7 @@ Recorded 2026-09-28. ADR-001 through ADR-007 carry forward the accepted architec
 | [ADR-013](adr-013.md) | Separate holdings, research universe, purchase allowlist and experimental capital; read-only reconciliation and position theses | Implemented; broker evidence gaps explicitly retained |
 | [ADR-014](adr-014.md) | Investment Policy v0.2: thesis-led research, sleeve monitoring, isolated strategy interfaces and nonexecuting risk reviews | Implemented; no execution authorization |
 | [ADR-015](adr-015.md) | Startup policy loading, incremental immutable analysis evidence and authenticated thesis revision history | Implemented; no broker changes |
+| [ADR-016](adr-016.md) | Evidence-grounded long-term research, atomic assessment/thesis audit and targeted reviews | Research-only v0.1; no execution capability |
 
 ADR-005 now includes deterministic hypothetical investment-policy checks and portfolio
 intelligence; no production execution is enabled. ADR-006 preserves separate read-source

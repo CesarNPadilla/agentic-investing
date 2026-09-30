@@ -1,5 +1,18 @@
 # Phase 1 architecture
 
+## Long-Term Research Agent v0.1
+
+Research Data -> `agents.long_term.service.LongTermResearchAgent` -> ResearchAssessment
+-> revisioned Thesis Engine -> Portfolio Intelligence. Existing stored Portfolio Intelligence
+also supplies allocation and concentration context to research. This path stops at research;
+it does not connect to strategies, proposals, risk execution or brokers.
+
+The existing ResearchOrchestrator and HTTP report schema remain backward compatible.
+New provider-neutral KPI/source/claim contracts, valuation interface, atomic SQLAlchemy
+storage and daily/quarterly callable workflows are internal services. Reviewed assumptions
+drive thesis direction; external news only requests review. See [ADR-016](adr-016.md),
+[gap analysis](long-term-research-gap-analysis.md), and [runbook](long-term-research-runbook.md).
+
 ## Investment Policy + Portfolio Intelligence extension
 
 Complete normalized opening/closing state -> portfolio reconciliation -> metrics ->

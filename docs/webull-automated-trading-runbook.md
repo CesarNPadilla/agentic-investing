@@ -1,6 +1,14 @@
 
 # Webull Automated Trading Runbook
 
+## Long-term research boundary (2026-09-29)
+
+The new Long-Term Research Agent consumes stored portfolio observations and read-only
+data providers. It never invokes Webull, loads broker credentials, or submits, modifies,
+cancels, previews or simulates production orders. Use the
+[research-only runbook](long-term-research-runbook.md) for this phase. Historical order
+walkthroughs below are not authorization to perform order actions for research.
+
 Status: API access is configured externally, and sandbox connectivity was verified by
 the account owner on 2026-09-28. Credential values have not been read or shared here.
 Sandbox test-order and production read-only CLIs are available; no live order execution is implemented.

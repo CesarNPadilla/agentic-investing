@@ -1,5 +1,17 @@
 # Verification - 2026-09-28
 
+## Long-Term Research Agent v0.1 — 2026-09-29
+
+- Full suite: 311 passed, including 29 new long-term research cases.
+- Repository Ruff lint passed; all eight new Python files passed formatting checks.
+- Coverage includes provider/source/freshness validation, research transitions, portfolio
+  context, cost-basis independence, news review/deduplication, quarterly cycles, atomic
+  thesis rollback, issuer aliases and the absence of execution capabilities.
+- Existing Starlette/httpx deprecation warning remains. No dependencies changed.
+- Temporary SQLite and synthetic test data only. No broker, live provider, credential,
+  production order, deployment or commit action occurred. PostgreSQL operational validation
+  remains outstanding. See [completion report](long-term-research-completion.md).
+
 Active source: C:/Users/cesar/OneDrive/AI/agentic-investing
 Environment: C:/Users/cesar/.codex/venvs/agentic-investing (Python 3.14.7)
 
