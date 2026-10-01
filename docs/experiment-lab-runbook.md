@@ -3,6 +3,8 @@
 The lab defines hypotheses and produces evidence for human review. It does not issue
 investment recommendations, optimize parameters, submit orders or start forward paper trading.
 
+The v0.6 [exploratory registry](examples/exploratory-retrospective-v06/registry.json) and [manifest](examples/exploratory-retrospective-v06/manifest.json) pin the unchanged v1.0.0 definitions and an independent `EXPLORATORY_RETROSPECTIVE` result digest. They do not alter the original synthetic lab registry or grant qualifying/paper status. See [classification](research-evidence-classification.md) and [review 006](historical-evidence-review-006.md).
+
 ## Definitions
 
 `experiment_lab.definitions.initial_definitions()` returns exactly:

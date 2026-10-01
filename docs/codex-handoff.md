@@ -1,5 +1,9 @@
 # Codex handoff: Agentic Investing
 
+## Latest: v0.6 exploratory retrospective sandbox (2026-10-01)
+
+Read [review 006](historical-evidence-review-006.md), the [sandbox runbook](exploratory-research-sandbox.md), [swing analysis](exploratory-swing-analysis-v1.md), and [long-term readiness](exploratory-long-term-readiness-v1.md). The immutable full v0.6 result is under local `AppData/Local/AgenticInvesting/exploratory-retrospective-v06/runs/exploratory-retrospective-v06-swing-v1-locked/`; repository examples contain the manifest and compact summary. Current-vintage 2025 swing normalized return was +1.03% against a nonqualifying VOO adjusted-all proxy +18.20%, with 127 sides, 55 re-entries and 12.54× turnover. The $160 feasibility replay is separate. Long-term had no run. Both v1.0.0 definitions are unchanged; 2026 OOS is sealed; qualifying historical validation blocked; both strategies NOT_ELIGIBLE; forward paper 0/60; paper/production execution disabled. Stop after v0.6 for human review; do not implement v1.1.0 or optimize yet.
+
 ## Latest: Historical Evidence Qualification v0.5 (2026-10-01)
 
 Read [review 005](historical-evidence-review-005.md),

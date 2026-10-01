@@ -198,7 +198,8 @@ def simulate(dataset: HistoricalResearchDataset, plan: HistoricalResearchPlan, p
     )
     by_key = {(b.symbol, b.session_close): b for b in dataset.bars}
     cash, positions, pending, trades, curve = capital, {}, {}, [], []
-    fees_paid, turnover = ZERO, ZERO
+    signals, skipped_orders = [], []
+    fees_paid, turnover, estimated_friction = ZERO, ZERO, ZERO
     peak = capital
     first_voo = by_key["VOO", selected[0]].close
     held_sessions = {}
@@ -223,6 +224,10 @@ def simulate(dataset: HistoricalResearchDataset, plan: HistoricalResearchPlan, p
                 quantity = min(quantity,
                                (remaining_sleeve / price).to_integral_value(rounding=ROUND_FLOOR))
             if quantity <= 0:
+                skipped_orders.append({"symbol": symbol, "side": side,
+                                       "signal": selected[index - 1].isoformat(),
+                                       "fill_session": session.isoformat(),
+                                       "reason": "INSUFFICIENT_WHOLE_SHARE_CAPITAL"})
                 continue
             cost = quantity * price
             if side == "buy":
@@ -235,6 +240,8 @@ def simulate(dataset: HistoricalResearchDataset, plan: HistoricalResearchPlan, p
                 del positions[symbol]
                 held_sessions.pop(symbol, None)
             fees_paid += plan.rules.commission
+            estimated_friction += (abs(price - marks[symbol]) * quantity
+                                   + plan.rules.commission)
             turnover += cost / capital
             trades.append({"symbol": symbol, "side": side, "quantity": str(quantity),
                            "signal": selected[index - 1].isoformat(),
@@ -243,11 +250,14 @@ def simulate(dataset: HistoricalResearchDataset, plan: HistoricalResearchPlan, p
         pending = {}
         for symbol in positions:
             held_sessions[symbol] += 1
-        equity = cash + sum((p["quantity"] * marks[s] for s, p in positions.items()), ZERO)
+        market_value = sum((p["quantity"] * marks[s] for s, p in positions.items()), ZERO)
+        equity = cash + market_value
         peak = max(peak, equity)
         curve.append({"session": session.isoformat(), "equity": str(equity),
                       "drawdown": str(1 - equity / peak),
                       "position_count": len(positions),
+                      "cash": str(cash), "market_value": str(market_value),
+                      "exposure": str(market_value / equity) if equity else None,
                       "deployed_entry_notional": str(sum(
                           (p["quantity"] * p["entry"] for p in positions.values()), ZERO
                       )),
@@ -276,6 +286,19 @@ def simulate(dataset: HistoricalResearchDataset, plan: HistoricalResearchPlan, p
                                          held["stop"] if held else None, boundary)
             if side:
                 pending[symbol] = (side, reason, stop)
+                technical = None
+                if strategy == SWING_ID:
+                    technical = {
+                        "sma_fast": str(_mean([b.close for b in history[-plan.rules.swing_fast_sessions:]])),
+                        "sma_slow": str(_mean([b.close for b in history[-plan.rules.swing_slow_sessions:]])),
+                        "rsi": str(_rsi([b.close for b in history], plan.rules.swing_rsi_sessions)),
+                        "volume": str(history[-1].volume),
+                        "prior_volume_mean": str(_mean([b.volume for b in history[
+                            -plan.rules.swing_volume_sessions - 1:-1]])),
+                        "atr": str(_atr(history, plan.rules.swing_atr_sessions)),
+                    }
+                signals.append({"symbol": symbol, "side": side, "reason": reason,
+                                "session": session.isoformat(), "technical": technical})
     final_equity = Decimal(curve[-1]["equity"])
     benchmark_return = Decimal(curve[-1]["benchmark_equity"]) / capital - 1
     metrics = {"observations": len(selected), "number_of_trades": len(trades),
@@ -286,12 +309,14 @@ def simulate(dataset: HistoricalResearchDataset, plan: HistoricalResearchPlan, p
                "excess_return": str(final_equity / capital - 1 - benchmark_return),
                "maximum_drawdown": str(max(Decimal(p["drawdown"]) for p in curve)),
                "turnover": str(turnover), "fees": str(fees_paid),
+               "estimated_execution_friction": str(estimated_friction),
                "ending_cash": str(cash), "cash_utilization": str(1 - cash / final_equity),
                "maximum_simultaneous_positions": max(
                    (point["position_count"] for point in curve), default=0),
                }
     return {"strategy_id": strategy, "role": period.role, "capital": str(capital),
             "status": "COMPLETED", "data_quality": quality, "trades": tuple(trades),
+            "candidate_signals": tuple(signals), "skipped_orders": tuple(skipped_orders),
             "curve": tuple(curve), "metrics": metrics, "policy_bypasses": 0,
             "knowledge_exclusions": tuple(boundary.exclusions),
             "lookahead_violations": int(retrospective),

@@ -1,0 +1,7 @@
+# Research evidence classes (v0.6)
+
+`ResearchEvidenceClass` in `experiment_lab/exploratory_sandbox.py` distinguishes four states. `SOFTWARE_FIXTURE` verifies code with synthetic inputs and never qualifies a strategy. `EXPLORATORY_RETROSPECTIVE` permits labeled, current-vintage diagnostics but never grants paper or production eligibility. `QUALIFYING_HISTORICAL` requires the independent historical-data gates, frozen plan, bias controls, untouched holdout process, and human review. `FORWARD_PAPER` requires separately authorized sequential, non-synthetic sessions; the minimum remains 60.
+
+The exploratory runner writes its class into every result row and manifest and forces `paper_eligibility` and `production_eligibility` to `NEVER_FROM_THIS_RESULT`, `forward_paper_sessions` to zero, and `execution_available` to false. It has no promotion method or broker dependency. The existing qualifying workflow and Investment Policy remain separate and unchanged. A later human decision and separate qualification workflow would be needed to advance any strategy; exploratory metrics cannot be relabeled.
+
+Input statuses retain their original meaning: adjusted Alpaca bars are `CURRENT_VINTAGE`; corporate-action terms and coverage are `CONDITIONAL` or `RETROSPECTIVE_ONLY`; SEC publication and correction history remain `PUBLICATION_TIME_UNPROVEN` and `REVISION_HISTORY_UNPROVEN`; missing long-term inputs remain `INSUFFICIENT_DATA`. The 2026 holdout is sealed metadata, never a simulation period. Paper and production execution remain disabled.

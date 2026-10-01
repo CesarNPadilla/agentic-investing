@@ -26,6 +26,7 @@ Recorded 2026-09-28. ADR-001 through ADR-007 carry forward the accepted architec
 | ADR-020 | Separate historical price, fundamental, action and calendar providers; require proven publication and revision vintages through an auditable knowledge boundary | Research-only implementation; FMP qualification FAIL (HTTP 402), 2026 OOS sealed |
 | ADR-021 | SEC EDGAR accession-scoped submissions/XBRL as primary historical fundamental candidate; preserve amendments and reject unproven original vintages | v0.3 conditional reconstruction, qualifying strategy validation blocked |
 | ADR-022 | Keep corporate-action economic effects separate from historical signal availability; version events, reconcile source terms, and gate complete accounting independently | v0.5 bounded diagnostic implemented; accounting and signal qualification blocked |
+| ADR-023 | Isolate current-vintage retrospective diagnostics in an explicit nonpromotable evidence class with sealed 2026 OOS | v0.6 implemented; qualifying validation blocked, paper 0/60, execution disabled |
 
 ADR-005 now includes deterministic hypothetical investment-policy checks and portfolio
 intelligence; no production execution is enabled. ADR-006 preserves separate read-source

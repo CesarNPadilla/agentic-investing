@@ -1,5 +1,9 @@
 # Roadmap and phase gates
 
+## Exploratory retrospective sandbox v0.6 (2026-10-01)
+
+Implemented a separate, nonpromotable `EXPLORATORY_RETROSPECTIVE` runner over 2023–24 development and 2025 validation only. The unchanged swing v1.0.0 produced counterfactual trade diagnostics; long-term v1.0.0 remains unready. Qualifying validation remains blocked. The 2026 OOS is sealed, both strategies NOT_ELIGIBLE, forward paper 0/60, and paper/production execution disabled. See [review 006](historical-evidence-review-006.md). Stop for human review before any v1.1.0 design, optimization, OOS release, or paper work.
+
 ## Historical evidence qualification v0.5 (2026-10-01)
 
 Implemented a versioned, provider-neutral corporate-action ledger and bounded
@@ -7,8 +11,7 @@ raw-price adjustment diagnostics. Alpaca returned 93 supported split/dividend
 events through 2025, but only one sampled split has fully corroborated terms;
 historical publication and complete event coverage remain unproven. VOO total
 return is not qualified. Both strategies remain NOT_ELIGIBLE and 2026 OOS is
-sealed. See [review 005](historical-evidence-review-005.md). Stop for human review;
-do not advance to v0.6, qualifying strategy validation, or paper execution.
+sealed. See [review 005](historical-evidence-review-005.md). That review preceded the separately requested v0.6 exploratory phase; it did not authorize qualifying validation or paper execution.
 
 ## Strategy Experiment Lab v0.1 (2026-09-30)
 

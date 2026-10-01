@@ -1,0 +1,56 @@
+{
+  "experiment_id": "exploratory-retrospective-v06-swing-v1-locked",
+  "evidence_class": "EXPLORATORY_RETROSPECTIVE",
+  "strategy_id": "SWING_TREND_MOMENTUM",
+  "strategy_version": "1.0.0",
+  "strategy_definition_digest": "9b5016895d65789100aabb9a98a7f3269876e33a04fbdf3ef495759c3fd5e77d",
+  "long_term_definition_digest": "34ed9e50b475b56a74c2f5f029d37bd7f9ea303e29844339cc3e3e566b460278",
+  "code_revision": "historical-research-sha256:f0a2bc79982aca385277b8aacb853d34ecef3e75bdda671ee46508906f0849d4",
+  "configuration_digest": "a97e84a5e5aee28070e83848e4454ac70b8aa684299d9b861900e7f15594f7b9",
+  "dataset_digest": "a7297c9ba63e50192b18eeda1d510b5288e8fd3ab9602ffe11786a112cb2c10f",
+  "dataset_file_sha256": "5c5b0429efdd78363b376e48333d0709fad3426e49148aac6f15a831c18d826a",
+  "raw_price_sha256": "2eacc75287a7b5582fc362c021e3a10da10b15b772a5c5dbe9f82cc9b77e0cba",
+  "corporate_action_ledger_sha256": "814d0343865a77133026098c5890a257d2ffb5b0c7b901a1ac719717ffc91259",
+  "benchmark_methodology": "VOO_ALPACA_ADJUSTMENT_ALL_CURRENT_VINTAGE_TOTAL_RETURN_PROXY",
+  "periods": [
+    {
+      "role": "development",
+      "start": "2023-01-03",
+      "end": "2024-12-31"
+    },
+    {
+      "role": "validation",
+      "start": "2025-01-02",
+      "end": "2025-12-31"
+    }
+  ],
+  "symbols": [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "AMZN",
+    "GOOGL",
+    "GOOG",
+    "META",
+    "TSLA",
+    "PLTR",
+    "INTC"
+  ],
+  "benchmark": "VOO",
+  "execution": {
+    "timing": "next_session_close",
+    "commission_fixed": "0.10",
+    "slippage_bps": "5",
+    "spread_bps": "2",
+    "fractional": false,
+    "cash": "no_borrowing",
+    "dividend": "ALPACA_ADJUSTMENT_ALL_PROXY_NO_SEPARATE_CASH"
+  },
+  "random_seed": null,
+  "numerical_tolerance": "exact canonical JSON",
+  "result_digest": "30f79857dfd68eca48af178cb6cf04f446988c6c3d20e3945fddd6d66c4f7311",
+  "created_at": "2026-10-01T22:17:53.276388+00:00",
+  "oos_accessed": false,
+  "paper_eligibility": "NEVER_FROM_THIS_RESULT",
+  "production_eligibility": "NEVER_FROM_THIS_RESULT"
+}

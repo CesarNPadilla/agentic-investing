@@ -79,7 +79,7 @@ python -m experiment_lab.historical_fetch `
   --env-file 'C:\Users\cesar\AppData\Local\AgenticInvesting\alpaca.env' `
   --output path/to/alpaca-history.json --dataset-id alpaca-study-001 `
   --symbols AAPL,MSFT,NVDA,AMZN,GOOGL,GOOG,META,TSLA,PLTR,INTC,VOO `
-  --start 2022-06-10 --end 2026-09-29 --feed iex
+  --start 2022-06-10 --end 2025-12-31 --feed iex
 ```
 
 The frozen default validation gates are: at least 126 observations and five
@@ -132,3 +132,7 @@ at zero; paper and production execution remain disabled.
 Sources for adapter semantics: [Alpaca historical bars](https://docs.alpaca.markets/us/reference/stockbars),
 [Alpaca market calendar](https://docs.alpaca.markets/us/reference/legacycalendar),
 [Alpaca corporate actions](https://docs.alpaca.markets/us/reference/corporateactions-1).
+
+## v0.6 exploratory route
+
+Use the separate [exploratory sandbox](exploratory-research-sandbox.md) for fixed, nonqualifying 2023–24 development and 2025 validation diagnostics. Its persisted evidence class forbids promotion or paper eligibility; it does not call this qualifying runbook's historical gates or OOS stage. The acquisition example above is bounded to 2025 to avoid fetching sealed 2026 data. See [review 006](historical-evidence-review-006.md).

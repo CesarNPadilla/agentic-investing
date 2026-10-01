@@ -1,0 +1,22 @@
+{
+  "schema_version": "exploratory-experiment-registry-v1",
+  "entries": [
+    {
+      "experiment_id": "exploratory-retrospective-v06-swing-v1-locked",
+      "evidence_class": "EXPLORATORY_RETROSPECTIVE",
+      "strategy_id": "SWING_TREND_MOMENTUM",
+      "strategy_version": "1.0.0",
+      "strategy_definition_digest": "9b5016895d65789100aabb9a98a7f3269876e33a04fbdf3ef495759c3fd5e77d",
+      "configuration_digest": "a97e84a5e5aee28070e83848e4454ac70b8aa684299d9b861900e7f15594f7b9",
+      "dataset_digest": "a7297c9ba63e50192b18eeda1d510b5288e8fd3ab9602ffe11786a112cb2c10f",
+      "result_digest": "30f79857dfd68eca48af178cb6cf04f446988c6c3d20e3945fddd6d66c4f7311",
+      "manifest": "manifest.json",
+      "summary": "summary.json",
+      "full_result_location": "LOCAL_APPDATA/exploratory-retrospective-v06/runs/exploratory-retrospective-v06-swing-v1-locked/result.json",
+      "oos_accessed": false,
+      "paper_eligibility": "NEVER_FROM_THIS_RESULT",
+      "production_eligibility": "NEVER_FROM_THIS_RESULT",
+      "forward_paper_sessions": 0
+    }
+  ]
+}
