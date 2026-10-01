@@ -43,7 +43,7 @@ def fixture_dataset():
     fundamentals = tuple(FundamentalPoint(
         symbol="AAPL", metric=name, value=value,
         period_end=sessions[180], published_at=sessions[190],
-        available_at=sessions[190], source_id="test-source",
+        available_at=sessions[190], source_id="test-source", revision_proven=True,
     ) for name, value in metrics.items())
     # This deliberately constructed test object is never exported as a study artifact.
     return HistoricalResearchDataset(
@@ -89,6 +89,20 @@ def test_candidate_ledger_is_research_only_and_capital_modes_separate():
     assert research["execution_available"] is False
 
 
+def test_unproven_fundamental_revision_cannot_enter_long_term_signal():
+    data = fixture_dataset()
+    altered = data.model_copy(update={
+        "fundamentals": tuple(point.model_copy(update={"revision_proven": False})
+                              for point in data.fundamentals),
+    })
+    plan = fixture_plan(altered)
+    row = simulate(altered, plan, plan.periods[0], "LONG_TERM_QUALITY_GROWTH",
+                   plan.research_capital)
+    assert row["metrics"]["number_of_trades"] == 0
+    assert row["knowledge_exclusions"]
+    assert all(item["state"] == "UNCERTAIN" for item in row["knowledge_exclusions"])
+
+
 def test_frozen_gates_prevent_premature_holdout():
     data = fixture_dataset()
     study = HistoricalResearchStudy(fixture_plan(data, trades=100), data)
@@ -101,6 +115,15 @@ def test_frozen_gates_prevent_premature_holdout():
     assert "out_of_sample" not in study.results
     with pytest.raises(ValueError, match="Untouched OOS"):
         study.out_of_sample()
+
+
+def test_holdout_stays_locked_even_after_validation_phase_passes():
+    data = fixture_dataset()
+    study = HistoricalResearchStudy(fixture_plan(data), data)
+    study.phase = "VALIDATION_PASSED"
+    with pytest.raises(ValueError, match="separately authorized release"):
+        study.out_of_sample()
+    assert "out_of_sample" not in study.results
 
 
 def test_missing_provenance_is_nonqualifying_even_if_metrics_compute():

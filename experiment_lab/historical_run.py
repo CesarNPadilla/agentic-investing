@@ -87,11 +87,6 @@ def run(plan_path: Path, data_path: Path, output: Path, registry: Path):
                                              study.results["experimental_capital_validation_gates"]})
         _write(output / "period-robustness.json", robustness_summary(development, validation))
         _stage(registry, plan.plan_id, study.phase)
-        if study.phase == "VALIDATION_PASSED":
-            holdout, holdout_checks = study.out_of_sample()
-            _write(output / "out-of-sample.json", {"results": holdout,
-                                                    "gates": holdout_checks})
-            _stage(registry, plan.plan_id, study.phase)
         _write(output / "status.json", study.status())
         return study.status()
     except Exception:

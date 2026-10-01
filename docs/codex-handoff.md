@@ -406,3 +406,24 @@ OOS stayed unopened.
 Historical qualification, the separate Phase 5 gates, human review, and all 60
 forward-paper sessions remain unmet. Paper and production execution remain
 disabled. Latest verification: 469 tests passed and repository Ruff lint passed.
+
+## Historical qualification review 002 (2026-09-30 local)
+
+The external `FMP.env` credential loaded without exposing its value, but the
+historical statement API returned HTTP 402. Do not promote the adapter to a
+point-in-time source: accepted timestamps and historical revisions remain
+unverified. `HistoricalKnowledgeBoundary` excludes uncertain observations;
+separate provider contracts and raw Alpaca IEX bars now cover ten securities
+and VOO through 2025-12-31 only. The raw snapshot and immutable qualification
+audit are under the user's external `AppData/Local/AgenticInvesting` directory.
+The audit says no new qualifying validation was run and 2026 OOS was not opened.
+Do not load the prior 2022–2026 adjusted export for further studies; it contains
+a current-vintage adjusted series and is ineligible as a clean holdout.
+
+The existing 2025 swing ledger was diagnosed without changing v1.0.0: 63
+round trips, 55 same-symbol re-entries, 31 trend exits, 23 holding-limit exits,
+9 ATR stops. See [turnover diagnostic](swing-turnover-diagnostic-v1.md) and
+[review 002](historical-research-review-002.md). FMP access/revision lineage,
+corporate-action availability and a qualifying data export remain blocking.
+The prior 2025 +1.03% swing result is retrospective and nonqualifying. Both
+strategies remain NOT_ELIGIBLE, forward paper 0/60, paper/production disabled.

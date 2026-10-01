@@ -173,3 +173,11 @@ The current hypotheses are NOT_ELIGIBLE. No broker submission/cancellation/modif
 production route or scheduler is enabled. Historical, OOS and synthetic sessions earn
 zero credit toward at least 60 sequential non-synthetic forward-paper sessions. The clock
 can begin only in a separately approved future phase; no forward paper trading is started.
+
+The subsequent [historical review 002](historical-research-review-002.md)
+qualified neither strategy: FMP historical statements returned HTTP 402,
+revision provenance was unavailable, and corporate-action availability cannot
+be certified. The 2026 holdout remained unexposed. Existing synthetic outputs
+remain software fixtures; the 2025 Alpaca-adjusted diagnostic remains
+retrospective and nonqualifying. No research threshold or v1.0.0 strategy was
+retuned, and the paper clock remains zero.

@@ -45,6 +45,7 @@ class FundamentalPoint(Record):
     published_at: AwareDatetime
     available_at: AwareDatetime
     source_id: Identifier
+    revision_proven: bool = False
 
     @model_validator(mode="after")
     def ordered(self):
@@ -101,6 +102,8 @@ class HistoricalResearchDataset(Record):
             findings.add("ADJUSTMENT_VINTAGE_UNVERIFIED")
         if not self.point_in_time_fundamentals:
             findings.add("FUNDAMENTAL_VINTAGE_UNVERIFIED")
+        if any(not f.revision_proven for f in self.fundamentals):
+            findings.add("FUNDAMENTAL_REVISION_UNVERIFIED")
         for symbol in symbols:
             observed = {b.session_close for b in self.bars if b.symbol == symbol}
             if not selected or not set(selected) <= observed:

@@ -122,6 +122,14 @@ benchmark/return/drawdown/trade/volatility/Sharpe metrics, and decision reasonin
 See [usage, conventions, limitations, and evaluation gate](backtesting-paper-trading.md).
 Forward paper validation and provider-connected paper execution remain pending.
 
+Historical qualification review 002: raw Alpaca development/validation bars and
+provider-neutral adapters are in place, but FMP statement entitlement returned
+HTTP 402 and corporate-action creation vintages remain unproven. No qualifying
+validation or 2026 OOS run was performed. The next research milestone requires
+entitled, revision-auditable filing data and action vintages, then a frozen
+development/validation run. The paper clock stays 0/60 and execution disabled.
+See [historical review 002](historical-research-review-002.md).
+
 Version strategies and datasets. Measure return, benchmark, drawdown, win/loss, volatility,
 risk-adjusted performance, and agent decisions. Control look-ahead and survivorship bias.
 Gate: predefined acceptance criteria and demonstrated paper behavior. No live execution.

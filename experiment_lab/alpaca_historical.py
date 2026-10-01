@@ -5,6 +5,7 @@ calendar endpoint supplies the actual close, including early closes. The API doe
 not attest when a retrospective adjusted OHLCV vintage became historically known.
 """
 
+import hashlib
 import json
 from datetime import UTC, date, datetime
 from decimal import Decimal
@@ -13,6 +14,7 @@ from zoneinfo import ZoneInfo
 import httpx
 
 from experiment_lab.historical_data import HistoricalResearchDataset, MarketBar
+from experiment_lab.historical_records import RawHistoricalPriceBar
 
 NEW_YORK = ZoneInfo("America/New_York")
 
@@ -112,3 +114,45 @@ class AlpacaHistoricalResearchProvider:
             session_calendar_complete=True, point_in_time_adjustments=False,
             point_in_time_fundamentals=False, is_synthetic=False,
         )
+
+
+class AlpacaRawPriceProvider(AlpacaHistoricalResearchProvider):
+    """Raw, retrieval-vintaged daily observations, separate from actions."""
+
+    def bars(self, symbols: tuple[str, ...], start: date, end: date) -> tuple[RawHistoricalPriceBar, ...]:
+        if start >= end or end >= datetime.now(UTC).date():
+            raise ValueError("An ordered, fully past range is required")
+        observations = []
+        with httpx.Client(timeout=20, transport=self.transport) as client:
+            for symbol in symbols:
+                params = {"timeframe": "1Day", "start": start.isoformat(),
+                          "end": end.isoformat(), "adjustment": "raw", "feed": self.feed,
+                          "currency": "USD", "sort": "asc", "limit": "10000"}
+                seen_tokens = set()
+                while True:
+                    payload = self._get(client,
+                                        f"https://data.alpaca.markets/v2/stocks/{symbol}/bars",
+                                        params)
+                    if payload.get("symbol") != symbol:
+                        raise ValueError("Alpaca symbol mismatch")
+                    retrieved_at = datetime.now(UTC)
+                    for row in payload.get("bars") or ():
+                        stamp = datetime.fromisoformat(row["t"])
+                        if not start <= stamp.astimezone(NEW_YORK).date() <= end:
+                            raise ValueError("Bar outside requested date range")
+                        raw = json.dumps(row, sort_keys=True, separators=(",", ":"),
+                                         default=str).encode()
+                        observations.append(RawHistoricalPriceBar(
+                            symbol=symbol, timestamp=stamp, open=row["o"], high=row["h"],
+                            low=row["l"], close=row["c"], volume=row["v"],
+                            feed=self.feed, adjustment_mode="raw", retrieved_at=retrieved_at,
+                            provider="Alpaca", source_digest=hashlib.sha256(raw).hexdigest(),
+                        ))
+                    token = payload.get("next_page_token")
+                    if not token:
+                        break
+                    if not isinstance(token, str) or token in seen_tokens:
+                        raise ValueError("Invalid historical pagination")
+                    seen_tokens.add(token)
+                    params["page_token"] = token
+        return tuple(observations)

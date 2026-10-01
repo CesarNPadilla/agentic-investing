@@ -12,6 +12,7 @@ from pydantic import AwareDatetime, Field, model_validator
 from backtesting.models import Period, ValidationGates
 from experiment_lab.definitions import LONG_TERM_ID, SWING_ID
 from experiment_lab.historical_data import HistoricalResearchDataset
+from experiment_lab.knowledge_boundary import HistoricalKnowledgeBoundary, KnowledgeObservation
 from portfolio.state import Record
 from risk.evaluator import digest
 
@@ -109,11 +110,15 @@ def _atr(bars, period):
     ])
 
 
-def _fundamentals(dataset, symbol, cutoff, max_age_days):
+def _fundamentals(dataset, symbol, cutoff, max_age_days, boundary):
     names = ("revenue_growth", "free_cash_flow", "net_debt_to_ebitda", "free_cash_flow_yield")
     latest = {}
     for point in dataset.fundamentals:
-        if point.symbol != symbol or point.available_at > cutoff:
+        if point.symbol != symbol:
+            continue
+        if not boundary.require(KnowledgeObservation(
+            "fundamental", point.source_id, point.available_at, point.revision_proven,
+        ), cutoff):
             continue
         if point.metric in names and (
             point.metric not in latest or
@@ -128,14 +133,16 @@ def _fundamentals(dataset, symbol, cutoff, max_age_days):
     return latest
 
 
-def _signal(strategy, history, dataset, symbol, cutoff, rules, held, held_sessions, stop):
+def _signal(strategy, history, dataset, symbol, cutoff, rules, held, held_sessions, stop,
+            boundary):
     closes = [b.close for b in history]
     minimum = max(rules.long_trend_sessions, rules.swing_slow_sessions) + 1
     if len(history) < minimum:
         return None, "INSUFFICIENT_WARMUP", None
     price = closes[-1]
     if strategy == LONG_TERM_ID:
-        fundamentals = _fundamentals(dataset, symbol, cutoff, rules.fundamental_max_age_days)
+        fundamentals = _fundamentals(dataset, symbol, cutoff, rules.fundamental_max_age_days,
+                                      boundary)
         if fundamentals is None:
             return None, "MISSING_POINT_IN_TIME_FUNDAMENTALS", None
         values = {name: p.value for name, p in fundamentals.items()}
@@ -195,6 +202,7 @@ def simulate(dataset: HistoricalResearchDataset, plan: HistoricalResearchPlan, p
     peak = capital
     first_voo = by_key["VOO", selected[0]].close
     held_sessions = {}
+    boundary = HistoricalKnowledgeBoundary()
     for index, session in enumerate(selected):
         marks = {s: by_key[s, session].close for s in (*active_symbols, "VOO")}
         # The preceding session alone may submit an order for this close.
@@ -265,7 +273,7 @@ def simulate(dataset: HistoricalResearchDataset, plan: HistoricalResearchPlan, p
                 continue
             side, reason, stop = _signal(strategy, history, dataset, symbol, cutoff,
                                          plan.rules, held, held_sessions.get(symbol, 0),
-                                         held["stop"] if held else None)
+                                         held["stop"] if held else None, boundary)
             if side:
                 pending[symbol] = (side, reason, stop)
     final_equity = Decimal(curve[-1]["equity"])
@@ -285,6 +293,7 @@ def simulate(dataset: HistoricalResearchDataset, plan: HistoricalResearchPlan, p
     return {"strategy_id": strategy, "role": period.role, "capital": str(capital),
             "status": "COMPLETED", "data_quality": quality, "trades": tuple(trades),
             "curve": tuple(curve), "metrics": metrics, "policy_bypasses": 0,
+            "knowledge_exclusions": tuple(boundary.exclusions),
             "lookahead_violations": int(retrospective),
             "evidence_class": ("RETROSPECTIVE_NONQUALIFYING" if retrospective else
                                "POINT_IN_TIME_CANDIDATE"), "research_only": True,
@@ -408,15 +417,9 @@ class HistoricalResearchStudy:
         return rows, checks
 
     def out_of_sample(self):
-        if self.phase != "VALIDATION_PASSED":
-            raise ValueError("Untouched OOS cannot open before historical validation passes")
-        rows = self._stage("out_of_sample")
-        checks = historical_gates(
-            tuple(r for r in rows if r["capital"] == str(self.plan.research_capital)),
-            self.plan.gates,
-        )
-        self.phase = "HOLDOUT_EXPOSED"
-        return rows, checks
+        # The reserved 2026 interval needs a separate human architecture decision
+        # even if historical validation eventually passes. Keep this phase sealed.
+        raise ValueError("Untouched OOS requires a separately authorized release")
 
     def status(self):
         return {"phase": self.phase, "plan_digest": self.plan_digest,

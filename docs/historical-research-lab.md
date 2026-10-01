@@ -6,6 +6,20 @@ diagnostic is documented in
 [historical-research-review-001.md](historical-research-review-001.md); no
 qualifying historical validation results for either strategy have been produced.
 
+Review 002 adds a separate `HistoricalPriceProvider`,
+`HistoricalFundamentalProvider`, `CorporateActionProvider`, and
+`TradingCalendarProvider`, plus `HistoricalKnowledgeBoundary`. Its live FMP
+qualification failed HTTP 402; current-vintage FMP values must not be treated
+as historical knowledge. See [provider qualification](data-provider-qualification-fmp.md),
+[review 002](historical-research-review-002.md), and the external immutable
+qualification audit. The 2026 OOS interval stays closed.
+
+To acquire only the development/validation raw price snapshot, use
+`python -m experiment_lab.raw_price_fetch` with an external Alpaca env file,
+fixed symbols, and an end date no later than 2025-12-31. The command refuses
+an existing output or any reserved 2026 date. Raw bars have no inferred
+corporate-action vintage; action observations are stored in their own type.
+
 The new `experiment_lab.historical_data.HistoricalResearchProvider` contract accepts
 timestamped, fully adjusted OHLCV, exact exchange session closes, and publication-
 timestamped fundamental observations. `JsonHistoricalResearchProvider` reads a
@@ -86,7 +100,8 @@ python -m experiment_lab.historical_run --plan path/to/frozen-plan.json `
 The registry reserves OOS symbol/date exposure before calculation. Reusing the
 plan or overlapping an exposed OOS interval is rejected, including after a
 failed run. Development results and sensitivity are written first; validation
-results and gates next; OOS results only after validation passes. The candidate
+results and gates next; OOS remains sealed even if validation passes, pending
+a separate human architecture decision and release implementation. The candidate
 ledger explicitly records `NOT_SUBMITTED_RESEARCH_ONLY`. It cannot submit a
 `TradeProposal` or call a broker. Candidate statistics **cannot** by themselves
 make either strategy paper eligible. The existing policy-approved backtest and
