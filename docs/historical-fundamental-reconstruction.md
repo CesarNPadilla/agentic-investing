@@ -39,3 +39,16 @@ companyfacts endpoint is a present-day aggregation even when its facts carry
 old accessions. A future qualifying implementation needs accession-archive
 byte verification, a documented conservative availability convention, and
 amendment/correction lineage. See the [SEC provider qualification](data-provider-qualification-sec-edgar.md).
+
+## v0.4 accession evidence
+
+The [archive qualification](data-provider-qualification-sec-archive.md) adds original
+inline-XBRL and matching extracted-instance hashes for five sample accessions.
+Direct instance extraction and accession-level comparison found 42 matching
+mapped facts and no discrepancies. The TSLA 10-K/A is kept as its own event;
+its lack of mapped facts does not license carrying the original values forward.
+`PaymentsToAcquireProductiveAssets` is now mapped as capital expenditure where
+the original NVDA and AMZN filing instances support it. The 48-hour delay
+after SEC acceptance is a modeled knowledge boundary, not an attested public
+availability time. Historical correction lineage and independent corporate
+action evidence remain unresolved, so live records stay unqualified.
