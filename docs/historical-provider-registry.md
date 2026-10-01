@@ -6,6 +6,7 @@
 | Calendar close | `AlpacaTradingCalendarProvider` | CONDITIONAL: exchange closes supplied, including early closes | Map daily date labels to trading sessions |
 | Corporate actions | `AlpacaCorporateActionProvider` | FAIL for historical knowledge; creation time not guaranteed | Separately retained, excluded from qualifying decisions until vintage proven |
 | Financial statements | `FmpHistoricalFundamentalProvider` | FAIL: HTTP 402 and revisions unproven | No strategy input |
+| SEC filing fundamentals | `SecEdgarHistoricalFundamentalProvider` | CONDITIONAL accession reconstruction; FAIL for qualifying PIT availability | Diagnostic only; no strategy input |
 
 The provider-neutral contracts live in `experiment_lab/provider_contracts.py`.
 No provider adapter may submit an order. Read-only retrieval credentials come
@@ -21,3 +22,8 @@ The local registry, original plan, immutable raw snapshot, and audit are under
 evidence references, not production configuration. The original current-vintage
 2022–2026 adjusted export is nonqualifying and must not be used to open the
 2026 holdout. See [review 002](historical-research-review-002.md).
+
+Review 003 makes SEC EDGAR the primary fundamental candidate; FMP is optional.
+The external `sec-edgar-qualification-003-run.json` contains development/
+validation-only coverage. See [SEC qualification](data-provider-qualification-sec-edgar.md)
+and [review 003](historical-research-review-003.md).

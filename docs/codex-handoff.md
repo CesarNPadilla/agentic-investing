@@ -427,3 +427,17 @@ round trips, 55 same-symbol re-entries, 31 trend exits, 23 holding-limit exits,
 corporate-action availability and a qualifying data export remain blocking.
 The prior 2025 +1.03% swing result is retrospective and nonqualifying. Both
 strategies remain NOT_ELIGIBLE, forward paper 0/60, paper/production disabled.
+
+## SEC EDGAR qualification v0.3 (2026-10-01 local)
+
+SEC is now the primary historical-fundamental candidate; FMP is optional.
+`experiment_lab/sec_edgar_historical.py` joins submissions and companyfacts by
+exact accession and preserves `/A` filings. It fetched a dev/validation-only
+coverage summary for ten symbols through 2025-12-31. The adapter is read-only,
+uses an injected declared User-Agent, and refuses 2026 requests. Today's
+companyfacts aggregation cannot attest original fact vintages or exact public
+availability, so all live statements remain UNCERTAIN at the knowledge
+boundary. No strategy performance was rerun. Review [SEC qualification](data-provider-qualification-sec-edgar.md),
+[reconstruction](historical-fundamental-reconstruction.md), and
+[review 003](historical-research-review-003.md) before a new architecture
+decision. OOS remains sealed, paper 0/60, execution disabled.

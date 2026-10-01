@@ -14,6 +14,13 @@ as historical knowledge. See [provider qualification](data-provider-qualificatio
 [review 002](historical-research-review-002.md), and the external immutable
 qualification audit. The 2026 OOS interval stays closed.
 
+Review 003 uses SEC EDGAR as the primary historical-fundamental candidate.
+Its accession-level reconstruction is conditional because today's companyfacts
+and the filing acceptance timestamp do not prove the original public value
+vintage. The adapter rejects 2026 requests and does not feed unqualified facts
+to either strategy. See [SEC qualification](data-provider-qualification-sec-edgar.md)
+and [review 003](historical-research-review-003.md).
+
 To acquire only the development/validation raw price snapshot, use
 `python -m experiment_lab.raw_price_fetch` with an external Alpaca env file,
 fixed symbols, and an end date no later than 2025-12-31. The command refuses

@@ -130,6 +130,12 @@ entitled, revision-auditable filing data and action vintages, then a frozen
 development/validation run. The paper clock stays 0/60 and execution disabled.
 See [historical review 002](historical-research-review-002.md).
 
+Historical qualification v0.3 adds tested SEC accession-level reconstruction.
+The next evidence requirement is original archive-level XBRL verification and
+a defensible public-availability convention, followed by corporate-action
+vintage qualification. No strategy validation or OOS phase opens yet. See
+[review 003](historical-research-review-003.md).
+
 Version strategies and datasets. Measure return, benchmark, drawdown, win/loss, volatility,
 risk-adjusted performance, and agent decisions. Control look-ahead and survivorship bias.
 Gate: predefined acceptance criteria and demonstrated paper behavior. No live execution.
