@@ -376,3 +376,33 @@ experimental loss limits; freshness tolerance/day boundary; current theses and p
 allocation targets; any purchase-list changes; swing controls. Daily/weekly scheduling,
 review-request completion, reliable live references and actual forward validation are still
 pending. No new investment decision or strategy signal was assumed in this pass.
+
+## Historical research diagnostic 001 (2026-09-30 local)
+
+The synthetic strategy experiment remains a clearly labeled software fixture.
+`experiment_lab/historical_data.py`, `alpaca_historical.py`, `historical_fetch.py`,
+`historical_plan.py`, `historical_research.py`, and `historical_run.py` add a
+provider-neutral historical input contract, read-only Alpaca acquisition, frozen
+research-only candidate rules/gates, and staged development/validation/OOS runs.
+This counterfactual ledger cannot submit proposals or broker orders and cannot
+grant paper eligibility. The $160 whole-share sleeve remains separate from the
+$100,000 normalized research case. Existing synthetic lab execution now orders
+all development and sensitivity runs before validation and OOS.
+
+Using credentials from the external `AgenticInvesting/alpaca.env` location, a
+read-only Alpaca IEX daily history was acquired. No credential value was printed
+or copied into the repository. The frozen 2023–2024 development and 2025
+validation diagnostic failed its preregistered gates; 2026 OOS was not computed.
+Swing generated retrospective candidate sides, but Alpaca's adjusted download
+does not attest point-in-time adjustment vintages or complete corporate actions.
+No historical fundamentals were supplied, so quality-growth remained cash.
+See [review 001](historical-research-review-001.md) and
+[the historical lab runbook](historical-research-lab.md). Raw data, frozen plan,
+results, and registry reside outside the repository under the user's local
+`AppData/Local/AgenticInvesting` directory. The initial $160 rows were retained
+for audit and superseded by a labeled corrective replay after a sleeve-cap fix;
+OOS stayed unopened.
+
+Historical qualification, the separate Phase 5 gates, human review, and all 60
+forward-paper sessions remain unmet. Paper and production execution remain
+disabled. Latest verification: 469 tests passed and repository Ruff lint passed.

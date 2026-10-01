@@ -45,7 +45,10 @@ class StrategyExperimentLab:
         self.registry.start(plan.plan_id)
         rows, results, verified = [], [], {}
         try:
-            for run in plan.runs:
+            # Complete all development baselines and probes before validation, and
+            # never evaluate the reserved holdout while development is in flight.
+            role_rank = {"development": 0, "validation": 1, "out_of_sample": 2}
+            for run in sorted(plan.runs, key=lambda r: role_rank[r.config.evaluated_role]):
                 config = run.config
                 data = datasets[run.dataset.content_digest]
                 result = BacktestEngine().run(config, data)

@@ -1,5 +1,9 @@
 # Initial strategy experiments: human review
 
+For the staged real-data research path and its prerequisites, see
+[Historical strategy research path](historical-research-lab.md). The results
+below remain a synthetic software fixture.
+
 **Neither strategy is eligible for forward paper validation.** These are synthetic
 software checks, not investment recommendations or validated investment performance.
 

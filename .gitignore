@@ -12,3 +12,5 @@
 /conf/token.txt
 /webull_trade_sdk.log*
 /.venv/
+__pycache__/
+*.pyc
