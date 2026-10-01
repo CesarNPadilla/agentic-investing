@@ -1,5 +1,11 @@
 # Roadmap and phase gates
 
+## Proposed experimental capital planning update (2026-10-01)
+
+The human proposes **$1,000** as a future initial experimental-capital limit. This is a planning proposal, **not** an approved Investment Policy change, deposit confirmation, or trading authorization. The current $160 policy limit and Risk Engine controls continue to govern any actual investment activity until separately approved and changed. The existing investment portfolio stays separate. Normalized strategy-research capital remains **$100,000**; completed $160 exploratory evidence is retained unchanged.
+
+For the next exploratory phase, [preregistered $1,000 feasibility plan](examples/exploratory-retrospective-v07/capital-feasibility-plan.json) fixes the unchanged swing v1.0.0 definition, 2023–24 development/2025 validation periods, current-vintage data and VOO proxy, whole-share execution assumptions, and measures for affordability, skipped/rejected orders, concentration, cash utilization, turnover, costs, and drawdown. **Status: NOT_RUN.** It cannot grant paper or production eligibility or justify tuning parameters for $1,000. The 2026 OOS stays sealed; paper and production execution remain disabled; forward paper remains 0/60.
+
 ## Exploratory retrospective sandbox v0.6 (2026-10-01)
 
 Implemented a separate, nonpromotable `EXPLORATORY_RETROSPECTIVE` runner over 2023–24 development and 2025 validation only. The unchanged swing v1.0.0 produced counterfactual trade diagnostics; long-term v1.0.0 remains unready. Qualifying validation remains blocked. The 2026 OOS is sealed, both strategies NOT_ELIGIBLE, forward paper 0/60, and paper/production execution disabled. See [review 006](historical-evidence-review-006.md). Stop for human review before any v1.1.0 design, optimization, OOS release, or paper work.

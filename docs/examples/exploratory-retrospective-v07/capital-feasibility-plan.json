@@ -1,0 +1,53 @@
+{
+  "schema_version": "exploratory-capital-feasibility-plan-v1",
+  "experiment_id": "exploratory-capital-feasibility-v07-1000-preregistered",
+  "status": "PREREGISTERED_NOT_RUN",
+  "evidence_class": "EXPLORATORY_RETROSPECTIVE",
+  "purpose": "CAPITAL_FEASIBILITY_EXPLORATORY",
+  "strategy_id": "SWING_TREND_MOMENTUM",
+  "strategy_version": "1.0.0",
+  "strategy_definition_digest": "9b5016895d65789100aabb9a98a7f3269876e33a04fbdf3ef495759c3fd5e77d",
+  "research_rules_digest": "a97e84a5e5aee28070e83848e4454ac70b8aa684299d9b861900e7f15594f7b9",
+  "normalized_research_capital_usd": "100000",
+  "proposed_feasibility_capital_usd": "1000",
+  "prior_160_result_digest": "30f79857dfd68eca48af178cb6cf04f446988c6c3d20e3945fddd6d66c4f7311",
+  "source_dataset_digest": "a7297c9ba63e50192b18eeda1d510b5288e8fd3ab9602ffe11786a112cb2c10f",
+  "source_dataset_file_sha256": "5c5b0429efdd78363b376e48333d0709fad3426e49148aac6f15a831c18d826a",
+  "periods": [
+    {"role": "development", "start": "2023-01-03", "end": "2024-12-31"},
+    {"role": "validation", "start": "2025-01-02", "end": "2025-12-31"}
+  ],
+  "out_of_sample": "2026_SEALED_NO_ACCESS",
+  "benchmark": "VOO_ALPACA_ADJUSTMENT_ALL_CURRENT_VINTAGE_TOTAL_RETURN_PROXY",
+  "execution_assumptions": {
+    "timing": "next_session_close",
+    "whole_shares_only": true,
+    "fractional_shares": false,
+    "commission_fixed_usd_per_side": "0.10",
+    "slippage_bps": "5",
+    "spread_bps_full": "2",
+    "borrowing": false,
+    "separate_cash_dividends": false
+  },
+  "prespecified_measures": [
+    "whole_share_affordability_by_symbol",
+    "candidate_signals",
+    "skipped_or_rejected_orders_by_reason",
+    "maximum_simultaneous_positions",
+    "maximum_single_name_concentration",
+    "average_and_final_cash_utilization",
+    "turnover",
+    "commission_and_modeled_slippage_spread_costs",
+    "maximum_drawdown"
+  ],
+  "strategy_parameter_optimization": false,
+  "qualifying_validation": "NOT_RUN",
+  "paper_eligibility": "NEVER_FROM_THIS_RESULT",
+  "production_eligibility": "NEVER_FROM_THIS_RESULT",
+  "forward_paper_sessions": 0,
+  "investment_policy_capital_change": "PROPOSED_ONLY_REQUIRES_HUMAN_APPROVAL_AND_SEPARATE_POLICY_CHANGE",
+  "capital_deposited": "NOT_ASSERTED",
+  "broker_orders": "PROHIBITED",
+  "paper_execution": "DISABLED",
+  "production_execution": "DISABLED"
+}

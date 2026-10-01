@@ -5,6 +5,8 @@ investment recommendations, optimize parameters, submit orders or start forward 
 
 The v0.6 [exploratory registry](examples/exploratory-retrospective-v06/registry.json) and [manifest](examples/exploratory-retrospective-v06/manifest.json) pin the unchanged v1.0.0 definitions and an independent `EXPLORATORY_RETROSPECTIVE` result digest. They do not alter the original synthetic lab registry or grant qualifying/paper status. See [classification](research-evidence-classification.md) and [review 006](historical-evidence-review-006.md).
 
+Capital planning after v0.6 proposes a **$1,000** experimental amount for a separate future feasibility simulation, [preregistered here](examples/exploratory-retrospective-v07/capital-feasibility-plan.json). It has **not run** and is neither an approved policy limit nor a confirmed deposit. The $100,000 normalized research case and archived $160 results remain distinct; the existing $160 Investment Policy cap and Risk Engine controls are unchanged. No strategy parameter is to be tuned specifically for $1,000.
+
 ## Definitions
 
 `experiment_lab.definitions.initial_definitions()` returns exactly:
