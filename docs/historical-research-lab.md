@@ -1,5 +1,19 @@
 # Historical strategy research path
 
+Phase v0.5 adds an independent [corporate-action ledger](corporate-action-ledger-design.md)
+and [adjustment methodology](historical-adjustment-methodology.md). A bounded
+read-only snapshot can be reproduced with `python -m experiment_lab.corporate_action_snapshot`
+using the external Alpaca env file, the fixed eleven symbols, and dates ending
+no later than 2025-12-31. Store output outside the repo; the command refuses
+to replace an existing snapshot. `EXPLORATORY_RESEARCH` output may illustrate
+split arithmetic and dividend accounting with declared assumptions, but remains
+nonqualifying. `QUALIFYING_VALIDATION` requires independently evidenced complete
+events, historical publication classification for signals, reproducible raw-to-
+adjusted accounting, VOO methodology alignment, and every frozen research gate.
+No exploratory output is promoted automatically; neither mode authorizes trading.
+See [provider review](data-provider-qualification-corporate-actions.md),
+[VOO status](voo-benchmark-qualification.md), and [review 005](historical-evidence-review-005.md).
+
 `docs/examples/strategy-experiment-lab-v01/results.json` is a **synthetic software
 fixture**. Its zero-trade rows are not empirical performance. An Alpaca-price
 diagnostic is documented in

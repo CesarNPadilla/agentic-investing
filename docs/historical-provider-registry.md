@@ -4,11 +4,17 @@
 | --- | --- | --- | --- |
 | Raw daily OHLCV | `AlpacaRawPriceProvider` | CONDITIONAL: immutable retrieval snapshot, IEX feed only | Development/validation price diagnostics; requires calendar and action handling |
 | Calendar close | `AlpacaTradingCalendarProvider` | CONDITIONAL: exchange closes supplied, including early closes | Map daily date labels to trading sessions |
-| Corporate actions | `AlpacaCorporateActionProvider` | FAIL for historical knowledge; creation time not guaranteed | Separately retained, excluded from qualifying decisions until vintage proven |
+| Corporate actions | `AlpacaCorporateActionProvider` + provider-neutral v0.5 ledger | CONDITIONAL retrospective sample; FAIL for complete accounting and historical knowledge | Nonqualifying diagnostics only; no signal or qualifying validation input |
 | Financial statements | `FmpHistoricalFundamentalProvider` | FAIL: HTTP 402 and revisions unproven | No strategy input |
 | SEC filing fundamentals | `SecEdgarHistoricalFundamentalProvider` | CONDITIONAL accession reconstruction; FAIL for qualifying PIT availability | Diagnostic only; no strategy input |
 
 The provider-neutral contracts live in `experiment_lab/provider_contracts.py`.
+
+Review 005 preserves a separate 2022–2025 corporate-action response, normalized
+ledger, independent-source hashes, and two bounded price/benchmark diagnostics
+under `C:\Users\cesar\AppData\Local\AgenticInvesting\corporate-actions-v05`.
+The 93 supported rows and one unattributed exclusion are not complete historical
+coverage. See [source qualification](data-provider-qualification-corporate-actions.md).
 No provider adapter may submit an order. Read-only retrieval credentials come
 from external files and are never part of provenance or artifacts.
 

@@ -1,5 +1,15 @@
 # Roadmap and phase gates
 
+## Historical evidence qualification v0.5 (2026-10-01)
+
+Implemented a versioned, provider-neutral corporate-action ledger and bounded
+raw-price adjustment diagnostics. Alpaca returned 93 supported split/dividend
+events through 2025, but only one sampled split has fully corroborated terms;
+historical publication and complete event coverage remain unproven. VOO total
+return is not qualified. Both strategies remain NOT_ELIGIBLE and 2026 OOS is
+sealed. See [review 005](historical-evidence-review-005.md). Stop for human review;
+do not advance to v0.6, qualifying strategy validation, or paper execution.
+
 ## Strategy Experiment Lab v0.1 (2026-09-30)
 
 Implemented LONG_TERM_QUALITY_GROWTH v1.0.0 and SWING_TREND_MOMENTUM v1.0.0,

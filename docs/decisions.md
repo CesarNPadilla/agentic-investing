@@ -25,6 +25,7 @@ Recorded 2026-09-28. ADR-001 through ADR-007 carry forward the accepted architec
 | [ADR-019](adr-019.md) | Two immutable research hypotheses, preregistered periods, durable OOS exposure and limited sensitivity | Strategy Experiment Lab v0.1; synthetic results NOT_ELIGIBLE |
 | ADR-020 | Separate historical price, fundamental, action and calendar providers; require proven publication and revision vintages through an auditable knowledge boundary | Research-only implementation; FMP qualification FAIL (HTTP 402), 2026 OOS sealed |
 | ADR-021 | SEC EDGAR accession-scoped submissions/XBRL as primary historical fundamental candidate; preserve amendments and reject unproven original vintages | v0.3 conditional reconstruction, qualifying strategy validation blocked |
+| ADR-022 | Keep corporate-action economic effects separate from historical signal availability; version events, reconcile source terms, and gate complete accounting independently | v0.5 bounded diagnostic implemented; accounting and signal qualification blocked |
 
 ADR-005 now includes deterministic hypothetical investment-policy checks and portfolio
 intelligence; no production execution is enabled. ADR-006 preserves separate read-source

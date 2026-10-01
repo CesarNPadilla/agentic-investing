@@ -1,0 +1,7 @@
+# VOO benchmark qualification v0.5
+
+**Status: BLOCKED for qualifying total return.** VOO is its own pinned security (`US9229083632`) and uses the same calendar and raw-bar requirements as any strategy series. The benchmark method intended for eventual comparison is **total return with cash distributions retained**, matching strategy accounting that does not reinvest cash dividends. Price-only and reinvested versions remain separately labeled; a price-only benchmark must not be presented as comparable to a dividend-inclusive strategy return.
+
+The Alpaca action snapshot contains 15 VOO dividend rows over 2022-06-10–2025-12-31. Vanguard's 2025 distribution schedule independently corroborates the March 27 ex-date and March 31 payable date, plus the other 2025 schedule dates. The schedule does not establish final amounts, complete 2022–2025 distributions, public availability instants, or raw-to-adjusted reconciliation. No complete benchmark starting/ending valuation or all-session alignment has been qualified.
+
+A bounded **exploratory-only** March 26–31, 2025 four-session calculation illustrates the methodology using the unverified Alpaca $1.8121 distribution: VOO price return was −1.9445%; total return with cash dividend was −1.5991%; reinvestment at the final payment close has the same terminal return within Decimal precision. This is a diagnostic example, **not a qualified benchmark result**. It uses no 2026 data and cannot enter either strategy's validation gate. Full-period missing-session and distribution coverage remain open.

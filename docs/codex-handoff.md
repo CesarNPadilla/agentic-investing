@@ -1,5 +1,25 @@
 # Codex handoff: Agentic Investing
 
+## Latest: Historical Evidence Qualification v0.5 (2026-10-01)
+
+Read [review 005](historical-evidence-review-005.md),
+[provider qualification](data-provider-qualification-corporate-actions.md),
+[ledger design](corporate-action-ledger-design.md), and
+[VOO benchmark status](voo-benchmark-qualification.md). A read-only bounded
+Alpaca snapshot through 2025-12-31 yielded 93 supported split/dividend rows
+and one unattributed cash merger. The provider-neutral ledger preserves source
+identity, immutable versions, corrections, separate knowledge/economic states,
+and deterministic split/dividend calculations. One sampled NVDA split fully
+matched independent terms; three sampled dividends were partial. Complete
+event coverage, public timestamps, and VOO distribution amounts remain
+unqualified. No strategy performance was recalculated or version changed.
+Raw and qualification snapshots are outside the repo at
+`C:\Users\cesar\AppData\Local\AgenticInvesting\corporate-actions-v05`.
+2026 OOS is sealed, paper remains 0/60 and NOT_ELIGIBLE, and broker execution
+remains disabled. Stop for human review; do not proceed to v0.6 automatically.
+Verification: 500 tests passed; Ruff passed. One existing Starlette/httpx
+deprecation warning remains.
+
 ## Latest: Strategy Experiment Lab v0.1 (2026-09-30)
 
 This section supersedes earlier latest-work/next-task notes. Read [ADR-019](adr-019.md),

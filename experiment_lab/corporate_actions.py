@@ -50,8 +50,8 @@ class AlpacaCorporateActionProvider:
         self._transport = transport
 
     def actions(self, symbols: tuple[str, ...], start: date, end: date) -> tuple[CorporateAction, ...]:
-        if not symbols or start >= end or end >= datetime.now(UTC).date():
-            raise ValueError("Past action range and symbols required")
+        if not symbols or start >= end or end > date(2025, 12, 31):
+            raise ValueError("Development/validation action range and symbols required")
         params = {"symbols": ",".join(symbols), "start": start.isoformat(),
                   "end": end.isoformat(), "data_quality": "all", "limit": 1000}
         actions, seen_tokens = [], set()
@@ -67,9 +67,12 @@ class AlpacaCorporateActionProvider:
                     reason = str(exc) if str(exc).startswith("HTTP ") else "unavailable"
                     raise ValueError(f"Alpaca corporate actions {reason}") from None
                 retrieved_at = datetime.now(UTC)
-                for key, rows in payload.items():
-                    if key == "next_page_token" or not isinstance(rows, list):
-                        continue
+                grouped = payload.get("corporate_actions")
+                if not isinstance(grouped, dict):
+                    raise TypeError("Invalid corporate-action response")
+                for key, rows in grouped.items():
+                    if not isinstance(rows, list):
+                        raise TypeError("Invalid corporate-action event list")
                     for row in rows:
                         if isinstance(row, dict):
                             actions.append(normalize_alpaca_action(

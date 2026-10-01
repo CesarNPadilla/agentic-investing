@@ -3,3 +3,7 @@
 **Status: BLOCKED.** This track is independent of SEC fundamental filing evidence. The current Alpaca adapter obtains raw bars and a separate corporate-action feed, but its action `created_at` is not an attested first-publication time. An ex-date, declaration date, record date, or processing date is not substituted for availability. Consequently `action_known` continues to classify actions as unproven, and the historical dataset retains `corporate_actions_complete=False` and `point_in_time_adjustments=False`. The existing dataset and validation quality gates continue to report `CORPORATE_ACTIONS_INCOMPLETE` and `ADJUSTMENT_VINTAGE_UNVERIFIED`.
 
 A qualifying reconstruction needs a complete issuer-level split and cash-distribution ledger for each tested session; source identity, event and correction versions, announcement/publication evidence, effective dates and amounts; a deterministic adjustment calculation from raw bars; and reconciliation to adjusted prices and VOO total-return benchmark values. Missing or conflicting events must fail closed. The SEC accession sample in v0.4 does not establish any of those claims, and no completeness flag or validation gate was relaxed.
+
+Phase v0.5 provides a bounded retrospective ledger and diagnostic adjustment engine,
+but its complete accounting and publication gates are still blocked. See
+[review 005](historical-evidence-review-005.md) for current evidence.
