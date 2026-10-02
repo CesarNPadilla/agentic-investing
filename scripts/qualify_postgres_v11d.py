@@ -1,6 +1,7 @@
 """Run synthetic qualification in a newly created disposable PostgreSQL container."""
 import os
 import secrets
+import socket
 import subprocess
 import sys
 import time
@@ -14,11 +15,15 @@ def main():
     name = "agentic-v11d-test-" + uuid4().hex[:12]
     env = os.environ.copy()
     env["POSTGRES_PASSWORD"] = secrets.token_urlsafe(32)
+    with socket.socket() as port_probe:
+        port_probe.bind(("127.0.0.1", 0))
+        test_port = port_probe.getsockname()[1]
     container = None
     try:
         result = subprocess.run(["docker", "run", "-d", "--name", name,
+                                 "--label", "agentic.synthetic-qualification=v11g",
                                  "-e", "POSTGRES_PASSWORD", "-e", "POSTGRES_DB=synthetic_v11d",
-                                 "-p", "127.0.0.1::5432", "postgres:17"],
+                                 "-p", f"127.0.0.1:{test_port}:5432", "postgres:17"],
                                 env=env, capture_output=True, text=True, check=True)
         container = result.stdout.strip()
         port = subprocess.check_output(["docker", "port", container, "5432/tcp"], text=True).strip().split(":")[-1]
@@ -36,11 +41,12 @@ def main():
             return 1
         print("Isolated PostgreSQL version:", version, flush=True)
         env["AIL_V11D_SYNTHETIC_TEST_DSN"] = dsn
+        env["AIL_V11G_DISPOSABLE_CONTAINER_ID"] = container
         return subprocess.run([sys.executable, "-m", "pytest", "tests/test_postgres_synthetic_v11.py",
                                "tests/test_loss_accounting_v11.py", "tests/test_evidence_v11.py", "tests/test_reservations_v11.py", "tests/test_sleeve_store_v11.py",
                                "tests/test_sleeve_v11.py", "tests/test_investment_policy.py",
                                "tests/test_policy_v01.py", "tests/test_policy_v02.py",
-                               "tests/test_risk_diagnostics_v09.py", "tests/test_controlled_experiments_v08.py", "-q"],
+                               "tests/test_risk_diagnostics_v09.py", "tests/test_controlled_experiments_v08.py", "tests/test_postgres_recovery_v11.py", "-q"],
                               env=env, check=False).returncode
     except (subprocess.SubprocessError, ValueError):
         print("Isolated PostgreSQL qualification could not run.")

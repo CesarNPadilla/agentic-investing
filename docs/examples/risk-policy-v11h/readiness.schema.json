@@ -1,0 +1,107 @@
+{
+  "$defs": {
+    "ReadinessItem": {
+      "additionalProperties": false,
+      "properties": {
+        "requirement_id": {
+          "title": "Requirement Id",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "BLOCKED",
+            "MISSING",
+            "SYNTHETIC_ONLY"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "explanation": {
+          "minLength": 1,
+          "title": "Explanation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "requirement_id",
+        "status",
+        "explanation"
+      ],
+      "title": "ReadinessItem",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "v11-readiness-audit-v1",
+      "default": "v11-readiness-audit-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "items": {
+      "items": {
+        "$ref": "#/$defs/ReadinessItem"
+      },
+      "title": "Items",
+      "type": "array"
+    },
+    "configured_research_cap_usd": {
+      "title": "Configured Research Cap Usd",
+      "type": "string"
+    },
+    "funding_confirmed": {
+      "const": false,
+      "default": false,
+      "title": "Funding Confirmed",
+      "type": "boolean"
+    },
+    "v11_complete": {
+      "const": false,
+      "default": false,
+      "title": "V11 Complete",
+      "type": "boolean"
+    },
+    "paper_start_ready": {
+      "const": false,
+      "default": false,
+      "title": "Paper Start Ready",
+      "type": "boolean"
+    },
+    "live_ready": {
+      "const": false,
+      "default": false,
+      "title": "Live Ready",
+      "type": "boolean"
+    },
+    "execution_available": {
+      "const": false,
+      "default": false,
+      "title": "Execution Available",
+      "type": "boolean"
+    },
+    "forward_paper_sessions": {
+      "const": 0,
+      "default": 0,
+      "title": "Forward Paper Sessions",
+      "type": "integer"
+    },
+    "source_references": {
+      "items": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      },
+      "title": "Source References",
+      "type": "array"
+    }
+  },
+  "required": [
+    "items",
+    "configured_research_cap_usd",
+    "source_references"
+  ],
+  "title": "ReadinessReport",
+  "type": "object"
+}

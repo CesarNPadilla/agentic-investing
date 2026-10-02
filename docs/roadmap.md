@@ -245,3 +245,11 @@ See [Phase 5 readiness and limitations](human-approved-trading.md#phase-5-readin
 ## v1.1f synthetic loss-accounting foundation
 
 [Review 011f](human-review-011f.md): frozen initial/daily baselines, signed-flow-adjusted sleeve P&L and atomic accounting/latch persistence implemented. 263 targeted tests passed on isolated PostgreSQL. Calendar-driven boundary selection, trusted ledger/equity, authenticated baseline correction/reset and whole-account policy remain pending. Research cap $1,000; funding unconfirmed; execution disabled; OOS sealed; paper 0/60.
+
+## v1.1g crash/outage recovery qualification
+
+[Review 011g](human-review-011g.md) consolidates readiness and qualifies actual disposable PostgreSQL process restart, committed/uncommitted state recovery, lost-ack retry and outage rejection. 271 targeted tests passed without skips. Trusted inputs, whole-account policy, roles/reset, backup/restore and runtime/production deployment remain pending. Research cap $1,000; funding unconfirmed; execution disabled; OOS sealed; paper 0/60.
+
+## v1.1h current-readiness audit
+
+[Review 011h](human-review-011h.md) and the machine-readable report preserve all 17 outstanding gates. 135 targeted tests passed this phase; no PostgreSQL/runtime changes. Next dependent controls require explicit whole-account loss/exposure choices, named trusted sources/roles and verified funding/environment. Full v1.1 remains incomplete; research cap $1,000, execution disabled, OOS sealed and paper 0/60.

@@ -1,7 +1,7 @@
 """Isolated PostgreSQL synthetic risk/latch/reservation transaction foundation."""
 import hashlib
 import re
-from decimal import Decimal
+from decimal import Decimal, DecimalException
 from typing import Literal
 
 import psycopg
@@ -115,7 +115,7 @@ class PostgresSyntheticScope:
                 return result
             except (psycopg.errors.SerializationFailure, psycopg.errors.DeadlockDetected):
                 continue
-            except (psycopg.Error, ValueError, KeyError, TypeError):
+            except (psycopg.Error, DecimalException, ValueError, KeyError, TypeError, AttributeError):
                 raise PostgresSyntheticError("Synthetic transaction unavailable or inconsistent") from None
         raise PostgresSyntheticError("Synthetic transaction retry budget exhausted")
 

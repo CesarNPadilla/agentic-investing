@@ -40,6 +40,8 @@ Recorded 2026-09-28. ADR-001 through ADR-007 carry forward the accepted architec
 | [ADR-034](adr-034.md) | Qualify atomic synthetic risk/latch/reservations under PostgreSQL SERIALIZABLE transactions | v1.1d complete; bounded synthetic qualification, runtime integration pending |
 | [ADR-035](adr-035.md) | Bind synthetic evidence/session qualification and review expiry before atomic reservation | v1.1e complete; real source trust/human authentication pending |
 | [ADR-036](adr-036.md) | Derive synthetic flow-adjusted sleeve losses from frozen baselines and persist latch atomically | v1.1f complete; trusted baselines/reset workflow pending |
+| [ADR-037](adr-037.md) | Qualify disposable PostgreSQL crash/outage recovery and fail-closed persisted state | v1.1g complete; production recovery/deployment gates pending |
+| [ADR-038](adr-038.md) | Audit every current readiness blocker without synthetic qualification promotion or release overrides | v1.1h complete; concrete policy/source/ownership inputs required |
 
 ADR-005 now includes deterministic hypothetical investment-policy checks and portfolio
 intelligence; no production execution is enabled. ADR-006 preserves separate read-source

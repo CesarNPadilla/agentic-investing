@@ -1,0 +1,75 @@
+{
+  "schema_version": "risk-policy-v11g-implementation-status-v1",
+  "phase": "v1.1g",
+  "status": "ISOLATED_POSTGRES_CRASH_AND_OUTAGE_RECOVERY_QUALIFIED",
+  "v11_started": true,
+  "v11_complete": false,
+  "authorization_basis": "Approved independent AUTH-V11 recovery qualification scope and direct user instruction to proceed with next phase.",
+  "approver_identity": null,
+  "decision_timestamp": null,
+  "implemented": [
+    "Disposable-container abrupt database-process stop/start qualification",
+    "Committed reservation/baseline/latch/partial-fill recovery checks",
+    "Uncommitted state rollback verification",
+    "Lost-acknowledgement idempotent retry verification",
+    "Outage fail-closed/no-allocation verification",
+    "Malformed persisted decimal values translated to blocking typed errors",
+    "Recovery runner fixed localhost port plus explicit container name/label/database safety checks"
+  ],
+  "qualification": {
+    "database": "PostgreSQL 17.11 isolated disposable container",
+    "new_recovery_tests_passed": 8,
+    "targeted_tests_passed": 271,
+    "test_skips": 0,
+    "cleanup": "Disposable test container removed",
+    "initial_harness_issue": "Automatically assigned host port changed on container restart; initial run terminated; runner fixed to a stable explicit localhost port and complete suite rerun successfully."
+  },
+  "not_implemented": [
+    "Production runtime/API deployment and migrations",
+    "Backup/restore or point-in-time recovery",
+    "Production load/high availability/network-failure qualification",
+    "Authenticated reset/role assignments",
+    "Trusted data and real broker order reconciliation",
+    "Whole-account loss/exposure decisions",
+    "Externally anchored audit integrity"
+  ],
+  "limitations": [
+    "Abrupt process/container stop preserves same test container storage; does not simulate disk/host loss",
+    "Lost acknowledgement is simulated by discarding a committed receipt then retrying after crash, not a network fault injection",
+    "All scopes/balances/flows/fills remain synthetic",
+    "Database outage blocks callers but no new persistent outage-latch rule is invented"
+  ],
+  "configured_research_cap_usd": "1000",
+  "funding_confirmed": false,
+  "execution_available": false,
+  "paper_execution_approved": false,
+  "live_execution_approved": false,
+  "forward_paper_sessions": 0,
+  "oos_2026": "SEALED",
+  "source_references": [
+    {
+      "path": "docs/examples/risk-policy-v11f/implementation-status.json",
+      "sha256": "f5a19e46ccd67fb477fdbf5e1921b7153623233eb25d8b0bba50c9ccc03dec7a"
+    },
+    {
+      "path": "docs/examples/risk-policy-v103/v11-implementation-authorization.json",
+      "sha256": "f5027e82f6ccf98b0fb60ad3534c0eda65bfbb73579618d57d01b7ad409b6a56"
+    },
+    {
+      "path": "conf/investment-policy-v03.json",
+      "sha256": "77a02f530540a7d59d61835d0a38466ae49846852585474cc9b9e36a0f0d2fd0"
+    },
+    {
+      "path": "risk/postgres_synthetic_v11.py",
+      "sha256": "b60eb96b721c361737625cb98fd00379e1b4ef0d7d5f2fb14b6aaf95aa79426c"
+    },
+    {
+      "path": "tests/test_postgres_recovery_v11.py",
+      "sha256": "817ff295944439380103321350fd84cb1c73e2594298681c2603e3e82caf311c"
+    },
+    {
+      "path": "scripts/qualify_postgres_v11d.py",
+      "sha256": "3cb77c9c3aa9d82ba6e5716ee9b5364ed69dfa6a2d2abd3a3c3bd7fabd961276"
+    }
+  ]
+}
