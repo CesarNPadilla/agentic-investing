@@ -1,0 +1,67 @@
+{
+  "schema_version": "risk-policy-v102-human-instruction-provenance-v1",
+  "conversation_id": "6abbd906-ac4c-83e8-a61b-ba85ef8a6d3d",
+  "conversation_title": "Portfolio Thesis Watch",
+  "user_message_id": "2b93b21e-4694-490e-a8f0-3a55e73df3a1",
+  "conversation_link": "chatgpt-conversation://6abbd906-ac4c-83e8-a61b-ba85ef8a6d3d",
+  "instruction_verbatim": "Record my proposed human decisions for the v1.0.1 numerical policy review. Do not modify executable policy yet. Decisions:\nN01 Experimental sleeve ceiling: Approve as proposed\nN02 Maximum single position: Approve as proposed\nN03 Single-name concentration: Approve as proposed\nN04 Aggregate sleeve exposure: Approve as proposed\nN05 Minimum order: Approve as proposed\nN06 Daily sleeve loss: Approve as proposed\nN07 Cumulative sleeve loss: Approve as proposed\nN08 Maximum quote age: Approve as proposed\nN09 Maximum portfolio snapshot age: Approve as proposed\nN10 Human approval lifetime: Approve as proposed\nAll omitted items remain PENDING.",
+  "instruction_utf8_sha256": "6db6376eb826e675cf6f7faf7bafa31a1706dc964dc25b5aa091c34657d6b33f",
+  "verification": "Original user message retrieved with read_thread; current user instruction explicitly reaffirms N01–N10 approval and limits reconciliation to documentation.",
+  "approver_identity": null,
+  "decision_timestamp": null,
+  "identity_timestamp_note": "No authenticated approver identity or decision timestamp supplied; retrieval metadata is not substituted. This design decision record is not a signed activation artifact.",
+  "mapping": [
+    {
+      "user_label": "N01",
+      "stable_id": "NUM-EXPERIMENTAL-ALLOCATION",
+      "human_decision": "APPROVE_AS_PROPOSED"
+    },
+    {
+      "user_label": "N02",
+      "stable_id": "NUM-SINGLE-POSITION",
+      "human_decision": "APPROVE_AS_PROPOSED"
+    },
+    {
+      "user_label": "N03",
+      "stable_id": "NUM-SINGLE-NAME-CONCENTRATION",
+      "human_decision": "APPROVE_AS_PROPOSED"
+    },
+    {
+      "user_label": "N04",
+      "stable_id": "NUM-AGGREGATE-EXPOSURE",
+      "human_decision": "APPROVE_AS_PROPOSED"
+    },
+    {
+      "user_label": "N05",
+      "stable_id": "NUM-MINIMUM-ORDER",
+      "human_decision": "APPROVE_AS_PROPOSED"
+    },
+    {
+      "user_label": "N06",
+      "stable_id": "NUM-SLEEVE-DAILY-LOSS",
+      "human_decision": "APPROVE_AS_PROPOSED"
+    },
+    {
+      "user_label": "N07",
+      "stable_id": "NUM-CUMULATIVE-SLEEVE-LOSS",
+      "human_decision": "APPROVE_AS_PROPOSED"
+    },
+    {
+      "user_label": "N08",
+      "stable_id": "NUM-QUOTE-AGE",
+      "human_decision": "APPROVE_AS_PROPOSED"
+    },
+    {
+      "user_label": "N09",
+      "stable_id": "NUM-SNAPSHOT-AGE",
+      "human_decision": "APPROVE_AS_PROPOSED"
+    },
+    {
+      "user_label": "N10",
+      "stable_id": "NUM-APPROVAL-LIFETIME",
+      "human_decision": "APPROVE_AS_PROPOSED"
+    }
+  ],
+  "excluded_decisions": "All other 25 decisions remain PENDING, including CAP-A, CAP-B, CAP-C and AUTH-V11.",
+  "approval_scope": "Original v1.0 values, units, denominators, scopes, measurements, triggers, actions and resets; inactive policy design only."
+}

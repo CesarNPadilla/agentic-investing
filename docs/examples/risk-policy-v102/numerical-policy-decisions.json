@@ -1,0 +1,372 @@
+{
+  "schema_version": "risk-policy-v102-numerical-policy-decisions-v1",
+  "proposal_version": "v1.0.1",
+  "approval_status": "APPROVED_BY_HUMAN",
+  "source_references": [
+    {
+      "path": "docs/risk-policy-proposal-v10.md",
+      "sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87"
+    },
+    {
+      "path": "docs/examples/risk-policy-v10/proposed-numerical-limits.json",
+      "sha256": "724955e509d1b3b9c3f06d30dff49a77fb012da81d3046490b3466fb3d2b77b8"
+    },
+    {
+      "path": "docs/examples/risk-policy-v10/approval-checklist.json",
+      "sha256": "84cf8dc83236a5bc59feb7a0c782641b3783f5be4b73501e030aed54f9985987"
+    },
+    {
+      "path": "docs/examples/risk-policy-v101/numerical-policy-decisions.json",
+      "sha256": "7d94e1ccc818fac22e556a6ff15b467530e49e24832574028c0fe0ee8af11997"
+    },
+    {
+      "path": "docs/examples/risk-policy-v102/human-instruction-provenance.json",
+      "sha256": "8d47bc2651237cc88dcafe77ef7a2d15ebfb3249c8ecc49cf6a84ffe38e0f737"
+    }
+  ],
+  "decisions": [
+    {
+      "decision_id": "NUM-EXPERIMENTAL-ALLOCATION",
+      "description": "Experimental Allocation",
+      "proposed_choice": "1000",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "CAP-A policy approval; CAP-B funding and attribution",
+      "unresolved_dependencies": [
+        "CAP-A policy approval; CAP-B funding and attribution"
+      ],
+      "source_document": "docs/examples/risk-policy-v10/proposed-numerical-limits.json",
+      "source_digest_sha256": "724955e509d1b3b9c3f06d30dff49a77fb012da81d3046490b3466fb3d2b77b8",
+      "proposal_version": "v1.0.1",
+      "control_id": "experimental_allocation",
+      "proposed_value": "1000",
+      "unit": "USD",
+      "denominator": "owner-approved funded and attributed initial sleeve",
+      "scope": "experimental sleeve",
+      "measurement_method": "attributed acquisition cost plus open-buy and proposal commitments",
+      "trigger": "greater than funded cash or approved cap",
+      "required_action": "reject new entry",
+      "reset_behavior": "human-approved policy and funding review",
+      "rationale": "separate bounded test budget; not return optimization",
+      "active": false,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v102/human-instruction-provenance.json",
+        "sha256": "8d47bc2651237cc88dcafe77ef7a2d15ebfb3249c8ecc49cf6a84ffe38e0f737",
+        "user_label": "N01"
+      }
+    },
+    {
+      "decision_id": "NUM-SINGLE-POSITION",
+      "description": "Single Position",
+      "proposed_choice": "250 and 25%",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "CAP-A; approved sleeve equity and trusted marks",
+      "unresolved_dependencies": [
+        "CAP-A; approved sleeve equity and trusted marks"
+      ],
+      "source_document": "docs/examples/risk-policy-v10/proposed-numerical-limits.json",
+      "source_digest_sha256": "724955e509d1b3b9c3f06d30dff49a77fb012da81d3046490b3466fb3d2b77b8",
+      "proposal_version": "v1.0.1",
+      "control_id": "single_position",
+      "proposed_value": "250 and 25%",
+      "unit": "USD and fraction",
+      "denominator": "lesser of initial funded sleeve, current positive flow-adjusted sleeve equity and unreserved settled cash",
+      "scope": "one experimental security including commitments",
+      "measurement_method": "projected marked same-symbol exposure at conservative executable price",
+      "trigger": "greater than minimum of stated ceilings",
+      "required_action": "reject; fresh proposal required for resize",
+      "reset_behavior": "reconciled equity or human-approved revision",
+      "rationale": "bound single-name loss",
+      "active": false,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v102/human-instruction-provenance.json",
+        "sha256": "8d47bc2651237cc88dcafe77ef7a2d15ebfb3249c8ecc49cf6a84ffe38e0f737",
+        "user_label": "N02"
+      }
+    },
+    {
+      "decision_id": "NUM-SINGLE-NAME-CONCENTRATION",
+      "description": "Single Name Concentration",
+      "proposed_choice": "0.25",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "CAP-A; approved sleeve equity and trusted marks",
+      "unresolved_dependencies": [
+        "CAP-A; approved sleeve equity and trusted marks"
+      ],
+      "source_document": "docs/examples/risk-policy-v10/proposed-numerical-limits.json",
+      "source_digest_sha256": "724955e509d1b3b9c3f06d30dff49a77fb012da81d3046490b3466fb3d2b77b8",
+      "proposal_version": "v1.0.1",
+      "control_id": "single_name_concentration",
+      "proposed_value": "0.25",
+      "unit": "fraction",
+      "denominator": "current positive flow-adjusted sleeve equity",
+      "scope": "same-name experimental positions and commitments",
+      "measurement_method": "marked exposure plus open and proposal buy commitments divided by denominator",
+      "trigger": "greater than 0.25",
+      "required_action": "reject increasing buy; existing breach human review",
+      "reset_behavior": "reconciliation or approved revision; no auto-liquidation",
+      "rationale": "prevent near-total sleeve allocation",
+      "active": false,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v102/human-instruction-provenance.json",
+        "sha256": "8d47bc2651237cc88dcafe77ef7a2d15ebfb3249c8ecc49cf6a84ffe38e0f737",
+        "user_label": "N03"
+      }
+    },
+    {
+      "decision_id": "NUM-AGGREGATE-EXPOSURE",
+      "description": "Aggregate Exposure",
+      "proposed_choice": "0.75",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "CAP-A; approved sleeve equity and reservations",
+      "unresolved_dependencies": [
+        "CAP-A; approved sleeve equity and reservations"
+      ],
+      "source_document": "docs/examples/risk-policy-v10/proposed-numerical-limits.json",
+      "source_digest_sha256": "724955e509d1b3b9c3f06d30dff49a77fb012da81d3046490b3466fb3d2b77b8",
+      "proposal_version": "v1.0.1",
+      "control_id": "aggregate_exposure",
+      "proposed_value": "0.75",
+      "unit": "fraction",
+      "denominator": "current positive flow-adjusted sleeve equity, additionally bounded by initial funded allocation",
+      "scope": "experimental sleeve",
+      "measurement_method": "gross marked long exposure plus buy commitments and proposal",
+      "trigger": "greater than 0.75",
+      "required_action": "reject new entry",
+      "reset_behavior": "reconcile or approved revision",
+      "rationale": "retain liquidity",
+      "active": false,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v102/human-instruction-provenance.json",
+        "sha256": "8d47bc2651237cc88dcafe77ef7a2d15ebfb3249c8ecc49cf6a84ffe38e0f737",
+        "user_label": "N04"
+      }
+    },
+    {
+      "decision_id": "NUM-MINIMUM-ORDER",
+      "description": "Minimum Order",
+      "proposed_choice": "25",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Approved whole-share order and fee semantics",
+      "unresolved_dependencies": [
+        "Approved whole-share order and fee semantics"
+      ],
+      "source_document": "docs/examples/risk-policy-v10/proposed-numerical-limits.json",
+      "source_digest_sha256": "724955e509d1b3b9c3f06d30dff49a77fb012da81d3046490b3466fb3d2b77b8",
+      "proposal_version": "v1.0.1",
+      "control_id": "minimum_order",
+      "proposed_value": "25",
+      "unit": "USD gross notional",
+      "denominator": "one whole-share buy order",
+      "scope": "experimental proposal",
+      "measurement_method": "quantity times limit price before fees",
+      "trigger": "less than 25",
+      "required_action": "reject without rounding upward",
+      "reset_behavior": "new proposal or approved revision",
+      "rationale": "avoid operationally tiny orders",
+      "active": false,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v102/human-instruction-provenance.json",
+        "sha256": "8d47bc2651237cc88dcafe77ef7a2d15ebfb3249c8ecc49cf6a84ffe38e0f737",
+        "user_label": "N05"
+      }
+    },
+    {
+      "decision_id": "NUM-SLEEVE-DAILY-LOSS",
+      "description": "Sleeve Daily Loss",
+      "proposed_choice": "20 and 0.02",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Approved sleeve baseline, flow-adjusted P&L and kill-switch semantics",
+      "unresolved_dependencies": [
+        "Approved sleeve baseline, flow-adjusted P&L and kill-switch semantics"
+      ],
+      "source_document": "docs/examples/risk-policy-v10/proposed-numerical-limits.json",
+      "source_digest_sha256": "724955e509d1b3b9c3f06d30dff49a77fb012da81d3046490b3466fb3d2b77b8",
+      "proposal_version": "v1.0.1",
+      "control_id": "sleeve_daily_loss",
+      "proposed_value": "20 and 0.02",
+      "unit": "USD and fraction",
+      "denominator": "positive start-of-day flow-adjusted sleeve equity",
+      "scope": "experimental sleeve only",
+      "measurement_method": "lesser dollar loss, realized plus unrealized net fees excluding external flows; America/New_York day",
+      "trigger": "loss reaches or exceeds lesser ceiling",
+      "required_action": "block entries, latch kill switch, human open-order review",
+      "reset_behavior": "next valid boundary plus reconciliation and human reset",
+      "rationale": "daily capital preservation",
+      "active": false,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v102/human-instruction-provenance.json",
+        "sha256": "8d47bc2651237cc88dcafe77ef7a2d15ebfb3249c8ecc49cf6a84ffe38e0f737",
+        "user_label": "N06"
+      }
+    },
+    {
+      "decision_id": "NUM-CUMULATIVE-SLEEVE-LOSS",
+      "description": "Cumulative Sleeve Loss",
+      "proposed_choice": "100 and 0.10",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Approved funded baseline and persistent loss state",
+      "unresolved_dependencies": [
+        "Approved funded baseline and persistent loss state"
+      ],
+      "source_document": "docs/examples/risk-policy-v10/proposed-numerical-limits.json",
+      "source_digest_sha256": "724955e509d1b3b9c3f06d30dff49a77fb012da81d3046490b3466fb3d2b77b8",
+      "proposal_version": "v1.0.1",
+      "control_id": "cumulative_sleeve_loss",
+      "proposed_value": "100 and 0.10",
+      "unit": "USD and fraction",
+      "denominator": "initial funded sleeve capital at owner-approved baseline",
+      "scope": "experimental sleeve since baseline",
+      "measurement_method": "lesser dollar loss, cumulative realized plus unrealized net fees and flow-adjusted",
+      "trigger": "loss reaches or exceeds lesser ceiling",
+      "required_action": "block entries, latch kill switch, human review",
+      "reset_behavior": "human-approved new baseline; deposits do not reset",
+      "rationale": "bound total trial loss",
+      "active": false,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v102/human-instruction-provenance.json",
+        "sha256": "8d47bc2651237cc88dcafe77ef7a2d15ebfb3249c8ecc49cf6a84ffe38e0f737",
+        "user_label": "N07"
+      }
+    },
+    {
+      "decision_id": "NUM-QUOTE-AGE",
+      "description": "Quote Age",
+      "proposed_choice": "30",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Trusted quote provider and synchronized clock",
+      "unresolved_dependencies": [
+        "Trusted quote provider and synchronized clock"
+      ],
+      "source_document": "docs/examples/risk-policy-v10/proposed-numerical-limits.json",
+      "source_digest_sha256": "724955e509d1b3b9c3f06d30dff49a77fb012da81d3046490b3466fb3d2b77b8",
+      "proposal_version": "v1.0.1",
+      "control_id": "quote_age",
+      "proposed_value": "30",
+      "unit": "seconds",
+      "denominator": "trusted provider event timestamp to evaluation/submission time",
+      "scope": "new entry quote",
+      "measurement_method": "nonfuture elapsed time",
+      "trigger": "missing or older than 30 seconds",
+      "required_action": "block and fully re-evaluate",
+      "reset_behavior": "new trusted quote",
+      "rationale": "stale-price protection",
+      "active": false,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v102/human-instruction-provenance.json",
+        "sha256": "8d47bc2651237cc88dcafe77ef7a2d15ebfb3249c8ecc49cf6a84ffe38e0f737",
+        "user_label": "N08"
+      }
+    },
+    {
+      "decision_id": "NUM-SNAPSHOT-AGE",
+      "description": "Snapshot Age",
+      "proposed_choice": "60",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Coherent account snapshot source and synchronized clock",
+      "unresolved_dependencies": [
+        "Coherent account snapshot source and synchronized clock"
+      ],
+      "source_document": "docs/examples/risk-policy-v10/proposed-numerical-limits.json",
+      "source_digest_sha256": "724955e509d1b3b9c3f06d30dff49a77fb012da81d3046490b3466fb3d2b77b8",
+      "proposal_version": "v1.0.1",
+      "control_id": "snapshot_age",
+      "proposed_value": "60",
+      "unit": "seconds",
+      "denominator": "coherent portfolio cutoff to evaluation/submission time",
+      "scope": "complete account snapshot",
+      "measurement_method": "nonfuture elapsed time",
+      "trigger": "missing or older than 60 seconds",
+      "required_action": "block and reconcile",
+      "reset_behavior": "new complete snapshot",
+      "rationale": "avoid stale cash and exposure",
+      "active": false,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v102/human-instruction-provenance.json",
+        "sha256": "8d47bc2651237cc88dcafe77ef7a2d15ebfb3249c8ecc49cf6a84ffe38e0f737",
+        "user_label": "N09"
+      }
+    },
+    {
+      "decision_id": "NUM-APPROVAL-LIFETIME",
+      "description": "Approval Lifetime",
+      "proposed_choice": "5",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Digest-bound approval persistence and quote/state rechecks",
+      "unresolved_dependencies": [
+        "Digest-bound approval persistence and quote/state rechecks"
+      ],
+      "source_document": "docs/examples/risk-policy-v10/proposed-numerical-limits.json",
+      "source_digest_sha256": "724955e509d1b3b9c3f06d30dff49a77fb012da81d3046490b3466fb3d2b77b8",
+      "proposal_version": "v1.0.1",
+      "control_id": "approval_lifetime",
+      "proposed_value": "5",
+      "unit": "minutes",
+      "denominator": "risk-evaluation time",
+      "scope": "one digest-bound proposal",
+      "measurement_method": "earliest of five minutes, quote/state/session invalidation",
+      "trigger": "elapsed or bound input changed",
+      "required_action": "expire approval; fresh evaluation",
+      "reset_behavior": "new proposal and approval",
+      "rationale": "limit state drift",
+      "active": false,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v102/human-instruction-provenance.json",
+        "sha256": "8d47bc2651237cc88dcafe77ef7a2d15ebfb3249c8ecc49cf6a84ffe38e0f737",
+        "user_label": "N10"
+      }
+    }
+  ],
+  "all_limits_active": false,
+  "reconciliation_version": "v1.0.2",
+  "approval_scope": "Numerical policy design only; all limits inactive; dependent operational choices pending."
+}

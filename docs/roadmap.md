@@ -209,3 +209,7 @@ adapter exists, and no strategy currently has qualifying forward paper evidence.
 hours, marked portfolio exposure, and daily-loss enforcement must be connected to a
 trusted market-data and execution boundary before this gate can authorize automation.
 See [Phase 5 readiness and limitations](human-approved-trading.md#phase-5-readiness-gate).
+
+## Risk policy reconciliation v1.0.2
+
+[Owner review 0102](human-review-0102.md) records N01–N10 numerical design approvals with original semantics and auditable user-message provenance. All 25 remaining decisions, including separate CAP-A, funding, environment use and AUTH-V11, remain pending. Next: explicit owner choices for whole-account loss, portfolio exposure, trusted sources, operational ownership and exceptions. Current executable cap remains $160; controls inactive; v1.1 not authorized or started; historical qualification blocked, 2026 OOS sealed, forward paper 0/60 and paper/production execution disabled.

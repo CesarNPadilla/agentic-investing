@@ -32,6 +32,7 @@ Recorded 2026-09-28. ADR-001 through ADR-007 carry forward the accepted architec
 | [ADR-026](adr-026.md) | Wrap the existing deterministic policy evaluator with synthetic-only diagnostics and immutable input/result digests | v0.9; no broker or policy change |
 | [ADR-027](adr-027.md) | Specify future capital/loss/exposure policy as explicitly unapproved, nonexecutable evidence; keep account and sleeve stops distinct | v1.0 design awaiting human approval |
 | [ADR-028](adr-028.md) | Separate each risk-policy decision, funding, implementation, paper and live authorization in a source-digested pending register | v1.0.1 decision package; no approvals recorded |
+| [ADR-029](adr-029.md) | Reconcile ten explicit numerical design approvals with user-message provenance; keep all separate authorizations pending | v1.0.2 complete; 10 approved / 25 pending; inactive |
 
 ADR-005 now includes deterministic hypothetical investment-policy checks and portfolio
 intelligence; no production execution is enabled. ADR-006 preserves separate read-source

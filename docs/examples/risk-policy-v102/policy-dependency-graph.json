@@ -1,0 +1,159 @@
+{
+  "schema_version": "risk-policy-v102-policy-dependency-graph-v1",
+  "proposal_version": "v1.0.1",
+  "approval_status": "AWAITING_HUMAN_APPROVAL",
+  "source_references": [
+    {
+      "path": "docs/risk-policy-proposal-v10.md",
+      "sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87"
+    },
+    {
+      "path": "docs/examples/risk-policy-v10/proposed-numerical-limits.json",
+      "sha256": "724955e509d1b3b9c3f06d30dff49a77fb012da81d3046490b3466fb3d2b77b8"
+    },
+    {
+      "path": "docs/examples/risk-policy-v10/approval-checklist.json",
+      "sha256": "84cf8dc83236a5bc59feb7a0c782641b3783f5be4b73501e030aed54f9985987"
+    },
+    {
+      "path": "docs/examples/risk-policy-v101/policy-dependency-graph.json",
+      "sha256": "af2e1fad1cb396758b54b07d927e2742142ceeac1597182fabcab20e042512e9"
+    },
+    {
+      "path": "docs/examples/risk-policy-v102/human-instruction-provenance.json",
+      "sha256": "8d47bc2651237cc88dcafe77ef7a2d15ebfb3249c8ecc49cf6a84ffe38e0f737"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "policy_approval",
+      "classification": "REQUIRED_FOR_IMPLEMENTATION",
+      "state": "PENDING"
+    },
+    {
+      "id": "sleeve_funding",
+      "classification": "REQUIRED_FOR_FORWARD_PAPER",
+      "state": "BLOCKED"
+    },
+    {
+      "id": "risk_engine_implementation",
+      "classification": "REQUIRED_FOR_FORWARD_PAPER",
+      "state": "BLOCKED"
+    },
+    {
+      "id": "trusted_market_data",
+      "classification": "REQUIRED_FOR_FORWARD_PAPER",
+      "state": "BLOCKED"
+    },
+    {
+      "id": "atomic_reservations",
+      "classification": "REQUIRED_FOR_FORWARD_PAPER",
+      "state": "BLOCKED"
+    },
+    {
+      "id": "kill_switch_persistence",
+      "classification": "REQUIRED_FOR_FORWARD_PAPER",
+      "state": "BLOCKED"
+    },
+    {
+      "id": "historical_data_qualification",
+      "classification": "REQUIRED_FOR_FORWARD_PAPER",
+      "state": "BLOCKED"
+    },
+    {
+      "id": "corporate_action_qualification",
+      "classification": "REQUIRED_FOR_FORWARD_PAPER",
+      "state": "BLOCKED"
+    },
+    {
+      "id": "strategy_eligibility",
+      "classification": "REQUIRED_FOR_FORWARD_PAPER",
+      "state": "BLOCKED"
+    },
+    {
+      "id": "forward_paper_authorization",
+      "classification": "REQUIRED_FOR_FORWARD_PAPER",
+      "state": "BLOCKED"
+    },
+    {
+      "id": "broker_security_review",
+      "classification": "REQUIRED_FOR_LIVE",
+      "state": "BLOCKED"
+    },
+    {
+      "id": "whole_account_loss_policy",
+      "classification": "REQUIRED_FOR_LIVE",
+      "state": "BLOCKED"
+    },
+    {
+      "id": "live_execution_authorization",
+      "classification": "REQUIRED_FOR_LIVE",
+      "state": "BLOCKED"
+    },
+    {
+      "id": "exploratory_research",
+      "classification": "OPTIONAL_RESEARCH",
+      "state": "AVAILABLE_NONPROMOTABLE"
+    }
+  ],
+  "edges": [
+    {
+      "from": "policy_approval",
+      "to": "risk_engine_implementation"
+    },
+    {
+      "from": "policy_approval",
+      "to": "atomic_reservations"
+    },
+    {
+      "from": "policy_approval",
+      "to": "kill_switch_persistence"
+    },
+    {
+      "from": "sleeve_funding",
+      "to": "forward_paper_authorization"
+    },
+    {
+      "from": "risk_engine_implementation",
+      "to": "forward_paper_authorization"
+    },
+    {
+      "from": "trusted_market_data",
+      "to": "forward_paper_authorization"
+    },
+    {
+      "from": "atomic_reservations",
+      "to": "forward_paper_authorization"
+    },
+    {
+      "from": "kill_switch_persistence",
+      "to": "forward_paper_authorization"
+    },
+    {
+      "from": "historical_data_qualification",
+      "to": "strategy_eligibility"
+    },
+    {
+      "from": "corporate_action_qualification",
+      "to": "strategy_eligibility"
+    },
+    {
+      "from": "strategy_eligibility",
+      "to": "forward_paper_authorization"
+    },
+    {
+      "from": "forward_paper_authorization",
+      "to": "live_execution_authorization"
+    },
+    {
+      "from": "broker_security_review",
+      "to": "live_execution_authorization"
+    },
+    {
+      "from": "whole_account_loss_policy",
+      "to": "live_execution_authorization"
+    }
+  ],
+  "software_completion_grants_operational_authorization": false,
+  "reconciliation_version": "v1.0.2"
+}
