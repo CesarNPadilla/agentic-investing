@@ -1,0 +1,248 @@
+{
+  "additionalProperties": false,
+  "description": "Amounts are explicit test evidence, not broker balances or trusted quotes.\n\nPosition/gross exposures include existing marks and all pending commitments.\nAcquisition commitments include existing acquisition cost and pending buys.\nP&L must already be flow-adjusted, net of fees, including unrealized marks.",
+  "properties": {
+    "evidence_class": {
+      "const": "SYNTHETIC_ONLY",
+      "default": "SYNTHETIC_ONLY",
+      "title": "Evidence Class",
+      "type": "string"
+    },
+    "initial_funded_sleeve": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Initial Funded Sleeve"
+    },
+    "current_flow_adjusted_equity": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Current Flow Adjusted Equity"
+    },
+    "start_of_day_flow_adjusted_equity": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Start Of Day Flow Adjusted Equity"
+    },
+    "unreserved_settled_cash": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Unreserved Settled Cash"
+    },
+    "acquisition_commitments": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Acquisition Commitments"
+    },
+    "same_name_marked_commitments": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Same Name Marked Commitments"
+    },
+    "gross_marked_commitments": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Gross Marked Commitments"
+    },
+    "quantity": {
+      "exclusiveMinimum": 0,
+      "title": "Quantity",
+      "type": "integer"
+    },
+    "limit_price": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Limit Price"
+    },
+    "conservative_price": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Conservative Price"
+    },
+    "estimated_fees": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "default": "0",
+      "title": "Estimated Fees"
+    },
+    "daily_net_pnl": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Daily Net Pnl"
+    },
+    "cumulative_net_pnl": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Cumulative Net Pnl"
+    },
+    "now": {
+      "format": "date-time",
+      "title": "Now",
+      "type": "string"
+    },
+    "quote_event_time": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Quote Event Time"
+    },
+    "snapshot_cutoff": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Snapshot Cutoff"
+    },
+    "risk_evaluation_time": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Risk Evaluation Time"
+    },
+    "bound_inputs_unchanged": {
+      "default": false,
+      "title": "Bound Inputs Unchanged",
+      "type": "boolean"
+    },
+    "verified_regular_session": {
+      "default": false,
+      "title": "Verified Regular Session",
+      "type": "boolean"
+    },
+    "kill_switch_latched": {
+      "default": true,
+      "title": "Kill Switch Latched",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "initial_funded_sleeve",
+    "current_flow_adjusted_equity",
+    "start_of_day_flow_adjusted_equity",
+    "unreserved_settled_cash",
+    "acquisition_commitments",
+    "same_name_marked_commitments",
+    "gross_marked_commitments",
+    "quantity",
+    "limit_price",
+    "conservative_price",
+    "daily_net_pnl",
+    "cumulative_net_pnl",
+    "now"
+  ],
+  "title": "SyntheticSleeveInput",
+  "type": "object"
+}

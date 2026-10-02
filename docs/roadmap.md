@@ -221,3 +221,7 @@ See [Phase 5 readiness and limitations](human-approved-trading.md#phase-5-readin
 ## Owner-requested capital cap change
 
 [Policy revision 0.3](capital-cap-change-v03.md) configures $1,000 for local research startup, retaining revision 0.2 historical defaults. Production funding is planned, not confirmed. Production deployment/execution and remaining v1.1 risk implementation remain blocked by missing inputs and qualification.
+
+## v1.1a independent implementation foundation
+
+[Review 011a](human-review-011a.md): approved sleeve mathematics and synthetic boundary/replay tests implemented in isolation. v1.1 has started; full acceptance remains incomplete. Persistence, atomic reservations and runtime integration remain future work; account-wide controls and trusted operations require missing concrete inputs. Configured research cap $1,000; funding unconfirmed; execution disabled; 2026 OOS sealed and paper 0/60.

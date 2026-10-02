@@ -1,0 +1,68 @@
+{
+  "schema_version": "risk-policy-v11a-implementation-status-v1",
+  "phase": "v1.1a",
+  "status": "ISOLATED_SYNTHETIC_SLEEVE_FOUNDATION_COMPLETE",
+  "v11_started": true,
+  "v11_complete": false,
+  "authorization_basis": "Existing approved AUTH-V11 permits independent synthetic workstreams; direct user instruction: Procced with the next phase.",
+  "approver_identity": null,
+  "decision_timestamp": null,
+  "implemented": [
+    "Strict synthetic input/output schemas",
+    "Independent approved N01-N10 sleeve mathematics",
+    "Replayable reason codes",
+    "Required latch indication without state mutation",
+    "Sizing/freshness/loss/input-validation boundary tests"
+  ],
+  "not_implemented": [
+    "Runtime risk-engine integration",
+    "Persistent baseline/session reset and kill-switch service",
+    "Whole-account loss/exposure enforcement",
+    "Trusted provider/calendar integration",
+    "Atomic PostgreSQL reservations",
+    "Broker/reconciliation integration"
+  ],
+  "blocking_inputs": [
+    "Whole-account loss threshold and measurement/reset selections",
+    "Whole-portfolio exposure/concentration/correlation rules",
+    "Named trusted sources and human operational roles",
+    "Unresolved outage latch semantics",
+    "Verified funding and attribution; production funding remains planned"
+  ],
+  "local_configured_cap_usd": "1000",
+  "historical_default_cap_usd": "160",
+  "paper_execution_approved": false,
+  "live_execution_approved": false,
+  "execution_available": false,
+  "forward_paper_sessions": 0,
+  "oos_2026": "SEALED",
+  "validation": {
+    "targeted_tests_passed": 156
+  },
+  "source_references": [
+    {
+      "path": "docs/examples/risk-policy-v103/v11-implementation-authorization.json",
+      "sha256": "f5027e82f6ccf98b0fb60ad3534c0eda65bfbb73579618d57d01b7ad409b6a56"
+    },
+    {
+      "path": "docs/examples/risk-policy-v103/numerical-policy-decisions.json",
+      "sha256": "94a3df50cf81c9f259cfef8b4284c73f70ae3106f85a84641b28ad4211a41d9b"
+    },
+    {
+      "path": "docs/examples/capital-cap-change-v03.json",
+      "sha256": "7a00e216bcdabeeebdee672e2c2b8664cbc52e0d24f9a96e683aaf01fe5cf353"
+    },
+    {
+      "path": "conf/investment-policy-v03.json",
+      "sha256": "77a02f530540a7d59d61835d0a38466ae49846852585474cc9b9e36a0f0d2fd0"
+    },
+    {
+      "path": "risk/sleeve_v11.py",
+      "sha256": "83d77bab8a5e4a5d25572cd09ade23d4707572f304986d44cd59066fcf6324db"
+    },
+    {
+      "path": "tests/test_sleeve_v11.py",
+      "sha256": "5659330bada9212882e935ef4480d490e8c6013cb6781a833678fc469f64a5cb"
+    }
+  ]
+}
