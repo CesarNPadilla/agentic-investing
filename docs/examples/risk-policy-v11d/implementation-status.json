@@ -1,0 +1,81 @@
+{
+  "schema_version": "risk-policy-v11d-implementation-status-v1",
+  "phase": "v1.1d",
+  "status": "ISOLATED_POSTGRES_ATOMIC_SYNTHETIC_FOUNDATION_COMPLETE",
+  "v11_started": true,
+  "v11_complete": false,
+  "authorization_basis": "Approved independent AUTH-V11 implementation scope and direct user instruction to proceed; Docker availability confirmed by user.",
+  "approver_identity": null,
+  "decision_timestamp": null,
+  "implemented": [
+    "Single PostgreSQL SERIALIZABLE transaction combining sleeve evaluation, sticky latch, reservation and diagnostic event",
+    "Aggregate row lock and bounded retry on serialization/deadlock failure",
+    "Commit-before-return receipt",
+    "Per-symbol and gross ledger commitments included conservatively in sleeve risk",
+    "Digest-bound idempotency and fixed-budget capacity",
+    "Synthetic partial/unknown/terminal lifecycle",
+    "Missing/inconsistent state rejection and failed-update rollback"
+  ],
+  "qualification": {
+    "database": "PostgreSQL 17.11 isolated disposable container",
+    "new_postgres_tests_passed": 14,
+    "targeted_tests_passed": 204,
+    "test_skips": 0,
+    "container_cleanup": "Removed disposable test container; existing app/db containers unchanged"
+  },
+  "not_implemented": [
+    "Production runtime/API integration",
+    "Trusted marked prices and account/cash reconciliation",
+    "Authenticated baseline/day/reset lifecycle and operational owners",
+    "Whole-account hard stops and portfolio exposure decisions",
+    "Dynamic cash/exposure adjustment and real fills",
+    "Production database migration/deployment",
+    "External audit integrity anchor"
+  ],
+  "limitations": [
+    "Synthetic fixed one-account/sleeve budgets; no actual funding confirmation",
+    "Conservative retained acquisition costs including fees stand in for ledger marked exposure; no market revaluation qualification",
+    "Input external baseline commitments must exclude ledger-managed commitments",
+    "Explicit synthetic terminal verification is not broker evidence",
+    "State JSON validates structure/budget invariants, not immutable or tamper-proof audit; database owner may edit state",
+    "Bounded contention testing is not production load/crash recovery qualification",
+    "Existing loss/reservation SQLite artifacts are not migrated; integrated PostgreSQL scope is initialized independently"
+  ],
+  "configured_research_cap_usd": "1000",
+  "funding_confirmed": false,
+  "execution_available": false,
+  "paper_execution_approved": false,
+  "live_execution_approved": false,
+  "forward_paper_sessions": 0,
+  "oos_2026": "SEALED",
+  "source_references": [
+    {
+      "path": "docs/examples/risk-policy-v11c/implementation-status.json",
+      "sha256": "29e99c9ad42ca12936951d4aee9d520b1acdb7ec0e40f1275edff5fdb63be264"
+    },
+    {
+      "path": "docs/examples/risk-policy-v103/v11-implementation-authorization.json",
+      "sha256": "f5027e82f6ccf98b0fb60ad3534c0eda65bfbb73579618d57d01b7ad409b6a56"
+    },
+    {
+      "path": "conf/investment-policy-v03.json",
+      "sha256": "77a02f530540a7d59d61835d0a38466ae49846852585474cc9b9e36a0f0d2fd0"
+    },
+    {
+      "path": "risk/sleeve_v11.py",
+      "sha256": "83d77bab8a5e4a5d25572cd09ade23d4707572f304986d44cd59066fcf6324db"
+    },
+    {
+      "path": "risk/postgres_synthetic_v11.py",
+      "sha256": "34840d6ce946d73e961034e346e6236dc324e70dde8e4961dc664309c2701818"
+    },
+    {
+      "path": "tests/test_postgres_synthetic_v11.py",
+      "sha256": "de4f3afef9ed49cfb88bfe998d92002548ce8f52a7c4429d7d45c2cd6246a50d"
+    },
+    {
+      "path": "scripts/qualify_postgres_v11d.py",
+      "sha256": "29992975650355ee847d78d5f7342c47309448c9ddd0c18a22049586702efadc"
+    }
+  ]
+}

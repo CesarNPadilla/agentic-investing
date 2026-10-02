@@ -233,3 +233,7 @@ See [Phase 5 readiness and limitations](human-approved-trading.md#phase-5-readin
 ## v1.1c synthetic reservation foundation
 
 [Review 011c](human-review-011c.md): atomic fixed-budget cash/sleeve reservations, digest-bound idempotency and partial/terminal lifecycle implemented in isolated SQLite. 190 targeted tests pass. Next: PostgreSQL serializable qualification and atomic risk/latch/reservation integration. Concrete whole-account rules, trusted data/owners and verified funding remain missing; research cap $1,000, execution disabled, OOS sealed and paper 0/60.
+
+## v1.1d PostgreSQL atomic foundation
+
+[Review 011d](human-review-011d.md): combined synthetic risk/latch/reservations qualified on disposable PostgreSQL 17.11. 204 targeted tests passed without skips. Runtime/API integration, authoritative marked/account evidence, baseline/reset ownership, whole-account rules and production security/migrations/recovery remain outstanding. Research cap $1,000; funding unconfirmed; execution disabled; OOS sealed; paper 0/60.

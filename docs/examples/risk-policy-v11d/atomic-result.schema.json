@@ -1,0 +1,127 @@
+{
+  "$defs": {
+    "SleeveDiagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "synthetic-sleeve-diagnostic-v11",
+          "default": "synthetic-sleeve-diagnostic-v11",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "sleeve_checks_passed": {
+          "title": "Sleeve Checks Passed",
+          "type": "boolean"
+        },
+        "reason_codes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "persistent_latch_required": {
+          "title": "Persistent Latch Required",
+          "type": "boolean"
+        },
+        "daily_loss_limit": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Daily Loss Limit"
+        },
+        "cumulative_loss_limit": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Cumulative Loss Limit"
+        },
+        "whole_account_qualified": {
+          "const": false,
+          "default": false,
+          "title": "Whole Account Qualified",
+          "type": "boolean"
+        },
+        "execution_available": {
+          "const": false,
+          "default": false,
+          "title": "Execution Available",
+          "type": "boolean"
+        },
+        "automatic_liquidation": {
+          "const": false,
+          "default": false,
+          "title": "Automatic Liquidation",
+          "type": "boolean"
+        },
+        "reset_requirement": {
+          "title": "Reset Requirement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sleeve_checks_passed",
+        "reason_codes",
+        "persistent_latch_required",
+        "daily_loss_limit",
+        "cumulative_loss_limit",
+        "reset_requirement"
+      ],
+      "title": "SleeveDiagnostic",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "diagnostic": {
+      "$ref": "#/$defs/SleeveDiagnostic"
+    },
+    "reservation_present": {
+      "title": "Reservation Present",
+      "type": "boolean"
+    },
+    "committed": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Committed"
+    },
+    "latched": {
+      "title": "Latched",
+      "type": "boolean"
+    },
+    "execution_available": {
+      "const": false,
+      "default": false,
+      "title": "Execution Available",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "diagnostic",
+    "reservation_present",
+    "committed",
+    "latched"
+  ],
+  "title": "AtomicSyntheticResult",
+  "type": "object"
+}

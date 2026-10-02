@@ -37,6 +37,7 @@ Recorded 2026-09-28. ADR-001 through ADR-007 carry forward the accepted architec
 | [ADR-031](adr-031.md) | Start independent approved sleeve checks in an isolated synthetic v1.1 foundation | v1.1a complete; no runtime integration or execution |
 | [ADR-032](adr-032.md) | Persist isolated synthetic sleeve diagnostics with sticky latching and fail-closed replay | v1.1b complete; SQLite foundation only; no operational reset |
 | [ADR-033](adr-033.md) | Reserve isolated synthetic cash/sleeve capacity atomically through partial/terminal lifecycle | v1.1c complete; PostgreSQL and cross-control integration pending |
+| [ADR-034](adr-034.md) | Qualify atomic synthetic risk/latch/reservations under PostgreSQL SERIALIZABLE transactions | v1.1d complete; bounded synthetic qualification, runtime integration pending |
 
 ADR-005 now includes deterministic hypothetical investment-policy checks and portfolio
 intelligence; no production execution is enabled. ADR-006 preserves separate read-source
