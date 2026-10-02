@@ -1,0 +1,83 @@
+{
+  "schema_version": "risk-policy-v11f-implementation-status-v1",
+  "phase": "v1.1f",
+  "status": "SYNTHETIC_BASELINE_AND_FLOW_ADJUSTED_LOSS_FOUNDATION_COMPLETE",
+  "v11_started": true,
+  "v11_complete": false,
+  "authorization_basis": "Approved independent AUTH-V11 scope and direct user instruction to proceed with next step.",
+  "approver_identity": null,
+  "decision_timestamp": null,
+  "implemented": [
+    "Explicit immutable initial funded baseline and daily snapshot baseline",
+    "External-flow-adjusted daily/cumulative net-equity P&L",
+    "Flow-adjusted current/start-of-day equity denominators",
+    "Approved lesser-of daily/cumulative thresholds",
+    "Atomic PostgreSQL accounting record and sticky latch",
+    "Stored accounting supplies risk inputs and stale/missing evidence blocks reservations",
+    "Baseline/time/flow-rewrite prevention and day-rollover latch retention"
+  ],
+  "not_implemented": [
+    "Trusted equity/fee/ledger reconciliation",
+    "Automated exchange-calendar baseline boundary selection",
+    "Authenticated human baseline replacement or reset",
+    "Production funding attribution",
+    "Whole-account loss/exposure policy",
+    "Production runtime/security/audit qualification"
+  ],
+  "qualification": {
+    "database": "PostgreSQL 17.11 disposable test container",
+    "new_pure_tests_passed": 17,
+    "new_postgres_tests_passed": 5,
+    "targeted_tests_passed": 263,
+    "test_skips": 0
+  },
+  "limitations": [
+    "Completeness, fee inclusion and daily-boundary verification remain fixture assertions",
+    "Initial funded baseline <=1000 is explicit synthetic evidence, not a real deposit",
+    "Daily baseline timestamp is supplied and checked for same New York day; actual holiday/session boundary is not independently verified",
+    "Prior flow corrections/baseline revisions are rejected; authenticated correction workflow pending",
+    "Accounting is optional in low-level synthetic scope; once attached it governs subsequent assessments",
+    "No production trust, human reset or execution authorization"
+  ],
+  "configured_research_cap_usd": "1000",
+  "funding_confirmed": false,
+  "execution_available": false,
+  "paper_execution_approved": false,
+  "live_execution_approved": false,
+  "forward_paper_sessions": 0,
+  "oos_2026": "SEALED",
+  "source_references": [
+    {
+      "path": "docs/examples/risk-policy-v11e/implementation-status.json",
+      "sha256": "9624dce5bfcb2d8d75a6d14d06986ca43c0818a41cbf3bb20990de1f8129b880"
+    },
+    {
+      "path": "docs/examples/risk-policy-v103/numerical-policy-decisions.json",
+      "sha256": "94a3df50cf81c9f259cfef8b4284c73f70ae3106f85a84641b28ad4211a41d9b"
+    },
+    {
+      "path": "conf/investment-policy-v03.json",
+      "sha256": "77a02f530540a7d59d61835d0a38466ae49846852585474cc9b9e36a0f0d2fd0"
+    },
+    {
+      "path": "risk/loss_accounting_v11.py",
+      "sha256": "2f1a448ca9a37974abe6a6209bb66e959fb7f3d4f0c3454c4147c07a338059d9"
+    },
+    {
+      "path": "risk/postgres_synthetic_v11.py",
+      "sha256": "514b420046a373c7efe020c7e3fd565f3a2de91ef72280df7b2edf011a80503d"
+    },
+    {
+      "path": "tests/test_loss_accounting_v11.py",
+      "sha256": "0922da81ae0e58884f5693385fa5a3d1b61b8f46b52e825c7e18f9598e5db63b"
+    },
+    {
+      "path": "tests/test_postgres_synthetic_v11.py",
+      "sha256": "c9091556b2943c68b925494908288b87701d1af105a25cc703de6ff5d0467ae7"
+    },
+    {
+      "path": "scripts/qualify_postgres_v11d.py",
+      "sha256": "8dd82c3d3850bdea4c25dd8a6bc992394d034ca6292b565e12f8ce9af644d64d"
+    }
+  ]
+}

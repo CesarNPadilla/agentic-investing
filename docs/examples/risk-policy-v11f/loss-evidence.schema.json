@@ -1,0 +1,144 @@
+{
+  "$defs": {
+    "ExternalFlow": {
+      "additionalProperties": false,
+      "properties": {
+        "flow_id": {
+          "minLength": 1,
+          "title": "Flow Id",
+          "type": "string"
+        },
+        "posted_at": {
+          "format": "date-time",
+          "title": "Posted At",
+          "type": "string"
+        },
+        "amount": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Amount"
+        }
+      },
+      "required": [
+        "flow_id",
+        "posted_at",
+        "amount"
+      ],
+      "title": "ExternalFlow",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "evidence_class": {
+      "const": "SYNTHETIC_ONLY",
+      "default": "SYNTHETIC_ONLY",
+      "title": "Evidence Class",
+      "type": "string"
+    },
+    "baseline_id": {
+      "minLength": 1,
+      "title": "Baseline Id",
+      "type": "string"
+    },
+    "baseline_at": {
+      "format": "date-time",
+      "title": "Baseline At",
+      "type": "string"
+    },
+    "initial_funded_equity": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "maximum": 1000.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Initial Funded Equity"
+    },
+    "daily_baseline_at": {
+      "format": "date-time",
+      "title": "Daily Baseline At",
+      "type": "string"
+    },
+    "daily_baseline_marked_equity": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Daily Baseline Marked Equity"
+    },
+    "as_of": {
+      "format": "date-time",
+      "title": "As Of",
+      "type": "string"
+    },
+    "current_marked_equity": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Current Marked Equity"
+    },
+    "flows": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ExternalFlow"
+      },
+      "title": "Flows",
+      "type": "array"
+    },
+    "ledger_complete": {
+      "default": false,
+      "title": "Ledger Complete",
+      "type": "boolean"
+    },
+    "marks_reconciled": {
+      "default": false,
+      "title": "Marks Reconciled",
+      "type": "boolean"
+    },
+    "fees_included_in_equity": {
+      "default": false,
+      "title": "Fees Included In Equity",
+      "type": "boolean"
+    },
+    "daily_boundary_verified": {
+      "default": false,
+      "title": "Daily Boundary Verified",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "baseline_id",
+    "baseline_at",
+    "initial_funded_equity",
+    "daily_baseline_at",
+    "daily_baseline_marked_equity",
+    "as_of",
+    "current_marked_equity"
+  ],
+  "title": "SyntheticLossEvidence",
+  "type": "object"
+}

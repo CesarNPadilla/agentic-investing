@@ -241,3 +241,7 @@ See [Phase 5 readiness and limitations](human-approved-trading.md#phase-5-readin
 ## v1.1e synthetic evidence foundation
 
 [Review 011e](human-review-011e.md): quote/snapshot/session fixture qualification and digest-bound review expiry implemented, with atomic evidence-aware reservation checks. 241 targeted tests passed on isolated PostgreSQL without skips. Real providers/clock/roles, baseline/reset, account-wide policy and production integration remain pending. Research cap $1,000; funding unconfirmed; execution disabled; OOS sealed; paper 0/60.
+
+## v1.1f synthetic loss-accounting foundation
+
+[Review 011f](human-review-011f.md): frozen initial/daily baselines, signed-flow-adjusted sleeve P&L and atomic accounting/latch persistence implemented. 263 targeted tests passed on isolated PostgreSQL. Calendar-driven boundary selection, trusted ledger/equity, authenticated baseline correction/reset and whole-account policy remain pending. Research cap $1,000; funding unconfirmed; execution disabled; OOS sealed; paper 0/60.

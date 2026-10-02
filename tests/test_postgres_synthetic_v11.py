@@ -204,3 +204,71 @@ def test_invalid_bound_evidence_cannot_reserve(change):
     result = s.assess_and_reserve("blocked", "AAPL", data, evidence_bundle=b, review=binding)
     assert not result.reservation_present and not result.diagnostic.sleeve_checks_passed
     assert s.snapshot()["order_count"] == 0
+
+
+def test_recorded_loss_baseline_survives_restart_and_deposit_recovery():
+    from datetime import timedelta
+
+    from tests.test_loss_accounting_v11 import NOW, flow
+    from tests.test_loss_accounting_v11 import evidence as loss_evidence
+    s = scope()
+    loss = s.record_loss_accounting(loss_evidence(), now=NOW)
+    assert loss.persistent_latch_required and s.snapshot()["latched"]
+    later = NOW+timedelta(seconds=1)
+    s.record_loss_accounting(loss_evidence(as_of=later, current_marked_equity="1480",
+                            flows=(flow("deposit", "500", later),)), now=later)
+    recovered = PostgresSyntheticScope(DSN, s.schema_name)
+    assert recovered.snapshot()["latched"]
+    assert not recovered.assess_and_reserve("after", "AAPL", evidence()).reservation_present
+
+
+def test_baseline_or_prior_flows_cannot_change():
+    from datetime import timedelta
+
+    from tests.test_loss_accounting_v11 import NOW, flow
+    from tests.test_loss_accounting_v11 import evidence as loss_evidence
+    s = scope(); first = loss_evidence(current_marked_equity="1500", flows=(flow("deposit", "500"),))
+    s.record_loss_accounting(first, now=NOW)
+    for changes in [{"baseline_id": "changed"}, {"flows": ()}, {"daily_baseline_marked_equity": "999"}]:
+        with pytest.raises((PostgresSyntheticError, ValueError)):
+            s.record_loss_accounting(loss_evidence(as_of=NOW+timedelta(seconds=1), **changes), now=NOW)
+    assert not s.snapshot()["latched"]
+
+
+def test_accounting_drives_risk_inputs_and_missing_evidence_blocks():
+    from tests.test_loss_accounting_v11 import NOW
+    from tests.test_loss_accounting_v11 import evidence as loss_evidence
+    s = scope()
+    s.record_loss_accounting(loss_evidence(current_marked_equity="999"), now=NOW)
+    result = s.assess_and_reserve("p", "AAPL", evidence(limit_price="249", conservative_price="249"))
+    assert result.reservation_present
+    s.record_loss_accounting(loss_evidence(as_of=NOW.replace(second=1), current_marked_equity="999",
+                                          ledger_complete=False), now=NOW.replace(second=1))
+    result = s.assess_and_reserve("missing", "MSFT", evidence())
+    assert "LOSS_ACCOUNTING_UNAVAILABLE" in result.diagnostic.reason_codes
+    assert not result.reservation_present
+
+
+def test_new_day_does_not_reset_loss_latch():
+    from datetime import timedelta
+
+    from tests.test_loss_accounting_v11 import NOW, START
+    from tests.test_loss_accounting_v11 import evidence as loss_evidence
+    s = scope(); s.record_loss_accounting(loss_evidence(), now=NOW)
+    day = START+timedelta(days=1)
+    s.record_loss_accounting(loss_evidence(daily_baseline_at=day, daily_baseline_marked_equity="980",
+                            current_marked_equity="980", as_of=NOW+timedelta(days=1)), now=NOW+timedelta(days=1))
+    assert s.snapshot()["latched"]
+
+
+def test_stale_accounting_cannot_reserve_even_with_fresh_risk_snapshot():
+    from datetime import timedelta
+
+    from tests.test_loss_accounting_v11 import NOW
+    from tests.test_loss_accounting_v11 import evidence as loss_evidence
+    s = scope(); s.record_loss_accounting(loss_evidence(current_marked_equity="1000"), now=NOW)
+    later = NOW+timedelta(seconds=61)
+    result = s.assess_and_reserve("p", "AAPL", evidence(now=later, quote_event_time=later,
+                                snapshot_cutoff=later, risk_evaluation_time=later))
+    assert "LOSS_ACCOUNTING_UNAVAILABLE" in result.diagnostic.reason_codes
+    assert not result.reservation_present
