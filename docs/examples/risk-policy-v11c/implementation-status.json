@@ -1,0 +1,74 @@
+{
+  "schema_version": "risk-policy-v11c-implementation-status-v1",
+  "phase": "v1.1c",
+  "status": "ISOLATED_SYNTHETIC_RESERVATION_FOUNDATION_COMPLETE",
+  "v11_started": true,
+  "v11_complete": false,
+  "authorization_basis": "Approved independent AUTH-V11 scope plus direct user instruction to proceed with next phase.",
+  "approver_identity": null,
+  "decision_timestamp": null,
+  "storage": "Dedicated SQLite synthetic fixed-capacity ledger",
+  "implemented": [
+    "Atomic cash and sleeve capacity reservation",
+    "Proposal-ID and digest bound idempotency",
+    "Partial-fill cumulative cost retention",
+    "Unknown/pending/unverified terminal status holds capacity",
+    "Verified terminal release of unfilled amount only",
+    "Restart replay and integrity checks",
+    "Concurrent duplicate/proposal serialization",
+    "Transactional rollback on append failure"
+  ],
+  "not_implemented": [
+    "PostgreSQL serializable reservation qualification",
+    "Atomic integration with persisted latch and sleeve evaluator",
+    "Multi-account/symbol inventory and marked exposure reservations",
+    "Trusted broker status and reconciliation evidence",
+    "Authenticated operational lifecycle",
+    "Dynamic funding/cash replenishment and valuation changes",
+    "Production API/broker integration"
+  ],
+  "limitations": [
+    "Fixed one-scope synthetic acquisition-cost budgets; not full marked-risk enforcement",
+    "Terminal verification is explicit synthetic fixture evidence, not broker authentication",
+    "Filled acquisition costs remain consumed; no sales/replenishment path",
+    "Hash journal lacks external trust anchor; full rewrites and valid suffix truncation not detectable",
+    "Replay scans entire journal; no scale qualification"
+  ],
+  "validation": {
+    "new_tests_passed": 22,
+    "targeted_tests_passed": 190
+  },
+  "configured_research_cap_usd": "1000",
+  "funding_confirmed": false,
+  "execution_available": false,
+  "paper_execution_approved": false,
+  "live_execution_approved": false,
+  "forward_paper_sessions": 0,
+  "oos_2026": "SEALED",
+  "source_references": [
+    {
+      "path": "docs/examples/risk-policy-v11b/implementation-status.json",
+      "sha256": "2649d3d3f65b7a4cb978e7f1d100907cf340dbcb21c8822f2ff20385b139ba8c"
+    },
+    {
+      "path": "docs/examples/risk-policy-v103/operational-decisions.json",
+      "sha256": "d2cde0dc59e7d2d5d291f49f7ed6ab54f8177f7e09c4a3f04a549df7d85e2226"
+    },
+    {
+      "path": "docs/examples/risk-policy-v103/v11-implementation-authorization.json",
+      "sha256": "f5027e82f6ccf98b0fb60ad3534c0eda65bfbb73579618d57d01b7ad409b6a56"
+    },
+    {
+      "path": "conf/investment-policy-v03.json",
+      "sha256": "77a02f530540a7d59d61835d0a38466ae49846852585474cc9b9e36a0f0d2fd0"
+    },
+    {
+      "path": "risk/reservations_v11.py",
+      "sha256": "dcc8f0138967d01190b7717930783fdbea3f15bc574f0557657efad62a6c328e"
+    },
+    {
+      "path": "tests/test_reservations_v11.py",
+      "sha256": "c8fa18767c6f4e391e2844f44283c0a0df431c119a4a119f70d6c8e49aa0d02d"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "cash_available": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Cash Available"
+    },
+    "sleeve_available": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Sleeve Available"
+    },
+    "committed": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Committed"
+    },
+    "execution_available": {
+      "const": false,
+      "default": false,
+      "title": "Execution Available",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "cash_available",
+    "sleeve_available",
+    "committed"
+  ],
+  "title": "ReservationSnapshot",
+  "type": "object"
+}
