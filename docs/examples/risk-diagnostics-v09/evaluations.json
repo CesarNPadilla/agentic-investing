@@ -1,0 +1,687 @@
+{
+  "classification": "SYNTHETIC_DIAGNOSTIC_ONLY",
+  "results": {
+    "baseline_review": {
+      "audit_id": "0f7ac7bec27387a3242cae334956ddea01c53a2a5b26c93de5c37a8f3c12b37a",
+      "cash_after_reservations_and_proposal": "60",
+      "cash_before_reservations": "160",
+      "decision": "REVIEW_REQUIRED",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [],
+      "input_snapshot_digest": "312f141a719a9f4bc1d7c5e28c976b38bcf9b33e8224cf9d5b1047e26711310d",
+      "missing_evidence": [],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "100",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "human_approval_required"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "cap_160": {
+      "audit_id": "db416ea6fabb24e7ad567bb7bd7c1eacf87426033e3135686165822a44f27bec",
+      "cash_after_reservations_and_proposal": "-1",
+      "cash_before_reservations": "160",
+      "decision": "REJECT",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [
+        "buying_power",
+        "experimental_capital",
+        "no_leverage",
+        "settled_cash"
+      ],
+      "input_snapshot_digest": "5c7198c434a5ef93b0b6f313ab61a6d52b9e65249d7d650c7428ed65b060442e",
+      "missing_evidence": [],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "161",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "buying_power",
+        "experimental_capital",
+        "no_leverage",
+        "settled_cash"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "concentration_increase": {
+      "audit_id": "0f7ac7bec27387a3242cae334956ddea01c53a2a5b26c93de5c37a8f3c12b37a",
+      "cash_after_reservations_and_proposal": "60",
+      "cash_before_reservations": "160",
+      "decision": "REVIEW_REQUIRED",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [],
+      "input_snapshot_digest": "312f141a719a9f4bc1d7c5e28c976b38bcf9b33e8224cf9d5b1047e26711310d",
+      "missing_evidence": [],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "100",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "human_approval_required"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "concentration_limit": {
+      "audit_id": "6a3a1079020c7efd222c944088871bb186dc7c25b8e3dbf3347341d16854aebc",
+      "cash_after_reservations_and_proposal": "60",
+      "cash_before_reservations": "160",
+      "decision": "REJECT",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [
+        "concentration_limit"
+      ],
+      "input_snapshot_digest": "76de32af3e2a14ad9aef5eedb17ba5ce424e1d87c3444056ee3c28304f5df215",
+      "missing_evidence": [],
+      "policy_digest": "2d29296a0b312084b813917d548e7f7654e09b991fa3ec7d9cb10d84a76d8645",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "100",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "concentration_limit"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "daily_loss_unset": {
+      "audit_id": "0268ca2e2cd043f5212e787ba510a0739a6cfed73c342236cf0e2283f1f15357",
+      "cash_after_reservations_and_proposal": "60",
+      "cash_before_reservations": "160",
+      "decision": "REJECT",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [
+        "configured_daily_loss_timezone",
+        "configured_max_daily_loss",
+        "configured_max_state_age_seconds",
+        "daily_loss",
+        "experimental_loss_control",
+        "fresh_state",
+        "kill_switch"
+      ],
+      "input_snapshot_digest": "cba0a17d007d44d681b02242f6b20c18db8aabf548ba11e4ed314ccd08134a79",
+      "missing_evidence": [
+        "configured_daily_loss_timezone",
+        "configured_max_daily_loss",
+        "configured_max_state_age_seconds",
+        "experimental_loss_control",
+        "fresh_state",
+        "missing_market_age_limit"
+      ],
+      "policy_digest": "f8691d2b269724cf8a24d8ff0e59a186ff6e9be916fd9912a01ac07eb19f211f",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "100",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "configured_daily_loss_timezone",
+        "configured_max_daily_loss",
+        "configured_max_state_age_seconds",
+        "daily_loss",
+        "experimental_loss_control",
+        "fresh_state",
+        "kill_switch",
+        "missing_market_age_limit"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "duplicate_proposal": {
+      "audit_id": "8f074b80757fc72a2a86ac9682318f202cf078e75be5524921cfb6287390adb1",
+      "cash_after_reservations_and_proposal": "60",
+      "cash_before_reservations": "160",
+      "decision": "REJECT",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [
+        "duplicate_proposal"
+      ],
+      "input_snapshot_digest": "78efb1b5d39d53316e0ab56bfd9c68a2686c793658c5a5521b47ec079333602b",
+      "missing_evidence": [],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "100",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "duplicate_proposal"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "existing_nonallowlisted_holding": {
+      "audit_id": "fc83ff1a8c56a273508e9370f67b91e3ca089564e8de72985439cc99ad34972e",
+      "cash_after_reservations_and_proposal": "10",
+      "cash_before_reservations": "60",
+      "decision": "REVIEW_REQUIRED",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [],
+      "input_snapshot_digest": "a1e65511c53e378ede3af597375e601764e5f9f67e79d3a592f337ab69cbf05a",
+      "missing_evidence": [],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "0.6666666666666666666666666667",
+      "post_proposal_exposure": "150",
+      "pre_concentration": "1",
+      "pre_proposal_exposure": "100",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "human_approval_required"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "insufficient_cash": {
+      "audit_id": "eb58d122c9e071b3e8d5d105f6a65aa30d42a4f04e4186086eb381471da05442",
+      "cash_after_reservations_and_proposal": "-10",
+      "cash_before_reservations": "160",
+      "decision": "REJECT",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [
+        "buying_power",
+        "experimental_capital",
+        "no_leverage",
+        "settled_cash"
+      ],
+      "input_snapshot_digest": "43118adb3f3684e23b45896674a1c01d91dbe35004a74cbd68100ea6598190d1",
+      "missing_evidence": [],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "170",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "buying_power",
+        "experimental_capital",
+        "no_leverage",
+        "settled_cash"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "kill_switch": {
+      "audit_id": "c175fc074ef45abce51221a35264cc2de64cbd325c5a21f32de0ea3fe900de48",
+      "cash_after_reservations_and_proposal": "60",
+      "cash_before_reservations": "160",
+      "decision": "REJECT",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [
+        "kill_switch"
+      ],
+      "input_snapshot_digest": "e5b017982fc56308c2f03b18be0d3af0adac029607b1a0e6acd98a5c135893b1",
+      "missing_evidence": [],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "100",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "kill_switch"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "missing_policy": {
+      "audit_id": "26b0df2d876c9e9b870bc3f47cd59b46e2d6cef52865d6fe08dcfda5e582dd2f",
+      "cash_after_reservations_and_proposal": "60",
+      "cash_before_reservations": "160",
+      "decision": "REVIEW_REQUIRED",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [],
+      "input_snapshot_digest": "fc3206322dfc48b59d64360d1c1ebb358f30ccced63c08accada681d9a5df873",
+      "missing_evidence": [
+        "missing_market_age_limit",
+        "missing_policy"
+      ],
+      "policy_digest": null,
+      "policy_version": null,
+      "post_concentration": null,
+      "post_proposal_exposure": null,
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "missing_market_age_limit",
+        "missing_policy"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "missing_price": {
+      "audit_id": "bc494c05f22e9ace28e2809acee5eae90a0a9612ae80f5d2a1fc723f1cfbbb4b",
+      "cash_after_reservations_and_proposal": "60",
+      "cash_before_reservations": "160",
+      "decision": "REVIEW_REQUIRED",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [],
+      "input_snapshot_digest": "4b08444b1c3f9ae7d9931b8cfbb5ca3f957b9db006b3acf2dc533ebbcaab20a6",
+      "missing_evidence": [
+        "missing_market_price"
+      ],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "100",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "missing_market_price"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "multiple_violations": {
+      "audit_id": "824a361362b58ee9016cd1e2769af9493d2526ee1458fe20b628b0211450bc77",
+      "cash_after_reservations_and_proposal": "-10",
+      "cash_before_reservations": "160",
+      "decision": "REJECT",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [
+        "buying_power",
+        "duplicate_proposal",
+        "experimental_capital",
+        "kill_switch",
+        "no_leverage",
+        "proposed_order",
+        "session_closed",
+        "settled_cash"
+      ],
+      "input_snapshot_digest": "8bceecfd2cb3708f5d05a2c70b7af1e0c71557e8b2c88f3b20368fd225f4fee4",
+      "missing_evidence": [],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "170",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "buying_power",
+        "duplicate_proposal",
+        "experimental_capital",
+        "kill_switch",
+        "no_leverage",
+        "proposed_order",
+        "session_closed",
+        "settled_cash"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "overlapping_positions": {
+      "audit_id": "a996d5bcf9753adda6a22acae2dbd44b4ea2de3c2f8386126cdda3d27c512958",
+      "cash_after_reservations_and_proposal": "10",
+      "cash_before_reservations": "60",
+      "decision": "REJECT",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [
+        "proposed_order"
+      ],
+      "input_snapshot_digest": "be24134ebf7e3295c75e4fcdd3b10008da8cec7be8a74f96a9b61f21506738a2",
+      "missing_evidence": [],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "150",
+      "pre_concentration": "1",
+      "pre_proposal_exposure": "100",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "proposed_order"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "pending_reservation": {
+      "audit_id": "713a04a592cbf75c6c453846a61e6b1ac969e10fad7665ea03cad76f2c45e04c",
+      "cash_after_reservations_and_proposal": "-20",
+      "cash_before_reservations": "160",
+      "decision": "REJECT",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [
+        "experimental_capital",
+        "no_leverage",
+        "settled_cash"
+      ],
+      "input_snapshot_digest": "ff7ebe76863ae873378393778ea9ff1d17886051582c956fd55bc3188d317798",
+      "missing_evidence": [],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "0.5555555555555555555555555556",
+      "post_proposal_exposure": "180",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "experimental_capital",
+        "no_leverage",
+        "settled_cash"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "position_exposure_limit": {
+      "audit_id": "3a3ad3881407f0a36ae19182a570593075ad283cb6a37ead1e335edebe2e08c6",
+      "cash_after_reservations_and_proposal": "60",
+      "cash_before_reservations": "160",
+      "decision": "REJECT",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [
+        "position_limit"
+      ],
+      "input_snapshot_digest": "7a219e925795474caa9127dc6a436b612082b2df3cd1bb55016b6bb279b0fdcb",
+      "missing_evidence": [],
+      "policy_digest": "a024923005a5c1040ab455564f23731b73dd6bdec803bdbe6232f8073c3e76fb",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "100",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "position_limit"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "proposed_1000_isolated": {
+      "audit_id": "1ee7c7c147e5348b8dfafda78661b4b2a9ca27394552a44b7e78b36e34f3c418",
+      "cash_after_reservations_and_proposal": "-340",
+      "cash_before_reservations": "160",
+      "decision": "REJECT",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [
+        "buying_power",
+        "experimental_capital",
+        "no_leverage",
+        "settled_cash"
+      ],
+      "input_snapshot_digest": "cd72ca237aba8e687fb1f8000f6664820ae3f097178db518ce590463d2ea014a",
+      "missing_evidence": [],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "500",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": "1000",
+      "reason_codes": [
+        "buying_power",
+        "experimental_capital",
+        "no_leverage",
+        "settled_cash"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "reservation_released": {
+      "audit_id": "0f7ac7bec27387a3242cae334956ddea01c53a2a5b26c93de5c37a8f3c12b37a",
+      "cash_after_reservations_and_proposal": "60",
+      "cash_before_reservations": "160",
+      "decision": "REVIEW_REQUIRED",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [],
+      "input_snapshot_digest": "312f141a719a9f4bc1d7c5e28c976b38bcf9b33e8224cf9d5b1047e26711310d",
+      "missing_evidence": [],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "100",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "human_approval_required"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "session_closed": {
+      "audit_id": "f0e25c3ee5c83deabbc3e38eae5642ff5172d728a4ca2491a976fedaa742df86",
+      "cash_after_reservations_and_proposal": "60",
+      "cash_before_reservations": "160",
+      "decision": "REJECT",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [
+        "session_closed"
+      ],
+      "input_snapshot_digest": "8c1b38121913423620c82dc4307eb7395c96b0fed825410747db9333eebd8187",
+      "missing_evidence": [],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "100",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "session_closed"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "stale_quote": {
+      "audit_id": "514e1b0aeb9f4835573aa2eb598d79811ae47e33a11804067ef2638fd6af8573",
+      "cash_after_reservations_and_proposal": "60",
+      "cash_before_reservations": "160",
+      "decision": "REJECT",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [
+        "stale_market_price"
+      ],
+      "input_snapshot_digest": "8265a68fdff7783480eef3d0e0b439d425925d848fa851f6e592e0c306e9a6f4",
+      "missing_evidence": [],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "100",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "stale_market_price"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "technically_ineligible": {
+      "audit_id": "3fd8651ccf8ceb3d3ad098981ebd2f24d144bb454008345e53a7842f8c1e0046",
+      "cash_after_reservations_and_proposal": "60",
+      "cash_before_reservations": "160",
+      "decision": "REJECT",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [
+        "technically_ineligible"
+      ],
+      "input_snapshot_digest": "05b0ec6791e209d56df67cdeceb76ec4e33b9a147a0106a8dd5416561db13ed2",
+      "missing_evidence": [],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "100",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "technically_ineligible"
+      ],
+      "technical_eligibility": "INELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "unsupported_order": {
+      "audit_id": "3161f893b08f35ec6d7e4f799b222a770b515f3cd53b4399476d97999bba8a20",
+      "cash_after_reservations_and_proposal": "60",
+      "cash_before_reservations": "160",
+      "decision": "REJECT",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [
+        "proposed_order"
+      ],
+      "input_snapshot_digest": "f01ada4adf0ecfc322f9b889f699ee7f59a63fd330d45c65058e72c935d90e13",
+      "missing_evidence": [],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "100",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "proposed_order"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "unsupported_security": {
+      "audit_id": "3db6e5faf0a79b33c137427c4fd894b67846576ab9c0c97dd79bea13b2bf8575",
+      "cash_after_reservations_and_proposal": "60",
+      "cash_before_reservations": "160",
+      "decision": "REJECT",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [
+        "proposed_order"
+      ],
+      "input_snapshot_digest": "e5013b9be38453f90792894e05b1e69a0f4590743b80a3c358c103a79a08e9be",
+      "missing_evidence": [],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "100",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "proposed_order"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "whole_share_unaffordable": {
+      "audit_id": "eb58d122c9e071b3e8d5d105f6a65aa30d42a4f04e4186086eb381471da05442",
+      "cash_after_reservations_and_proposal": "-10",
+      "cash_before_reservations": "160",
+      "decision": "REJECT",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [
+        "buying_power",
+        "experimental_capital",
+        "no_leverage",
+        "settled_cash"
+      ],
+      "input_snapshot_digest": "43118adb3f3684e23b45896674a1c01d91dbe35004a74cbd68100ea6598190d1",
+      "missing_evidence": [],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "170",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "buying_power",
+        "experimental_capital",
+        "no_leverage",
+        "settled_cash"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    },
+    "wrong_environment": {
+      "audit_id": "7468404817de99ada1acc08b2720c853240df459ea001e8092957c802991d59b",
+      "cash_after_reservations_and_proposal": "60",
+      "cash_before_reservations": "160",
+      "decision": "REJECT",
+      "evaluated_at": "2026-09-30T15:00:00Z",
+      "execution_available": false,
+      "failed_controls": [
+        "diagnostic_environment",
+        "environment_mismatch"
+      ],
+      "input_snapshot_digest": "89bab880b219765769af53a0119f3d763de751cb5793b61c447df01cf0f05035",
+      "missing_evidence": [],
+      "policy_digest": "5ef1f0974f0ee070ff14932f852355c3f08a8cc139936e9371d5773a99256963",
+      "policy_version": "investment-policy-v4",
+      "post_concentration": "1",
+      "post_proposal_exposure": "100",
+      "pre_concentration": null,
+      "pre_proposal_exposure": "0",
+      "proposed_capital_is_authorized": false,
+      "proposed_capital_scenario": null,
+      "reason_codes": [
+        "diagnostic_environment",
+        "environment_mismatch"
+      ],
+      "technical_eligibility": "ELIGIBLE",
+      "version": "risk-diagnostic-v09"
+    }
+  }
+}

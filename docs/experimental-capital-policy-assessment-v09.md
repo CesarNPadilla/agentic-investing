@@ -1,0 +1,7 @@
+# Proposed $1,000 experimental capital: policy assessment
+
+Current authorized `agent_experimental_capital_limit` is **$160**. $1,000 is `PROPOSAL_REQUIRES_HUMAN_APPROVAL`, has not been deposited, and grants no trading authority. The existing portfolio stays separate; $100,000 normalized research capital and historical $160 results remain unchanged.
+
+If a future human-approved policy revision raised the cap, attributed acquisition cost, pending buy commitments, and new proposals would consume the larger sleeve. Cash, buying power, whole-share, no-leverage, allowlist, order, kill-switch, reconciliation, thesis, and approval checks would still apply. Affordability would improve for some prices but a whole share could remain impossible, and a single share could dominate the sleeve. The v0.8 $1,000 simulation found 142 unaffordable skips, eight filled symbols, maximum three simultaneous positions, 98.83% maximum single-name concentration, and 10.99% drawdown. Those figures do not justify a limit.
+
+Human decisions needed before policy revision: funding and account attribution; a hard daily-loss amount and timezone; experiment loss limit; maximum per-position and portfolio exposure; concentration and simultaneous-position rules; quote/state age; handling of pending reservations and conflicting proposals; and whether any proposed capital remains under per-order human approval. No numerical new limit is proposed from historical performance.

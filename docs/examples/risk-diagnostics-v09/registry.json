@@ -1,0 +1,21 @@
+{
+  "schema_version": "risk-diagnostics-v09-registry-v1",
+  "classification": "SYNTHETIC_DIAGNOSTIC_ONLY",
+  "policy": "CURRENT_CAP_160_UNCHANGED",
+  "proposed_capital": "1000_PROPOSAL_REQUIRES_HUMAN_APPROVAL",
+  "technical_outcomes": "NOT_HISTORICAL_RISK_ENGINE_EVIDENCE",
+  "historical_v08_results_modified": false,
+  "h02": "DEFERRED_NOT_IMPLEMENTED_NOT_RUN",
+  "oos_2026_accessed": false,
+  "forward_paper_sessions": 0,
+  "paper_execution": "DISABLED",
+  "production_execution": "DISABLED",
+  "broker_submissions": 0,
+  "artifacts": [
+    "risk-control-inventory.json",
+    "policy-snapshots.json",
+    "scenarios.json",
+    "evaluations.json",
+    "replay-verification.json"
+  ]
+}

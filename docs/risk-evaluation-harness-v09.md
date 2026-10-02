@@ -1,0 +1,9 @@
+# Isolated risk evaluation harness v0.9
+
+`DiagnosticInput` takes environment, policy, opening/current portfolio snapshots (accounts, positions, cash, open orders), hypothetical trade, market timestamp, observed core session, kill switch, proposal ID, and technical eligibility. `diagnose` calls the existing deterministic evaluator only when required models exist. It adds stable reason codes, pre/post exposure and concentration, settled-cash impact after reservations, policy/input digests, and an audit ID derived from the canonical snapshot. Same input gives the same output. No LLM override or broker order method is present.
+
+`REVIEW_REQUIRED` means either all deterministic controls passed but mandatory human approval remains, or evidence is missing. The `missing_evidence` field distinguishes the latter. `REJECT` records failed controls. `ALLOW` is reserved in the schema but unreachable under the current human-approval policy. `execution_available` is always false. Technical eligibility is a separate input; `INELIGIBLE` blocks, while `UNKNOWN` is reported as unevaluated. Diagnostic outcomes are not historical Risk Engine decisions.
+
+Run `python -m scripts.build_risk_diagnostics_v09` in the repository environment to regenerate [synthetic scenarios](examples/risk-diagnostics-v09/scenarios.json), [outputs](examples/risk-diagnostics-v09/evaluations.json), and [replay proof](examples/risk-diagnostics-v09/replay-verification.json). The fixture policy exists only to test branches with configured limits; its values do not amend Investment Policy. A `proposed_capital_scenario=1000` annotation never changes the $160 evaluator cap.
+
+The harness does not reserve capital persistently. Releasing a synthetic pending order is represented by a new complete snapshot. It cannot resolve simultaneous proposals arriving against the same snapshot; that requires a durable atomic reservation and approval workflow before any real order path.

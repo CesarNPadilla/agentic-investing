@@ -1,0 +1,12 @@
+{
+  "exact_replay": true,
+  "limitations": [
+    "No broker methods or real portfolio state exercised",
+    "Fixture-only daily loss and freshness thresholds are not authorized policy",
+    "No historical Risk Engine outcomes inferred from v0.8 experiments",
+    "No 2026 out-of-sample data accessed"
+  ],
+  "result_digest": "0a064a5fd21ea47742d3e2a320cf4a6c44a15b1689bb1adc9bf9d96de1c06730",
+  "scenario_count": 24,
+  "scenario_digest": "f880ff5eb0e5ca34d5db46dccea78e8d795756784829313e5d86d1149eb6d126"
+}

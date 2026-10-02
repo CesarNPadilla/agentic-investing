@@ -320,3 +320,6 @@ of the same snapshot only; new broker captures do not inherit old attribution au
 returns stored revisions in ascending order. Limit is 1-500; use the last returned revision
 as the next cursor. Empty results mean no matching revisions. Authentication is mandatory,
 and no broker reader is loaded. See [gap analysis](phase2-policy-gap-analysis.md).
+# Phase v0.9 risk diagnostics
+
+The [isolated risk harness](risk-evaluation-harness-v09.md) and [control inventory](risk-engine-readiness-v09.md) exercise the existing hypothetical evaluator with synthetic snapshots. They do not amend the $160 authorized cap or enable paper/live execution. Fixture-only configured thresholds are not Investment Policy values.

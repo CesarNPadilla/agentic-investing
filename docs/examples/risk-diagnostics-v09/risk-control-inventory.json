@@ -1,0 +1,21 @@
+{
+  "controls": {
+    "allowed_order_types": "IMPLEMENTED_AND_TESTED",
+    "allowed_securities": "IMPLEMENTED_AND_TESTED",
+    "available_cash": "IMPLEMENTED_AND_TESTED",
+    "daily_loss": "POLICY_UNDEFINED",
+    "duplicate_conflicting_orders": "PARTIAL",
+    "environment_isolation": "PARTIAL",
+    "experimental_capital_limit": "IMPLEMENTED_AND_TESTED",
+    "kill_switch": "IMPLEMENTED_AND_TESTED",
+    "market_data_freshness": "PARTIAL",
+    "maximum_portfolio_exposure": "PARTIAL",
+    "maximum_position_size": "POLICY_UNDEFINED",
+    "missing_policy": "IMPLEMENTED_AND_TESTED",
+    "positions_and_pending_orders": "IMPLEMENTED_AND_TESTED",
+    "single_security_concentration": "PARTIAL",
+    "trading_session": "PARTIAL"
+  },
+  "source": "docs/risk-engine-readiness-v09.md",
+  "version": "v09"
+}

@@ -1,0 +1,160 @@
+{
+  "current_authorized": {
+    "agent_experimental_capital_limit": "160",
+    "analysis_scope": "entire_portfolio",
+    "audit_trail_required": true,
+    "auto_liquidate_existing_holdings": false,
+    "automated_trading": false,
+    "automatic_rebalancing": false,
+    "benchmark": "VOO / S&P 500",
+    "benchmark_comparison": "VOO",
+    "buy_only": true,
+    "complex_orders_allowed": false,
+    "concentration_warning": "0.20",
+    "core_monitoring_range": {
+      "maximum": "0.45",
+      "minimum": "0.30"
+    },
+    "currency": "USD",
+    "daily_loss_timezone": null,
+    "entry_thesis_required": true,
+    "environment": "research",
+    "exit_invalidation_thesis_required": true,
+    "fractional_orders_allowed": false,
+    "futures_allowed": false,
+    "holding_horizon": "5\u201310+ years",
+    "human_approval_required": true,
+    "kill_switch_required": true,
+    "leverage_allowed": false,
+    "long_only": true,
+    "margin_allowed": false,
+    "max_concentration": null,
+    "max_daily_loss": null,
+    "max_experimental_loss": null,
+    "max_position_exposure": null,
+    "max_state_age_seconds": null,
+    "new_purchase_allowlist": [
+      "AAPL",
+      "MSFT",
+      "SPY"
+    ],
+    "objective": "Long-term capital growth",
+    "options_allowed": false,
+    "policy_revision": "0.2",
+    "production_trading": false,
+    "rebalance_cadence": "Rule/event driven, not automatic",
+    "research_review_cadence": "Daily",
+    "research_universe": [
+      "AAPL",
+      "AMZN",
+      "GOOG",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA",
+      "TSLA"
+    ],
+    "review_cadence": "Weekly",
+    "satellite_monitoring_range": {
+      "maximum": "0.20",
+      "minimum": "0.10"
+    },
+    "severe_concentration_warning": "0.30",
+    "short_selling_allowed": false,
+    "strategic_monitoring_range": {
+      "maximum": "0.55",
+      "minimum": "0.40"
+    },
+    "strategic_thesis_review_months": 3,
+    "strategy_rules": null,
+    "swing_controls": {
+      "max_holding_days": null,
+      "max_loss": null,
+      "max_position_capital": null,
+      "stop_rule": null
+    },
+    "thesis_required": true,
+    "version": "investment-policy-v4"
+  },
+  "fixture_only": {
+    "agent_experimental_capital_limit": "160",
+    "analysis_scope": "entire_portfolio",
+    "audit_trail_required": true,
+    "auto_liquidate_existing_holdings": false,
+    "automated_trading": false,
+    "automatic_rebalancing": false,
+    "benchmark": "VOO / S&P 500",
+    "benchmark_comparison": "VOO",
+    "buy_only": true,
+    "complex_orders_allowed": false,
+    "concentration_warning": "0.20",
+    "core_monitoring_range": {
+      "maximum": "0.45",
+      "minimum": "0.30"
+    },
+    "currency": "USD",
+    "daily_loss_timezone": "UTC",
+    "entry_thesis_required": true,
+    "environment": "research",
+    "exit_invalidation_thesis_required": true,
+    "fractional_orders_allowed": false,
+    "futures_allowed": false,
+    "holding_horizon": "5\u201310+ years",
+    "human_approval_required": true,
+    "kill_switch_required": true,
+    "leverage_allowed": false,
+    "long_only": true,
+    "margin_allowed": false,
+    "max_concentration": null,
+    "max_daily_loss": "10",
+    "max_experimental_loss": "20",
+    "max_position_exposure": null,
+    "max_state_age_seconds": 120,
+    "new_purchase_allowlist": [
+      "AAPL",
+      "MSFT",
+      "SPY"
+    ],
+    "objective": "Long-term capital growth",
+    "options_allowed": false,
+    "policy_revision": "0.2",
+    "production_trading": false,
+    "rebalance_cadence": "Rule/event driven, not automatic",
+    "research_review_cadence": "Daily",
+    "research_universe": [
+      "AAPL",
+      "AMZN",
+      "GOOG",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA",
+      "TSLA"
+    ],
+    "review_cadence": "Weekly",
+    "satellite_monitoring_range": {
+      "maximum": "0.20",
+      "minimum": "0.10"
+    },
+    "severe_concentration_warning": "0.30",
+    "short_selling_allowed": false,
+    "strategic_monitoring_range": {
+      "maximum": "0.55",
+      "minimum": "0.40"
+    },
+    "strategic_thesis_review_months": 3,
+    "strategy_rules": null,
+    "swing_controls": {
+      "max_holding_days": null,
+      "max_loss": null,
+      "max_position_capital": null,
+      "stop_rule": null
+    },
+    "thesis_required": true,
+    "version": "investment-policy-v4"
+  },
+  "proposed_capital": {
+    "amount": "1000",
+    "status": "PROPOSAL_REQUIRES_HUMAN_APPROVAL"
+  }
+}

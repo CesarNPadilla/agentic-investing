@@ -169,6 +169,12 @@ Gate: predefined acceptance criteria and demonstrated paper behavior. No live ex
 
 ## Phase 4 - Human-approved trading
 
+Phase v0.9 adds isolated synthetic risk diagnostics and a control inventory; see
+[human review 009](human-review-009.md). The authorized experimental cap is still $160;
+$1,000 remains an unapproved planning scenario. Daily-loss and other hard maxima
+remain undefined. Qualifying validation is blocked, 2026 OOS sealed, forward paper
+0/60, and paper/production execution disabled.
+
 Agent -> trade proposal -> deterministic risk engine -> human approval -> broker adapter.
 Implemented locally with a durable synthetic broker: immutable expiring proposals,
 digest-bound approval, separate agent/human credentials, deterministic risk rechecks,

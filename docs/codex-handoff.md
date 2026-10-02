@@ -477,3 +477,6 @@ boundary. No strategy performance was rerun. Review [SEC qualification](data-pro
 [reconstruction](historical-fundamental-reconstruction.md), and
 [review 003](historical-research-review-003.md) before a new architecture
 decision. OOS remains sealed, paper 0/60, execution disabled.
+# v0.9 handoff (2026-10-01)
+
+See [human review 009](human-review-009.md), [risk readiness](risk-engine-readiness-v09.md), and the [synthetic replay](examples/risk-diagnostics-v09/replay-verification.json). Stop for human review after v0.9. Do not edit original strategies, v0.6-v0.8 evidence, policy cap, or frozen gates. H02 remains deferred. 2026 OOS is sealed, paper clock 0/60, execution disabled.
