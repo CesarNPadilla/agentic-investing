@@ -20,11 +20,11 @@ H01 re-entry reset, H02 holding-limit exit review, H03 exposure decomposition, a
 
 The human proposes **$1,000** as a future initial experimental-capital limit. This is a planning proposal, **not** an approved Investment Policy change, deposit confirmation, or trading authorization. The current $160 policy limit and Risk Engine controls continue to govern any actual investment activity until separately approved and changed. The existing investment portfolio stays separate. Normalized strategy-research capital remains **$100,000**; completed $160 exploratory evidence is retained unchanged.
 
-For the next exploratory phase, [preregistered $1,000 feasibility plan](examples/exploratory-retrospective-v07/capital-feasibility-plan.json) fixes the unchanged swing v1.0.0 definition, 2023–24 development/2025 validation periods, current-vintage data and VOO proxy, whole-share execution assumptions, and measures for affordability, skipped/rejected orders, concentration, cash utilization, turnover, costs, and drawdown. **Status: NOT_RUN.** It cannot grant paper or production eligibility or justify tuning parameters for $1,000. The 2026 OOS stays sealed; paper and production execution remain disabled; forward paper remains 0/60.
+For the next exploratory phase, [preregistered $1,000 feasibility plan](examples/exploratory-retrospective-v07/capital-feasibility-plan.json) fixes the unchanged swing v1.0.0 definition, 2023â€“24 development/2025 validation periods, current-vintage data and VOO proxy, whole-share execution assumptions, and measures for affordability, skipped/rejected orders, concentration, cash utilization, turnover, costs, and drawdown. **Status: NOT_RUN.** It cannot grant paper or production eligibility or justify tuning parameters for $1,000. The 2026 OOS stays sealed; paper and production execution remain disabled; forward paper remains 0/60.
 
 ## Exploratory retrospective sandbox v0.6 (2026-10-01)
 
-Implemented a separate, nonpromotable `EXPLORATORY_RETROSPECTIVE` runner over 2023–24 development and 2025 validation only. The unchanged swing v1.0.0 produced counterfactual trade diagnostics; long-term v1.0.0 remains unready. Qualifying validation remains blocked. The 2026 OOS is sealed, both strategies NOT_ELIGIBLE, forward paper 0/60, and paper/production execution disabled. See [review 006](historical-evidence-review-006.md). Stop for human review before any v1.1.0 design, optimization, OOS release, or paper work.
+Implemented a separate, nonpromotable `EXPLORATORY_RETROSPECTIVE` runner over 2023â€“24 development and 2025 validation only. The unchanged swing v1.0.0 produced counterfactual trade diagnostics; long-term v1.0.0 remains unready. Qualifying validation remains blocked. The 2026 OOS is sealed, both strategies NOT_ELIGIBLE, forward paper 0/60, and paper/production execution disabled. See [review 006](historical-evidence-review-006.md). Stop for human review before any v1.1.0 design, optimization, OOS release, or paper work.
 
 ## Historical evidence qualification v0.5 (2026-10-01)
 
@@ -212,4 +212,12 @@ See [Phase 5 readiness and limitations](human-approved-trading.md#phase-5-readin
 
 ## Risk policy reconciliation v1.0.2
 
-[Owner review 0102](human-review-0102.md) records N01–N10 numerical design approvals with original semantics and auditable user-message provenance. All 25 remaining decisions, including separate CAP-A, funding, environment use and AUTH-V11, remain pending. Next: explicit owner choices for whole-account loss, portfolio exposure, trusted sources, operational ownership and exceptions. Current executable cap remains $160; controls inactive; v1.1 not authorized or started; historical qualification blocked, 2026 OOS sealed, forward paper 0/60 and paper/production execution disabled.
+[Owner review 0102](human-review-0102.md) records N01â€“N10 numerical design approvals with original semantics and auditable user-message provenance. All 25 remaining decisions, including separate CAP-A, funding, environment use and AUTH-V11, remain pending. Next: explicit owner choices for whole-account loss, portfolio exposure, trusted sources, operational ownership and exceptions. Current executable cap remains $160; controls inactive; v1.1 not authorized or started; historical qualification blocked, 2026 OOS sealed, forward paper 0/60 and paper/production execution disabled.
+
+## Risk policy approval reconciliation v1.0.3
+
+[Owner review 0103](human-review-0103.md) records all 35 responses as APPROVE_AS_PROPOSED. CAP-A design and AUTH-V11 conditional implementation proposal are approved; concrete account loss/exposure limits, named sources/roles, funding evidence and environment selection still need completion. v1.1 remains unstarted; activation and paper/live permissions remain absent; executable cap stays $160.
+
+## Owner-requested capital cap change
+
+[Policy revision 0.3](capital-cap-change-v03.md) configures $1,000 for local research startup, retaining revision 0.2 historical defaults. Production funding is planned, not confirmed. Production deployment/execution and remaining v1.1 risk implementation remain blocked by missing inputs and qualification.

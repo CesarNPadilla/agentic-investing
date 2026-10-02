@@ -33,7 +33,10 @@ Recorded 2026-09-28. ADR-001 through ADR-007 carry forward the accepted architec
 | [ADR-027](adr-027.md) | Specify future capital/loss/exposure policy as explicitly unapproved, nonexecutable evidence; keep account and sleeve stops distinct | v1.0 design awaiting human approval |
 | [ADR-028](adr-028.md) | Separate each risk-policy decision, funding, implementation, paper and live authorization in a source-digested pending register | v1.0.1 decision package; no approvals recorded |
 | [ADR-029](adr-029.md) | Reconcile ten explicit numerical design approvals with user-message provenance; keep all separate authorizations pending | v1.0.2 complete; 10 approved / 25 pending; inactive |
+| [ADR-030](adr-030.md) | Record blanket proposal approvals separately from missing concrete inputs and operational readiness | v1.0.3; 35 approved responses; unresolved prerequisites; inactive |
 
 ADR-005 now includes deterministic hypothetical investment-policy checks and portfolio
 intelligence; no production execution is enabled. ADR-006 preserves separate read-source
 environments and research/paper policy; production account reads do not authorize trading.
+
+Capital amendment: [revision 0.3](capital-cap-change-v03.md) implements the explicitly requested $1,000 local research cap through versioned configuration. Production funding remains planned; no production execution permission or deposit confirmation is inferred.

@@ -43,7 +43,7 @@ class InvestmentPolicy(BaseModel):
     model_config = ConfigDict(frozen=True, extra="forbid")
 
     version: Literal["investment-policy-v4"] = "investment-policy-v4"
-    policy_revision: Literal["0.2"] = "0.2"
+    policy_revision: Literal["0.2", "0.3"] = "0.2"
     core_monitoring_range: AllocationRange = AllocationRange(minimum="0.30", maximum="0.45")
     strategic_monitoring_range: AllocationRange = AllocationRange(minimum="0.40", maximum="0.55")
     satellite_monitoring_range: AllocationRange = AllocationRange(minimum="0.10", maximum="0.20")
@@ -82,7 +82,7 @@ class InvestmentPolicy(BaseModel):
     complex_orders_allowed: Literal[False] = False
     kill_switch_required: Literal[True] = True
     currency: Literal["USD"] = "USD"
-    agent_experimental_capital_limit: Money | None = Field(default=Decimal(160), le=160)
+    agent_experimental_capital_limit: Money | None = Field(default=Decimal(160), le=1000)
     max_daily_loss: Money | None = None
     max_experimental_loss: Money | None = None
     max_position_exposure: Money | None = None
@@ -97,6 +97,16 @@ class InvestmentPolicy(BaseModel):
     review_cadence: str | None = "Weekly"
     research_review_cadence: str = "Daily"
     strategy_rules: str | None = None
+
+    @model_validator(mode="after")
+    def capital_revision(self):
+        if (
+            self.agent_experimental_capital_limit is not None
+            and self.agent_experimental_capital_limit > 160
+            and self.policy_revision != "0.3"
+        ):
+            raise ValueError("Capital above USD 160 requires policy revision 0.3")
+        return self
 
     @field_serializer("research_universe", "new_purchase_allowlist", when_used="json")
     def ordered_universes(self, value):

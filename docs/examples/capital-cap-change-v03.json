@@ -1,0 +1,35 @@
+{
+  "schema_version": "capital-cap-change-v1",
+  "instruction_verbatim": "Increase the cap yo $1,000, I will have funding ready for 1000 in prod",
+  "instruction_utf8_sha256": "629f3864d206897b643cabfb1f9576e0c5cb8e0293cc89daaf391b78954fe79d",
+  "approver_identity": null,
+  "decision_timestamp": null,
+  "policy_file": {
+    "path": "conf/investment-policy-v03.json",
+    "sha256": "77a02f530540a7d59d61835d0a38466ae49846852585474cc9b9e36a0f0d2fd0"
+  },
+  "approved_cap_usd": "1000",
+  "configured_cap_usd": "1000",
+  "legacy_default_cap_usd": "160",
+  "policy_revision": "0.3",
+  "funding_status": "PLANNED_BY_OWNER_NOT_CONFIRMED",
+  "planned_funding_usd": "1000",
+  "planned_funding_environment": "production",
+  "funding_confirmed": false,
+  "execution_authorized": false,
+  "production_trading": false,
+  "automated_trading": false,
+  "activation_scope": "Local research API startup configuration; existing running processes require restart; no production deployment.",
+  "whole_account_daily_loss_threshold": null,
+  "whole_account_stop_status": "UNRESOLVED_FAIL_CLOSED",
+  "source_references": [
+    {
+      "path": "docs/examples/risk-policy-v103/capital-authorization-decisions.json",
+      "sha256": "1fa1a02fbc0a6b4fdd7a039b921e46f4d3fcf4f2d57bf076b6034006e039a7fa"
+    }
+  ],
+  "validation": {
+    "targeted_tests_passed": 124,
+    "git_diff_check": "PASS"
+  }
+}

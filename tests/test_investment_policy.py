@@ -483,3 +483,26 @@ def test_order_identity_and_fill_progression(inputs):
         "inconsistent_order_status"
         in reconcile(o, replace(s, open_orders=(order(filled_quantity="2"),))).reasons
     )
+
+
+def test_owner_cap_revision_and_funding_gate(inputs):
+    from pathlib import Path
+    from risk.policy import load_investment_policy
+
+    policy = load_investment_policy(Path("conf/investment-policy-v03.json"))
+    assert policy.policy_revision == "0.3"
+    assert policy.agent_experimental_capital_limit == Decimal("1000")
+    assert not policy.production_trading and not policy.automated_trading
+    with pytest.raises(ValidationError):
+        InvestmentPolicy(policy_revision="0.3", agent_experimental_capital_limit="1000.01")
+    with pytest.raises(ValidationError):
+        InvestmentPolicy(policy_revision="0.2", agent_experimental_capital_limit="1000")
+    # Higher cap cannot create settled cash or fill unset risk controls.
+    trade = replace(inputs[3], limit_price="500")
+    result = run((replace(inputs[0], policy_revision="0.3",
+                          agent_experimental_capital_limit="1000"),
+                  inputs[1], inputs[2], trade, inputs[4]))
+    assert "settled_cash" in rejected(result)
+    assert not result.allowed and not result.execution_available
+    defaults = run((policy, *inputs[1:]))
+    assert not defaults.allowed and not defaults.execution_available

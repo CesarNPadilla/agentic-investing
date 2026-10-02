@@ -1,0 +1,619 @@
+{
+  "schema_version": "risk-policy-v103-operational-decisions-v1",
+  "proposal_version": "v1.0.1",
+  "approval_status": "APPROVED_BY_HUMAN_WITH_UNRESOLVED_DEPENDENCIES",
+  "source_references": [
+    {
+      "path": "docs/risk-policy-proposal-v10.md",
+      "sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87"
+    },
+    {
+      "path": "docs/examples/risk-policy-v10/proposed-numerical-limits.json",
+      "sha256": "724955e509d1b3b9c3f06d30dff49a77fb012da81d3046490b3466fb3d2b77b8"
+    },
+    {
+      "path": "docs/examples/risk-policy-v10/approval-checklist.json",
+      "sha256": "84cf8dc83236a5bc59feb7a0c782641b3783f5be4b73501e030aed54f9985987"
+    },
+    {
+      "path": "docs/examples/risk-policy-v101/operational-decisions.json",
+      "sha256": "6695d59b91b5992a109a92c6d2ffefa8a521af7f7565b0045332678d8520a3c2"
+    },
+    {
+      "path": "docs/examples/risk-policy-v102/human-instruction-provenance.json",
+      "sha256": "8d47bc2651237cc88dcafe77ef7a2d15ebfb3249c8ecc49cf6a84ffe38e0f737"
+    },
+    {
+      "path": "docs/examples/risk-policy-v102/operational-decisions.json",
+      "sha256": "b21a0d169ddf7460a63c49f389841fcaede4cfaf9268ff14421f7878cf14274c"
+    },
+    {
+      "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+      "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+    }
+  ],
+  "decisions": [
+    {
+      "decision_id": "OPS-QUOTE-SOURCE",
+      "description": "Trusted quote provider",
+      "proposed_choice": "Select entitled source with event/receipt time, bid/ask, status and provenance",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Trusted quote qualification",
+      "unresolved_dependencies": [
+        "Trusted quote qualification"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "UNRESOLVED",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "decision_id": "OPS-SNAPSHOT-SOURCE",
+      "description": "Trusted account snapshot source",
+      "proposed_choice": "Select complete coherent account/position/order/transaction source",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Read-side reconciliation qualification",
+      "unresolved_dependencies": [
+        "Read-side reconciliation qualification"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "UNRESOLVED",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "decision_id": "OPS-SESSION-CALENDAR",
+      "description": "Trusted trading-session calendar",
+      "proposed_choice": "Select versioned NY exchange calendar including holiday and early close",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Calendar and broker capability qualification",
+      "unresolved_dependencies": [
+        "Calendar and broker capability qualification"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "UNRESOLVED",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "decision_id": "OPS-CLOCK",
+      "description": "Clock synchronization",
+      "proposed_choice": "Approve UTC sync, skew detection and audit",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Trusted clock monitoring",
+      "unresolved_dependencies": [
+        "Trusted clock monitoring"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "UNRESOLVED",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "decision_id": "OPS-QUOTE-FRESHNESS",
+      "description": "Quote freshness",
+      "proposed_choice": "Retain proposed 30-second maximum, inactive",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "NUM-QUOTE-AGE and trusted quote",
+      "unresolved_dependencies": [
+        "NUM-QUOTE-AGE and trusted quote"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "PROPOSED_REQUIRES_APPROVAL",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "decision_id": "OPS-SNAPSHOT-FRESHNESS",
+      "description": "Snapshot freshness",
+      "proposed_choice": "Retain proposed 60-second maximum, inactive",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "NUM-SNAPSHOT-AGE and coherent snapshot",
+      "unresolved_dependencies": [
+        "NUM-SNAPSHOT-AGE and coherent snapshot"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "PROPOSED_REQUIRES_APPROVAL",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "decision_id": "OPS-EARLY-CLOSE",
+      "description": "Early closure handling",
+      "proposed_choice": "Block outside verified regular session",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Trusted calendar and broker capability",
+      "unresolved_dependencies": [
+        "Trusted calendar and broker capability"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "PROPOSED_REQUIRES_APPROVAL",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "decision_id": "OPS-EXTENDED-HOURS",
+      "description": "Extended-hours eligibility",
+      "proposed_choice": "No extended-hours new buys proposed",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Explicit separate policy if ever considered",
+      "unresolved_dependencies": [
+        "Explicit separate policy if ever considered"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "PROPOSED_REQUIRES_APPROVAL",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "decision_id": "OPS-OUTAGE",
+      "description": "Provider outage handling",
+      "proposed_choice": "Immediately block new entries; persistent latch decision unresolved",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Data-halt versus global latch policy",
+      "unresolved_dependencies": [
+        "Data-halt versus global latch policy"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "UNRESOLVED",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "decision_id": "OPS-RECOVERY",
+      "description": "Data recovery",
+      "proposed_choice": "Require fresh quotes, snapshot, reconciliation and human reset if latched",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Provider recovery and switch ownership",
+      "unresolved_dependencies": [
+        "Provider recovery and switch ownership"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "PROPOSED_REQUIRES_APPROVAL",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "decision_id": "OPS-RESERVATIONS",
+      "description": "Atomic reservations",
+      "proposed_choice": "Approve PostgreSQL serializable reservation design; no service now",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Policy and concurrency tests",
+      "unresolved_dependencies": [
+        "Policy and concurrency tests"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "PROPOSED_REQUIRES_APPROVAL",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "decision_id": "OPS-KILL-OWNER",
+      "description": "Kill-switch reset ownership",
+      "proposed_choice": "Designate authenticated human role; never LLM",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Role assignment and audit",
+      "unresolved_dependencies": [
+        "Role assignment and audit"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "UNRESOLVED",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "decision_id": "OPS-EXCEPTIONS",
+      "description": "Policy exception authority",
+      "proposed_choice": "No executable exception path; decide whether any scoped mechanism allowed",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Owner and reviewer decision",
+      "unresolved_dependencies": [
+        "Owner and reviewer decision"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "UNRESOLVED",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "decision_id": "OPS-ROLES",
+      "description": "Approval roles",
+      "proposed_choice": "Designate policy owner, risk reviewer, implementation owner, deployment approver and live approver",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Human identities and separation audit",
+      "unresolved_dependencies": [
+        "Human identities and separation audit"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "UNRESOLVED",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    }
+  ],
+  "kill_switch_matrix": [
+    {
+      "event": "manual_activation",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "reject_current_proposal": true,
+      "block_new_entries": true,
+      "proposed_persistent_latch": false,
+      "require_reconciliation": true,
+      "require_human_review": true,
+      "authorized_cancellation": "MAY_BE_CONSIDERED_SEPARATELY_AFTER_STATUS_REVIEW",
+      "automatic_liquidation": false,
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "event": "daily_sleeve_loss_breach",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "reject_current_proposal": true,
+      "block_new_entries": true,
+      "proposed_persistent_latch": true,
+      "require_reconciliation": true,
+      "require_human_review": true,
+      "authorized_cancellation": "MAY_BE_CONSIDERED_SEPARATELY_AFTER_STATUS_REVIEW",
+      "automatic_liquidation": false,
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "event": "cumulative_sleeve_loss_breach",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "reject_current_proposal": true,
+      "block_new_entries": true,
+      "proposed_persistent_latch": true,
+      "require_reconciliation": true,
+      "require_human_review": true,
+      "authorized_cancellation": "MAY_BE_CONSIDERED_SEPARATELY_AFTER_STATUS_REVIEW",
+      "automatic_liquidation": false,
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "event": "whole_account_daily_loss_breach",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "reject_current_proposal": true,
+      "block_new_entries": true,
+      "proposed_persistent_latch": true,
+      "require_reconciliation": true,
+      "require_human_review": true,
+      "authorized_cancellation": "MAY_BE_CONSIDERED_SEPARATELY_AFTER_STATUS_REVIEW",
+      "automatic_liquidation": false,
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "event": "missing_policy",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "reject_current_proposal": true,
+      "block_new_entries": true,
+      "proposed_persistent_latch": false,
+      "require_reconciliation": false,
+      "require_human_review": true,
+      "authorized_cancellation": "MAY_BE_CONSIDERED_SEPARATELY_AFTER_STATUS_REVIEW",
+      "automatic_liquidation": false,
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "event": "stale_quote",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "reject_current_proposal": true,
+      "block_new_entries": true,
+      "proposed_persistent_latch": false,
+      "require_reconciliation": false,
+      "require_human_review": false,
+      "authorized_cancellation": "MAY_BE_CONSIDERED_SEPARATELY_AFTER_STATUS_REVIEW",
+      "automatic_liquidation": false,
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "event": "stale_portfolio_snapshot",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "reject_current_proposal": true,
+      "block_new_entries": true,
+      "proposed_persistent_latch": false,
+      "require_reconciliation": true,
+      "require_human_review": false,
+      "authorized_cancellation": "MAY_BE_CONSIDERED_SEPARATELY_AFTER_STATUS_REVIEW",
+      "automatic_liquidation": false,
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "event": "broker_reconciliation_failure",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "reject_current_proposal": true,
+      "block_new_entries": true,
+      "proposed_persistent_latch": true,
+      "require_reconciliation": true,
+      "require_human_review": true,
+      "authorized_cancellation": "MAY_BE_CONSIDERED_SEPARATELY_AFTER_STATUS_REVIEW",
+      "automatic_liquidation": false,
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "event": "reservation_conflict",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "reject_current_proposal": true,
+      "block_new_entries": true,
+      "proposed_persistent_latch": false,
+      "require_reconciliation": true,
+      "require_human_review": true,
+      "authorized_cancellation": "MAY_BE_CONSIDERED_SEPARATELY_AFTER_STATUS_REVIEW",
+      "automatic_liquidation": false,
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "event": "environment_mismatch",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "reject_current_proposal": true,
+      "block_new_entries": true,
+      "proposed_persistent_latch": true,
+      "require_reconciliation": true,
+      "require_human_review": true,
+      "authorized_cancellation": "MAY_BE_CONSIDERED_SEPARATELY_AFTER_STATUS_REVIEW",
+      "automatic_liquidation": false,
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "event": "unauthorized_execution_attempt",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "reject_current_proposal": true,
+      "block_new_entries": true,
+      "proposed_persistent_latch": true,
+      "require_reconciliation": true,
+      "require_human_review": true,
+      "authorized_cancellation": "MAY_BE_CONSIDERED_SEPARATELY_AFTER_STATUS_REVIEW",
+      "automatic_liquidation": false,
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "event": "process_restart",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "reject_current_proposal": true,
+      "block_new_entries": true,
+      "proposed_persistent_latch": null,
+      "require_reconciliation": true,
+      "require_human_review": false,
+      "authorized_cancellation": "MAY_BE_CONSIDERED_SEPARATELY_AFTER_STATUS_REVIEW",
+      "automatic_liquidation": false,
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    }
+  ],
+  "agent_operation_24_7": true,
+  "broker_order_execution_enabled": false,
+  "unresolved_outage_latch_scope": true,
+  "reconciliation_version": "v1.0.3"
+}

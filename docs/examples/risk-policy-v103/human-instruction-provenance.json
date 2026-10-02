@@ -1,0 +1,12 @@
+{
+  "schema_version": "risk-policy-v103-human-instruction-provenance-v1",
+  "instruction_verbatim": "Mark all as \"APPROVE_AS_PROPOSED\"",
+  "instruction_utf8_sha256": "5be69221db7922c6a8a7020e3d30473bb8741842e5b68f2405059d4927a5373f",
+  "source": "Direct user instruction in the current Codex chat following the request to resolve the 25 remaining risk decisions.",
+  "user_message_id": null,
+  "approver_identity": null,
+  "decision_timestamp": null,
+  "scope": "All remaining register entries and operational matrix human_decision fields. Existing N01–N10 approvals retained with their original provenance.",
+  "interpretation": "Approve existing proposal text only. Requests to choose unspecified values/sources/roles do not supply those choices or evidence. No executable activation, funding confirmation or environment permission inferred. AUTH-V11 approval is recorded subject to its stated dependencies.",
+  "identity_timestamp_note": "No identity, message identifier or timestamp supplied; none invented."
+}

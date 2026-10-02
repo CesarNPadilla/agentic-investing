@@ -1,0 +1,209 @@
+{
+  "schema_version": "risk-policy-v103-production-risk-decisions-v1",
+  "proposal_version": "v1.0.1",
+  "approval_status": "APPROVED_BY_HUMAN_WITH_UNRESOLVED_DEPENDENCIES",
+  "source_references": [
+    {
+      "path": "docs/risk-policy-proposal-v10.md",
+      "sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87"
+    },
+    {
+      "path": "docs/examples/risk-policy-v10/proposed-numerical-limits.json",
+      "sha256": "724955e509d1b3b9c3f06d30dff49a77fb012da81d3046490b3466fb3d2b77b8"
+    },
+    {
+      "path": "docs/examples/risk-policy-v10/approval-checklist.json",
+      "sha256": "84cf8dc83236a5bc59feb7a0c782641b3783f5be4b73501e030aed54f9985987"
+    },
+    {
+      "path": "docs/examples/risk-policy-v101/production-risk-decisions.json",
+      "sha256": "ee886e27200aeb8d5caa86c33d5e4abe79a8a12593b2a0a1020839d849a7b9a2"
+    },
+    {
+      "path": "docs/examples/risk-policy-v102/human-instruction-provenance.json",
+      "sha256": "8d47bc2651237cc88dcafe77ef7a2d15ebfb3249c8ecc49cf6a84ffe38e0f737"
+    },
+    {
+      "path": "docs/examples/risk-policy-v102/production-risk-decisions.json",
+      "sha256": "00dccd020e72b6de305bfe63d32fc8d47e27107e1f1d8ea81768a08ba304acea"
+    },
+    {
+      "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+      "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+    }
+  ],
+  "decisions": [
+    {
+      "decision_id": "PROD-ACCOUNT-DAILY-LOSS",
+      "description": "Set independent whole-account production daily-loss hard stop",
+      "proposed_choice": "No numerical threshold proposed; decide amount and approval method",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Account-wide flow-adjusted equity, timezone, marks, reconciliation and human threshold",
+      "unresolved_dependencies": [
+        "Account-wide flow-adjusted equity, timezone, marks, reconciliation and human threshold"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "UNRESOLVED",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "decision_id": "PROD-ACCOUNT-DAILY-METHOD",
+      "description": "Approve whole-account daily-loss measurement and reset",
+      "proposed_choice": "Realized plus unrealized net fees; remove deposits/withdrawals; select timezone, start equity, frequency and reset",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Trusted account data and owner-approved methodology",
+      "unresolved_dependencies": [
+        "Trusted account data and owner-approved methodology"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "UNRESOLVED",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "decision_id": "PROD-GROSS-EXPOSURE",
+      "description": "Define maximum whole-portfolio gross exposure and denominator",
+      "proposed_choice": "Choose limit and account-equity or other explicit denominator",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Complete whole-portfolio positions, prices and pending orders",
+      "unresolved_dependencies": [
+        "Complete whole-portfolio positions, prices and pending orders"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "UNRESOLVED",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "decision_id": "PROD-SECURITY-CONCENTRATION",
+      "description": "Define whole-portfolio security concentration",
+      "proposed_choice": "Choose limit, denominator and new-buy treatment for existing breaches",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Whole-portfolio inventory and owner rule",
+      "unresolved_dependencies": [
+        "Whole-portfolio inventory and owner rule"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "UNRESOLVED",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "decision_id": "PROD-SECTOR-CORRELATION",
+      "description": "Define correlated and sector exposure handling",
+      "proposed_choice": "Choose sector taxonomy, correlation method and thresholds or defer with blocker",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Reliable classification, lookback and owner rule",
+      "unresolved_dependencies": [
+        "Reliable classification, lookback and owner rule"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "UNRESOLVED",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "decision_id": "PROD-EXISTING-HOLDINGS",
+      "description": "Specify existing holdings outside sleeve and allowlist",
+      "proposed_choice": "Report all holdings; no auto-liquidation; decide new-buy restrictions on breaches",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Whole-portfolio policy and reconciliation",
+      "unresolved_dependencies": [
+        "Whole-portfolio policy and reconciliation"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "UNRESOLVED",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    },
+    {
+      "decision_id": "PROD-EXCEPTIONS",
+      "description": "Decide if any whole-account risk exception can exist",
+      "proposed_choice": "No exception path unless separately approved; hard stops and missing evidence nonwaivable",
+      "current_state": "APPROVED_BY_HUMAN",
+      "approval_status": "APPROVED_BY_HUMAN",
+      "human_decision": "APPROVE_AS_PROPOSED",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Policy hierarchy and authorized exception roles",
+      "unresolved_dependencies": [
+        "Policy hierarchy and authorized exception roles"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1",
+      "approval_provenance": {
+        "path": "docs/examples/risk-policy-v103/human-instruction-provenance.json",
+        "sha256": "c0b811022164ab96ac06ba3cabbd8544565dac82f3ebdfe31b0430c007f310d2"
+      },
+      "pre_approval_state": "UNRESOLVED",
+      "approval_scope": "Existing proposed text only; missing selections and evidence remain unresolved; inactive."
+    }
+  ],
+  "whole_account_daily_loss_threshold": null,
+  "whole_account_stop_status": "UNRESOLVED_FAIL_CLOSED",
+  "sleeve_limits_are_not_whole_portfolio_limits": true,
+  "reconciliation_version": "v1.0.3"
+}

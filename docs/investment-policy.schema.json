@@ -115,8 +115,11 @@
       "type": "string"
     },
     "policy_revision": {
-      "const": "0.2",
       "default": "0.2",
+      "enum": [
+        "0.2",
+        "0.3"
+      ],
       "title": "Policy Revision",
       "type": "string"
     },
@@ -364,7 +367,7 @@
     "agent_experimental_capital_limit": {
       "anyOf": [
         {
-          "maximum": 160.0,
+          "maximum": 1000.0,
           "minimum": 0.0,
           "type": "number"
         },

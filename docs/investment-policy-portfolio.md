@@ -1,6 +1,6 @@
 # Investment policy and portfolio intelligence
 
-Owner policy revision: **0.2**. Current software schemas: `investment-policy-v4`,
+Configured owner policy revision: **0.3**, with a **$1,000** experimental cap; see [cap change](capital-cap-change-v03.md). Legacy default revision: **0.2**. Current software schemas: `investment-policy-v4`,
 `portfolio-state-v2`, `investment-risk-v4`. This replaces the earlier whole-portfolio
 USD 160 interpretation. Production/automated execution and automatic rebalancing remain
 disabled. No broker submission, cancellation or modification is added.
@@ -33,7 +33,7 @@ with `execution_available: false`; they are separate from the older synthetic Ph
 
 ## Experimental capital is not portfolio value
 
-`agent_experimental_capital_limit` defaults to USD 160. `max_total_exposure` and
+`agent_experimental_capital_limit` retains the legacy USD 160 default; the configured revision 0.3 policy sets USD 1,000. `max_total_exposure` and
 `max_experimental_capital` have been removed; old configurations fail validation rather
 than silently retaining their previous meaning. There is **no default portfolio-value cap**.
 
