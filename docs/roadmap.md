@@ -225,3 +225,7 @@ See [Phase 5 readiness and limitations](human-approved-trading.md#phase-5-readin
 ## v1.1a independent implementation foundation
 
 [Review 011a](human-review-011a.md): approved sleeve mathematics and synthetic boundary/replay tests implemented in isolation. v1.1 has started; full acceptance remains incomplete. Persistence, atomic reservations and runtime integration remain future work; account-wide controls and trusted operations require missing concrete inputs. Configured research cap $1,000; funding unconfirmed; execution disabled; 2026 OOS sealed and paper 0/60.
+
+## v1.1b synthetic persistence foundation
+
+[Review 011b](human-review-011b.md): durable diagnostic journal, atomic appends and sticky loss/manual latch implemented with isolated SQLite fixtures. 168 targeted tests pass. Next: atomic reservations and PostgreSQL qualification; actual baseline/reset, whole-account rules, trusted sources and runtime integration remain outstanding. Research cap $1,000; funding unconfirmed; execution disabled; 2026 OOS sealed; forward paper 0/60.
