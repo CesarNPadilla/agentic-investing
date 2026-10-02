@@ -1,0 +1,17 @@
+{
+  "schema_version": "exploratory-experiment-registry-v07",
+  "status": "DESIGN_ONLY",
+  "parent_reference": "../exploratory-retrospective-v06/registry.json",
+  "entries": [
+    {"id": "SWING_REENTRY_RESET_CANDIDATE", "kind": "DRAFT_CANDIDATE", "hypothesis_id": "H01", "specification": "candidate-specifications.json", "result": null, "implemented": false},
+    {"id": "SWING_HOLDING_EXIT_CANDIDATE", "kind": "DRAFT_CANDIDATE", "hypothesis_id": "H02", "specification": "candidate-specifications.json", "result": null, "implemented": false},
+    {"id": "EXPOSURE_DECOMPOSITION", "kind": "DIAGNOSTIC_DESIGN", "hypothesis_id": "H03", "specification": "experimental-protocol.json", "result": null, "implemented": false},
+    {"id": "BASELINE_COST_SENSITIVITY", "kind": "FIXED_SENSITIVITY_DESIGN", "hypothesis_id": "H04", "specification": "experimental-protocol.json", "result": null, "implemented": false},
+    {"id": "exploratory-capital-feasibility-v07-1000-preregistered", "kind": "CAPITAL_FEASIBILITY_EXPLORATORY", "specification": "capital-feasibility-plan.json", "result": null, "implemented": false}
+  ],
+  "candidate_backtests_run": 0,
+  "oos_accessed": false,
+  "forward_paper_sessions": 0,
+  "paper_execution": "DISABLED",
+  "production_execution": "DISABLED"
+}

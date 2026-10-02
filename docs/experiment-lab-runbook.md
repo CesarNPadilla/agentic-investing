@@ -7,6 +7,8 @@ The v0.6 [exploratory registry](examples/exploratory-retrospective-v06/registry.
 
 Capital planning after v0.6 proposes a **$1,000** experimental amount for a separate future feasibility simulation, [preregistered here](examples/exploratory-retrospective-v07/capital-feasibility-plan.json). It has **not run** and is neither an approved policy limit nor a confirmed deposit. The $100,000 normalized research case and archived $160 results remain distinct; the existing $160 Investment Policy cap and Risk Engine controls are unchanged. No strategy parameter is to be tuned specifically for $1,000.
 
+The v0.7 [design experiment registry](examples/exploratory-retrospective-v07/registry.json), [hypothesis registry](examples/exploratory-retrospective-v07/hypothesis-registry.json), [candidate design records](examples/exploratory-retrospective-v07/candidate-specifications.json), [future protocol](examples/exploratory-retrospective-v07/experimental-protocol.json), and [metric definitions](examples/exploratory-retrospective-v07/comparison-metrics.json) are design artifacts only. The 2025 exploratory results have been exposed and any reuse is research-informed, never a fresh holdout. No v0.8 run, candidate version, or qualifying/paper transition is authorized; see [human review 007](human-review-007.md).
+
 ## Definitions
 
 `experiment_lab.definitions.initial_definitions()` returns exactly:

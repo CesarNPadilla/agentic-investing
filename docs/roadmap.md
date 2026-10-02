@@ -1,5 +1,9 @@
 # Roadmap and phase gates
 
+## Strategy design and controlled preregistration v0.7 (2026-10-01)
+
+H01 re-entry reset, H02 holding-limit exit review, H03 exposure decomposition, and H04 fixed cost sensitivity are [preregistered](strategy-experiment-preregistration-v07.md) for human review. H01/H02 are separate draft candidate IDs, not strategy versions. The 2025 exploratory period is research-informed, not a fresh holdout. The [$1,000 feasibility plan](examples/exploratory-retrospective-v07/capital-feasibility-plan.json) remains NOT_RUN and proposed only; $100,000 normalized capital, the current $160 policy cap, and historical $160 results remain distinct. No candidate backtest, v1.1.0 implementation, OOS access, paper clock, or execution change occurred. See [human review 007](human-review-007.md); stop before v0.8 until human approval.
+
 ## Proposed experimental capital planning update (2026-10-01)
 
 The human proposes **$1,000** as a future initial experimental-capital limit. This is a planning proposal, **not** an approved Investment Policy change, deposit confirmation, or trading authorization. The current $160 policy limit and Risk Engine controls continue to govern any actual investment activity until separately approved and changed. The existing investment portfolio stays separate. Normalized strategy-research capital remains **$100,000**; completed $160 exploratory evidence is retained unchanged.

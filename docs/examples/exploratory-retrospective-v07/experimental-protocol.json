@@ -1,0 +1,37 @@
+{
+  "schema_version": "exploratory-protocol-v08-preregistered-v07",
+  "status": "DESIGN_ONLY_NOT_RUN_REQUIRES_HUMAN_APPROVAL",
+  "evidence_class": "EXPLORATORY_RETROSPECTIVE",
+  "baseline_manifest": "../exploratory-retrospective-v06/manifest.json",
+  "baseline_result_digest": "30f79857dfd68eca48af178cb6cf04f446988c6c3d20e3945fddd6d66c4f7311",
+  "candidate_specifications": "candidate-specifications.json",
+  "hypothesis_registry": "hypothesis-registry.json",
+  "capital_feasibility_plan": "capital-feasibility-plan.json",
+  "periods": [
+    {"role": "development", "start": "2023-01-03", "end": "2024-12-31", "interpretation": "RESEARCH_INFORMED"},
+    {"role": "validation", "start": "2025-01-02", "end": "2025-12-31", "interpretation": "RESEARCH_INFORMED_NOT_FRESH_HOLDOUT"},
+    {"role": "out_of_sample", "start": "2026-01-02", "end": "2026-09-29", "interpretation": "SEALED_NO_ACCESS"}
+  ],
+  "dataset_digest": "a7297c9ba63e50192b18eeda1d510b5288e8fd3ab9602ffe11786a112cb2c10f",
+  "dataset_file_sha256": "5c5b0429efdd78363b376e48333d0709fad3426e49148aac6f15a831c18d826a",
+  "universe": ["AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "META", "TSLA", "PLTR", "INTC"],
+  "benchmark": "VOO_ALPACA_ADJUSTMENT_ALL_CURRENT_VINTAGE_TOTAL_RETURN_PROXY",
+  "normalized_research_capital_usd": "100000",
+  "execution": {"timing": "next_session_close", "whole_shares_only": true, "commission_usd": "0.10", "spread_bps_full": "2", "slippage_bps": "5", "cash_rule": "no_borrowing", "separate_cash_dividends": false},
+  "comparison": "LOCKED_V1_0_0_BASELINE_VS_EACH_ONE_CHANGE_CANDIDATE_SEPARATELY",
+  "h04_cost_scenarios": [
+    {"id": "NO_COST_MATCHED_COUNTERFACTUAL", "commission_usd": "0", "spread_bps_full": "0", "slippage_bps": "0"},
+    {"id": "BASELINE", "commission_usd": "0.10", "spread_bps_full": "2", "slippage_bps": "5"},
+    {"id": "STRESSED", "commission_usd": "0.25", "spread_bps_full": "4", "slippage_bps": "10"}
+  ],
+  "cost_sensitivity_scope": "UNCHANGED_BASELINE_ONLY; CANDIDATE_COMPARISONS_USE_BASELINE_COSTS",
+  "candidate_configuration_digest": "TO_BE_RECORDED_BEFORE_IMPLEMENTATION_AND_ANY_RUN",
+  "random_seed": null,
+  "reproducibility": "IMMUTABLE_INPUTS_AND_CONFIG; TWO_EXACT_CANONICAL_RESULT_REPLAYS",
+  "reporting": "ALL_CANDIDATES_AND_ADVERSE_OUTCOMES; NO_AUTO_WINNER; NO_QUALIFICATION_CLAIM",
+  "candidate_backtests_run": 0,
+  "paper_eligibility": "NEVER_FROM_THIS_RESULT",
+  "production_eligibility": "NEVER_FROM_THIS_RESULT",
+  "forward_paper_sessions": 0,
+  "execution_available": false
+}

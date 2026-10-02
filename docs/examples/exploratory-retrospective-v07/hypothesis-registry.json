@@ -1,0 +1,16 @@
+{
+  "schema_version": "exploratory-hypotheses-v07",
+  "status": "PREREGISTERED_DESIGN_ONLY",
+  "reference_manifest": "../exploratory-retrospective-v06/manifest.json",
+  "reference_result_digest": "30f79857dfd68eca48af178cb6cf04f446988c6c3d20e3945fddd6d66c4f7311",
+  "evidence_class": "EXPLORATORY_RETROSPECTIVE",
+  "hypotheses": [
+    {"id": "H01", "kind": "PROPOSED_INTERVENTION", "question": "Does a fresh entry event after exit reduce repeated same-symbol re-entry?", "candidate_id": "SWING_REENTRY_RESET_CANDIDATE", "status": "DRAFT_REQUIRES_HUMAN_APPROVAL"},
+    {"id": "H02", "kind": "PROPOSED_INTERVENTION", "question": "Does mandatory exit at the existing 20-session holding limit create avoidable turnover?", "candidate_id": "SWING_HOLDING_EXIT_CANDIDATE", "status": "DRAFT_REQUIRES_HUMAN_APPROVAL"},
+    {"id": "H03", "kind": "DIAGNOSTIC_ONLY", "question": "What share of low average exposure arises from signal scarcity, allocation constraints, or simulator behavior?", "candidate_id": null, "status": "DRAFT_REQUIRES_HUMAN_APPROVAL"},
+    {"id": "H04", "kind": "FIXED_SENSITIVITY_ONLY", "question": "How sensitive is unchanged v1.0.0 to three prespecified execution-friction scenarios?", "candidate_id": null, "status": "DRAFT_REQUIRES_HUMAN_APPROVAL"}
+  ],
+  "candidate_backtests_run": 0,
+  "oos_accessed": false,
+  "paper_eligibility": "NEVER_FROM_THIS_RESULT"
+}

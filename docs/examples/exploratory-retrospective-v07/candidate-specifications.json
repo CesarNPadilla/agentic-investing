@@ -1,0 +1,33 @@
+{
+  "schema_version": "exploratory-swing-candidates-v07",
+  "status": "DESIGN_ONLY_NOT_IMPLEMENTED",
+  "parent_strategy": "SWING_TREND_MOMENTUM",
+  "parent_version": "1.0.0",
+  "parent_definition_digest": "9b5016895d65789100aabb9a98a7f3269876e33a04fbdf3ef495759c3fd5e77d",
+  "candidate_version": null,
+  "candidates": [
+    {
+      "id": "SWING_REENTRY_RESET_CANDIDATE",
+      "hypothesis_id": "H01",
+      "single_change": "After any completed exit, the same symbol is disarmed until a complete session fails the original entry predicate, followed by a later complete session satisfying it; only then may the ordinary next-session order be queued.",
+      "reset_after": ["TREND_FAILURE", "ATR_STOP", "HOLDING_LIMIT"],
+      "minimum_wait_sessions": 0,
+      "missing_data": "NO_RESET_AND_NO_ENTRY_FAIL_CLOSED",
+      "unchanged": ["SMA50/200", "RSI14_50_TO_75", "VOLUME20", "ATR14_TIMES_2_STOP", "20_SESSION_HOLDING_LIMIT", "SIZING", "COSTS"],
+      "approval": "REQUIRES_HUMAN_APPROVAL"
+    },
+    {
+      "id": "SWING_HOLDING_EXIT_CANDIDATE",
+      "hypothesis_id": "H02",
+      "single_change": "At the existing 20-session holding boundary, record a review event without a mandatory sale; retain the position until the unchanged ATR stop or trend-failure exit fires.",
+      "atr_stop_priority": "UNCHANGED_ALWAYS_ACTIVE",
+      "trend_failure_priority": "UNCHANGED_ALWAYS_ACTIVE",
+      "reentry_rule": "UNCHANGED_V1_0_0_DO_NOT_COMBINE_WITH_H01",
+      "missing_data": "NO_NEW_ENTRY; EXIT_REVIEW_REQUIRED_IF_EXIT_INPUT_UNAVAILABLE",
+      "unchanged": ["SMA50/200", "RSI14_50_TO_75", "VOLUME20", "ATR14_TIMES_2_STOP", "SIZING", "COSTS"],
+      "approval": "REQUIRES_HUMAN_APPROVAL_FOR_REMOVING_MANDATORY_HOLDING_EXIT_AND_ANY_POLICY_CONFLICT"
+    }
+  ],
+  "combined_candidate": "NOT_PREREGISTERED",
+  "execution_available": false
+}

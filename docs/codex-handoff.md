@@ -1,5 +1,9 @@
 # Codex handoff: Agentic Investing
 
+## Latest: v0.7 design and preregistration (2026-10-01)
+
+Read [human review 007](human-review-007.md), [preregistration](strategy-experiment-preregistration-v07.md), [swing candidate drafts](swing-candidate-design-v07.md), and [ADR-024](adr-024.md). H01–H04 and the v0.8 comparison protocol are recorded, but no candidate was implemented or backtested. The 2025 exploratory period is research-informed and cannot be a fresh holdout. The $1,000 feasibility plan is unchanged and NOT_RUN; $1,000 remains proposed, not deposited or policy-approved. Frozen v1.0.0 definitions, qualification gates, $100,000 research capital, current $160 policy cap, and completed $160 results remain intact. Long-term stays insufficient-data. 2026 OOS sealed; historical qualification BLOCKED; both strategies NOT_ELIGIBLE; forward paper 0/60; paper/production execution DISABLED. Stop for human review before v0.8 or any strategy version.
+
 ## Proposed $1,000 experimental-capital planning update
 
 The latest human proposal is a future **$1,000** experimental-capital limit. It is not approved policy, a confirmed deposit, or authorization to trade. Keep the real portfolio separate and normalized research capital at **$100,000**. Preserve the completed $160 results and current $160 policy cap unless separately approved and changed. The [next-phase $1,000 feasibility plan](examples/exploratory-retrospective-v07/capital-feasibility-plan.json) is preregistered but **NOT_RUN**; it fixes whole-share affordability, skipped/rejected orders, concentration, utilization, turnover, costs, and drawdown without parameter optimization. Frozen strategy definitions and qualifying gates remain unchanged. The 2026 OOS is sealed, paper/production execution disabled, forward paper 0/60, and all actual investment activity remains subject to human approval and Risk Engine controls.

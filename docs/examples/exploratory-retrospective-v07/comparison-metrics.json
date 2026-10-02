@@ -1,0 +1,9 @@
+{
+  "schema_version": "exploratory-comparison-metrics-v07",
+  "status": "PREREGISTERED_NOT_MEASURED",
+  "behavior": ["entries", "exits_by_reason", "completed_round_trips", "same_symbol_reentries", "sessions_exit_to_reentry", "reentries_by_prior_exit_reason", "holding_period_distribution", "turnover_gross_traded_notional_over_starting_capital", "average_exposure", "cash_utilization"],
+  "performance": ["total_return", "maximum_drawdown", "annualized_volatility", "win_rate", "profit_factor", "average_winner", "average_loser", "modeled_commission", "modeled_spread_and_slippage", "matched_no_cost_return_difference_if_run", "voo_adjusted_all_exploratory_excess_return"],
+  "implementation": ["input_and_result_digest_reproducibility", "missing_data_events", "simulated_policy_bypasses", "risk_engine_status_not_exercised_unless_separately_connected", "unaffordable_whole_share_orders", "maximum_single_name_concentration", "maximum_simultaneous_positions", "capital_utilization", "broker_submission_count_zero"],
+  "interpretation": "REPORT_TRADEOFFS_UNCERTAINTY_AND_ALL_ADVERSE_OUTCOMES; ONE_IMPROVED_RETURN_METRIC_IS_INSUFFICIENT",
+  "qualification": "NONE_EXPLORATORY_ONLY"
+}
