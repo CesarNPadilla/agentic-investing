@@ -1,0 +1,9 @@
+{
+  "schema_version": "risk-policy-hierarchy-v10",
+  "approval_status": "PROPOSED_REQUIRES_APPROVAL",
+  "highest_to_lowest": ["platform_safety", "environment", "investment_policy", "experimental_sleeve", "strategy", "trade_proposal_risk_evaluation", "human_approval"],
+  "conflict_rule": "LOWER_LEVEL_CANNOT_WEAKEN_HIGHER_HARD_STOP",
+  "missing_rule": "FAIL_CLOSED",
+  "human_approval_overrides_risk": false,
+  "policy_change_requires": ["identified_human_approver", "version_and_digest", "effective_time", "impact_review", "tests", "separate_deployment_authorization", "invalidate_and_reevaluate_old_proposals"]
+}

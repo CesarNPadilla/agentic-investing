@@ -30,6 +30,7 @@ Recorded 2026-09-28. ADR-001 through ADR-007 carry forward the accepted architec
 | [ADR-024](adr-024.md) | Preregister isolated exploratory swing design questions before implementation; retain v1.0.0 baseline and classify 2025 as research-informed | v0.7 design proposal, awaiting human review; no candidate run |
 | [ADR-025](adr-025.md) | Execute only human-scoped H01/H03/H04 and $1,000 counterfactual feasibility as isolated, nonpromotable research; defer H02 | v0.8 completed; no policy or execution change |
 | [ADR-026](adr-026.md) | Wrap the existing deterministic policy evaluator with synthetic-only diagnostics and immutable input/result digests | v0.9; no broker or policy change |
+| [ADR-027](adr-027.md) | Specify future capital/loss/exposure policy as explicitly unapproved, nonexecutable evidence; keep account and sleeve stops distinct | v1.0 design awaiting human approval |
 
 ADR-005 now includes deterministic hypothetical investment-policy checks and portfolio
 intelligence; no production execution is enabled. ADR-006 preserves separate read-source

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "risk-policy-proposal-v10",
+  "title": "Nonexecutable risk policy proposal record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["classification", "approval_status", "current_authorized_cap_usd", "proposed_cap_usd", "numerical_limits", "unresolved", "execution_enabled"],
+  "properties": {
+    "classification": {"const": "DESIGN_ONLY"},
+    "approval_status": {"const": "PROPOSED_REQUIRES_APPROVAL"},
+    "current_authorized_cap_usd": {"const": "160"},
+    "proposed_cap_usd": {"const": "1000"},
+    "numerical_limits": {"type": "array", "items": {"type": "object", "required": ["id", "value", "unit", "denominator", "scope", "measurement", "trigger", "action", "reset", "rationale", "approval_status"], "properties": {"approval_status": {"const": "PROPOSED_REQUIRES_APPROVAL"}}}},
+    "unresolved": {"type": "array", "items": {"type": "string"}},
+    "execution_enabled": {"const": false}
+  }
+}

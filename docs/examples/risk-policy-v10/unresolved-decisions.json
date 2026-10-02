@@ -1,0 +1,16 @@
+{
+  "schema_version": "risk-policy-unresolved-v10",
+  "classification": "UNRESOLVED",
+  "decisions": [
+    "Whole-account/production daily-loss amount and ownership, independent of proposed sleeve stop",
+    "Whole-portfolio exposure ceiling and correlated/sector concentration limits",
+    "Whether a single initial position's 100% deployed-gross share needs a separate diversification gate",
+    "Whether any exception process may relax a proposed limit, and who can approve it",
+    "Exact trusted quote side, spread and fee buffer and provider entitlement",
+    "Provider outage versus persistent global kill-switch trigger scope",
+    "Repeated order failure count and response",
+    "Funding, account attribution and baseline approval for a future $1000 sleeve",
+    "Paper and live deployment authorization, credentials and operational incident ownership"
+  ],
+  "missing_or_contradictory_policy_action": "BLOCK_NEW_ENTRIES"
+}

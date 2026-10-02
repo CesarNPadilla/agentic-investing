@@ -1,5 +1,9 @@
 # Roadmap and phase gates
 
+## Risk policy specification v1.0 (2026-10-01)
+
+The [approval-ready design](human-review-010.md) proposes a $1,000 attributed sleeve and explicit capital, loss, freshness, and approval controls. Every new value is unapproved and inactive; the current $160 cap and unset production daily-loss stop are unchanged. The [future v1.1 backlog](risk-control-implementation-backlog-v11.md) is not started. Historical qualification stays blocked, both strategies NOT_ELIGIBLE, 2026 OOS sealed, forward paper 0/60, and paper/production execution disabled. Stop for human approval.
+
 ## Controlled exploratory experiments v0.8 (2026-10-01)
 
 Completed approved H01 re-entry-reset candidate, H03 diagnostic instrumentation, H04's three fixed cost scenarios, and separate simulated $1,000 whole-share feasibility. [Human review 008](human-review-008.md) reports adverse as well as favorable outcomes; no winner or v1.1.0 is selected. **H02 remains `DEFERRED_NOT_IMPLEMENTED_NOT_RUN`.** All results are `EXPLORATORY_RETROSPECTIVE`; the $1,000 case is `CAPITAL_FEASIBILITY_EXPLORATORY` and does not change the current $160 policy cap. The 2025 comparison is research-informed; 2026 OOS remains sealed. Both strategies NOT_ELIGIBLE, forward paper 0/60, paper/production DISABLED. Stop for human review before v0.9.

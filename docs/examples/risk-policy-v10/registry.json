@@ -1,0 +1,15 @@
+{
+  "schema_version": "risk-policy-proposal-registry-v10",
+  "classification": "DESIGN_ONLY_AWAITING_HUMAN_APPROVAL",
+  "artifacts": ["current-versus-proposed.json", "proposed-numerical-limits.json", "unresolved-decisions.json", "policy-hierarchy.json", "approval-checklist.json", "proposed-policy.schema.json"],
+  "executable_policy_changes": false,
+  "current_cap_usd": "160",
+  "proposed_cap_usd": "1000",
+  "production_daily_loss_current": null,
+  "strategy_definitions_changed": false,
+  "broker_submission_enabled": false,
+  "oos_2026_accessed": false,
+  "forward_paper_sessions": 0,
+  "paper_execution": "DISABLED",
+  "production_execution": "DISABLED"
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": "risk-policy-comparison-v10",
+  "classification": "DESIGN_ONLY_AWAITING_HUMAN_APPROVAL",
+  "current_authorized": {
+    "policy_version": "investment-policy-v4",
+    "revision": "0.2",
+    "experimental_capital_usd": "160",
+    "purchase_allowlist": ["AAPL", "MSFT", "SPY"],
+    "order": "WHOLE_SHARE_BUY_LIMIT_DAY_CORE",
+    "human_approval_required": true,
+    "production_daily_loss_usd": null,
+    "experimental_loss_usd": null,
+    "hard_position_exposure_usd": null,
+    "hard_concentration": null,
+    "quote_age_seconds": null,
+    "snapshot_age_seconds": null,
+    "paper_execution": false,
+    "production_execution": false
+  },
+  "proposed": {
+    "approval_status": "PROPOSED_REQUIRES_APPROVAL",
+    "experimental_capital_usd": "1000",
+    "purchase_allowlist": ["AAPL", "MSFT", "SPY"],
+    "order": "WHOLE_SHARE_BUY_LIMIT_DAY_CORE",
+    "human_approval_required": true,
+    "paper_execution": false,
+    "production_execution": false
+  },
+  "current_policy_modified": false,
+  "executable_policy_changes": false
+}

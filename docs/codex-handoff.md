@@ -480,3 +480,6 @@ decision. OOS remains sealed, paper 0/60, execution disabled.
 # v0.9 handoff (2026-10-01)
 
 See [human review 009](human-review-009.md), [risk readiness](risk-engine-readiness-v09.md), and the [synthetic replay](examples/risk-diagnostics-v09/replay-verification.json). Stop for human review after v0.9. Do not edit original strategies, v0.6-v0.8 evidence, policy cap, or frozen gates. H02 remains deferred. 2026 OOS is sealed, paper clock 0/60, execution disabled.
+# v1.0 handoff (2026-10-01)
+
+The [policy review package](human-review-010.md) and [proposal registry](examples/risk-policy-v10/registry.json) are design only. Current $160 cap, unset production daily-loss hard stop, Investment Policy, Risk Engine, strategies, and historical evidence remain unchanged. Do not begin the [v1.1 backlog](risk-control-implementation-backlog-v11.md) or activate proposed values without explicit human approval. H02 deferred, 2026 OOS sealed, forward paper 0/60, paper/production disabled.

@@ -322,4 +322,6 @@ as the next cursor. Empty results mean no matching revisions. Authentication is 
 and no broker reader is loaded. See [gap analysis](phase2-policy-gap-analysis.md).
 # Phase v0.9 risk diagnostics
 
+The [v1.0 approval draft](risk-policy-proposal-v10.md) is a nonexecutable proposal. It does not replace the current $160 policy, configure the unset production daily-loss stop, or authorize broker execution.
+
 The [isolated risk harness](risk-evaluation-harness-v09.md) and [control inventory](risk-engine-readiness-v09.md) exercise the existing hypothetical evaluator with synthetic snapshots. They do not amend the $160 authorized cap or enable paper/live execution. Fixture-only configured thresholds are not Investment Policy values.

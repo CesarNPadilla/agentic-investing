@@ -1,0 +1,15 @@
+{
+  "schema_version": "risk-policy-approval-checklist-v10",
+  "approval_status": "AWAITING_HUMAN_APPROVAL",
+  "items": [
+    {"id":"experimental_funding_1000","status":"PENDING"},
+    {"id":"position_concentration_aggregate_limits","status":"PENDING"},
+    {"id":"sleeve_daily_and_cumulative_loss","status":"PENDING"},
+    {"id":"separate_whole_account_daily_loss","status":"UNRESOLVED"},
+    {"id":"quote_session_snapshot_age","status":"PENDING"},
+    {"id":"approval_expiry_and_reservations","status":"PENDING"},
+    {"id":"kill_switch_trigger_and_reset_scope","status":"PENDING"},
+    {"id":"policy_version_and_deployment_authorization","status":"PENDING"}
+  ],
+  "completion_grants_execution_authority": false
+}
