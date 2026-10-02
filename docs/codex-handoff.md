@@ -483,3 +483,6 @@ See [human review 009](human-review-009.md), [risk readiness](risk-engine-readin
 # v1.0 handoff (2026-10-01)
 
 The [policy review package](human-review-010.md) and [proposal registry](examples/risk-policy-v10/registry.json) are design only. Current $160 cap, unset production daily-loss hard stop, Investment Policy, Risk Engine, strategies, and historical evidence remain unchanged. Do not begin the [v1.1 backlog](risk-control-implementation-backlog-v11.md) or activate proposed values without explicit human approval. H02 deferred, 2026 OOS sealed, forward paper 0/60, paper/production disabled.
+# v1.0.1 handoff (2026-10-01)
+
+The [human-review package](human-review-0101.md) and [pending decision register](examples/risk-policy-v101/decision-register.json) preserve source SHA-256 digests for unchanged v1.0 evidence. All 35 human choices are pending. Do not infer approval of the $1,000 cap, actual funding, environment execution, or v1.1 implementation from package completion. Whole-account daily stop unresolved/fail closed; current $160 policy unchanged; 2026 OOS sealed, paper 0/60, execution disabled. Stop for explicit owner action.

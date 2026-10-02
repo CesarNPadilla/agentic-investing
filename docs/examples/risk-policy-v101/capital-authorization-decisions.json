@@ -1,0 +1,80 @@
+{
+  "schema_version": "risk-policy-v101-capital-authorization-decisions-v1",
+  "proposal_version": "v1.0.1",
+  "approval_status": "AWAITING_HUMAN_APPROVAL",
+  "source_references": [
+    {
+      "path": "docs/risk-policy-proposal-v10.md",
+      "sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87"
+    },
+    {
+      "path": "docs/examples/risk-policy-v10/proposed-numerical-limits.json",
+      "sha256": "724955e509d1b3b9c3f06d30dff49a77fb012da81d3046490b3466fb3d2b77b8"
+    },
+    {
+      "path": "docs/examples/risk-policy-v10/approval-checklist.json",
+      "sha256": "84cf8dc83236a5bc59feb7a0c782641b3783f5be4b73501e030aed54f9985987"
+    }
+  ],
+  "decisions": [
+    {
+      "decision_id": "CAP-A",
+      "description": "Increase future experimental capital policy ceiling from $160 to $1,000",
+      "proposed_choice": "$1,000 policy ceiling; existing $160 unchanged until separately approved and deployed",
+      "current_state": "PROPOSED_REQUIRES_APPROVAL",
+      "approval_status": "PROPOSED_REQUIRES_APPROVAL",
+      "human_decision": "PENDING",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Policy owner decision and versioned policy change",
+      "unresolved_dependencies": [
+        "Policy owner decision and versioned policy change"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1"
+    },
+    {
+      "decision_id": "CAP-B",
+      "description": "Confirm actual funding and formal experimental attribution",
+      "proposed_choice": "Owner-reviewed $1,000 funded sleeve baseline; no funding assumed",
+      "current_state": "UNRESOLVED",
+      "approval_status": "UNRESOLVED",
+      "human_decision": "PENDING",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "Actual deposit evidence and attribution inventory",
+      "unresolved_dependencies": [
+        "Actual deposit evidence and attribution inventory"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1"
+    },
+    {
+      "decision_id": "CAP-C",
+      "description": "Authorize a specific environment to use approved capital",
+      "proposed_choice": "Separate environment-specific execution authorization; no current authorization",
+      "current_state": "DEFERRED_WITH_BLOCKING_GATE",
+      "approval_status": "DEFERRED_WITH_BLOCKING_GATE",
+      "human_decision": "PENDING",
+      "human_comments": null,
+      "decision_timestamp": null,
+      "approver_identity": null,
+      "blocking_dependency": "CAP-A, CAP-B, approved controls, environment qualification and separate human authorization",
+      "unresolved_dependencies": [
+        "CAP-A, CAP-B, approved controls, environment qualification and separate human authorization"
+      ],
+      "source_document": "docs/risk-policy-proposal-v10.md",
+      "source_digest_sha256": "f3ae8d2ba35508c721a7ac8022fc4847232a4babb6896585aebcc79f9116dd87",
+      "proposal_version": "v1.0.1"
+    }
+  ],
+  "current_authorized_cap_usd": "160",
+  "proposed_cap_usd": "1000",
+  "funding_confirmed": false,
+  "execution_authorized": false,
+  "existing_portfolio_is_experimental_capital": false
+}

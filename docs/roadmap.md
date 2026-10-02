@@ -1,5 +1,9 @@
 # Roadmap and phase gates
 
+## Risk-policy approval resolution v1.0.1 (2026-10-01)
+
+The [owner decision package](human-review-0101.md) preserves the v1.0 proposal and creates 35 pending choices, including ten numerical limits, independent capital/funding/environment decisions, whole-account risk, operations, and v1.1 implementation authorization. No choice is approved, no v1.1 work has started, and no policy or execution path changed. Current cap $160; production daily-loss stop unset; historical qualification blocked; 2026 OOS sealed; paper 0/60 and execution disabled. Stop for human decisions.
+
 ## Risk policy specification v1.0 (2026-10-01)
 
 The [approval-ready design](human-review-010.md) proposes a $1,000 attributed sleeve and explicit capital, loss, freshness, and approval controls. Every new value is unapproved and inactive; the current $160 cap and unset production daily-loss stop are unchanged. The [future v1.1 backlog](risk-control-implementation-backlog-v11.md) is not started. Historical qualification stays blocked, both strategies NOT_ELIGIBLE, 2026 OOS sealed, forward paper 0/60, and paper/production execution disabled. Stop for human approval.
