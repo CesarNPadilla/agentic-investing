@@ -136,3 +136,7 @@ Sources for adapter semantics: [Alpaca historical bars](https://docs.alpaca.mark
 ## v0.6 exploratory route
 
 Use the separate [exploratory sandbox](exploratory-research-sandbox.md) for fixed, nonqualifying 2023–24 development and 2025 validation diagnostics. Its persisted evidence class forbids promotion or paper eligibility; it does not call this qualifying runbook's historical gates or OOS stage. The acquisition example above is bounded to 2025 to avoid fetching sealed 2026 data. See [review 006](historical-evidence-review-006.md).
+
+## v0.8 controlled exploratory route
+
+The [v0.8 review](human-review-008.md) covers only human-approved H01 re-entry reset, H03 baseline exposure diagnostics, H04's three fixed cost scenarios, and separate $1,000 whole-share feasibility. H02 was deferred. The [final registry](examples/exploratory-retrospective-v08/final/registry.json) pins immutable result digests; larger audit records remain under local `AppData/Local/AgenticInvesting`. These results cannot pass this runbook's qualifying gates, open 2026 OOS, advance paper sessions, or authorize a broker order. The current Investment Policy capital cap remains $160; $1,000 was simulation only.

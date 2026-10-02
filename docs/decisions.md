@@ -28,6 +28,7 @@ Recorded 2026-09-28. ADR-001 through ADR-007 carry forward the accepted architec
 | ADR-022 | Keep corporate-action economic effects separate from historical signal availability; version events, reconcile source terms, and gate complete accounting independently | v0.5 bounded diagnostic implemented; accounting and signal qualification blocked |
 | ADR-023 | Isolate current-vintage retrospective diagnostics in an explicit nonpromotable evidence class with sealed 2026 OOS | v0.6 implemented; qualifying validation blocked, paper 0/60, execution disabled |
 | [ADR-024](adr-024.md) | Preregister isolated exploratory swing design questions before implementation; retain v1.0.0 baseline and classify 2025 as research-informed | v0.7 design proposal, awaiting human review; no candidate run |
+| [ADR-025](adr-025.md) | Execute only human-scoped H01/H03/H04 and $1,000 counterfactual feasibility as isolated, nonpromotable research; defer H02 | v0.8 completed; no policy or execution change |
 
 ADR-005 now includes deterministic hypothetical investment-policy checks and portfolio
 intelligence; no production execution is enabled. ADR-006 preserves separate read-source

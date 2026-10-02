@@ -68,7 +68,9 @@ def _load_bounded(path: Path, *, kind: str) -> tuple[dict, str]:
     return value, _hash(raw)
 
 
-def _statistics(row: dict, dataset: HistoricalResearchDataset, period: Period) -> dict:
+def _statistics(row: dict, dataset: HistoricalResearchDataset, period: Period,
+                commission: Decimal = Decimal("0.10"),
+                impact_bps: Decimal = Decimal(6)) -> dict:
     trades, curve = row["trades"], row["curve"]
     changes = [float(Decimal(b["equity"]) / Decimal(a["equity"]) - 1)
                for a, b in pairwise(curve)]
@@ -101,7 +103,7 @@ def _statistics(row: dict, dataset: HistoricalResearchDataset, period: Period) -
         side = trade["side"]
         fill = datetime.fromisoformat(trade["filled_at"])
         price, quantity = Decimal(trade["price"]), Decimal(trade["quantity"])
-        cost = abs(price - mark[symbol, fill]) * quantity + Decimal("0.10")
+        cost = abs(price - mark[symbol, fill]) * quantity + commission
         friction += cost
         stats = by_symbol[symbol]
         stats["friction"] += cost
@@ -126,7 +128,7 @@ def _statistics(row: dict, dataset: HistoricalResearchDataset, period: Period) -
             if symbol in open_by_symbol:
                 entry_price, entry_quantity, entered = open_by_symbol.pop(symbol)
                 pnl.append((price - entry_price) * min(quantity, entry_quantity)
-                           - Decimal("0.20"))
+                           - 2 * commission)
                 holding.append(index[fill] - index[entered])
             prior_exit[symbol] = (fill, trade["reason"])
     winners = [value for value in pnl if value > 0]
@@ -160,7 +162,7 @@ def _statistics(row: dict, dataset: HistoricalResearchDataset, period: Period) -
         "average_cash_utilization": str(sum(exposure) / len(exposure)) if exposure else None,
         "direct_execution_friction_usd": str(friction),
         "direct_execution_friction_fraction_of_start": str(friction / capital),
-        "slippage_and_half_spread_bps_assumed": "6",
+        "slippage_and_half_spread_bps_assumed": str(impact_bps),
         "rejected_proposals": "NOT_APPLICABLE_NO_TRADE_PROPOSAL_OR_RISK_ENGINE",
         "risk_engine_outcomes": "NOT_EXERCISED_COUNTERFACTUAL_ONLY",
         "skipped_whole_share_orders": len(row.get("skipped_orders", ())),

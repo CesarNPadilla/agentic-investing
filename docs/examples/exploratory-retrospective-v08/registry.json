@@ -1,0 +1,51 @@
+{
+  "schema_version": "exploratory-v08-result-registry-v1",
+  "evidence_class": "EXPLORATORY_RETROSPECTIVE",
+  "oos_accessed": false,
+  "forward_paper_sessions": 0,
+  "paper_execution": "DISABLED",
+  "production_execution": "DISABLED",
+  "H02_STATUS": "DEFERRED_NOT_IMPLEMENTED_NOT_RUN",
+  "experiments": [
+    {
+      "hypothesis_id": "CAPITAL_FEASIBILITY",
+      "experiment_id": "exploratory-v08-capital_1000-fixed",
+      "result_digest": "a907a29672cc958c95eb62ef1609dc78c3a9ce731623ed42e33ac8d39d6a112a",
+      "manifest": "capital_feasibility-manifest.json",
+      "summary": "capital_feasibility-summary.json",
+      "full_result_location": "LOCAL_APPDATA/exploratory-retrospective-v08/runs/controlled-v08-locked/exploratory-v08-capital_1000-fixed/result.json",
+      "purpose": "CAPITAL_FEASIBILITY_EXPLORATORY",
+      "qualifying_validation": "BLOCKED_NOT_RUN"
+    },
+    {
+      "hypothesis_id": "H01",
+      "experiment_id": "exploratory-v08-h01-fixed",
+      "result_digest": "b5167bb895d9964af41cdddc37c213217f46a442b9b3e74134529e0a4a4f54bf",
+      "manifest": "h01-manifest.json",
+      "summary": "h01-summary.json",
+      "full_result_location": "LOCAL_APPDATA/exploratory-retrospective-v08/runs/controlled-v08-locked/exploratory-v08-h01-fixed/result.json",
+      "purpose": "EXPLORATORY_RETROSPECTIVE",
+      "qualifying_validation": "BLOCKED_NOT_RUN"
+    },
+    {
+      "hypothesis_id": "H03",
+      "experiment_id": "exploratory-v08-h03-fixed",
+      "result_digest": "7177d5f8d1578c89acc3d9e03c559e05b0823058ea21b01a7cd7d6ba4fae8c8b",
+      "manifest": "h03-manifest.json",
+      "summary": "h03-summary.json",
+      "full_result_location": "LOCAL_APPDATA/exploratory-retrospective-v08/runs/controlled-v08-locked/exploratory-v08-h03-fixed/result.json",
+      "purpose": "EXPLORATORY_RETROSPECTIVE",
+      "qualifying_validation": "BLOCKED_NOT_RUN"
+    },
+    {
+      "hypothesis_id": "H04",
+      "experiment_id": "exploratory-v08-h04-fixed",
+      "result_digest": "6f90d5f4b946255783f513ac989ec2a23a8330f7a1cd6d19df4556590587b729",
+      "manifest": "h04-manifest.json",
+      "summary": "h04-summary.json",
+      "full_result_location": "LOCAL_APPDATA/exploratory-retrospective-v08/runs/controlled-v08-locked/exploratory-v08-h04-fixed/result.json",
+      "purpose": "EXPLORATORY_RETROSPECTIVE",
+      "qualifying_validation": "BLOCKED_NOT_RUN"
+    }
+  ]
+}

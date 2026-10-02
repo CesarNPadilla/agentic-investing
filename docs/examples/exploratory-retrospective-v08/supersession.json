@@ -1,0 +1,8 @@
+{
+  "status": "EARLIER_OUTPUTS_RETAINED_SUPERSEDED",
+  "reason": "H03 pending-order side and target-size audit fields added before final interpretation",
+  "prior_output": "LOCAL_APPDATA/exploratory-retrospective-v08/runs/controlled-v08-locked",
+  "final_output": "LOCAL_APPDATA/exploratory-retrospective-v08/runs/controlled-v08-final",
+  "final_registry": "final/registry.json",
+  "h04_result_identical": true
+}

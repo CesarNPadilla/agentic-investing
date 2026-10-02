@@ -1,0 +1,73 @@
+{
+  "experiment_id": "exploratory-v08-capital_1000-fixed",
+  "evidence_class": "EXPLORATORY_RETROSPECTIVE",
+  "hypothesis_id": "CAPITAL_FEASIBILITY",
+  "parent_strategy_id": "SWING_TREND_MOMENTUM",
+  "parent_strategy_version": "1.0.0",
+  "candidate_configuration_digest": null,
+  "code_revision": "historical-research-sha256:2b8e002afee163079aa879d781b0b6f18cf34b29329f49ea0757fa0eddd3a387",
+  "source_digests": {
+    "dataset": "a7297c9ba63e50192b18eeda1d510b5288e8fd3ab9602ffe11786a112cb2c10f",
+    "dataset_file": "5c5b0429efdd78363b376e48333d0709fad3426e49148aac6f15a831c18d826a",
+    "raw": "2eacc75287a7b5582fc362c021e3a10da10b15b772a5c5dbe9f82cc9b77e0cba",
+    "corporate_actions": "814d0343865a77133026098c5890a257d2ffb5b0c7b901a1ac719717ffc91259"
+  },
+  "preregistration_digests": {
+    "hypothesis-registry.json": "e6ad3e00660743c50854fa91f9a673fc54afcd6347ebb27b12901892698230f6",
+    "candidate-specifications.json": "9f0e84cd29eda021bc0d5612a479ba522fd9fa9376344686466ab76f48565cfd",
+    "experimental-protocol.json": "8414b6dbb755b3cedcda62f35f268aa93d4f6be78edb63a930ed3fb153439822",
+    "comparison-metrics.json": "53c6e92d9a7172009212674ab6a170a58208b8d6dd829de3c6c7189b5fdfe234",
+    "capital-feasibility-plan.json": "0454623e0a1e1d75eac9e4f7a3b7eb5aeee9ea0ff8c8b0b87563aa65b884a8ae"
+  },
+  "benchmark_methodology": "VOO_ALPACA_ADJUSTMENT_ALL_CURRENT_VINTAGE_TOTAL_RETURN_PROXY",
+  "research_periods": [
+    {
+      "role": "development",
+      "start": "2023-01-03",
+      "end": "2024-12-31"
+    },
+    {
+      "role": "validation",
+      "start": "2025-01-02",
+      "end": "2025-12-31"
+    }
+  ],
+  "universe": [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "AMZN",
+    "GOOGL",
+    "GOOG",
+    "META",
+    "TSLA",
+    "PLTR",
+    "INTC"
+  ],
+  "starting_capital": "1000",
+  "execution": {
+    "timing": "next_session_close",
+    "whole_shares": true,
+    "cash": "no_borrowing",
+    "dividends": "adjustment_all_proxy_no_separate_cash"
+  },
+  "cost_scenarios": [
+    {
+      "commission_usd": "0.10",
+      "full_spread_bps": "2",
+      "slippage_bps": "5"
+    }
+  ],
+  "result_digest": "a907a29672cc958c95eb62ef1609dc78c3a9ce731623ed42e33ac8d39d6a112a",
+  "created_at": "2026-10-02T00:11:39.252798+00:00",
+  "limitations": [
+    "CURRENT_VINTAGE_ADJUSTMENTS",
+    "IEX_SINGLE_VENUE",
+    "CORPORATE_ACTION_COVERAGE_UNVERIFIED",
+    "SELECTED_SECURITIES_SURVIVORSHIP",
+    "2025_RESEARCH_INFORMED_NOT_FRESH_HOLDOUT"
+  ],
+  "oos_accessed": false,
+  "paper_eligibility": "NEVER_FROM_THIS_RESULT",
+  "production_eligibility": "NEVER_FROM_THIS_RESULT"
+}

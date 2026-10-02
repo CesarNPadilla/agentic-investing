@@ -1,5 +1,9 @@
 # Roadmap and phase gates
 
+## Controlled exploratory experiments v0.8 (2026-10-01)
+
+Completed approved H01 re-entry-reset candidate, H03 diagnostic instrumentation, H04's three fixed cost scenarios, and separate simulated $1,000 whole-share feasibility. [Human review 008](human-review-008.md) reports adverse as well as favorable outcomes; no winner or v1.1.0 is selected. **H02 remains `DEFERRED_NOT_IMPLEMENTED_NOT_RUN`.** All results are `EXPLORATORY_RETROSPECTIVE`; the $1,000 case is `CAPITAL_FEASIBILITY_EXPLORATORY` and does not change the current $160 policy cap. The 2025 comparison is research-informed; 2026 OOS remains sealed. Both strategies NOT_ELIGIBLE, forward paper 0/60, paper/production DISABLED. Stop for human review before v0.9.
+
 ## Strategy design and controlled preregistration v0.7 (2026-10-01)
 
 H01 re-entry reset, H02 holding-limit exit review, H03 exposure decomposition, and H04 fixed cost sensitivity are [preregistered](strategy-experiment-preregistration-v07.md) for human review. H01/H02 are separate draft candidate IDs, not strategy versions. The 2025 exploratory period is research-informed, not a fresh holdout. The [$1,000 feasibility plan](examples/exploratory-retrospective-v07/capital-feasibility-plan.json) remains NOT_RUN and proposed only; $100,000 normalized capital, the current $160 policy cap, and historical $160 results remain distinct. No candidate backtest, v1.1.0 implementation, OOS access, paper clock, or execution change occurred. See [human review 007](human-review-007.md); stop before v0.8 until human approval.

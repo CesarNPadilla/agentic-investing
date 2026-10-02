@@ -9,6 +9,8 @@ Capital planning after v0.6 proposes a **$1,000** experimental amount for a sepa
 
 The v0.7 [design experiment registry](examples/exploratory-retrospective-v07/registry.json), [hypothesis registry](examples/exploratory-retrospective-v07/hypothesis-registry.json), [candidate design records](examples/exploratory-retrospective-v07/candidate-specifications.json), [future protocol](examples/exploratory-retrospective-v07/experimental-protocol.json), and [metric definitions](examples/exploratory-retrospective-v07/comparison-metrics.json) are design artifacts only. The 2025 exploratory results have been exposed and any reuse is research-informed, never a fresh holdout. No v0.8 run, candidate version, or qualifying/paper transition is authorized; see [human review 007](human-review-007.md).
 
+The subsequent human-scoped v0.8 approval authorized H01, H03, H04 and a separate $1,000 simulation only. The [final v0.8 registry](examples/exploratory-retrospective-v08/final/registry.json) and [review](human-review-008.md) retain all outcomes, exact digests and audit limitations. H02 remains deferred; v1.0.0 definitions, qualifying gates and policy capital cap remain frozen. No broker or paper workflow is attached to these exploratory results.
+
 ## Definitions
 
 `experiment_lab.definitions.initial_definitions()` returns exactly:

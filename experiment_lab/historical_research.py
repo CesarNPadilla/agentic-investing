@@ -175,7 +175,9 @@ def _signal(strategy, history, dataset, symbol, cutoff, rules, held, held_sessio
 
 
 def simulate(dataset: HistoricalResearchDataset, plan: HistoricalResearchPlan, period: Period,
-             strategy: str, capital: Decimal):
+             strategy: str, capital: Decimal, *, reentry_reset: bool = False,
+             exposure_diagnostics: bool = False,
+             feasibility_capital: Decimal | None = None):
     """Evaluate one preregistered cell; bars become signals only after availability."""
     if strategy not in (LONG_TERM_ID, SWING_ID):
         raise ValueError("Unknown research hypothesis")
@@ -183,6 +185,11 @@ def simulate(dataset: HistoricalResearchDataset, plan: HistoricalResearchPlan, p
         raise ValueError("Dataset does not match frozen plan")
     if period not in plan.periods:
         raise ValueError("Period not in frozen plan")
+    if reentry_reset and strategy != SWING_ID:
+        raise ValueError("Re-entry reset is a swing-only exploratory candidate")
+    if feasibility_capital is not None and (capital != feasibility_capital
+                                            or feasibility_capital <= 0):
+        raise ValueError("Feasibility capital must match the isolated simulation")
     active_symbols = (plan.symbols if strategy == LONG_TERM_ID
                       else tuple(symbol for symbol in plan.symbols if symbol != "GOOG"))
     selected = [s for s in dataset.sessions if period.start <= s.date() <= period.end]
@@ -199,6 +206,7 @@ def simulate(dataset: HistoricalResearchDataset, plan: HistoricalResearchPlan, p
     by_key = {(b.symbol, b.session_close): b for b in dataset.bars}
     cash, positions, pending, trades, curve = capital, {}, {}, [], []
     signals, skipped_orders = [], []
+    state_audit, exposure_audit, reentry_state = [], [], {}
     fees_paid, turnover, estimated_friction = ZERO, ZERO, ZERO
     peak = capital
     first_voo = by_key["VOO", selected[0]].close
@@ -206,21 +214,24 @@ def simulate(dataset: HistoricalResearchDataset, plan: HistoricalResearchPlan, p
     boundary = HistoricalKnowledgeBoundary()
     for index, session in enumerate(selected):
         marks = {s: by_key[s, session].close for s in (*active_symbols, "VOO")}
+        scheduled_at_open = dict(pending)
         # The preceding session alone may submit an order for this close.
         for symbol, order in sorted(pending.items()):
             side, reason, stop = order
             impact = (plan.rules.slippage_bps + plan.rules.spread_bps / 2) / 10000
             price = marks[symbol] * (1 + impact if side == "buy" else 1 - impact)
-            target_fraction = (Decimal(1) if capital == plan.experimental_capital
+            feasibility_mode = (capital == plan.experimental_capital
+                                or capital == feasibility_capital)
+            target_fraction = (Decimal(1) if feasibility_mode
                                else plan.rules.notional_fraction)
             quantity = (
                 min((capital * target_fraction / price).to_integral_value(rounding=ROUND_FLOOR),
                     ((cash - plan.rules.commission) / price).to_integral_value(rounding=ROUND_FLOOR))
                 if side == "buy" else positions[symbol]["quantity"]
             )
-            if side == "buy" and capital == plan.experimental_capital:
+            if side == "buy" and feasibility_mode:
                 deployed = sum((p["quantity"] * p["entry"] for p in positions.values()), ZERO)
-                remaining_sleeve = max(ZERO, Decimal(plan.experimental_capital) - deployed)
+                remaining_sleeve = max(ZERO, capital - deployed)
                 quantity = min(quantity,
                                (remaining_sleeve / price).to_integral_value(rounding=ROUND_FLOOR))
             if quantity <= 0:
@@ -239,6 +250,10 @@ def simulate(dataset: HistoricalResearchDataset, plan: HistoricalResearchPlan, p
                 cash += cost - plan.rules.commission
                 del positions[symbol]
                 held_sessions.pop(symbol, None)
+                if reentry_reset:
+                    reentry_state[symbol] = ("DISARMED", session)
+                    state_audit.append({"symbol": symbol, "session": session.isoformat(),
+                                        "event": "EXIT_FILLED_DISARMED", "reason": reason})
             fees_paid += plan.rules.commission
             estimated_friction += (abs(price - marks[symbol]) * quantity
                                    + plan.rules.commission)
@@ -262,6 +277,10 @@ def simulate(dataset: HistoricalResearchDataset, plan: HistoricalResearchPlan, p
                           (p["quantity"] * p["entry"] for p in positions.values()), ZERO
                       )),
                       "benchmark_equity": str(capital * marks["VOO"] / first_voo)})
+        if exposure_diagnostics:
+            curve[-1]["maximum_single_name_concentration"] = str(max(
+                (positions[s]["quantity"] * marks[s] / equity for s in positions),
+                default=ZERO))
         if index == len(selected) - 1:
             break
         next_close = selected[index + 1]
@@ -275,6 +294,13 @@ def simulate(dataset: HistoricalResearchDataset, plan: HistoricalResearchPlan, p
                            )
                        )]
             if not history or history[-1].session_close != session:
+                if exposure_diagnostics:
+                    exposure_audit.append({"session": session.isoformat(),
+                                           "symbol": symbol, "state": "MISSING_HISTORY",
+                                           "constraints": ["MISSING_DATA"]})
+                if reentry_reset and symbol in reentry_state:
+                    state_audit.append({"symbol": symbol, "session": session.isoformat(),
+                                        "event": "MISSING_DATA_REMAIN_DISARMED"})
                 continue
             cutoff = (session if retrospective else
                       max(b.available_at for b in history if b.session_close == session))
@@ -284,6 +310,70 @@ def simulate(dataset: HistoricalResearchDataset, plan: HistoricalResearchPlan, p
             side, reason, stop = _signal(strategy, history, dataset, symbol, cutoff,
                                          plan.rules, held, held_sessions.get(symbol, 0),
                                          held["stop"] if held else None, boundary)
+            original_side = side
+            if reentry_reset and not held and symbol in reentry_state:
+                state, exited_at = reentry_state[symbol]
+                if session <= exited_at:
+                    if side == "buy":
+                        side = None
+                    event = "EXIT_SESSION_CANNOT_ARM"
+                elif reason == "INSUFFICIENT_WARMUP":
+                    side = None
+                    event = "MISSING_DATA_REMAIN_DISARMED"
+                elif state == "DISARMED":
+                    if side == "buy":
+                        side = None
+                        event = "ELIGIBLE_WHILE_DISARMED_SUPPRESSED"
+                    elif reason == "NO_SIGNAL":
+                        reentry_state[symbol] = ("ARMED", exited_at)
+                        event = "POST_EXIT_FALSE_ARMED"
+                    else:
+                        event = "MISSING_DATA_REMAIN_DISARMED"
+                elif side == "buy":
+                    reentry_state.pop(symbol)
+                    event = "LATER_TRUE_PENDING_ENTRY"
+                else:
+                    event = "ARMED_WAITING_FOR_TRUE"
+                state_audit.append({"symbol": symbol, "session": session.isoformat(),
+                                    "event": event, "original_side": original_side,
+                                    "original_reason": reason})
+            if exposure_diagnostics:
+                estimate = marks[symbol] * (1 + (
+                    plan.rules.slippage_bps + plan.rules.spread_bps / 2) / 10000)
+                affordable = ((cash - plan.rules.commission) / estimate).to_integral_value(
+                    rounding=ROUND_FLOOR) if cash > plan.rules.commission else ZERO
+                diagnostic_fraction = (Decimal(1) if capital == feasibility_capital
+                                       or capital == plan.experimental_capital else
+                                       plan.rules.notional_fraction)
+                target_whole_shares = (capital * diagnostic_fraction / estimate).to_integral_value(
+                    rounding=ROUND_FLOOR)
+                constraints = []
+                if reason == "INSUFFICIENT_WARMUP":
+                    constraints.append("MISSING_WARMUP")
+                elif original_side != "buy" and not held:
+                    constraints.append("SIGNAL_SCARCITY")
+                if held:
+                    constraints.append("EXISTING_POSITION")
+                if affordable < 1:
+                    constraints.append("WHOLE_SHARE_UNAFFORDABLE")
+                if symbol in scheduled_at_open:
+                    constraints.append("PENDING_ORDER_TIMING")
+                exposure_audit.append({"session": session.isoformat(), "symbol": symbol,
+                                       "state": reason, "original_entry_eligible":
+                                       original_side == "buy", "effective_entry_signal":
+                                       side == "buy", "constraints": constraints,
+                                       "existing_positions": len(positions),
+                                       "available_cash": str(cash),
+                                       "estimated_whole_shares_at_signal_close": str(affordable),
+                                       "estimated_target_whole_shares": str(
+                                           min(affordable, target_whole_shares)),
+                                       "pending_order_side_at_open": (
+                                           scheduled_at_open[symbol][0]
+                                           if symbol in scheduled_at_open else None),
+                                       "simultaneous_position_limit": None,
+                                       "portfolio_exposure": curve[-1]["exposure"],
+                                       "portfolio_concentration": curve[-1][
+                                           "maximum_single_name_concentration"]})
             if side:
                 pending[symbol] = (side, reason, stop)
                 technical = None
@@ -314,7 +404,7 @@ def simulate(dataset: HistoricalResearchDataset, plan: HistoricalResearchPlan, p
                "maximum_simultaneous_positions": max(
                    (point["position_count"] for point in curve), default=0),
                }
-    return {"strategy_id": strategy, "role": period.role, "capital": str(capital),
+    result = {"strategy_id": strategy, "role": period.role, "capital": str(capital),
             "status": "COMPLETED", "data_quality": quality, "trades": tuple(trades),
             "candidate_signals": tuple(signals), "skipped_orders": tuple(skipped_orders),
             "curve": tuple(curve), "metrics": metrics, "policy_bypasses": 0,
@@ -323,6 +413,13 @@ def simulate(dataset: HistoricalResearchDataset, plan: HistoricalResearchPlan, p
             "evidence_class": ("RETROSPECTIVE_NONQUALIFYING" if retrospective else
                                "POINT_IN_TIME_CANDIDATE"), "research_only": True,
             "execution_available": False}
+    if reentry_reset:
+        result["reentry_state_audit"] = tuple(state_audit)
+        result["candidate_id"] = "SWING_REENTRY_RESET_CANDIDATE"
+    if exposure_diagnostics:
+        result["exposure_audit"] = tuple(exposure_audit)
+        result["risk_engine_outcomes"] = "NOT_EXERCISED"
+    return result
 
 
 def historical_gates(rows, gates):

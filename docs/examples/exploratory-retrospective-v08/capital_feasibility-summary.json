@@ -1,0 +1,418 @@
+{
+  "experiment_id": "exploratory-v08-capital_1000-fixed",
+  "evidence_class": "EXPLORATORY_RETROSPECTIVE",
+  "strategy_id": "SWING_TREND_MOMENTUM",
+  "strategy_version": "1.0.0",
+  "parent_definition_digest": "9b5016895d65789100aabb9a98a7f3269876e33a04fbdf3ef495759c3fd5e77d",
+  "research_informed_2025": true,
+  "oos_accessed": false,
+  "qualifying_validation": "BLOCKED_NOT_RUN",
+  "paper_eligibility": "NEVER_FROM_THIS_RESULT",
+  "production_eligibility": "NEVER_FROM_THIS_RESULT",
+  "forward_paper_sessions": 0,
+  "execution_available": false,
+  "benchmark_methodology": "VOO_ALPACA_ADJUSTMENT_ALL_CURRENT_VINTAGE_TOTAL_RETURN_PROXY",
+  "benchmark_classification": "EXPLORATORY_NONQUALIFYING_BENCHMARK",
+  "limitations": [
+    "CURRENT_VINTAGE_ADJUSTMENTS",
+    "IEX_SINGLE_VENUE",
+    "CORPORATE_ACTION_COVERAGE_UNVERIFIED",
+    "SELECTED_SECURITIES_SURVIVORSHIP",
+    "2025_RESEARCH_INFORMED_NOT_FRESH_HOLDOUT"
+  ],
+  "hypothesis_id": "CAPITAL_FEASIBILITY",
+  "purpose": "CAPITAL_FEASIBILITY_EXPLORATORY",
+  "full_result_digest": "a907a29672cc958c95eb62ef1609dc78c3a9ce731623ed42e33ac8d39d6a112a",
+  "rows": [
+    {
+      "role": "development",
+      "capital": "1000",
+      "scenario": null,
+      "evidence_class": "EXPLORATORY_RETROSPECTIVE",
+      "benchmark_classification": "EXPLORATORY_NONQUALIFYING_BENCHMARK",
+      "metrics": {
+        "observations": 502,
+        "number_of_trades": 151,
+        "closed_trades": 75,
+        "starting_capital": "1000",
+        "ending_capital": "1337.0713230",
+        "total_return": "0.337071323",
+        "benchmark_return": "0.585228126032499324182260535",
+        "excess_return": "-0.248156803032499324182260535",
+        "maximum_drawdown": "0.2611851330344086448093417821",
+        "turnover": "64.822787341",
+        "fees": "15.10",
+        "estimated_execution_friction": "53.9936770",
+        "ending_cash": "958.7713230",
+        "cash_utilization": "0.2829318028833380341670823494",
+        "maximum_simultaneous_positions": 5
+      },
+      "extended_diagnostics": {
+        "volatility_annualized": 0.2319970691810813,
+        "downside_volatility_annualized": 0.1404647487290091,
+        "sharpe_zero_risk_free": 0.7438211538359621,
+        "sortino_zero_target": 1.2285240905371373,
+        "completed_round_trips": 75,
+        "win_rate": 0.41333333333333333,
+        "average_winner_usd": "37.11150967741935483870967742",
+        "average_loser_usd": "-19.13808856818181818181818182",
+        "profit_factor": "1.366215093079668090773057716",
+        "average_holding_sessions": 11.52,
+        "median_holding_sessions": 13,
+        "shortest_holding_sessions": 1,
+        "longest_holding_sessions": 20,
+        "same_symbol_reentries": 67,
+        "average_sessions_before_reentry": 33.95522388059702,
+        "reentries_by_prior_exit_reason": {
+          "TREND_FAILURE": 26,
+          "HOLDING_LIMIT": 29,
+          "ATR_STOP": 12
+        },
+        "reentry_buy_turnover": "28.574709545",
+        "holding_limit_exit_turnover": "11.516301071",
+        "exit_reasons": {
+          "TREND_FAILURE": 30,
+          "HOLDING_LIMIT": 29,
+          "ATR_STOP": 16
+        },
+        "entry_triggers_by_symbol": {
+          "META": 63,
+          "AAPL": 50,
+          "PLTR": 24,
+          "NVDA": 26,
+          "MSFT": 71,
+          "GOOGL": 47,
+          "INTC": 21,
+          "AMZN": 58,
+          "TSLA": 32
+        },
+        "average_exposure": "0.6110744084119148356013407829",
+        "maximum_exposure": "0.9979652227224099179640686072",
+        "average_cash_utilization": "0.6110744084119148356013407829",
+        "direct_execution_friction_usd": "53.9936770",
+        "direct_execution_friction_fraction_of_start": "0.053993677",
+        "slippage_and_half_spread_bps_assumed": "6",
+        "rejected_proposals": "NOT_APPLICABLE_NO_TRADE_PROPOSAL_OR_RISK_ENGINE",
+        "risk_engine_outcomes": "NOT_EXERCISED_COUNTERFACTUAL_ONLY",
+        "skipped_whole_share_orders": 316,
+        "per_symbol": {
+          "AAPL": {
+            "buys": 5,
+            "sells": 5,
+            "reentries": 4,
+            "turnover": "5.432378860",
+            "friction_usd": "4.259428",
+            "exit_reasons": {
+              "HOLDING_LIMIT": 1,
+              "ATR_STOP": 2,
+              "TREND_FAILURE": 2
+            }
+          },
+          "AMZN": {
+            "buys": 8,
+            "sells": 8,
+            "reentries": 7,
+            "turnover": "7.236100049",
+            "friction_usd": "5.9416570",
+            "exit_reasons": {
+              "HOLDING_LIMIT": 4,
+              "ATR_STOP": 2,
+              "TREND_FAILURE": 2
+            }
+          },
+          "GOOGL": {
+            "buys": 6,
+            "sells": 6,
+            "reentries": 5,
+            "turnover": "5.224753224",
+            "friction_usd": "4.334880",
+            "exit_reasons": {
+              "HOLDING_LIMIT": 4,
+              "ATR_STOP": 1,
+              "TREND_FAILURE": 1
+            }
+          },
+          "INTC": {
+            "buys": 12,
+            "sells": 12,
+            "reentries": 11,
+            "turnover": "6.097371364",
+            "friction_usd": "6.058380",
+            "exit_reasons": {
+              "TREND_FAILURE": 6,
+              "HOLDING_LIMIT": 2,
+              "ATR_STOP": 4
+            }
+          },
+          "META": {
+            "buys": 8,
+            "sells": 8,
+            "reentries": 7,
+            "turnover": "10.949098762",
+            "friction_usd": "8.169502",
+            "exit_reasons": {
+              "HOLDING_LIMIT": 3,
+              "TREND_FAILURE": 4,
+              "ATR_STOP": 1
+            }
+          },
+          "MSFT": {
+            "buys": 7,
+            "sells": 7,
+            "reentries": 6,
+            "turnover": "7.822964034",
+            "friction_usd": "6.093842",
+            "exit_reasons": {
+              "HOLDING_LIMIT": 5,
+              "TREND_FAILURE": 2
+            }
+          },
+          "NVDA": {
+            "buys": 7,
+            "sells": 7,
+            "reentries": 6,
+            "turnover": "4.183292926",
+            "friction_usd": "3.909998",
+            "exit_reasons": {
+              "HOLDING_LIMIT": 3,
+              "ATR_STOP": 2,
+              "TREND_FAILURE": 2
+            }
+          },
+          "PLTR": {
+            "buys": 19,
+            "sells": 18,
+            "reentries": 18,
+            "turnover": "13.611466938",
+            "friction_usd": "11.8667980",
+            "exit_reasons": {
+              "TREND_FAILURE": 9,
+              "HOLDING_LIMIT": 6,
+              "ATR_STOP": 3
+            }
+          },
+          "TSLA": {
+            "buys": 4,
+            "sells": 4,
+            "reentries": 3,
+            "turnover": "4.265361184",
+            "friction_usd": "3.359192",
+            "exit_reasons": {
+              "TREND_FAILURE": 2,
+              "HOLDING_LIMIT": 1,
+              "ATR_STOP": 1
+            }
+          }
+        }
+      },
+      "filled_symbols": [
+        "AAPL",
+        "AMZN",
+        "GOOGL",
+        "INTC",
+        "META",
+        "MSFT",
+        "NVDA",
+        "PLTR",
+        "TSLA"
+      ],
+      "skipped_orders_by_symbol": {
+        "AAPL": 45,
+        "AMZN": 50,
+        "GOOGL": 41,
+        "INTC": 9,
+        "META": 55,
+        "MSFT": 64,
+        "NVDA": 19,
+        "PLTR": 5,
+        "TSLA": 28
+      },
+      "maximum_single_name_concentration": "0.9809245476517608014658689218",
+      "state_event_counts": {}
+    },
+    {
+      "role": "validation",
+      "capital": "1000",
+      "scenario": null,
+      "evidence_class": "EXPLORATORY_RETROSPECTIVE",
+      "benchmark_classification": "EXPLORATORY_NONQUALIFYING_BENCHMARK",
+      "metrics": {
+        "observations": 250,
+        "number_of_trades": 54,
+        "closed_trades": 27,
+        "starting_capital": "1000",
+        "ending_capital": "1170.9280730",
+        "total_return": "0.170928073",
+        "benchmark_return": "0.182022130119015932164721092",
+        "excess_return": "-0.011094057119015932164721092",
+        "maximum_drawdown": "0.1099082738332485209856399216",
+        "turnover": "31.561427841",
+        "fees": "5.40",
+        "estimated_execution_friction": "24.3369270",
+        "ending_cash": "1170.9280730",
+        "cash_utilization": "0",
+        "maximum_simultaneous_positions": 3
+      },
+      "extended_diagnostics": {
+        "volatility_annualized": 0.24163410937368862,
+        "downside_volatility_annualized": 0.15883998189974605,
+        "sharpe_zero_risk_free": 0.7813591545586943,
+        "sortino_zero_target": 1.1886366464832132,
+        "completed_round_trips": 27,
+        "win_rate": 0.5185185185185185,
+        "average_winner_usd": "30.45440864285714285714285714",
+        "average_loser_usd": "-19.64874215384615384615384615",
+        "profit_factor": "1.669168194317140238313473877",
+        "average_holding_sessions": 12.37037037037037,
+        "median_holding_sessions": 16,
+        "shortest_holding_sessions": 1,
+        "longest_holding_sessions": 20,
+        "same_symbol_reentries": 19,
+        "average_sessions_before_reentry": 41.89473684210526,
+        "reentries_by_prior_exit_reason": {
+          "TREND_FAILURE": 10,
+          "HOLDING_LIMIT": 8,
+          "ATR_STOP": 1
+        },
+        "reentry_buy_turnover": "11.865925286",
+        "holding_limit_exit_turnover": "7.035631087",
+        "exit_reasons": {
+          "TREND_FAILURE": 13,
+          "ATR_STOP": 1,
+          "HOLDING_LIMIT": 13
+        },
+        "entry_triggers_by_symbol": {
+          "NVDA": 28,
+          "GOOGL": 18,
+          "META": 16,
+          "AMZN": 19,
+          "MSFT": 32,
+          "PLTR": 27,
+          "TSLA": 11,
+          "AAPL": 14,
+          "INTC": 4
+        },
+        "average_exposure": "0.5986774461829878314553797412",
+        "maximum_exposure": "0.9882982968259413366566803383",
+        "average_cash_utilization": "0.5986774461829878314553797412",
+        "direct_execution_friction_usd": "24.3369270",
+        "direct_execution_friction_fraction_of_start": "0.024336927",
+        "slippage_and_half_spread_bps_assumed": "6",
+        "rejected_proposals": "NOT_APPLICABLE_NO_TRADE_PROPOSAL_OR_RISK_ENGINE",
+        "risk_engine_outcomes": "NOT_EXERCISED_COUNTERFACTUAL_ONLY",
+        "skipped_whole_share_orders": 142,
+        "per_symbol": {
+          "AAPL": {
+            "buys": 4,
+            "sells": 4,
+            "reentries": 3,
+            "turnover": "6.842722832",
+            "friction_usd": "4.905632",
+            "exit_reasons": {
+              "TREND_FAILURE": 3,
+              "HOLDING_LIMIT": 1
+            }
+          },
+          "AMZN": {
+            "buys": 1,
+            "sells": 1,
+            "reentries": 0,
+            "turnover": "0.912837916",
+            "friction_usd": "0.747692",
+            "exit_reasons": {
+              "TREND_FAILURE": 1
+            }
+          },
+          "GOOGL": {
+            "buys": 4,
+            "sells": 4,
+            "reentries": 3,
+            "turnover": "4.360585136",
+            "friction_usd": "3.416384",
+            "exit_reasons": {
+              "ATR_STOP": 1,
+              "HOLDING_LIMIT": 3
+            }
+          },
+          "INTC": {
+            "buys": 4,
+            "sells": 4,
+            "reentries": 3,
+            "turnover": "0.671125254",
+            "friction_usd": "1.202678",
+            "exit_reasons": {
+              "HOLDING_LIMIT": 2,
+              "TREND_FAILURE": 2
+            }
+          },
+          "META": {
+            "buys": 3,
+            "sells": 3,
+            "reentries": 2,
+            "turnover": "4.199336578",
+            "friction_usd": "3.119646",
+            "exit_reasons": {
+              "HOLDING_LIMIT": 2,
+              "TREND_FAILURE": 1
+            }
+          },
+          "NVDA": {
+            "buys": 3,
+            "sells": 3,
+            "reentries": 2,
+            "turnover": "2.914189192",
+            "friction_usd": "2.348472",
+            "exit_reasons": {
+              "TREND_FAILURE": 2,
+              "HOLDING_LIMIT": 1
+            }
+          },
+          "PLTR": {
+            "buys": 6,
+            "sells": 6,
+            "reentries": 5,
+            "turnover": "8.276855143",
+            "friction_usd": "6.1661610",
+            "exit_reasons": {
+              "HOLDING_LIMIT": 3,
+              "TREND_FAILURE": 3
+            }
+          },
+          "TSLA": {
+            "buys": 2,
+            "sells": 2,
+            "reentries": 1,
+            "turnover": "3.383775790",
+            "friction_usd": "2.430262",
+            "exit_reasons": {
+              "TREND_FAILURE": 1,
+              "HOLDING_LIMIT": 1
+            }
+          }
+        }
+      },
+      "filled_symbols": [
+        "AAPL",
+        "AMZN",
+        "GOOGL",
+        "INTC",
+        "META",
+        "NVDA",
+        "PLTR",
+        "TSLA"
+      ],
+      "skipped_orders_by_symbol": {
+        "AAPL": 10,
+        "AMZN": 18,
+        "GOOGL": 14,
+        "META": 13,
+        "MSFT": 32,
+        "NVDA": 25,
+        "PLTR": 21,
+        "TSLA": 9
+      },
+      "maximum_single_name_concentration": "0.9882982968259413366566803383",
+      "state_event_counts": {}
+    }
+  ]
+}
