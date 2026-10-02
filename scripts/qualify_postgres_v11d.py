@@ -37,7 +37,7 @@ def main():
         print("Isolated PostgreSQL version:", version, flush=True)
         env["AIL_V11D_SYNTHETIC_TEST_DSN"] = dsn
         return subprocess.run([sys.executable, "-m", "pytest", "tests/test_postgres_synthetic_v11.py",
-                               "tests/test_reservations_v11.py", "tests/test_sleeve_store_v11.py",
+                               "tests/test_evidence_v11.py", "tests/test_reservations_v11.py", "tests/test_sleeve_store_v11.py",
                                "tests/test_sleeve_v11.py", "tests/test_investment_policy.py",
                                "tests/test_policy_v01.py", "tests/test_policy_v02.py",
                                "tests/test_risk_diagnostics_v09.py", "tests/test_controlled_experiments_v08.py", "-q"],

@@ -9,6 +9,11 @@ from psycopg import sql
 from psycopg.types.json import Jsonb
 from pydantic import BaseModel, ConfigDict
 
+from risk.evidence_v11 import (
+    SyntheticEvidence,
+    SyntheticReviewBinding,
+    check_synthetic_evidence,
+)
 from risk.reservations_v11 import Nonnegative
 from risk.sleeve_v11 import SleeveDiagnostic, SyntheticSleeveInput, evaluate_synthetic_sleeve
 
@@ -100,7 +105,9 @@ class PostgresSyntheticScope:
                 raise PostgresSyntheticError("Synthetic transaction unavailable or inconsistent") from None
         raise PostgresSyntheticError("Synthetic transaction retry budget exhausted")
 
-    def assess_and_reserve(self, proposal_id: str, symbol: str, data: SyntheticSleeveInput):
+    def assess_and_reserve(self, proposal_id: str, symbol: str, data: SyntheticSleeveInput,
+                           *, evidence_bundle: SyntheticEvidence | None = None,
+                           review: SyntheticReviewBinding | None = None):
         if not proposal_id or not re.fullmatch(r"[A-Z][A-Z0-9.]{0,9}", symbol):
             raise PostgresSyntheticError("Synthetic proposal identity and symbol required")
         digest = hashlib.sha256((symbol + "\n" + data.model_dump_json()).encode()).hexdigest()
@@ -126,6 +133,24 @@ class PostgresSyntheticScope:
                 "kill_switch_latched": state["latched"] or data.kill_switch_latched,
             })
             diagnostic = evaluate_synthetic_sleeve(effective)
+            if evidence_bundle is not None:
+                checked = check_synthetic_evidence(evidence_bundle, now=data.now,
+                                                   proposal_digest=digest, review=review)
+                evidence_reasons = checked.reason_codes
+                if (evidence_bundle.symbol != symbol
+                        or evidence_bundle.quote_event_time != data.quote_event_time
+                        or evidence_bundle.snapshot_cutoff != data.snapshot_cutoff
+                        or evidence_bundle.ask is None
+                        or data.conservative_price < evidence_bundle.ask
+                        or review is None or review.risk_evaluated_at != data.risk_evaluation_time):
+                    evidence_reasons += ("EVIDENCE_RISK_INPUT_MISMATCH",)
+                if evidence_reasons:
+                    diagnostic = diagnostic.model_copy(update={
+                        "sleeve_checks_passed": False,
+                        "reason_codes": diagnostic.reason_codes + evidence_reasons,
+                    })
+            elif review is not None:
+                raise PostgresSyntheticError("Review requires matching synthetic evidence")
             if diagnostic.sleeve_checks_passed and used+amount > min(cash, sleeve) and not existing:
                 diagnostic = diagnostic.model_copy(update={
                     "sleeve_checks_passed": False,
@@ -136,7 +161,9 @@ class PostgresSyntheticScope:
                 state["orders"][proposal_id] = {"digest": digest, "symbol": symbol, "amount": str(amount),
                                                    "filled": "0", "terminal": False}
             present = proposal_id in state["orders"]
-            state["events"].append({"kind": "ASSESS", "proposal_id": proposal_id, "digest": digest,
+            state["events"].append({"evidence": evidence_bundle.model_dump_json() if evidence_bundle else None,
+                                         "review": review.model_dump_json() if review else None,
+                                         "kind": "ASSESS", "proposal_id": proposal_id, "digest": digest,
                                          "input": effective.model_dump_json(),
                                          "diagnostic": diagnostic.model_dump_json(),
                                          "reservation_present": present})

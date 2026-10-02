@@ -237,3 +237,7 @@ See [Phase 5 readiness and limitations](human-approved-trading.md#phase-5-readin
 ## v1.1d PostgreSQL atomic foundation
 
 [Review 011d](human-review-011d.md): combined synthetic risk/latch/reservations qualified on disposable PostgreSQL 17.11. 204 targeted tests passed without skips. Runtime/API integration, authoritative marked/account evidence, baseline/reset ownership, whole-account rules and production security/migrations/recovery remain outstanding. Research cap $1,000; funding unconfirmed; execution disabled; OOS sealed; paper 0/60.
+
+## v1.1e synthetic evidence foundation
+
+[Review 011e](human-review-011e.md): quote/snapshot/session fixture qualification and digest-bound review expiry implemented, with atomic evidence-aware reservation checks. 241 targeted tests passed on isolated PostgreSQL without skips. Real providers/clock/roles, baseline/reset, account-wide policy and production integration remain pending. Research cap $1,000; funding unconfirmed; execution disabled; OOS sealed; paper 0/60.

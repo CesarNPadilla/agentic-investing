@@ -167,3 +167,40 @@ def test_concurrent_loss_and_reservation_preserve_final_latch():
     assert s.snapshot()["latched"]
     assert sum(result.reservation_present for result in results) <= 1
     assert not s.assess_and_reserve("after", "MSFT", evidence()).reservation_present
+
+
+def test_bound_evidence_is_checked_inside_atomic_reservation():
+    import hashlib
+
+    from risk.evidence_v11 import SyntheticReviewBinding
+    from tests.test_evidence_v11 import bundle
+    s = scope(); data = evidence(); b = bundle()
+    digest = hashlib.sha256(("AAPL\n"+data.model_dump_json()).encode()).hexdigest()
+    binding = SyntheticReviewBinding(evidence_digest=b.digest(), proposal_digest=digest,
+                                      risk_evaluated_at=data.risk_evaluation_time)
+    assert s.assess_and_reserve("bound", "AAPL", data, evidence_bundle=b, review=binding).reservation_present
+
+
+@pytest.mark.parametrize("change", ["stale", "changed", "missing", "mismatch"])
+def test_invalid_bound_evidence_cannot_reserve(change):
+    import hashlib
+    from datetime import timedelta
+
+    from risk.evidence_v11 import SyntheticReviewBinding
+    from tests.test_evidence_v11 import bundle
+    s = scope(); data = evidence(); original = bundle()
+    digest = hashlib.sha256(("AAPL\n"+data.model_dump_json()).encode()).hexdigest()
+    binding = SyntheticReviewBinding(evidence_digest=original.digest(), proposal_digest=digest,
+                                      risk_evaluated_at=data.risk_evaluation_time)
+    b = original
+    if change == "stale":
+        b = bundle(quote_event_time=data.now-timedelta(seconds=31))
+    elif change == "changed":
+        b = bundle(policy_digest="d"*64)
+    elif change == "missing":
+        binding = None
+    else:
+        b = bundle(ask="251")
+    result = s.assess_and_reserve("blocked", "AAPL", data, evidence_bundle=b, review=binding)
+    assert not result.reservation_present and not result.diagnostic.sleeve_checks_passed
+    assert s.snapshot()["order_count"] == 0

@@ -1,0 +1,209 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "evidence_class": {
+      "const": "SYNTHETIC_ONLY",
+      "default": "SYNTHETIC_ONLY",
+      "title": "Evidence Class",
+      "type": "string"
+    },
+    "symbol": {
+      "pattern": "^[A-Z][A-Z0-9.]{0,9}$",
+      "title": "Symbol",
+      "type": "string"
+    },
+    "quote_source": {
+      "minLength": 1,
+      "title": "Quote Source",
+      "type": "string"
+    },
+    "quote_symbol": {
+      "pattern": "^[A-Z][A-Z0-9.]{0,9}$",
+      "title": "Quote Symbol",
+      "type": "string"
+    },
+    "quote_currency": {
+      "const": "USD",
+      "default": "USD",
+      "title": "Quote Currency",
+      "type": "string"
+    },
+    "quote_status": {
+      "default": "UNKNOWN",
+      "enum": [
+        "ACTIVE",
+        "HALTED",
+        "UNKNOWN"
+      ],
+      "title": "Quote Status",
+      "type": "string"
+    },
+    "bid": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Bid"
+    },
+    "ask": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ask"
+    },
+    "quote_event_time": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Quote Event Time"
+    },
+    "quote_received_time": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Quote Received Time"
+    },
+    "snapshot_source": {
+      "minLength": 1,
+      "title": "Snapshot Source",
+      "type": "string"
+    },
+    "snapshot_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Snapshot Digest",
+      "type": "string"
+    },
+    "snapshot_cutoff": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Snapshot Cutoff"
+    },
+    "snapshot_complete": {
+      "default": false,
+      "title": "Snapshot Complete",
+      "type": "boolean"
+    },
+    "snapshot_reconciled": {
+      "default": false,
+      "title": "Snapshot Reconciled",
+      "type": "boolean"
+    },
+    "policy_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Policy Digest",
+      "type": "string"
+    },
+    "calendar_source": {
+      "minLength": 1,
+      "title": "Calendar Source",
+      "type": "string"
+    },
+    "calendar_version": {
+      "minLength": 1,
+      "title": "Calendar Version",
+      "type": "string"
+    },
+    "session_date": {
+      "format": "date",
+      "title": "Session Date",
+      "type": "string"
+    },
+    "session_open": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Session Open"
+    },
+    "session_close": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Session Close"
+    },
+    "calendar_verified": {
+      "default": false,
+      "title": "Calendar Verified",
+      "type": "boolean"
+    },
+    "broker_regular_session_supported": {
+      "default": false,
+      "title": "Broker Regular Session Supported",
+      "type": "boolean"
+    },
+    "clock_synchronized": {
+      "default": false,
+      "title": "Clock Synchronized",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "symbol",
+    "quote_source",
+    "quote_symbol",
+    "snapshot_source",
+    "snapshot_digest",
+    "policy_digest",
+    "calendar_source",
+    "calendar_version",
+    "session_date"
+  ],
+  "title": "SyntheticEvidence",
+  "type": "object"
+}

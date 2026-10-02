@@ -1,0 +1,93 @@
+{
+  "schema_version": "risk-policy-v11e-implementation-status-v1",
+  "phase": "v1.1e",
+  "status": "SYNTHETIC_EVIDENCE_AND_BINDING_FOUNDATION_COMPLETE",
+  "v11_started": true,
+  "v11_complete": false,
+  "authorization_basis": "Approved independent AUTH-V11 scope and direct user instruction to proceed with next step.",
+  "approver_identity": null,
+  "decision_timestamp": null,
+  "implemented": [
+    "Strict synthetic provenance/time/session schemas",
+    "Quote bid/ask/status/symbol validation",
+    "30-second quote and 60-second snapshot freshness",
+    "Receipt/event ordering and complete reconciled snapshot checks",
+    "Regular-session fixture boundaries including explicit closed and early-close schedules",
+    "Digest-bound synthetic review and five-minute expiry",
+    "Evidence/input consistency checks within atomic PostgreSQL assessment"
+  ],
+  "not_implemented": [
+    "Real entitled quote/snapshot/calendar providers",
+    "Authenticated human approval identity/signature",
+    "Clock drift tolerance and monitoring",
+    "Authoritative baseline/day/reset services",
+    "Whole-account policy completion",
+    "Production runtime integration/deployment"
+  ],
+  "qualification": {
+    "database": "PostgreSQL 17.11 disposable test container",
+    "new_pure_tests_passed": 32,
+    "new_postgres_tests_passed": 5,
+    "targeted_tests_passed": 241,
+    "test_skips": 0,
+    "static_checks": "PASS"
+  },
+  "limitations": [
+    "Source/calendar/clock verification flags are explicit synthetic fixture assertions",
+    "Review binding is not authenticated human approval",
+    "Calendar is a supplied schedule fixture, not an exchange holiday/DST database",
+    "Bound assessment checks use explicit fixture now; real retry-time clock refresh is unimplemented",
+    "Original low-level synthetic assessment remains available; only the optional evidence-aware path checks these envelopes",
+    "No externally anchored immutable audit qualification"
+  ],
+  "selected_production_quote_source": null,
+  "selected_production_snapshot_source": null,
+  "selected_production_calendar_source": null,
+  "configured_research_cap_usd": "1000",
+  "funding_confirmed": false,
+  "production_trusted": false,
+  "human_approval_verified": false,
+  "execution_available": false,
+  "paper_execution_approved": false,
+  "live_execution_approved": false,
+  "forward_paper_sessions": 0,
+  "oos_2026": "SEALED",
+  "source_references": [
+    {
+      "path": "docs/examples/risk-policy-v11d/implementation-status.json",
+      "sha256": "8142bd94306fd5dc773545c8a7bd5b819e6081bc7a2b1021913ce297ca39f037"
+    },
+    {
+      "path": "docs/examples/risk-policy-v103/numerical-policy-decisions.json",
+      "sha256": "94a3df50cf81c9f259cfef8b4284c73f70ae3106f85a84641b28ad4211a41d9b"
+    },
+    {
+      "path": "docs/examples/risk-policy-v103/operational-decisions.json",
+      "sha256": "d2cde0dc59e7d2d5d291f49f7ed6ab54f8177f7e09c4a3f04a549df7d85e2226"
+    },
+    {
+      "path": "conf/investment-policy-v03.json",
+      "sha256": "77a02f530540a7d59d61835d0a38466ae49846852585474cc9b9e36a0f0d2fd0"
+    },
+    {
+      "path": "risk/evidence_v11.py",
+      "sha256": "83f1627cd87414ac904d141bbcff7c47e2a72bfb445627ee3e24fdbfdec3a694"
+    },
+    {
+      "path": "risk/postgres_synthetic_v11.py",
+      "sha256": "0496c33d644d27aae8c994ff5c60858aa8383304803dbcc7def643bd4ce40295"
+    },
+    {
+      "path": "tests/test_evidence_v11.py",
+      "sha256": "d6caae405cd20d4f5b56f1aaee503f536c293848b14c07783212df8d62238155"
+    },
+    {
+      "path": "tests/test_postgres_synthetic_v11.py",
+      "sha256": "05e17402ef2c0ce5214c7a3ef69da8c6935832e547f6462293376c613f04ad16"
+    },
+    {
+      "path": "scripts/qualify_postgres_v11d.py",
+      "sha256": "a41828cb37fa68c34803131b55cc932218a232973f5e6943675636d45ff9913d"
+    }
+  ]
+}
