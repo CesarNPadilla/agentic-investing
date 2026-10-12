@@ -1,0 +1,16 @@
+{
+  "schema_version": "readonly-recovery-completed-evidence-v1",
+  "source_digests": {
+    "portfolio/paper_cash_reconciliation.py": "e549c6ce37013791c42cf9ca3ad990230f4ce3798182ea16187aa5ffb88a0bf9",
+    "tests/test_paper_cash_journals.py": "ebeb920e44b6bce284a611b99b94d76449a68510cb3a83dc422f1e8d70d87963",
+    "tests/test_paper_cash_reconciliation.py": "027dad74910a8714f7d1d852351843d0710759034cb8634739ec52b3f1fe908d",
+    "docs/alpaca-paper-recovery-completed.md": "b3574ff9be882c826d6d2c6eef4c4bffb690201d57a9fa23e85e91ca65c49969",
+    "docs/examples/alpaca-paper-month/readonly-recovery-applied.json": "c1e34eea11d5452c698a45e0703fb030cf73369fcb32b56b14eebe2b1dbb190d"
+  },
+  "targeted_accounting_tests_passed": 27,
+  "real_signed_acknowledgement_verified": true,
+  "real_readonly_monitor_completed": true,
+  "risk_latches_cleared": false,
+  "execution_available": false,
+  "trial_started": false
+}

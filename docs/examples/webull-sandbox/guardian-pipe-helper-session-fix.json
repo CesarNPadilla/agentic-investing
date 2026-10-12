@@ -1,0 +1,25 @@
+{
+  "schema_version": "webull-guardian-pipe-helper-session-fix-v1",
+  "observed_at_utc": "2026-10-08T23:14:45.975371+00:00",
+  "reported_error": "TYPE_ALREADY_EXISTS AgenticGuardianDummyPipeClient",
+  "fix": "Compile current helper source under unique per-invocation class name and invoke returned type; do not reuse stale helper",
+  "wrapper_syntax_verified": true,
+  "same_session_obsolete_type_regression_passed": true,
+  "successive_current_helper_loads_verified": 2,
+  "standard_token_missing_pipe_failure_restored_identity": true,
+  "actual_guardian_connection_executed": false,
+  "guardian_standard_owner_fixture_preparation_percent": 67,
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "installed_package_changed": false,
+  "execution_available": false,
+  "reset_performed": false,
+  "trial_started": false,
+  "trial_launch_percent": 0,
+  "source_digests": {
+    "scripts/test_webull_guardian_pipe.ps1": "c59c54b5d97c577f7b84fddbbaa903ac9f38a93d78fbb4d0ce848e5babd917e3",
+    "docs/webull-guardian-protected-release.md": "48bf05785800fecf9c29cd1bac3b55f57c0a913a69f4805b363dd8dd2fe70621",
+    "docs/webull-review-recovery-authority.md": "9823d4cf265d75e47a962ca44bc7c3e690b49759a996caff47ebfc5a4824d811",
+    "docs/webull-trial-unblock-plan.md": "000ec52427e4f219e2c7bdaa2f5685e71a8488b87d04f74a477050823e5b9d6b"
+  }
+}

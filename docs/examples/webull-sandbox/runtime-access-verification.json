@@ -1,0 +1,59 @@
+{
+  "IdentityMatches": true,
+  "IsAdministrator": false,
+  "Checks": [
+    {
+      "Area": "Code",
+      "ReadMatches": true,
+      "WriteDenied": true
+    },
+    {
+      "Area": "Config",
+      "ReadMatches": true,
+      "WriteDenied": true
+    },
+    {
+      "Area": "Receipts",
+      "ReadMatches": true,
+      "WriteDenied": true
+    },
+    {
+      "Area": "RiskState",
+      "ReadMatches": true,
+      "WriteDenied": true
+    },
+    {
+      "Area": "BrokerSecrets",
+      "ReadMatches": true,
+      "WriteDenied": true
+    },
+    {
+      "Area": "OwnerControl",
+      "ReadMatches": true,
+      "WriteDenied": true
+    },
+    {
+      "Area": "Logs",
+      "WriteAllowed": true
+    },
+    {
+      "Area": "Outbox",
+      "WriteAllowed": true
+    }
+  ],
+  "ObservedAtUtc": "2026-10-08T03:41:17.2232834Z",
+  "ExecutionAvailable": false,
+  "TrialStarted": false,
+  "ProtectedFixturesUnchanged": true,
+  "ReviewedChildMatches": true,
+  "RuntimeDisabledAfterTest": true,
+  "ProcessExitCodeVerified": false,
+  "schema_version": "runtime-access-verification-v1",
+  "scope": "EIGHT_DUMMY_FILE_ACCESS_CHECKS_ONLY",
+  "alternate_credential_wrapper_fix_retested": false,
+  "current_identity_handle_smoke_passed": true,
+  "source_digests": {
+    "scripts/test_paper_runtime_access.ps1": "0e655fc231670a6564668d5ed7fbb381bcb279efb8841106d68b75225ac86a09",
+    "docs/webull-runtime-acl-plan.md": "b881f8d7381c4951d243223e92ff2fad3377cdfcd71204556f9ee5e7bb3be67a"
+  }
+}

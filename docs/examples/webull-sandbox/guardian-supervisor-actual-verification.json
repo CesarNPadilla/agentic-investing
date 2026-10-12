@@ -1,0 +1,45 @@
+{
+  "schema_version": "guardian-supervisor-actual-and-host-interruption-v1",
+  "owner_reported_receipt_id": "988bab68bbb84aaa92605d8afaf7dca6",
+  "owner_report_provenance": "Current conversation: owner supplied successful guardian supervision wrapper path and output; independently inspected retained artifacts",
+  "observed_fixture_time_utc": "2026-10-10T21:05:16.970618+00:00",
+  "actual_guardian_cases_verified": 4,
+  "actual_guardian_supervision_percent": 100,
+  "native_host_interruption_cases_passed": 6,
+  "host_interruption_engineering_percent": 100,
+  "host_interruption_scope": "Engineering identity; synthetic signatures; injected pipe dispatch; actual native job termination and retained-state restart rejection",
+  "protected_package_files_verified": 692,
+  "protected_package_acl_objects_verified": 798,
+  "private_evidence_digests": {
+    "C:\\ProgramData\\AgenticInvestingGuardian\\Receipts\\guardian-supervisor-wrapper-988bab68bbb84aaa92605d8afaf7dca6.json": "26ad4c35231224cc92e5fce1e6aec1af10a7f4ca6bf6b8d98d30fee87e5cab67",
+    "C:\\ProgramData\\AgenticInvestingGuardian\\Receipts\\guardian-supervisor-988bab68bbb84aaa92605d8afaf7dca6.json": "4fbbb20a88ebd3b3e29aa14fb870745e174af67e05fda880f170d31d69d9b564",
+    "C:\\ProgramData\\AgenticInvestingGuardian\\Code\\guardian-supervisor-988bab68bbb84aaa92605d8afaf7dca6.py": "fa5db3d19093a1057ff62ad2547ef6781ed81233768f833225355b8ab56ef47f",
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\guardian-supervisor-accepted-package-audit.json": "5c18dad5188562fc9fcf5e0eacf9dabe811bf5084d2548c1472a8c28aef2bc71"
+  },
+  "probe_exact_protected_acl_verified": true,
+  "diagnostics_verified": true,
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "service_deployed": false,
+  "real_owner_signature_used": false,
+  "reset_authorized": false,
+  "execution_available": false,
+  "trial_started": false,
+  "trial_launch_percent": 0,
+  "overall_readiness_percent": null,
+  "remaining_gates": [
+    "Protected host configuration and independently trusted provisioning",
+    "Actual guardian signed-host integration",
+    "Service lifecycle and owner passkey ceremony",
+    "Remote-host rejection",
+    "Webull status/accounting/event contracts",
+    "Atomic reset admission and scoped trial activation"
+  ],
+  "source_digests": {
+    "scripts/test_webull_guardian_supervisor.ps1": "984087b58786816ed1dcb51dbb09933651a3ce40e9b78d0bfa5cbf8b02d737c6",
+    "tests/test_webull_review_host_supervision_native.py": "5c92f1142276866ffa4fac2efe5aa0864bce6e20241ad66734cce3b493a6dd00",
+    "security/webull_guardian_review_host.py": "40212b4bbad1ffe1311357f9431f4e32ebe5b1218b9e52bc5223eec11a30b3bf",
+    "security/windows_review_process_supervisor.py": "3ca6ad678a3f1490c10a088af166ffc52dd7b4c8d5d307b4de7baea3273a27e2",
+    "docs/webull-guardian-process-supervision.md": "19d4caca59444c12df925f5ef7e820750cdbd1e38b66dc51094170aad33adf57"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "paper-launch-evidence-audit-v1",
+  "reviewed_on": "2026-10-06",
+  "recorded_at_utc": "2026-10-06T17:30:07.598734+00:00",
+  "source_digests": {
+    "docs/alpaca-paper-launch-evidence-audit.md": "caf7017bfc780938f13f3ebc1e7b3649816d5e4157eef2ce7b5b181003a31662",
+    "docs/alpaca-paper-provider-evidence-questions.md": "5b297e2e3e813478f3c7829db742490452a28cd2763d484b223f616423152e9d",
+    "docs/examples/alpaca-paper-month/connection-checkpoint-evidence.json": "2eac9a193b37716e39de2b7357d099b1c199477cfb7b4930c1619ab7e26628d0",
+    "docs/examples/alpaca-paper-month/readonly-recovery-applied.json": "c1e34eea11d5452c698a45e0703fb030cf73369fcb32b56b14eebe2b1dbb190d",
+    "docs/examples/alpaca-paper-month/trial-readiness-progress-v5.json": "e644cbfb68c486085a17bff4b56516ec62d386ec518449f3bb69f7e4ac803e1f"
+  },
+  "reviewed_provider_sources": [
+    "https://docs.alpaca.markets/us/docs/account-activities",
+    "https://docs.alpaca.markets/us/docs/real-time-stock-pricing-data"
+  ],
+  "provider_bootstrap_guarantee_established": false,
+  "publication_watermark_established": false,
+  "coherent_asof_contract_established": false,
+  "opening_journal_effective_time_established": false,
+  "code_changed": false,
+  "new_tests_required": false,
+  "policy_exception_approved": false,
+  "support_request_sent": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "current_readiness_percentage": null,
+  "historical_readiness_percentage": 64
+}

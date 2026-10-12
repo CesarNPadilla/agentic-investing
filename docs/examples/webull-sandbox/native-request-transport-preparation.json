@@ -1,0 +1,28 @@
+{
+  "schema_version": "webull-native-request-transport-preparation-v1",
+  "selected_tests_passed": 401,
+  "actual_same_user_native_transport_tests_passed": 7,
+  "native_transport_batch_steps_complete": 2,
+  "native_transport_batch_steps_total": 3,
+  "native_transport_batch_percent_rounded": 67,
+  "previous_identity_batch_percent": 100,
+  "owner_runtime_native_fixture": "PREPARED_NOT_EXECUTED_REQUIRES_LOCAL_CREDENTIAL_ENTRY",
+  "remote_client_rejection_flag_configured": true,
+  "actual_remote_host_denial_tested": false,
+  "native_cross_account_registration_qualified": false,
+  "protected_service_deployed": false,
+  "owner_approval_verified": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "trial_launch_percent": 0,
+  "source_digests": {
+    "security/windows_local_request_pipe.py": "bc59e4cfca73cb752a4d3c21b8aaec79e5b53719b083b881284935855908bf75",
+    "security/windows_pipe_identity.py": "8ca8e04b5258aafcb5a9951a337ae0ea6d9f1ad986fad7890f18ef9bd5c7d9c4",
+    "scripts/probe_paper_native_pipe.py": "071a048fb086824b18241ffc601b536637acb981f6c071bccf943f5f600c09d8",
+    "scripts/test_paper_runtime_native_pipe.ps1": "fa274ee8c285be2eafc517851527cacb7cf082dbb4cd939563140239bd3c111a",
+    "tests/test_windows_local_request_pipe.py": "08b849e26d02f478ebd38c2eb4c30dabe21febee075eaba8b66538e3873da894",
+    "docs/webull-native-request-transport.md": "872782a30c9dbecb302798767d476f10b943ae0ccbe3c16fb5ec042faec65c7e"
+  }
+}

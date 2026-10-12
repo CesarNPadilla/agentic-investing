@@ -1,0 +1,40 @@
+{
+  "schema_version": "webull-current-status-reconciliation-v1",
+  "reviewed_at_utc": "2026-10-08T19:59:36.267128+00:00",
+  "last_selected_code_tests_passed": 445,
+  "this_step_code_changed": false,
+  "this_step_full_suite_rerun": false,
+  "completed_scoped_batches": {
+    "native_transport": 100,
+    "directory_authority": 100,
+    "private_file_access": 100,
+    "process_environment": 100
+  },
+  "overall_webull_readiness_percent": null,
+  "trial_launch_percent": 0,
+  "forward_paper_sessions": "0/60",
+  "provider_question_count_pending": 4,
+  "provider_request_sent": false,
+  "next_external_owner_action": "SUBMIT_PREPARED_WEBULL_TECHNICAL_QUESTIONS_THROUGH_AUTHENTICATED_SUPPORT",
+  "sdk_request_subscription_type_rechecked": 7,
+  "retrieved_event_documentation_subscription_type": 1,
+  "provider_contracts_qualified": false,
+  "public_reference_urls": [
+    "https://developer.webull.com/apis/docs/reference/quotes/",
+    "https://developer.webull.com/apis/docs/reference/trade-cash-activity-by-type/",
+    "https://developer.webull.com/apis/docs/reference/custom/subscribe-trade-events/"
+  ],
+  "runtime_disabled_verified": true,
+  "protected_service_deployed": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "source_digests": {
+    "docs/webull-trial-current-status.md": "6ead1b4918f824f24363f9beefe5405d5bfeb3369e16075a56db1c6681f02eae",
+    "docs/webull-runtime-process-environment.md": "195056b240d73f0907b68b5d2f8f3d913c1e981de64f1702018ca641c94cdbae",
+    "docs/webull-provider-evidence-questions.md": "f02c5d1344a486044d8d7ccf761f4c13f704b649c6e0929e5d82d19cf1add275",
+    "docs/examples/webull-sandbox/runtime-process-environment-verification.json": "6759630fb77f73f6331c3f46ce1400eff41aa0fee8412d15b1bafc8ddc754ffb",
+    ".venv/Lib/site-packages/webull/trade/trade_events_client.py": "b07a0a3ca410d987bf73db6df4c63115ecdadd3e652d1e55a2c36ba3b1f580de"
+  }
+}

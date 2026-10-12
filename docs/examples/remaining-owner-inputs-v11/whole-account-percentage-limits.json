@@ -1,0 +1,49 @@
+{
+  "schema_version": "whole-account-percentage-owner-input-v1",
+  "instruction_verbatim": "Daily loss stop = 1% of total account equity, Gross exposure limit = 100% of total account equity",
+  "instruction_utf8_sha256": "ef41a624d168f2fdef492fc0335e9785ad603f311a60ce8f86b750c3d4ba40c6",
+  "approver_identity": null,
+  "decision_timestamp": null,
+  "decisions": [
+    {
+      "stable_id": "PROD-ACCOUNT-DAILY-LOSS",
+      "fraction": "0.01",
+      "display_value": "1%",
+      "denominator": "total account equity",
+      "scope": "whole account including non-sleeve holdings",
+      "supersedes": {
+        "path": "docs/examples/remaining-owner-inputs-v11/whole-account-dollar-stop.json",
+        "previous_amount": "1",
+        "previous_unit": "USD"
+      },
+      "denominator_evaluation_time": null,
+      "active": false
+    },
+    {
+      "stable_id": "PROD-GROSS-EXPOSURE",
+      "fraction": "1.00",
+      "display_value": "100%",
+      "denominator": "total account equity",
+      "scope": "whole portfolio including non-sleeve holdings and pending buy commitments",
+      "denominator_evaluation_time": null,
+      "active": false
+    }
+  ],
+  "status": "OWNER_PERCENTAGES_RECORDED_METHOD_AND_ACTIVATION_BLOCKED",
+  "measurement_method": null,
+  "daily_timezone_boundary": null,
+  "check_frequency": null,
+  "reset_procedure": null,
+  "execution_available": false,
+  "funding_confirmed": false,
+  "source_references": [
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/input-register-v2.json",
+      "sha256": "06490591c681cf3f6434a311d364c4e98204dc6b0fe58c42b2d210649ed1fdf2"
+    },
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/whole-account-dollar-stop.json",
+      "sha256": "f46e2f62619b1f276868edfe7b21c6a8d7c61864983aa57f67be607cb246c0a3"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": "trading-launch-plan-v1",
+  "as_of_client_date": "2026-10-12",
+  "current_phase": "PHASE_3_PRE_PAPER_RELEASE_QUALIFICATION",
+  "next_work_package": "WEBULL_SOURCE_AND_RUNTIME_RELEASE_QUALIFICATION",
+  "planning_only": true,
+  "observed_disposable_controls_ceremony_percent": 100,
+  "observed_trial_launch_percent": 0,
+  "observed_live_authorized": false,
+  "overall_readiness_percent": null,
+  "strategy_qualification": "RESEARCH_STRATEGIES_NOT_ELIGIBLE_NO_QUALIFYING_FORWARD_EVIDENCE",
+  "provider": "WEBULL_RETAIL_CASH_SANDBOX",
+  "paper_scope": "SCHB_ETF_CONTROL_PLUMBING_ONLY_INTC_DISABLED",
+  "paper_start_target_window": [
+    "2026-11-02",
+    "2026-11-23"
+  ],
+  "paper_first_month_review_window": [
+    "2026-12-02",
+    "2026-12-23"
+  ],
+  "forecast_confidence": "LOW_CONDITIONAL_ENGINEERING_ESTIMATE_NOT_COMMITMENT",
+  "forecast_assumptions": [
+    "Useful Webull retail technical answers arrive October 19–26; provider timing is unknown.",
+    "Remaining controls, source integration and Webull runner/release checks take approximately 2–4 weeks, partly in parallel; this is an effort estimate, not an accepted schedule.",
+    "Account baseline, trusted sources, clock/isolation/recovery and acceptance tests pass without a material redesign.",
+    "Required scoped owner paper activation is recorded after evidence review; sandbox mode alone is insufficient.",
+    "A month of controls plumbing does not establish investment-strategy profitability or satisfy the separate 60-session strategy requirement."
+  ],
+  "live_scenario": {
+    "planning_window": "APRIL_TO_MAY_2027_IF_QUALIFIED_STRATEGY_PAPER_STARTS_IN_JANUARY",
+    "confidence": "VERY_LOW_NO_COMMITTABLE_LIVE_DATE",
+    "assumptions": [
+      "A real frozen strategy clears historical/evidence eligibility and is approved for qualifying paper before January 2027.",
+      "All 60 forward sessions qualify with no evidence gaps; acceptance criteria pass.",
+      "Allow another 2–4 weeks for results review, production broker/data/control qualification and explicit human live release.",
+      "Production funding/account and environment are independently verified; live-grade status coverage includes the deferred Nasdaq requirement unless separately amended."
+    ],
+    "examples": [
+      {
+        "qualified_strategy_paper_start": "2027-01-04",
+        "sixtieth_nyse_session": "2027-03-31"
+      },
+      {
+        "qualified_strategy_paper_start": "2027-01-19",
+        "sixtieth_nyse_session": "2027-04-14"
+      }
+    ],
+    "guaranteed_start_date": null
+  },
+  "calendar": {
+    "source": "https://www.nyse.com/trade/hours-calendars",
+    "holidays": [
+      "2026-11-26",
+      "2026-12-25",
+      "2027-01-01",
+      "2027-01-18",
+      "2027-02-15",
+      "2027-03-26",
+      "2027-05-31",
+      "2027-06-18",
+      "2027-07-05",
+      "2027-09-06",
+      "2027-11-25",
+      "2027-12-24"
+    ],
+    "early_close_days": [
+      "2026-11-27",
+      "2026-12-24",
+      "2027-11-26"
+    ],
+    "early_close_counts_as_session_only_if_qualified": true,
+    "extraordinary_closures_and_evidence_gaps_extend_estimate": true
+  },
+  "pending_paper": [
+    "Webull quote-time/entitlement, authoritative halt bootstrap/coverage, coherent cash/activity/equity boundary and event/reconnect contracts.",
+    "Current-key selection/revocation, protected recovery history and atomic reset admission, followed by actual-account review.",
+    "Port/freeze the existing Alpaca-only SCHB plumbing configuration and runner for Webull sandbox; do not relabel the legacy config.",
+    "Integrate idempotent orders, reservations, fills, cash/settlement, every-order/fill checks and bounded monitoring; persistent month runner and end-of-month handling.",
+    "Deploy and verify least-privilege broker isolation, current one-second clock bound, restart/outage/kill-switch drills; resolve deferred remote-client qualification.",
+    "Evidence audit, verified current cash-account baseline and required scoped owner activation."
+  ],
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "source_digests": {
+    "docs/examples/webull-sandbox/current-launch-gates.json": "815c8913addf81e279f8efc8893adf2bc4ecf7734709d54a0253c32ff14fbc76",
+    "conf/paper-etf-plumbing.json": "247c7ca60332a32e7090e6902f7a9eb4bfd3de820f7918f82c5e3e125a14aa2d",
+    "docs/alpaca-paper-month.md": "55459bd120abe51c6e7ea05c0dd199e9d6c4181cd5af7d166bc3b54a75202ddb"
+  }
+}

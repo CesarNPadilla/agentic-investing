@@ -1,0 +1,68 @@
+{
+  "schema_version": "runtime-access-dacl-verification-v2",
+  "ObservedAtUtc": "2026-10-08T03:59:25.4617074Z",
+  "IdentityMatches": true,
+  "IsAdministrator": false,
+  "Checks": [
+    {
+      "Area": "Code",
+      "ReadMatches": true,
+      "WriteDenied": true,
+      "AclWriteDenied": true
+    },
+    {
+      "Area": "Config",
+      "ReadMatches": true,
+      "WriteDenied": true,
+      "AclWriteDenied": true
+    },
+    {
+      "Area": "Receipts",
+      "ReadMatches": true,
+      "WriteDenied": true,
+      "AclWriteDenied": true
+    },
+    {
+      "Area": "RiskState",
+      "ReadMatches": true,
+      "WriteDenied": true,
+      "AclWriteDenied": true
+    },
+    {
+      "Area": "BrokerSecrets",
+      "ReadMatches": true,
+      "WriteDenied": true,
+      "AclWriteDenied": true
+    },
+    {
+      "Area": "OwnerControl",
+      "ReadMatches": true,
+      "WriteDenied": true,
+      "AclWriteDenied": true
+    },
+    {
+      "Area": "Logs",
+      "WriteAllowed": true
+    },
+    {
+      "Area": "Outbox",
+      "WriteAllowed": true
+    }
+  ],
+  "ProtectedFixturesUnchanged": true,
+  "DummyFileDaclsUnchanged": true,
+  "ReviewedChildMatches": true,
+  "RuntimeDisabledAfterTest": true,
+  "OwnerReportedWrapperPassed": true,
+  "ProcessExitCodeIndependentlyRecorded": false,
+  "DirectoryAclEscalationQualified": false,
+  "ControllerResetQualified": false,
+  "ExecutionAvailable": false,
+  "TrialStarted": false,
+  "scope": "SIX_DUMMY_FILE_READ_WRITE_DACL_AND_TWO_ALLOWED_WRITE_CHECKS",
+  "owner_provenance": "Current conversation: owner reported bounded v2 file-access/DACL checks passed and account disabled again; retained report independently inspected.",
+  "source_digests": {
+    "scripts/test_paper_runtime_access.ps1": "c3d62fc1391764191c62dc4e392d0a8143d7d8dcd4f4eb17f84a5cbd84d31c91",
+    "docs/webull-runtime-acl-plan.md": "c2c9c639457cacaaa8a7c3d8398f285b48eeb76c32665104c26a1c05a5ab15db"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "owner-real-verification-v1",
+  "checked_at_utc": "2026-10-06T13:40:53.695633+00:00",
+  "owner_reply_verbatim": "Done",
+  "receipts": [
+    {
+      "receipt_sha256": "4af9b5ced31fcc97474cb05661902cfab15ddc18abb95235fcefb9568cdc502d",
+      "verified_at_utc": "2026-10-06T13:40:13.219751+00:00",
+      "cryptographic_reverification": "PASS"
+    }
+  ],
+  "user_verification_required": true,
+  "purpose": "AUTHENTICATION_TEST_ONLY",
+  "independent_legal_identity_verification": false,
+  "external_reset_qualified": false,
+  "reset_authorized": false,
+  "execution_available": false,
+  "trial_started": false
+}

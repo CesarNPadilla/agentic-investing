@@ -1,0 +1,33 @@
+{
+  "schema_version": "paper-event-recovery-audit-evidence-v1",
+  "assessment_date": "2026-10-05",
+  "targeted_tests_passed": 18,
+  "private_journal_integrity_verified": true,
+  "private_event_check_count": 5,
+  "private_incomplete_event_check_count": 0,
+  "completed_criteria": 23,
+  "required_criteria": 36,
+  "overall_percent": 64,
+  "persistent_runner_qualified": false,
+  "order_mutations": 0,
+  "trial_started": false,
+  "execution_available": false,
+  "source_references": [
+    {
+      "path": "workers/paper_event_observer.py",
+      "sha256": "c7b20062924f688e3bee58a10cf8c00e0bf5dc8da86d2f6c3a6a848c6de385a9"
+    },
+    {
+      "path": "tests/test_paper_event_observer.py",
+      "sha256": "d596efc6bed55c3c9b33e7f9b694b586fb388d8a897c9f10de3ae9f29f92ee0d"
+    },
+    {
+      "path": "docs/alpaca-paper-event-recovery-audit.md",
+      "sha256": "fdd3328c278cc07ddbaf3713439bd1a82f0dd43031aa7a9500e909a29b862e14"
+    },
+    {
+      "path": "docs/alpaca-paper-month.md",
+      "sha256": "fe6618f657d59e6d6b4366a4833413215b5e62a9a9a175eaa45d4f7bf8a1d571"
+    }
+  ]
+}

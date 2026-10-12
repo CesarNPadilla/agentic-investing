@@ -1,0 +1,101 @@
+{
+  "schema_version": "paper-trial-readiness-progress-v2",
+  "assessment_date": "2026-10-05",
+  "method": "Equal-weight acceptance checklist; curated evidence snapshot, not effort or execution authorization",
+  "completed_criteria": 20,
+  "required_criteria": 36,
+  "overall_percent": 56,
+  "steps": [
+    {
+      "step": "Account and baseline",
+      "completed": 4,
+      "required": 4,
+      "percent": 100
+    },
+    {
+      "step": "Plumbing strategy",
+      "completed": 3,
+      "required": 4,
+      "percent": 75
+    },
+    {
+      "step": "Quotes and calendar",
+      "completed": 3,
+      "required": 4,
+      "percent": 75
+    },
+    {
+      "step": "Status and clock",
+      "completed": 2,
+      "required": 4,
+      "percent": 50
+    },
+    {
+      "step": "Reconciliation and settlement",
+      "completed": 3,
+      "required": 4,
+      "percent": 75
+    },
+    {
+      "step": "Loss stops and resets",
+      "completed": 2,
+      "required": 4,
+      "percent": 50
+    },
+    {
+      "step": "Paper order lifecycle",
+      "completed": 2,
+      "required": 4,
+      "percent": 50
+    },
+    {
+      "step": "Continuous runner",
+      "completed": 1,
+      "required": 4,
+      "percent": 25
+    },
+    {
+      "step": "Trial launch",
+      "completed": 0,
+      "required": 4,
+      "percent": 0
+    }
+  ],
+  "real_status_probe": {
+    "authenticated": true,
+    "status_subscription_acknowledged": true,
+    "initial_status_verified": false,
+    "continuous_health_verified": false
+  },
+  "targeted_tests_passed": 137,
+  "trial_started": false,
+  "execution_available": false,
+  "live_authorized": false,
+  "source_references": [
+    {
+      "path": "docs/examples/alpaca-paper-month/trial-readiness-progress.json",
+      "sha256": "ac91a66e9c54e2aaa0293bf3918ef165f10eb5029780077871fa2258ff1d223d"
+    },
+    {
+      "path": "integrations/brokers/alpaca_paper_orders.py",
+      "sha256": "b181366c7e89141847ef1949cab30c0a176636b5ca917cbb3902d20d96f8e5ee"
+    },
+    {
+      "path": "risk/paper_order_lifecycle.py",
+      "sha256": "a5e69e3950fae9d35444a38dbdea023ad486622782f50adf31a72cafd401f830"
+    },
+    {
+      "path": "tests/test_paper_order_lifecycle.py",
+      "sha256": "3f360923a9ac8f3db03a5b875c14bc63339cf2f033aabdf04bd30472112a2031"
+    }
+  ],
+  "new_accepted_criteria": [
+    "Fixed paper-host protocol implemented and fixture-tested; actual mutations still blocked",
+    "Persist-before-send and uncertain-response client-ID lookup fixture-tested across restart/concurrency"
+  ],
+  "paper_order_lifecycle_limits": [
+    "Mock transport mutations only",
+    "Full fill/cancel reservation release integration incomplete",
+    "End-to-end runner recovery and broker round trip incomplete"
+  ]
+}

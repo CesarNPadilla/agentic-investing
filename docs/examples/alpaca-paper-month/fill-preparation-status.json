@@ -1,0 +1,30 @@
+{
+  "schema_version": "paper-fill-preparation-v1",
+  "status": "ACTIVITY_ACQUISITION_AND_FILL_REPLAY_TESTED_SETTLEMENT_PENDING",
+  "acquired_at_utc": "2026-10-05T14:45:45.502153+00:00",
+  "activity_rows": 0,
+  "pagination_exhausted": true,
+  "equity_equals_1000": true,
+  "cash_equals_1000": true,
+  "empty_inventory": true,
+  "actual_fills_tested": false,
+  "settlement_verified": false,
+  "order_submission_available": false,
+  "trial_started": false,
+  "new_tests": 11,
+  "targeted_tests_passed": 94,
+  "source_references": [
+    {
+      "path": "integrations/brokers/alpaca_paper_activities.py",
+      "sha256": "5bd58f6fe9ad3fda8421c0f6a304114ee4af7867d3b7fa8fd5026fff575f7644"
+    },
+    {
+      "path": "portfolio/paper_fill_reconciliation.py",
+      "sha256": "bb0be19c6cfb39de6787d6e5323f3164ea0f513ee4ffc5ae9c7f59a8f8d5e897"
+    },
+    {
+      "path": "tests/test_paper_fill_reconciliation.py",
+      "sha256": "8b4bf39600b4b9595e51e9e3bf801816143bc33df6557840fc68e77f908a1858"
+    }
+  ]
+}

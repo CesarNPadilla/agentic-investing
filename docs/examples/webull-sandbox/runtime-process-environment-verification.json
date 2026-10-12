@@ -1,0 +1,38 @@
+{
+  "schema_version": "webull-runtime-process-environment-verification-v1",
+  "fixture_observed_at_utc": "2026-10-08T19:56:09.3819785Z",
+  "scope": "ELEVATED_OWNER_PROCESS_AND_EXPLICIT_CHILD_ENVIRONMENT_ONLY",
+  "sensitive_owner_process_handle_denials_verified": 7,
+  "own_process_positive_control_retained": true,
+  "replacement_environment_inventory_matches": true,
+  "startup_policy_matches_explicit_flag": true,
+  "synthetic_parent_marker_absent": true,
+  "retained_client_matches_source": true,
+  "retained_client_digest_matches_receipt": true,
+  "child_result_matches_protected_receipt": true,
+  "persisted_client_exit_code": 0,
+  "stderr_empty": true,
+  "runtime_disabled_verified": true,
+  "receipt_directory_protection_verified": true,
+  "process_environment_batch_steps_complete": 3,
+  "process_environment_batch_steps_total": 3,
+  "process_environment_batch_percent": 100,
+  "deployed_controller_process_isolation_qualified": false,
+  "token_and_inherited_handle_paths_qualified": false,
+  "protected_service_deployed": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "trial_launch_percent": 0,
+  "private_evidence_digests": {
+    "C:\\ProgramData\\AgenticInvestingPaper\\Receipts\\process-environment-result-35629b33b97d43c3a4e9b75ed33d2092.json": "4a03f3d22d504176acae74e5ede202d3f08539f76b70f921dc2a13a5114fd18c",
+    "C:\\ProgramData\\AgenticInvestingPaper\\Code\\process-environment-client-35629b33b97d43c3a4e9b75ed33d2092.ps1": "1184ce027133b78ef2241a6a1ba82806e13b542f6ec4baf4ca6137a17b4edefe"
+  },
+  "source_digests": {
+    "scripts/test_paper_runtime_process_environment.ps1": "27b9a291859e5748750a8a13566dbef6e537e9ae5d5fff493ed77f2a59922083",
+    "workers/paper_runtime_environment.py": "810b4d24a8e96bc937fe00b96299aa0c99d76d2bcb295a2280c49fabb3124e46",
+    "tests/test_paper_runtime_environment.py": "bd5da1e9008eec04b7984918d5dd9e33929cd29cf7a85f4271b04661cf9091ab",
+    "tests/test_paper_process_environment_fixture.py": "0aea1483fc72f5941be14c7a4c0a06f0ad4f45c353188dd0e69777a8523a479f"
+  }
+}

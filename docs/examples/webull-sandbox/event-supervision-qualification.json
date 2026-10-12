@@ -1,0 +1,45 @@
+{
+  "schema_version": "webull-event-supervision-qualification-v1",
+  "selected_tests_passed": 359,
+  "observation": {
+    "schema_version": "webull-event-observation-v1",
+    "endpoint": "events-api.sandbox.webull.com",
+    "selected_account_revalidated": true,
+    "started_at_utc": "2026-10-08T03:55:39.483354+00:00",
+    "subscribed": true,
+    "heartbeat_count": 1,
+    "source_error_count": 0,
+    "unclassified_message_count": 0,
+    "retry_enabled": false,
+    "execution_available": false,
+    "trial_started": false,
+    "blockers": [
+      "EVENT_REPLAY_UNQUALIFIED",
+      "EVENT_RUNTIME_INTEGRATION_PENDING"
+    ],
+    "last_observation_elapsed_seconds": 20.372,
+    "termination": "DEADLINE_TERMINATED",
+    "child_exit_code": 0,
+    "child_contained": true,
+    "maximum_observation_seconds": 35,
+    "missed_event_coverage": false,
+    "continuous_supervision_qualified": false
+  },
+  "sdk_request_subscription_type": 7,
+  "reviewed_documentation_subscription_type": 1,
+  "subscription_type_coverage_qualified": false,
+  "runtime_dacl_denial_test": "PREPARED_REQUIRES_OWNER_LOCAL_CREDENTIAL_ENTRY",
+  "powershell_parse_and_current_owner_setter_smoke_passed": true,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "source_digests": {
+    "workers/webull_event_probe.py": "c2ff7fcbdcf64ab7d4b3ef22524490fef4299cb89134b50beade6ee2cad73fc5",
+    "scripts/probe_webull_events.py": "23657238ee4a13544a5d078e1593bf3a75b5773fbe7d0c4a3705e32eb4a4044b",
+    "tests/test_webull_event_probe.py": "a292233856752b961a3035002f72a9d8473bdfb9cd8ce32a3b846a7eab57bc24",
+    "docs/webull-event-supervision.md": "970e3fa0faea5fe9ce02fd290db9ae60450f6caea991369df3c90b77d5ae1bda",
+    "docs/webull-provider-evidence-questions.md": "f02c5d1344a486044d8d7ccf761f4c13f704b649c6e0929e5d82d19cf1add275",
+    "scripts/test_paper_runtime_access.ps1": "c3d62fc1391764191c62dc4e392d0a8143d7d8dcd4f4eb17f84a5cbd84d31c91",
+    "docs/webull-runtime-acl-plan.md": "27abacd4c1b43c8dfea16d72890e1f6f09c5a141b1aa47a02d825a2a1e19c438"
+  }
+}

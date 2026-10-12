@@ -1,0 +1,50 @@
+{
+  "schema_version": "guardian-standard-reply-verification-v1",
+  "observed_at_utc": "2026-10-09T15:51:45.274430+00:00",
+  "standard_owner_reply_percent": 100,
+  "wrapper_receipt_path": "C:\\ProgramData\\AgenticInvestingGuardian\\Receipts\\exchange-wrapper-result-2d3565e7-4819-4df4-9d10-7a26df94f916.json",
+  "wrapper_receipt_sha256": "546b0f8a89b43f291691676fc0e54b359f6b8f01cf9cde4770f003b45c0f4b5b",
+  "wrapper_receipt": {
+    "schema_version": "guardian-exchange-fixture-v1",
+    "probe_id": "2d3565e7-4819-4df4-9d10-7a26df94f916",
+    "source_digests": {
+      "security\\windows_guardian_exchange_pipe.py": "34d5b29975ad1d03e1ebd7ca2dafaef15559f6b5a651caf5f52d53088f71df72",
+      "security\\windows_guardian_exchange_client.py": "2836c66c9c12f83908a86163e50e60f7e284ac4b0fc12ab231033fbe9425e412",
+      "probe_webull_guardian_exchange.py": "8259bb266f3f2dd2a6d313d5a0240347171631b4072788cf50c878e96f837fd3"
+    },
+    "receipt_sha256": "44943ec1bd884eefb3e0312ca4533a65041c3b7db858ff3720e251df95c77b0f",
+    "wrapper_sha256": "19313dde2ca0d4b54198f1dcab93d087aae67ff7cd56f1d831cfdfbe143ccaf6",
+    "guardian_disabled": true,
+    "runtime_disabled": true,
+    "standard_owner_client_qualified": true,
+    "real_reference_used": false,
+    "execution_available": false,
+    "reset_authorized": false,
+    "trial_started": false,
+    "standard_launcher_sha256": "e21b0558a566f3ad5868407f8de923ce6264e1cd6f622f59e12e2d848e81ae86",
+    "bootstrap_sha256": "5fe315c4938151b4de42fc8183492e4f5f0099ab491be4665cd84042027a8cbe",
+    "standard_client_diagnostics": "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\guardian-standard-exchange-2d3565e7-4819-4df4-9d10-7a26df94f916"
+  },
+  "guardian_receipt_path": "C:\\ProgramData\\AgenticInvestingGuardian\\Receipts\\exchange-result-2d3565e7-4819-4df4-9d10-7a26df94f916.json",
+  "guardian_receipt_sha256": "44943ec1bd884eefb3e0312ca4533a65041c3b7db858ff3720e251df95c77b0f",
+  "guardian_receipt": {
+    "synthetic_request_only": true,
+    "execution_available": false,
+    "reset_authorized": false,
+    "trial_started": false,
+    "owner_pipe_identity_observed": true,
+    "probe_id": "2d3565e7-4819-4df4-9d10-7a26df94f916",
+    "guardian_reply_receipt_verified": true
+  },
+  "retained_fixture_path": "C:\\ProgramData\\AgenticInvestingGuardian\\Code\\ExchangeFixture-2d3565e7-4819-4df4-9d10-7a26df94f916",
+  "clean_diagnostics_verified": true,
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "real_reference_used": false,
+  "execution_available": false,
+  "reset_authorized": false,
+  "trial_started": false,
+  "trial_launch_percent": 0,
+  "retained_fixture_exact_acl_objects": 5,
+  "installed_guardian_inventory_and_acl_reaudit_passed": true
+}

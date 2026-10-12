@@ -1,0 +1,22 @@
+{
+  "schema_version": "whole-account-security-concentration-owner-input-v1",
+  "stable_id": "PROD-SECURITY-CONCENTRATION",
+  "instruction_verbatim": "10% of equity",
+  "clarification_context": "Direct response to: What maximum percentage of total account equity may be allocated to one security?",
+  "fraction": "0.10",
+  "display_value": "10%",
+  "denominator": "total account equity",
+  "scope": "whole portfolio per security including existing holdings and pending buy commitments",
+  "denominator_evaluation_time": null,
+  "existing_breach_new_buy_rule": null,
+  "approver_identity": null,
+  "decision_timestamp": null,
+  "active": false,
+  "execution_available": false,
+  "source_references": [
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/input-register-v3.json",
+      "sha256": "d3964ebfe1eccd4deb194399773782b8f6935f0b64d0824239e08587afe958a3"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+# Alpaca paper quote controls
+
+The next paper-preparation component is implemented: an isolated read-only IEX bid/ask reader with positive finite Decimal prices, exact response symbol binding, crossed/future quote rejection, aware event and receipt timestamps, raw response digest and a 30-second event freshness diagnostic. Receipt is stamped after response acquisition. Nanosecond source timestamps normalize to Python microseconds; the original bytes digest preserves provenance. The existing research last-trade adapter and runtime configuration are unchanged.
+
+[Alpaca latest-quotes documentation](https://docs.alpaca.markets/us/reference/stocklatestquotes-1) describes explicit IEX versus consolidated SIP feeds. The new reader explicitly requests IEX and USD, follows no redirects and has no retries, fallback feeds or broker mutation methods. Authentication, quota, malformed payload and provider failures return sanitized errors.
+
+A real read-only AAPL probe succeeded on Saturday October 3, 2026. The returned Friday quote was stale, so QUOTE_TIME remains a blocker. AAPL was an acquisition probe, not a selected trading strategy or symbol authorization. [Qualification report](examples/alpaca-paper-month/quote-qualification.json) records provider event/receipt times and source digests without credentials/account data. A usable response does not certify active market status: MARKET_STATUS_UNVERIFIED and RUNTIME_INTEGRATION_PENDING always remain. Real observations are not relabeled as synthetic risk evidence, and no production trust or release gate is promoted.
+
+Validation: 13 new quote tests and 20 existing paper-preflight/readiness tests pass (33 total), covering the exact freshness boundary, future/naive timestamps, nonfinite/zero/crossed prices, wrong/missing symbol fields and HTTP redirect/auth/quota/server failures. Report JSON and direct source digests validate; git diff --check passes.
+
+Next: qualify independent market-status/clock and NYSE session evidence, integrate complete paper account reconciliation and durable risk state, then implement/verify the paper-only runner. Freeze strategy/version and symbols before startup. No order has been submitted, the one-month clock has not started, 2026 OOS remains sealed and the existing 60-session qualification requirement remains separate.

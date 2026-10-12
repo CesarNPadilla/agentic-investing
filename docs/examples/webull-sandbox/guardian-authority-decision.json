@@ -1,0 +1,27 @@
+{
+  "schema_version": "webull-guardian-authority-decision-v1",
+  "provenance": {
+    "source": "Current explicit owner instruction",
+    "exact_text": "I choose -  Dedicated non-admin guardian account"
+  },
+  "chosen_boundary": "DEDICATED_NON_ADMIN_GUARDIAN_ACCOUNT",
+  "engineering_selected_account_name": "AgenticGuardian",
+  "authorized_provisioning_scope": "DISABLED_USERS_ONLY_ACCOUNT_AND_NEW_EMPTY_PROTECTED_GUARDIAN_TREE",
+  "actual_guardian_account_created": false,
+  "actual_guardian_tree_created": false,
+  "guardian_service_operation_authorized": false,
+  "reset_authorized": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "source_digests": {
+    "scripts/prepare_webull_guardian.ps1": "8e47c03ca7ffc6276ab138b67442ffbd032c050ce11a784a901e0f3a2658f7f3",
+    "tests/test_webull_guardian_provisioning.py": "43e0d95f160cfdd6e7f1796e29a4ddd8a0aa47f8a2ba90b439a4a5204348d505",
+    "docs/webull-guardian-provisioning.md": "81649544550117d4a2f3eeb13ad0493c8c50fd8dc539cdeeaa4e10822ecac255",
+    "docs/webull-review-recovery-authority.md": "ea9f91ae463f5bafcbba30e5c702c24aecdd74ae47effb005c644202f2c55f21",
+    "docs/webull-trial-current-status.md": "32b9ede1196cfc31ce38946f32ef3419e2b0beda2a29b4a23008b7ffaaa3b722",
+    "docs/webull-trial-unblock-plan.md": "36c2ba884095b132711df40ce1bb504463de39d48e163200afccd16abe80ba1e",
+    "docs/decisions.md": "9aed4137585a5a740df0a2586b0d5663dabb71b7f89375d71367e256d0daff22",
+    "docs/roadmap.md": "b3a18cd017ba23c645e16ba69065df88839441458853aee614c0de243305814b"
+  }
+}

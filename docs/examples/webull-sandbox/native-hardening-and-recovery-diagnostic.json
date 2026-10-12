@@ -1,0 +1,31 @@
+{
+  "schema_version": "webull-native-hardening-and-recovery-diagnostic-v1",
+  "selected_tests_passed": 409,
+  "native_local_transport_tests_passed": 10,
+  "frozen_checkpoint_tests_passed": 5,
+  "native_transport_batch_percent": 100,
+  "hardening_and_checkpoint_batch_percent": 100,
+  "synthetic_journal_checkpoint_verified": true,
+  "retained_requests": 1,
+  "actual_remote_host_denial_tested": false,
+  "remote_test_host_availability": "OWNER_REPORTED_NO_SECOND_WINDOWS_MACHINE",
+  "protected_service_deployed": false,
+  "independent_rollback_anchor_qualified": false,
+  "owner_approval_verified": false,
+  "recovery_authorized": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "trial_launch_percent": 0,
+  "source_digests": {
+    "security/windows_local_request_pipe.py": "0396710c435c90265935bf9ffc2c2132a8f97b146899b7f6d1adffa5104ebaa2",
+    "tests/test_windows_local_request_pipe.py": "1c5a46b087f03bd211f9e9fee9aad0cd569d2d161663248495b7549c8769b381",
+    "security/webull_journal_checkpoint.py": "5b95b3ef54d2f1bbab265f05184a1d1ab6542486c744e6ef46121091c5c307a0",
+    "tests/test_webull_journal_checkpoint.py": "c8594f55644e56efb7ebf74dafe9894083bd7c83e60ee672332deb418876176c",
+    "docs/webull-native-request-transport.md": "e529ea285c93bec4496e03f14d11e65d10c51206058542d055435d686676f550",
+    "docs/webull-journal-recovery-diagnostic.md": "900f2dd82c51abe967f1be8f85166b0cd87b5dd583a74f51c383d25c4d40bad2"
+  },
+  "private_checkpoint_digest": "960ac4e6f659c884aa326964b48fc7615902a42b940172571c1186c4e8daf855",
+  "private_checkpoint_path": "C:\\ProgramData\\AgenticInvestingPaper\\Receipts\\native-pipe-frozen-checkpoint-004b7908827948518bd9e7213a62bf5e.json"
+}

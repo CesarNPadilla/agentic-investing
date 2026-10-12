@@ -1,0 +1,9 @@
+# Webull frozen journal recovery diagnostic
+
+A frozen checkpoint records a canonical digest of the selected synthetic journal context and ordered retained requests from one SQLite read transaction. It is exclusively created in a different directory and cannot be replaced by a rerun. Verification reads the journal without creating a missing file and requires the entire checkpoint to match, with recovery and execution authority false.
+
+Five tests cover restart verification without authority, exclusive creation, deleted history, changed context, missing checkpoints, same-directory refusal and forged recovery authority. Deleting journal rows can pass the journal's internal digest checks; comparison with the retained frozen checkpoint detects that deletion. A checkpoint of the October 8 native runtime fixture is retained in Receipts and independently verifies its one synthetic request. No real account risk state was adopted.
+
+This freezes a diagnostic snapshot. Any subsequent registration or changed context requires a mismatch and review; there is no automatic checkpoint advancement or recovery approval. Directory separation alone does not establish an independent integrity anchor. An actor able to replace both references, or restore both to an older version, can defeat this check. Exact deployed ACL enforcement, crash-safe advancement, externally protected monotonic evidence, service lifecycle, passkey approval and reset prerequisites remain unqualified. This diagnostic is not wired into a deployed controller and cannot clear a latch or start the trial.
+
+Native transport verification is 100% complete in its synthetic scope. The owner has no second Windows machine available, so actual remote-client denial remains untested; the configured rejection flag is not promoted to an observed result. Trial launch remains 0%, forward evidence 0/60 and live permission absent.

@@ -1,0 +1,53 @@
+{
+  "schema_version": "paper-reconciliation-settlement-clock-v1",
+  "status": "COMPONENTS_TESTED_CLOCK_POLICY_PENDING_RUNTIME_INCOMPLETE",
+  "new_tests": 10,
+  "targeted_tests_passed": 118,
+  "windows_time_resync_succeeded": true,
+  "clock_rule_approved": false,
+  "proposed_clock_diagnostic": {
+    "checks_passed": false,
+    "blockers": [
+      "CLOCK_REPORTED_ERROR_BOUND"
+    ],
+    "reported_error_bound_seconds": "8.4909230",
+    "execution_available": false
+  },
+  "settlement_model_owner_approved": true,
+  "runtime_started": false,
+  "execution_available": false,
+  "source_references": [
+    {
+      "path": "integrations/brokers/alpaca_paper_read.py",
+      "sha256": "cf7c502c67eac97cedd43fbd3c02e5fb7864a6316b5d98c4c5030a34f78f591e"
+    },
+    {
+      "path": "portfolio/paper_cash_reconciliation.py",
+      "sha256": "bb83ed3a99c67b308320b0c3e70e98d45f9d418efcc5b452ca642b01b084d8b3"
+    },
+    {
+      "path": "risk/paper_settlement.py",
+      "sha256": "4cdc4316a46a2305b2a3f4984b16d5c89eefb8a37b6a6a6beb68c75d5f952cdc"
+    },
+    {
+      "path": "risk/paper_clock.py",
+      "sha256": "06bc5643c5a9f13c7b510a77934b8f1f24c2a862d4479953d6d13cb9d01efb1a"
+    },
+    {
+      "path": "tests/test_paper_settlement.py",
+      "sha256": "88b765dc81d706916fb092bcaf57364a2f41ed8111884a043932a2e7baafe490"
+    },
+    {
+      "path": "tests/test_paper_clock.py",
+      "sha256": "b0c0b64603ac5f52da1b8e525676272b92980b2fdfdf4f749b5bcd26794a2d6c"
+    },
+    {
+      "path": "tests/test_paper_cash_reconciliation.py",
+      "sha256": "3d914d07653d50c149e81d9f137cf2a0d6450a6b1e70046d327e9d8866fd87bc"
+    },
+    {
+      "path": "docs/examples/alpaca-paper-month/paper-settlement-rule.json",
+      "sha256": "963005f0b6f105e5edf35a1529476fecdc468948abfa4b8abc2d0f42b799d0d8"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "paper-clock-health-evidence-v1",
+  "assessment_date": "2026-10-05",
+  "clock_policy_decision": "APPROVED",
+  "clock_checks_passed": false,
+  "post_resync_reported_error_bound_seconds": "7.9563316",
+  "post_resync_blockers": [
+    "CLOCK_REPORTED_ERROR_BOUND"
+  ],
+  "targeted_tests_passed": 26,
+  "completed_criteria": 22,
+  "required_criteria": 36,
+  "overall_percent": 61,
+  "real_stream_health_integrated": false,
+  "trial_started": false,
+  "execution_available": false,
+  "source_references": [
+    {
+      "path": "conf/paper-clock-policy.json",
+      "sha256": "1dc7f841d0fb6be69506b9c3bdc1263da1055fc2dcf0719a96fa0286d2d67f8c"
+    },
+    {
+      "path": "docs/examples/alpaca-paper-month/clock-policy-decision.json",
+      "sha256": "50e66a48a42fc92db8d06e27bbd0a8bfd12fa45905665497026a3ae46187f063"
+    },
+    {
+      "path": "market_data/paper_stream_health.py",
+      "sha256": "e476adb13a609b783ffede08ac6bcbf9477eea67fd5f7003055b646bb194b898"
+    },
+    {
+      "path": "tests/test_paper_stream_health.py",
+      "sha256": "57d2e34cfefd04dbdbef15dc7fe44d83198e20e4f175859c75ec0c2ff6b2e85f"
+    },
+    {
+      "path": "docs/alpaca-paper-clock-and-health.md",
+      "sha256": "52aa25a46fe5381dfdaafa40b2f3d8fb96bdb85324cfb3e9cd75f3ab61cfa886"
+    }
+  ]
+}

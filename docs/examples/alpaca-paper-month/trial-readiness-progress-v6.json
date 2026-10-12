@@ -1,0 +1,278 @@
+{
+  "schema_version": "paper-trial-readiness-progress-v6",
+  "assessment_date": "2026-10-07",
+  "method": "Explicit equal-weight component acceptance checklist; not percentage of elapsed effort, live readiness or launch permission. Item descriptions are made explicit in this reassessment; historical category totals retained conservatively.",
+  "completed_criteria": 23,
+  "required_criteria": 36,
+  "overall_percent": 64,
+  "steps": [
+    {
+      "step": "Account and baseline",
+      "completed": 4,
+      "required": 4,
+      "percent": 100,
+      "criteria": [
+        {
+          "criterion": "Dedicated paper-only account and external secret path",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-durable-fills.md"
+        },
+        {
+          "criterion": "Verified initial $1,000 empty-account baseline",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-durable-fills.md"
+        },
+        {
+          "criterion": "Durable account binding and immutable opening evidence",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-durable-fills.md"
+        },
+        {
+          "criterion": "Paper settlement assumptions explicitly approved",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-durable-fills.md"
+        }
+      ]
+    },
+    {
+      "step": "ETF plumbing strategy",
+      "completed": 4,
+      "required": 4,
+      "percent": 100,
+      "criteria": [
+        {
+          "criterion": "ETF-only SCHB scope frozen; INTC disabled",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-etf-integration.md"
+        },
+        {
+          "criterion": "Frozen deterministic plumbing intent parameters",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-etf-integration.md"
+        },
+        {
+          "criterion": "Distinct durable ETF ownership and identifiers",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-etf-integration.md"
+        },
+        {
+          "criterion": "ETF routing, reservation and restart fixtures qualified",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-etf-integration.md"
+        }
+      ]
+    },
+    {
+      "step": "Quotes and calendar",
+      "completed": 3,
+      "required": 4,
+      "percent": 75,
+      "criteria": [
+        {
+          "criterion": "Strict bid/ask provenance and price validation",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-etf-freeze.md"
+        },
+        {
+          "criterion": "Quote age and session rejection fixtures",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-etf-freeze.md"
+        },
+        {
+          "criterion": "Published bounded NYSE holiday/early-close calendar",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-etf-freeze.md"
+        },
+        {
+          "criterion": "Complete runtime source/session qualification",
+          "status": "PENDING",
+          "evidence": "docs/alpaca-paper-etf-freeze.md"
+        }
+      ]
+    },
+    {
+      "step": "Status and clock",
+      "completed": 3,
+      "required": 4,
+      "percent": 75,
+      "criteria": [
+        {
+          "criterion": "Conservative status transition controls",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-clock-qualified.md"
+        },
+        {
+          "criterion": "Authenticated status subscription and transport probe evidence",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-clock-qualified.md"
+        },
+        {
+          "criterion": "Owner clock policy and previously passing real clock evidence",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-clock-qualified.md"
+        },
+        {
+          "criterion": "Initial status bootstrap and continuous halt coverage",
+          "status": "PENDING",
+          "evidence": "docs/alpaca-paper-clock-qualified.md"
+        }
+      ]
+    },
+    {
+      "step": "Reconciliation and settlement",
+      "completed": 3,
+      "required": 4,
+      "percent": 75,
+      "criteria": [
+        {
+          "criterion": "Immutable activity and fill replay",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-settlement-clock.md"
+        },
+        {
+          "criterion": "Cash/quantity comparison with conservative funding classification",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-settlement-clock.md"
+        },
+        {
+          "criterion": "Approved settlement simulation and release fixtures",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-settlement-clock.md"
+        },
+        {
+          "criterion": "Publication completeness, coherent cutoff and baseline journal timing",
+          "status": "PENDING",
+          "evidence": "docs/alpaca-paper-settlement-clock.md"
+        }
+      ]
+    },
+    {
+      "step": "Loss stops and resets",
+      "completed": 2,
+      "required": 4,
+      "percent": 50,
+      "criteria": [
+        {
+          "criterion": "Owner-defined percentage limits and denominator fixtures",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-event-risk-integration.md"
+        },
+        {
+          "criterion": "Durable loss/accounting latches and rejection fixtures",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-event-risk-integration.md"
+        },
+        {
+          "criterion": "Qualified whole-day baseline/flow-adjusted runtime loss evaluation",
+          "status": "PENDING",
+          "evidence": "docs/alpaca-paper-event-risk-integration.md"
+        },
+        {
+          "criterion": "Independent authenticated risk-reset authority and ordered lifecycle",
+          "status": "PENDING",
+          "evidence": "docs/alpaca-paper-event-risk-integration.md"
+        }
+      ]
+    },
+    {
+      "step": "Paper order lifecycle",
+      "completed": 3,
+      "required": 4,
+      "percent": 75,
+      "criteria": [
+        {
+          "criterion": "Durable intents and uncertain submission handling fixtures",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-etf-integration.md"
+        },
+        {
+          "criterion": "Partial/terminal fill cash and share reservation fixtures",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-etf-integration.md"
+        },
+        {
+          "criterion": "ETF restart/ownership and roundtrip fixtures",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-etf-integration.md"
+        },
+        {
+          "criterion": "Real paper broker admission and order lifecycle qualification",
+          "status": "PENDING",
+          "evidence": "docs/alpaca-paper-etf-integration.md"
+        }
+      ]
+    },
+    {
+      "step": "Continuous runner",
+      "completed": 1,
+      "required": 4,
+      "percent": 25,
+      "criteria": [
+        {
+          "criterion": "Read-only observer and bounded event/process supervision",
+          "status": "ACCEPTED_COMPONENT_EVIDENCE",
+          "evidence": "docs/alpaca-paper-readonly-service.md"
+        },
+        {
+          "criterion": "Continuous trading event/timer and disconnect-gap coverage",
+          "status": "PENDING",
+          "evidence": "docs/alpaca-paper-readonly-service.md"
+        },
+        {
+          "criterion": "Persistent deployment and scoped crash recovery qualification",
+          "status": "PENDING",
+          "evidence": "docs/alpaca-paper-readonly-service.md"
+        },
+        {
+          "criterion": "Integrated source/authority/order admission runner qualification",
+          "status": "PENDING",
+          "evidence": "docs/alpaca-paper-readonly-service.md"
+        }
+      ]
+    },
+    {
+      "step": "Trial launch",
+      "completed": 0,
+      "required": 4,
+      "percent": 0,
+      "criteria": [
+        {
+          "criterion": "All launch dependencies accepted with current evidence",
+          "status": "PENDING",
+          "evidence": "docs/alpaca-paper-launch-evidence-audit.md"
+        },
+        {
+          "criterion": "Integrated prelaunch checks and protected activation approval",
+          "status": "PENDING",
+          "evidence": "docs/alpaca-paper-launch-evidence-audit.md"
+        },
+        {
+          "criterion": "Controlled real paper startup with verified broker outcomes",
+          "status": "PENDING",
+          "evidence": "docs/alpaca-paper-launch-evidence-audit.md"
+        },
+        {
+          "criterion": "Persistent month-trial reporting and session accounting started",
+          "status": "PENDING",
+          "evidence": "docs/alpaca-paper-launch-evidence-audit.md"
+        }
+      ]
+    }
+  ],
+  "evidence_freshness": "Historical account/clock/provider observations support preparation acceptance only; fresh runtime checks remain mandatory. No broker observation made in this phase.",
+  "new_qualification": "Actual disposable service process kill preserves RUNNING record and blocks subsequent source access; no recovery or continuous-runner criterion promoted.",
+  "selected_tests_passed": 313,
+  "task_state": "Disabled",
+  "trial_started": false,
+  "execution_available": false,
+  "live_authorized": false,
+  "forward_sessions_completed": 0,
+  "forward_sessions_required": 60,
+  "source_digests": {
+    "tests/test_paper_service_crash.py": "abc775e5c2a84d13c37eb34b7c22c2053e3d6cf4727343850e4b15d28e0bca0d",
+    "workers/paper_readonly_service.py": "0442e0a8c1b2c55b9ed38dfc6caee1f760debaa3c333f339ba9513633c2db2c9",
+    "docs/examples/alpaca-paper-month/readonly-service-preparation.json": "e1ea2777b1e082b8e6c012bd0f729aaecd31c49907eb2d86a80d99aa61d24943",
+    "docs/examples/alpaca-paper-month/etf-integration-evidence.json": "60037ad1f9def91204951c958bd16be4edb95eaafb0bd3fc264623b87b66d7f4",
+    "docs/alpaca-paper-launch-evidence-audit.md": "caf7017bfc780938f13f3ebc1e7b3649816d5e4157eef2ce7b5b181003a31662"
+  }
+}

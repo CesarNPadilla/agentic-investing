@@ -1,0 +1,92 @@
+{
+  "schema_version": "paper-trial-readiness-progress-v1",
+  "assessment_date": "2026-10-05",
+  "method": "Equal-weight acceptance checklist; curated evidence snapshot, not effort or execution authorization",
+  "completed_criteria": 18,
+  "required_criteria": 36,
+  "overall_percent": 50,
+  "steps": [
+    {
+      "step": "Account and baseline",
+      "completed": 4,
+      "required": 4,
+      "percent": 100
+    },
+    {
+      "step": "Plumbing strategy",
+      "completed": 3,
+      "required": 4,
+      "percent": 75
+    },
+    {
+      "step": "Quotes and calendar",
+      "completed": 3,
+      "required": 4,
+      "percent": 75
+    },
+    {
+      "step": "Status and clock",
+      "completed": 2,
+      "required": 4,
+      "percent": 50
+    },
+    {
+      "step": "Reconciliation and settlement",
+      "completed": 3,
+      "required": 4,
+      "percent": 75
+    },
+    {
+      "step": "Loss stops and resets",
+      "completed": 2,
+      "required": 4,
+      "percent": 50
+    },
+    {
+      "step": "Paper order lifecycle",
+      "completed": 0,
+      "required": 4,
+      "percent": 0
+    },
+    {
+      "step": "Continuous runner",
+      "completed": 1,
+      "required": 4,
+      "percent": 25
+    },
+    {
+      "step": "Trial launch",
+      "completed": 0,
+      "required": 4,
+      "percent": 0
+    }
+  ],
+  "real_status_probe": {
+    "authenticated": true,
+    "status_subscription_acknowledged": true,
+    "initial_status_verified": false,
+    "continuous_health_verified": false
+  },
+  "targeted_tests_passed": 130,
+  "trial_started": false,
+  "execution_available": false,
+  "live_authorized": false,
+  "source_references": [
+    {
+      "path": "scripts/check_alpaca_status_stream.py",
+      "sha256": "998655edc13677b8f17afa0803ac9e96c0d2cc1f7b0bccb0a8dd8f9f7750438b"
+    },
+    {
+      "path": "tests/test_status_stream_probe.py",
+      "sha256": "25ea815e8e07bae93a919357d2cf6955df3e77482f896fff512c06fada9b6194"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "6fc22c17f542d1b9c5cbf36791fb5468c14612d8461cbf2d32ea1778339f5928"
+    },
+    {
+      "path": "docs/alpaca-paper-trial-progress.md",
+      "sha256": "cd164a778867b1a0385be840df36570fe9a0dc8a1480f515bf17ee5e24e30926"
+    }
+  ]
+}

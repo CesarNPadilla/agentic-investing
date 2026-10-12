@@ -1,0 +1,26 @@
+{
+  "checked_at_utc": "2026-10-06T12:30:51.746842+00:00",
+  "symbol": "SCHB",
+  "execution_available": false,
+  "trial_started": false,
+  "asset_http_status": 200,
+  "asset": {
+    "symbol": "SCHB",
+    "name": "Schwab U.S. Broad Market ETF",
+    "class": "us_equity",
+    "exchange": "ARCA",
+    "status": "active",
+    "tradable": true
+  },
+  "asset_raw_sha256": "ef0539685ff2d0ea86f99df6b2f299c19c85814a51cf6cb4e4fcef958a8cd417",
+  "read_error": "READ_UNAVAILABLE_OR_INVALID",
+  "quote_followup": {
+    "http_status": 200,
+    "bid": "29.75",
+    "ask": "0",
+    "event_time": "2026-10-05T20:00:01.778627096Z",
+    "reader_accepted": false,
+    "reason": "NONPOSITIVE_ASK",
+    "quote_qualified": false
+  }
+}

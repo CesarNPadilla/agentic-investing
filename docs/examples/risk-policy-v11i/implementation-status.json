@@ -1,0 +1,89 @@
+{
+  "schema_version": "risk-policy-v11i-implementation-status-v1",
+  "phase": "v1.1i",
+  "status": "SYNTHETIC_WHOLE_ACCOUNT_PERCENTAGE_FOUNDATION_COMPLETE",
+  "v11_started": true,
+  "v11_complete": false,
+  "approver_identity": null,
+  "decision_timestamp": null,
+  "implemented": [
+    "Recorded denominator timing approval with provenance",
+    "Whole-account daily loss 1% of fixed start-of-day equity",
+    "Whole-portfolio gross exposure 100% of current equity",
+    "Per-security concentration 10% of current equity",
+    "Pending commitments and proposed buy included in projected exposure",
+    "Signed external flows excluded from daily P&L",
+    "Fail-closed missing evidence, nonpositive equity, cash and existing-breach handling",
+    "Readiness blocker text reconciled with newly recorded owner values",
+    "Owner-selected America/New_York midnight boundary including DST tests",
+    "Owner-selected existing breach: retain/report, block additional buys, human review, no liquidation"
+  ],
+  "qualification": {
+    "new_account_tests_passed": 28,
+    "additional_readiness_regression_tests": 1,
+    "targeted_tests_passed": 233,
+    "postgres_not_rerun": "No PostgreSQL code or runtime integration changed in this phase."
+  },
+  "not_implemented": [
+    "Persisted whole-account baseline/latch integration",
+    "Sector/correlation policy",
+    "Trusted equity/marks/order/flow evidence",
+    "Production runtime/API/broker activation",
+    "Authenticated reset/check-frequency and role assignments"
+  ],
+  "limitations": [
+    "Account data, fee reconciliation and day verification are synthetic fixture assertions",
+    "Target-security diagnostic is not a complete all-security diversification engine",
+    "Passing account checks does not pass sleeve/other runtime gates",
+    "No explicit dollar stop remains active; superseded USD 1 record stays historical"
+  ],
+  "configured_research_cap_usd": "1000",
+  "funding_confirmed": false,
+  "execution_available": false,
+  "paper_execution_approved": false,
+  "live_execution_approved": false,
+  "forward_paper_sessions": 0,
+  "oos_2026": "SEALED",
+  "source_references": [
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/input-register-v5.json",
+      "sha256": "98e406cadee5b49e16d157e59daa9de59fcb9585ce3ff32cb6f6f0d0024daf27"
+    },
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/denominator-timing-confirmation.json",
+      "sha256": "92ab011217a5a7edc0a0621fbfbff5096c8104b534e983821480f4054bceae89"
+    },
+    {
+      "path": "docs/examples/risk-policy-v11h/implementation-status.json",
+      "sha256": "2157f3158f5f9728d7fb6b03b70de7ad8aeffe5ceaca4f6341bf030b4bf5614e"
+    },
+    {
+      "path": "conf/investment-policy-v03.json",
+      "sha256": "77a02f530540a7d59d61835d0a38466ae49846852585474cc9b9e36a0f0d2fd0"
+    },
+    {
+      "path": "risk/account_v11.py",
+      "sha256": "c418c31fa29046d6e406a0262cb3d9eb9b1c32e88de446f1e575b5b5c6f12939"
+    },
+    {
+      "path": "risk/readiness_v11.py",
+      "sha256": "f4520f2062666de94326c23e00f9ddac00401bb32a364a6c096fef82ecb04541"
+    },
+    {
+      "path": "tests/test_account_v11.py",
+      "sha256": "aa478c2252ad93873210e7168b00e126a1d2f66d6860e5e4407da14b00372c11"
+    },
+    {
+      "path": "tests/test_readiness_v11.py",
+      "sha256": "88629152b6ffc48c4b69e6a7ae58cae9d35128c663af3a2fef327c9b63e9ff10"
+    },
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/input-register-v6.json",
+      "sha256": "6e8aabb07fb1af38a11821a5af504df3cf317d399072cc08b07fcaef9eb565af"
+    },
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/account-day-and-existing-breach.json",
+      "sha256": "b507a695085d4befb6a5b5b0af60eeb2f99e1b9c393b1a6e080404cbdf0b3ba8"
+    }
+  ]
+}

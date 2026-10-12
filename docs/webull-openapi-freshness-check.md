@@ -1,0 +1,9 @@
+# Webull OpenAPI freshness check
+
+The owner reports that the Webull OpenAPI subscription is active and explicitly requested a test. Three read-only SCHB depth queries to `api.sandbox.webull.com` returned HTTP 200 with positive, uncrossed bid/ask prices: USD 29.85 / 29.86. The quote timestamp was identical across these closely spaced requests; this does not indicate a new market event for every poll.
+
+Interpreting the returned integer `quote_time` as Unix milliseconds, observed ages were 1.085, 2.223 and 3.366 seconds at receipt, within the unchanged 30-second quote-age limit. [The evidence record](examples/webull-sandbox/openapi-freshness-probe.json) retains raw timestamps, receipt timestamps, exact user provenance and private-response digests. Raw provider responses remain outside the repository.
+
+This is encouraging evidence of fresh sandbox quote access. It does not independently verify the subscription product/coverage, authoritative timestamp units, clock error, or initial halt status. The reviewed [depth endpoint documentation](https://developer.webull.com/apis/docs/reference/quotes/) identifies the latest bid/ask interface; its rendered response schema did not establish the timestamp unit. The [market-data FAQ](https://developer.webull.com/apis/docs/market-data-api/faq/) distinguishes API subscriptions and sandbox entitlement behavior. No production credential was accessed and no order or subscription mutation occurred.
+
+Owner confirmation is now satisfied. Next engineering work is a strict Webull quote evidence adapter with schema/time-unit qualification, stale/future/crossed rejection and preserved provenance, followed by event/status and account reconciliation integration. Full entitlement/source gate remains partially evidenced rather than accepted. Trading remains disabled; no trial startup or readiness increase is claimed.

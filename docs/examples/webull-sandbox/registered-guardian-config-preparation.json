@@ -1,0 +1,40 @@
+{
+  "schema_version": "registered-guardian-config-preparation-v1",
+  "provenance": "Continuation within selected bounded owner-started guardian lifecycle. Positive current-context check and changed candidate pin denial only; requires guardian password held outside agent.",
+  "engineering_percent": 100,
+  "package_installation_percent": 100,
+  "local_fixture_preparation_percent": 100,
+  "actual_guardian_registered_context_fixture_percent": 0,
+  "actual_registered_owner_app_guardian_ceremony_percent": 0,
+  "test_batch_passed": 40,
+  "package_manifest_sha256": "7bcd38f561458069c9e3e722edad8d72dfeecb0f591f18e00c45e772139d275d",
+  "package_payload_hashes_verified": 705,
+  "package_exact_acl_objects_verified": 811,
+  "protected_probe_compilation_verified": true,
+  "candidate_context_current_only_for_fresh_invocation": true,
+  "synthetic_account_and_plan_context_only": true,
+  "guardian_lifecycle": "BOUNDED_OWNER_STARTED_CEREMONY_ONLY",
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "credential_prompted": false,
+  "guardian_process_started": false,
+  "reset_authorized": false,
+  "execution_available": false,
+  "trial_started": false,
+  "trial_launch_percent": 0,
+  "overall_readiness_percent": null,
+  "source_digests": {
+    "security/webull_owner_credential_registry.py": "d54e72c439f413d7932ac8cecaa639ade192985c8f09f239b66941b3d226ee3f",
+    "security/webull_guardian_release.py": "a4664567299afd627b89f288adc29d10c9fda5b35957ca5560b5ea08f68f90f8",
+    "scripts/install_webull_guardian_release.ps1": "f2a3de9074daecfb409105120583b2288d29e9cc4f27bc6629091178b7db8f45",
+    "scripts/test_webull_registered_owner_app.ps1": "4e3a21ba29dfc34149170ff43c677e7ce69573b62d01143d0dc9e99fc29c5715",
+    "scripts/test_webull_guardian_registered_config.ps1": "6f18f3cf89c376172f542c48279b475facb29289e4acb90f77ad24a870f41985",
+    "tests/test_webull_owner_credential_registry.py": "330dba8a723ec298a0f7d7d36cdbc8e53810789cc955ff833d07ec1ad409782c"
+  },
+  "private_evidence_digests": {
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\registered-guardian-package-preparation.json": "74ac2fdd3dc6b6dff58d9bc1a98c42bc54eb3c8342ae24794acf9bceb9e9d085",
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\registered-guardian-package-audit.json": "b1cf6442bb3db8e98de05b933635a62bc4a04fab96bad1faa035e24e5bc87f96",
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\guardian-registered-config-fixture-preparation-final.json": "7cf9d4692a255841ed746800b96814bba6e6c440b362130a986928adb0f5397b",
+    "C:\\ProgramData\\AgenticInvestingGuardian\\Code\\guardian-registered-config-0fd8855936a94a2f878d8ca9ff972d73.py": "bf8ea0e775053eb6a427aea887002f99b4b5c9a0e384ae3f1b5c054c57b9a27c"
+  }
+}

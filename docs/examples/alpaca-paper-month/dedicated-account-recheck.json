@@ -1,0 +1,14 @@
+{
+  "schema_version": "dedicated-paper-account-check-v1",
+  "status": "BASELINE_AND_EMPTY_ACCOUNT_VERIFIED",
+  "verified_at_utc": "2026-10-05T14:41:12.986911+00:00",
+  "account_access_verified": true,
+  "equity_matches_required_baseline": true,
+  "cash_matches_required_baseline": true,
+  "account_unblocked": true,
+  "bracket_stable": true,
+  "positions_count": 0,
+  "open_orders_count": 0,
+  "execution_available": false,
+  "month_trial_started": false
+}

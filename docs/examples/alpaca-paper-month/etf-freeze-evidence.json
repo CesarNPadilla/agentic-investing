@@ -1,0 +1,33 @@
+{
+  "schema_version": "paper-etf-freeze-evidence-v1",
+  "owner_instruction_source": "docs/examples/alpaca-paper-month/etf-scope-decision.json",
+  "symbol_selection": "ENGINEERING_SELECTION",
+  "frozen_strategy_id": "PAPER_ETF_CONTROL_PLUMBING",
+  "version": "1.0.0",
+  "allowed_symbols": [
+    "SCHB"
+  ],
+  "intc_enabled": false,
+  "quote_qualified": false,
+  "runtime_integrated": false,
+  "execution_available": false,
+  "trial_started": false,
+  "source_digests": {
+    "conf/paper-etf-plumbing.json": "247c7ca60332a32e7090e6902f7a9eb4bfd3de820f7918f82c5e3e125a14aa2d",
+    "docs/examples/alpaca-paper-month/etf-scope-decision.json": "e9275d66ec15d7f99d798e0e18743664d915172d821dc5fe382685f1a8b2cc01",
+    "docs/examples/alpaca-paper-month/etf-asset-read.json": "e984413fe146d160d9796a73cd8473a0161de4de34b88e75845beda3c98be7c7",
+    "strategies/paper_etf_plumbing.py": "d9687a2fee5aeffa6738d588a09279bdae4af77eac8868623b1bf0c96c106048",
+    "strategies/paper_etf_sizing.py": "2a24d9c9280290376ab9fb0abdaca2d3fa12ff419805001494a899796e54c565",
+    "integrations/brokers/alpaca_paper_etf_orders.py": "c6ba33081ba3e4ff8bc659a780c361e29437fb4f5ae1057639229e1cda2d62f5",
+    "tests/test_paper_etf_plumbing.py": "f7a8e7cc0f35f44ffdd789618012e3dbbdd117e1f07870080a633f187dec23c9",
+    "docs/alpaca-paper-etf-freeze.md": "96ef8ba10b792eb4c6a8499bdd3dd242d1ebe109c903e6690c1b7c4ea4593a6a"
+  },
+  "validation": {
+    "selected_paper_control_tests_passed": 261,
+    "ruff": "PASS",
+    "json_parsing": "PASS",
+    "source_digests": "PASS",
+    "git_diff_check": "PASS",
+    "new_file_whitespace": "PASS"
+  }
+}

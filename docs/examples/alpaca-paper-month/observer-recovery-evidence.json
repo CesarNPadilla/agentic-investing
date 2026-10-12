@@ -1,0 +1,33 @@
+{
+  "schema_version": "paper-observer-recovery-evidence-v1",
+  "assessment_date": "2026-10-05",
+  "targeted_tests_passed": 34,
+  "completed_criteria": 21,
+  "required_criteria": 36,
+  "overall_percent": 58,
+  "trial_started": false,
+  "execution_available": false,
+  "hard_trading_watchdog_qualified": false,
+  "source_references": [
+    {
+      "path": "scripts/observe_paper_trial.py",
+      "sha256": "b4cdde334979b91b634d7969a91cfebca5f46a4ba7306372586232f140507f8c"
+    },
+    {
+      "path": "workers/paper_observation_deadline.py",
+      "sha256": "3820f8b935e0c018f031aaef042c0333186001fa707e0c8abfa6a0810d32b962"
+    },
+    {
+      "path": "tests/test_paper_trial_observer.py",
+      "sha256": "a4d1a5557c4dd160ddcde7682ae47ded698ff071f4450a2b993ece38e0624f5c"
+    },
+    {
+      "path": "tests/test_paper_observation_deadline.py",
+      "sha256": "75ce9d0ebeab9e5a9b84a589ced208a13aa26f19b11c50bcabcc87fb073939df"
+    },
+    {
+      "path": "docs/alpaca-paper-observer-recovery.md",
+      "sha256": "e2f8a6670ec6801eac956ee8ec87c83e96b0a03b4b192e33c6f01aa36bab0e49"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "webull-control-request-contract-qualification-v1",
+  "contract_tests_passed": 17,
+  "selected_tests_passed": 376,
+  "controller_transport_deployed": false,
+  "caller_authenticated": false,
+  "owner_approval_verified": false,
+  "protected_replay_journal_implemented": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "source_digests": {
+    "security/webull_control_request.py": "9f1c067ecb5e74b8d8a2d0c295db8dd0a8d34da8682cf7e7a262f4752b00a29c",
+    "tests/test_webull_control_request.py": "0641afccf0f4e91402ff06520d9720047190f1e52831c5913992bbbdebdfe8e2",
+    "docs/webull-control-request-boundary.md": "30281a43cc34a13083d187ea47bcf5297b91fce4493ec21c0e2b5c498ddff91d",
+    "docs/examples/webull-sandbox/runtime-access-dacl-verification.json": "c1c3101c2a540269c2c3a7f75e5d31f6bfb1e5f225c91791d63ea70dcea121d0"
+  }
+}

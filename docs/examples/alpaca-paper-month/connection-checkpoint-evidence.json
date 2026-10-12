@@ -1,0 +1,21 @@
+{
+  "schema_version": "paper-connection-checkpoint-evidence-v1",
+  "checked_at_utc": "2026-10-06T14:44:35.188512+00:00",
+  "source_digests": {
+    "workers/paper_connection_journal.py": "f6c43ae10bb58fee2f5a110421a5ed065cb0eefe380dd4e68480afaa5c2e9be0",
+    "scripts/check_alpaca_trade_updates.py": "2e23b969fc2821d1e3ec8497e017ccab1844f3b5aa36729dd6b52407b85b8e88",
+    "scripts/observe_paper_events.py": "9beca1cc3ec7dbe2a2fceec71e410c3834c36acaf986dbba1a1d6f70b90d6285",
+    "tests/test_paper_connection_journal.py": "7b1f7a00a5ada26694dfda2eccbd7244e05f425b9a95aaaa7018dd01c61e3caa",
+    "docs/alpaca-paper-connection-checkpoints.md": "7098062740d630f3abe3b780a3e3b058c63ef5b6dba6c0d813c004d38f08d0b3"
+  },
+  "selected_tests_passed": 303,
+  "actual_connection_closed": true,
+  "actual_checkpoint_report_sha256": "31c9bc43a914b27147e7b1e22dde6d324b056e94d78bb431564b1470d9a9d825",
+  "actual_diagnostic_checks_completed": 4,
+  "continuous_event_coverage_verified": false,
+  "automatic_gap_recovery_qualified": false,
+  "persistent_service_qualified": false,
+  "risk_latches_preserved": true,
+  "execution_available": false,
+  "trial_started": false
+}

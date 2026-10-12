@@ -1,0 +1,12 @@
+{
+  "schema_version": "readonly-recovery-review-preparation-v1",
+  "prepared_at_utc": "2026-10-06T13:49:16.844421+00:00",
+  "review_sha256": "b94e684bdccad9f36ecb47042b8273cd0eba764608374b1e5853c102bff08dd7",
+  "failed_checks_count": 1,
+  "expires_at_utc": "2026-10-07T13:49:16.844421+00:00",
+  "actual_owner_signature_pending": true,
+  "original_failure_preserved": true,
+  "risk_latches_preserved": true,
+  "execution_available": false,
+  "trial_started": false
+}

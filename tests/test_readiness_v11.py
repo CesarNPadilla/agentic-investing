@@ -15,6 +15,18 @@ def copy_current_package(target):
     files = {ref["path"] for ref in report.source_references}
     current = json.loads((ROOT/"docs/examples/risk-policy-v11g/implementation-status.json").read_text(encoding="utf-8"))
     files.update(ref["path"] for ref in current["source_references"])
+    owner = ROOT/"docs/examples/remaining-owner-inputs-v11/input-register-v5.json"
+    newer = ROOT/"docs/examples/remaining-owner-inputs-v11/input-register-v6.json"
+    if newer.exists():
+        owner = newer
+    latest = ROOT/"docs/examples/remaining-owner-inputs-v11/input-register-v7.json"
+    if latest.exists():
+        owner = latest
+    selected = ROOT/"docs/examples/remaining-owner-inputs-v11/input-register-v8.json"
+    if selected.exists():
+        owner = selected
+    if owner.exists():
+        files.update(ref["path"] for ref in json.loads(owner.read_text(encoding="utf-8"))["source_references"])
     for name in files:
         destination = target/name
         destination.parent.mkdir(parents=True, exist_ok=True)
@@ -62,3 +74,13 @@ def test_execution_flag_change_requires_review(tmp_path):
     target.write_text(json.dumps(data), encoding="utf-8")
     with pytest.raises(ValueError):
         build_current_readiness(tmp_path)
+
+
+def test_recorded_account_limits_do_not_clear_readiness():
+    report = build_current_readiness(ROOT)
+    items = {item.requirement_id: item for item in report.items}
+    assert "1% of start-of-day" in items["whole_account_loss"].explanation
+    assert "100%" in items["portfolio_exposure"].explanation
+    assert items["whole_account_loss"].status == "BLOCKED"
+    assert items["portfolio_exposure"].status == "BLOCKED"
+    assert not report.live_ready

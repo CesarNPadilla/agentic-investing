@@ -1,0 +1,25 @@
+{
+  "schema_version": "webull-pipe-access-remediation-v1",
+  "failure_evidence": "CLIENT_CONNECT_UNAUTHORIZED_ACCESS",
+  "failure_log_sha256": "04896220ca5566151615836273de68ae020b840cd44e0b8ef51d5200208dba9b",
+  "runtime_disabled_after_failure_verified": true,
+  "failed_pipe_integrity_label_known": false,
+  "integrity_mismatch_cause_confirmed": false,
+  "explicit_temporary_medium_label_readback_and_connection_regression_passed": true,
+  "early_client_exit_diagnostic_added": true,
+  "selected_tests_passed": 393,
+  "owner_cross_account_retry": "REQUIRED_LOCAL_RUNTIME_PASSWORD_ENTRY",
+  "current_batch_verification_percent": 75,
+  "trial_launch_percent": 0,
+  "controller_admitted": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "source_digests": {
+    "scripts/test_paper_runtime_pipe_identity.ps1": "78c14b4c8775d4939319ecb2b11783d8fdb3000943a95557c55aa8a4ca061d31",
+    "scripts/paper_pipe_fixture_security.ps1": "4f4da7eb8fa01aeac4da3c5c0ea879c879051aeff56aeda809ca84cca40c5b73",
+    "tests/test_paper_pipe_label_fixture.py": "447781ed691b7bc98efea29dc8813123fc76cdfac92f2418d6a48a2563ce070c",
+    "docs/webull-pipe-identity-preparation.md": "ee6e7bc1d05a2618b60f735af872bba2d2859719f26d9e11bbdd8003872405ee"
+  }
+}

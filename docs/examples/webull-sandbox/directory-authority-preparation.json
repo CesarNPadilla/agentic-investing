@@ -1,0 +1,29 @@
+{
+  "schema_version": "webull-directory-authority-preparation-v1",
+  "observed_at_utc": "2026-10-08T19:11:37.137241+00:00",
+  "scope": "PREPARATION_AND_READONLY_STRUCTURAL_PREFLIGHT_ONLY",
+  "selected_tests_passed": 414,
+  "native_helper_regression_tests_passed": 5,
+  "existing_directories_structurally_checked": 9,
+  "existing_directories_administrator_owned_and_protected": true,
+  "planned_runtime_denial_checks": 27,
+  "runtime_disabled_verified": true,
+  "directory_verification_steps_complete": 2,
+  "directory_verification_steps_total": 3,
+  "directory_verification_percent_rounded": 67,
+  "actual_runtime_directory_authority_fixture": "NOT_EXECUTED_REQUIRES_DIRECT_LOCAL_CREDENTIAL_ENTRY",
+  "actual_runtime_directory_authority_qualified": false,
+  "previous_native_transport_batch_percent": 100,
+  "actual_remote_host_denial_tested": false,
+  "protected_service_deployed": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "trial_launch_percent": 0,
+  "source_digests": {
+    "scripts/test_paper_runtime_directory_authority.ps1": "3090315fa3c1076b5691b73cedd270b327d487c9c673969470696e982c099eca",
+    "tests/test_paper_directory_authority_fixture.py": "c53dde26e0528739ec142eccdc4ea5267f4024b3628393e154d7718cbb8a7a8c",
+    "docs/webull-runtime-directory-authority.md": "57f0945bed9d80cbe54ff87b6a870f6f25c1eeddc5f1759db931eda0515b1379"
+  }
+}

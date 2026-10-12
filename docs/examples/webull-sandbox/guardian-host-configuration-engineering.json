@@ -1,0 +1,24 @@
+{
+  "schema_version": "guardian-host-configuration-engineering-v1",
+  "scope": "STAGED_CONFIGURATION_MATERIAL_ONLY_NO_OS_PROVENANCE_OR_ACTIVATION",
+  "targeted_tests_passed": 22,
+  "related_tests_passed": 45,
+  "configuration_material_engineering_percent": 100,
+  "protected_loader_and_configuration_deployment_percent": 0,
+  "actual_signed_host_qualification_percent": 0,
+  "installed_release_modified": false,
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "real_configuration_provisioned": false,
+  "real_owner_signature_used": false,
+  "service_deployed": false,
+  "reset_authorized": false,
+  "execution_available": false,
+  "trial_started": false,
+  "trial_launch_percent": 0,
+  "source_digests": {
+    "security/webull_guardian_host_config.py": "57fd373184b2da8b8d7147aad27c2765b41540000e30f00e6383bcfeb2790905",
+    "tests/test_webull_guardian_host_config.py": "c984b5e3dede9cad5054bfa71c31076d25a6ffe3601606125c8a77a9dd6fa746",
+    "docs/webull-guardian-host-configuration.md": "3dc303769d51f0255d0f0e5aecee59c190e1e549b95ce2197120ef108dcf281d"
+  }
+}

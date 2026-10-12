@@ -1,0 +1,22 @@
+{
+  "checked_at_utc": "2026-10-06T13:40:53.696537+00:00",
+  "symbol": "SCHB",
+  "execution_available": false,
+  "trial_started": false,
+  "quote": {
+    "symbol": "SCHB",
+    "source": "alpaca-iex-best-bid-ask",
+    "currency": "USD",
+    "bid": "29.96",
+    "ask": "29.97",
+    "event_time": "2026-10-06T13:40:53.853862Z",
+    "received_time": "2026-10-06T13:40:54.051447Z",
+    "raw_sha256": "94b0135e3f0afab772633ea3a01b45f2cefabf0acdef963b3cc86a78d1955f01",
+    "market_status": "UNKNOWN",
+    "execution_available": false
+  },
+  "blockers": [
+    "MARKET_STATUS_UNVERIFIED",
+    "RUNTIME_INTEGRATION_PENDING"
+  ]
+}

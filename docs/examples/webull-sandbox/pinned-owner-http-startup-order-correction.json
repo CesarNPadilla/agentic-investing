@@ -1,0 +1,50 @@
+{
+  "schema_version": "pinned-owner-http-startup-order-correction-v1",
+  "provenance": "Owner reported standard-owner HTTP fixture failure and retained diagnostic path in current conversation; independently inspected retained failed context. No approval inferred.",
+  "failed_fixture_id": "c1a6735fb3bf4071af04aca6b8262c25",
+  "retained_host_start_time_utc": "2026-10-11T21:10:17.635083+00:00",
+  "retained_failure_time_utc": "2026-10-11T21:10:22.649951+00:00",
+  "retained_terminal_state": "BLOCKED_RECONCILIATION_REQUIRED",
+  "completed_guardian_actions": 0,
+  "consumed_reviews": 0,
+  "intent_present": false,
+  "confirmation_present": false,
+  "pre_host_readiness_deadline_seconds": 10,
+  "pipe_deadline_seconds_unchanged": 5,
+  "supervised_host_deadline_seconds_unchanged": 15,
+  "corrected_package_manifest_sha256": "069895024e135b302535e931cf574caca99c62aae31724d367aded09c4a06c8c",
+  "package_payload_hashes_verified": 702,
+  "package_protected_acl_objects_verified": 808,
+  "engineering_tests_passed_batches": [
+    11,
+    8
+  ],
+  "test_batch_counts_overlap": true,
+  "remediation_preparation_percent": 100,
+  "actual_cross_account_owner_http_percent": 0,
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "real_passkey_used": false,
+  "reset_authorized": false,
+  "execution_available": false,
+  "trial_started": false,
+  "trial_launch_percent": 0,
+  "overall_readiness_percent": null,
+  "private_evidence_digests": {
+    "C:\\ProgramData\\AgenticInvestingGuardian\\Code\\HostConfig-c1a6735fb3bf4071af04aca6b8262c25.json": "3c0f525aa36f68a4117fca4b5852db6db078acfe10be851b892d2736fc2e9c94",
+    "C:\\ProgramData\\AgenticInvestingGuardian\\References\\Review-dbf0e660-615f-4ad1-af01-3613a5ee6233\\host-start.json": "5a394febcb994dad9276a85eececa017935928f538f3f34c3e5b5650bfc3d6e1",
+    "C:\\ProgramData\\AgenticInvestingGuardian\\References\\Review-dbf0e660-615f-4ad1-af01-3613a5ee6233\\host-terminal.json": "cdb6586bf8b1b9b699022c5ccb7943225330f0b815cf0927ee9c4561f63ee191",
+    "C:\\ProgramData\\AgenticInvestingPaper\\OwnerControl\\Review-dbf0e660-615f-4ad1-af01-3613a5ee6233\\review.sqlite": "ffc3053928cda7a77ac6d84231e27fc93db16cbb070fdb182c98e40d44a7aabf",
+    "C:\\ProgramData\\AgenticInvestingPaper\\OwnerControl\\Review-dbf0e660-615f-4ad1-af01-3613a5ee6233\\owner-stderr.txt": "ff9cf5176a9da065a5b4f9a5eaa9600cfb6b002808a3dd9a6723f2ff723ebd4b",
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\pinned-owner-http-readiness-package-preparation.json": "aec36b721d2a6a3408c92edfdf9566c528ca037113ce46d6e640fc11408e95c1",
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\pinned-owner-http-readiness-package-audit.json": "eeae2d71faf0cba0f3603d7367f5b95b84e09d32831691e5f14825c2e0a7e660",
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\pinned-owner-http-readiness-fixture-preparation.json": "542def9112364a48f312f8ff12189c939a13535c40182b533ab2d4ee283af4e1"
+  },
+  "source_digests": {
+    "scripts/webull_signed_host_fixture.py": "8eb4ddfebc0ef09d67bc3296bfbc9e3fc0db8a34d99d5176cc960c717bbc54bb",
+    "scripts/test_webull_pinned_owner_http.ps1": "669a97d75bc90918055a2caa8fbf0b9f33add31a8e78f65a2588daed81d21b16",
+    "tests/test_webull_synthetic_owner_http.py": "5206c11f95a034b0eecb90b99e2e5f6ea7a237b7f1d43f0980c79aa9621558b4",
+    "security/webull_guardian_review_host.py": "40212b4bbad1ffe1311357f9431f4e32ebe5b1218b9e52bc5223eec11a30b3bf",
+    "docs/webull-pinned-owner-app-integration.md": "ecc9d94999184c5c3c81912594fc288ce57ce5fc56c6313a732d3fb497260e6e"
+  }
+}

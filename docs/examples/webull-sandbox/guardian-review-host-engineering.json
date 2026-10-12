@@ -1,0 +1,25 @@
+{
+  "schema_version": "guardian-review-host-engineering-v1",
+  "observed_at_utc": "2026-10-10T19:45:42.864062+00:00",
+  "host_state_machine_implementation_percent": 100,
+  "native_app_host_engineering_integration_percent": 100,
+  "related_tests_passed": 33,
+  "host_cases": 7,
+  "native_app_host_cases": 2,
+  "test_role_scope": "ENGINEERING_IDENTITIES_SYNTHETIC_SIGNATURE_INJECTED_GUARDIAN_CALLER_DISPATCH_AND_CLOCK",
+  "source_digests": {
+    "security/webull_guardian_review_host.py": "40212b4bbad1ffe1311357f9431f4e32ebe5b1218b9e52bc5223eec11a30b3bf",
+    "tests/test_webull_guardian_review_host.py": "1ee7b5151edd930bc5fe31fa1be5b8dad972fe46276caa6fc11e31840adc5576",
+    "tests/test_webull_review_host_app_native.py": "81d4e38941f92f14ea243845c827560c518eb04676b949856e768bca81e43b61",
+    "docs/webull-guardian-review-host.md": "72b65658203df0afc97a69024a353d7768e1615f074b2694f9c3b40e8b1583d1"
+  },
+  "host_protected_package_installed": false,
+  "actual_guardian_signed_reference_access_qualified": false,
+  "service_shutdown_and_crash_qualified": false,
+  "real_owner_signature_qualified": false,
+  "service_deployed": false,
+  "reset_authorized": false,
+  "execution_available": false,
+  "trial_started": false,
+  "trial_launch_percent": 0
+}

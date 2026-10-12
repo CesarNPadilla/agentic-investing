@@ -1,0 +1,15 @@
+{
+  "schema_version": "paper-runtime-acl-preparation-v1",
+  "deployment_root_exists": false,
+  "provisioning_executed": false,
+  "powershell_syntax_validated": true,
+  "disposable_acl_roundtrip_passed": true,
+  "runtime_token_tests_passed": false,
+  "account_remains_disabled": true,
+  "execution_available": false,
+  "trial_started": false,
+  "source_digests": {
+    "scripts/prepare_paper_runtime_directories.ps1": "226c479695efb5171a133c1f82db004cd44a287fddb871394e41b3ed73a4c651",
+    "docs/webull-runtime-acl-plan.md": "0009377596cfb70592556e945b9af6e59a1c772d6551f2b8ef5269ad1f8b9d8e"
+  }
+}

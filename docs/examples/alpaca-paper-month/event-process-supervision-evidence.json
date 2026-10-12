@@ -1,0 +1,21 @@
+{
+  "schema_version": "paper-event-process-supervision-evidence-v1",
+  "checked_at_utc": "2026-10-06T14:18:23.716539+00:00",
+  "source_digests": {
+    "scripts/observe_paper_events.py": "6a981ee42411fd96e844a465e4628e2fc8ac63ab29b6f368ad2e1218dafcf0c1",
+    "scripts/supervise_paper_events.py": "033bcdc9a994154a55597a2ba6b3194f4332dc1725916f63334f085cd0cdf10f",
+    "workers/paper_event_process_supervisor.py": "c031ef5f6d6a4db63483e586991614cade1a1ac2980d597fa1c905d78b9027b9",
+    "tests/test_paper_event_process_supervisor.py": "942dfbdb0b4aa92766e738774bb35a37b539c8cc941e28ce47cf7496d875c251",
+    "docs/alpaca-paper-event-process-supervision.md": "931060bd34d2c09fb25b0d5a668c203a54bf86ce29c2e0b76f24db46f529a001"
+  },
+  "selected_tests_passed": 296,
+  "actual_supervised_sessions_completed": 1,
+  "actual_checks_completed": 3,
+  "actual_cash_matches": true,
+  "actual_positions_match": true,
+  "persistent_service_qualified": false,
+  "global_hard_realtime_guarantee": false,
+  "risk_latches_preserved": true,
+  "execution_available": false,
+  "trial_started": false
+}

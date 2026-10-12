@@ -1,0 +1,24 @@
+{
+  "schema_version": "paper-etf-scope-evidence-v1",
+  "scope_decision_recorded": true,
+  "selected_etf_symbol": null,
+  "intc_enabled": false,
+  "existing_acceptance_snapshot": "trial-readiness-progress-v5.json",
+  "etf_strategy_qualification_pending": true,
+  "trial_started": false,
+  "execution_available": false,
+  "source_references": [
+    {
+      "path": "docs/examples/alpaca-paper-month/etf-scope-decision.json",
+      "sha256": "e9275d66ec15d7f99d798e0e18743664d915172d821dc5fe382685f1a8b2cc01"
+    },
+    {
+      "path": "docs/alpaca-paper-month.md",
+      "sha256": "5ad7786e19ca6475723cad24550fb9cafa4822d576ffd7986feb4e6999604d89"
+    },
+    {
+      "path": "docs/alpaca-paper-process-supervision.md",
+      "sha256": "389cfe1be5e6f11759370e74f3084af5cc57aa431b420d1a7c5c2452b76145d9"
+    }
+  ]
+}

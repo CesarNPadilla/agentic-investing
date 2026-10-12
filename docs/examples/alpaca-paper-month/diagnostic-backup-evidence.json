@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED_DIAGNOSTIC_SNAPSHOT",
+  "snapshot_sha256": "3820e3606fc346448842f3b4c9d04a51800636093fccb54f54a1246cb265725b",
+  "latched": true,
+  "execution_available": false,
+  "trial_started": false,
+  "restore_authorized": false,
+  "schema_version": "paper-diagnostic-backup-evidence-v1",
+  "observed_at_utc": "2026-10-07T17:38:25.569105+00:00",
+  "selected_tests_passed": 318,
+  "broker_calls": 0,
+  "source_open_mode": "READ_ONLY",
+  "backup_location": "PRIVATE_EXTERNAL_DIRECTORY",
+  "preparation_percent": 64,
+  "accepted_criteria": 23,
+  "required_criteria": 36,
+  "source_digests": {
+    "security/paper_diagnostic_backup.py": "5dd7fb884c7176b2cfd2b586a2ae8e862bd6574d391f82ea12c7242e64279c03",
+    "tests/test_paper_diagnostic_backup.py": "c538068fe4ec51d05411fc42dd7c9618dc3e13b2f55c546ae4e8b7b8d2a5cade",
+    "docs/examples/alpaca-paper-month/trial-readiness-progress-v6.json": "2f3dc33501337801998e58c6bf897e2430cde9c7b07121d663b6b9feebdf3551"
+  }
+}

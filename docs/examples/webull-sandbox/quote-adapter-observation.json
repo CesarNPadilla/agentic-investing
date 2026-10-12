@@ -1,0 +1,20 @@
+{
+  "source": "WEBULL_RETAIL_SANDBOX_DEPTH",
+  "symbol": "SCHB",
+  "bid": "29.8500",
+  "ask": "29.8600",
+  "quote_time_raw": 1791396917496,
+  "timestamp_interpretation": "UNIX_MILLISECONDS_UNQUALIFIED",
+  "event_time_utc": "2026-10-07T18:15:17.496000+00:00",
+  "received_at_utc": "2026-10-07T18:15:21.662229+00:00",
+  "age_seconds": 4.166229,
+  "raw_sha256": "f3394573b2958a8e36fa5020d0b88245874f8a491e177b2de027b8d4d16d7881",
+  "blockers": [
+    "TIMESTAMP_SCHEMA_UNQUALIFIED",
+    "MARKET_STATUS_UNVERIFIED",
+    "CLOCK_RUNTIME_UNQUALIFIED",
+    "RUNTIME_INTEGRATION_PENDING"
+  ],
+  "execution_available": false,
+  "trial_started": false
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "guardian-failure-source-extraction-fix-v1",
+  "observed_at_utc": "2026-10-09T14:18:50.896405+00:00",
+  "reported_error": "Literal failure-path source missing",
+  "cause": "Formatter changed Python literal quote style; wrapper regex was quote-sensitive",
+  "fix": "Protected interpreter parses AST; exactly one constant string CHILD assignment; base64 byte transfer; no driver execution",
+  "regression_tests_passed": 6,
+  "current_formatted_driver_extraction_passed": true,
+  "wrapper_syntax_verified": true,
+  "actual_guardian_fixture_executed": false,
+  "actual_guardian_failure_paths_preparation_percent": 67,
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "installed_package_changed": false,
+  "execution_available": false,
+  "reset_performed": false,
+  "trial_started": false,
+  "trial_launch_percent": 0,
+  "source_digests": {
+    "scripts/test_webull_guardian_failure_paths.ps1": "ce4790a94426ea48f0bebde18496ffadc2a4dd2d6794759be508a6b8c2d3aa17",
+    "tests/test_webull_guardian_failure_source.py": "91b5250e3349d70c5b68e912eb1756dd693193362830f59a28b020e92c15e21a",
+    "docs/webull-guardian-failure-paths.md": "d3d6a228f2b8807b1f0676a181d43bccd285d784516595b576fc87d1558a3d44",
+    "docs/webull-review-recovery-authority.md": "0e1d9aa98a5f989b21e83cf38f36d1d0f4c65a8bf9323240b03cfc81fa85c84b",
+    "docs/webull-trial-unblock-plan.md": "b743e8d155134e0109aaeb90a6541f86347b8455428c34614ecc0ab9168ce495"
+  }
+}

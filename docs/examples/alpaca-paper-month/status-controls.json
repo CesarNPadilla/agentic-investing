@@ -1,0 +1,24 @@
+{
+  "schema_version": "paper-status-controls-v1",
+  "status": "STATUS_TRANSITIONS_TESTED_REAL_SOURCE_BOOTSTRAP_PENDING",
+  "new_tests": 10,
+  "targeted_tests_passed": 128,
+  "real_stream_connected": false,
+  "source_entitlement_verified": false,
+  "bootstrap_verified": false,
+  "stream_health_verified": false,
+  "clock_decision_pending": true,
+  "execution_available": false,
+  "trial_started": false,
+  "source_documentation": "https://docs.alpaca.markets/us/docs/real-time-stock-pricing-data",
+  "source_references": [
+    {
+      "path": "market_data/paper_status.py",
+      "sha256": "0040ef32894c464b562855932a021c2788f9e120763a6cb9e615a042e58ec9ee"
+    },
+    {
+      "path": "tests/test_paper_status.py",
+      "sha256": "1e40a248e4714751b264c74e032923d171f02f8e01273c537554fb51d58e7dad"
+    }
+  ]
+}

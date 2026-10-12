@@ -1,0 +1,36 @@
+{
+  "schema_version": "webull-review-layout-provisioning-preparation-v1",
+  "synthetic_provisioned_acl_objects_verified": 3,
+  "standard_owner_identity_and_access_verified": true,
+  "owner_journal_bytes_unchanged_verified": true,
+  "owner_reference_file_create_denied": true,
+  "layout_structural_provisioning_percent": 100,
+  "actual_standard_owner_access_percent": 100,
+  "guardian_access_preparation_percent": 100,
+  "actual_guardian_layout_access_percent": 0,
+  "credentialed_command_line_characters": 490,
+  "next_owner_command": "& 'C:\\Users\\cesar\\OneDrive\\AI\\agentic-investing\\scripts\\test_webull_guardian_layout_access.ps1'",
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "real_approval_provisioned": false,
+  "host_started": false,
+  "service_deployed": false,
+  "reset_authorized": false,
+  "execution_available": false,
+  "trial_started": false,
+  "trial_launch_percent": 0,
+  "overall_readiness_percent": null,
+  "private_evidence_digests": {
+    "C:\\ProgramData\\AgenticInvestingGuardian\\Receipts\\layout-preparation-5b600741477c49de934240a4984d7db0.json": "796b818071a74d1859c88443e3799402479d363f3b08648e4f83e6e4e93bfdc6",
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\standard-owner-layout-verification.json": "5fbeabdae4a28d2c9ffb76357f4bb37567b19eda39e0c14c157e308cbbb124df",
+    "C:\\ProgramData\\AgenticInvestingPaper\\OwnerControl\\Review-0058cda0-1a71-4e02-a3bf-362c17d47137\\standard-owner-access.json": "dd2e3ed38b79b7fea5f2112c3f346a468422ba6ea9c3f28a3d8dff44e8cddf50",
+    "C:\\ProgramData\\AgenticInvestingGuardian\\Code\\standard-owner-layout-1974c910e37d469b9f7ff6a150c87c3d.py": "37e0327cfb7b9373676496f871d120bb6040b92ad18d4d44b6a37a3ba3ed35e2",
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\guardian-layout-access-preparation.json": "6490ce057c8e7eda4c9064e6ad2b04b892ac2e15d6fee5efff580ae850eaa4e8"
+  },
+  "source_digests": {
+    "scripts/prepare_webull_review_layout.ps1": "8c365014c01cee43d8829171c3584a2c0d61a1f53d5ced9ae3d68a126807048b",
+    "scripts/test_webull_guardian_layout_access.ps1": "b1d0334bda4678ea98445a77cc112e113e1fc307ba0d9088e678756aabc05d8c",
+    "scripts/webull_standard_owner_process.ps1": "e21b0558a566f3ad5868407f8de923ce6264e1cd6f622f59e12e2d848e81ae86",
+    "docs/webull-review-layout-provisioning.md": "395a373270a82ae1bf3f788327dca0e85262c1671dc0593ce314c74e1c88f4bf"
+  }
+}

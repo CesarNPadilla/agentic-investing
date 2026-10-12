@@ -1,0 +1,74 @@
+{
+  "schema_version": "paper-control-pipeline-v1",
+  "status": "READ_ONLY_PIPELINE_TESTED_ORDER_RUNTIME_INCOMPLETE",
+  "strategy": {
+    "strategy_id": "PAPER_CONTROL_PLUMBING",
+    "version": "1.0.0",
+    "symbols": [
+      "INTC"
+    ],
+    "purpose": "deterministic controls probe, no research or performance qualification",
+    "minimum_notional_usd": "25",
+    "initial_sleeve_usd": "1000",
+    "signal": "smallest whole-share buy intent at observed ask within existing caps; HOLD with existing inventory/orders or invalid bounds",
+    "submission_available": false
+  },
+  "provenance": {
+    "plumbing_strategy_instruction": "freeze a plumbing strategy for this trial, not a research strategy. The synthetic examples have unset parameters, so they can't be frozen. If you pick a research strategy you haven't tested, a month of paper results will tell you nothing about the controls.",
+    "baseline_instruction": "Dedicated $1,000 paper account",
+    "decision_timestamp": null
+  },
+  "account_baseline": {
+    "selected": "dedicated paper account",
+    "required_equity_usd": "1000",
+    "current_configured_account_matches": false,
+    "new_account_bound": false
+  },
+  "real_read_only_cycle": {
+    "account_observed": true,
+    "bracket_stable": true,
+    "empty_inventory": true,
+    "quote_observed": true,
+    "durable_observation_recorded": true,
+    "latched": true
+  },
+  "targeted_tests_passed": 83,
+  "remaining": [
+    "Dedicated $1,000 paper account and separate keys",
+    "Fills, fees, external flow and settled-cash reconciliation",
+    "Trusted status and clock verification",
+    "Runtime whole-account/sleeve loss monitoring",
+    "Externally authenticated reset integration",
+    "Paper-only idempotent submit/cancel and uncertain-response recovery",
+    "Persistent runner with timers/events, stop date and reports"
+  ],
+  "execution_available": false,
+  "month_trial_started": false,
+  "forward_paper_sessions": 0,
+  "source_references": [
+    {
+      "path": "integrations/brokers/alpaca_paper_read.py",
+      "sha256": "f45577e79dbb1e101759b9f4b228fa89999de476c31c48eb89fa8065a012d559"
+    },
+    {
+      "path": "risk/paper_state.py",
+      "sha256": "e89d45a7edc467b25001778444ff5c00f2b1f08d690bdbe0feea1fb2faf00cc1"
+    },
+    {
+      "path": "scripts/observe_alpaca_paper.py",
+      "sha256": "40afca3cd37a4c7dcf79ef8f518b7493055fcd999d32597aa6e59132e0d8d09a"
+    },
+    {
+      "path": "strategies/paper_plumbing.py",
+      "sha256": "988c81a5c992ac65118c76fb2149710774906927ed45e4134628460e472a0867"
+    },
+    {
+      "path": "tests/test_paper_control_pipeline.py",
+      "sha256": "a91c2a79fc25bc405289727c46c1b08850241007a24a93e778d39dcfaefa0763"
+    },
+    {
+      "path": "tests/test_paper_plumbing.py",
+      "sha256": "4cd58620bd1288073d2e57eabc3792f642423f3a2c5252c01e5c203de79cc575"
+    }
+  ]
+}

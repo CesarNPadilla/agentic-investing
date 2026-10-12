@@ -1,0 +1,28 @@
+{
+  "cash_matches": true,
+  "empty_positions_match": true,
+  "cash_activities_mapped": 0,
+  "fee_total": "0",
+  "external_flow_total": "0",
+  "blockers": [
+    "LEDGER_SNAPSHOT_CUTOFF_GAP",
+    "PUBLICATION_COMPLETENESS_UNVERIFIED",
+    "SETTLED_CASH_UNVERIFIED"
+  ],
+  "execution_available": false,
+  "settlement_verified": false,
+  "schema_version": "paper-cash-reconciliation-preparation-v1",
+  "status": "CASH_CLASSIFICATION_TESTED_SETTLEMENT_AND_CUTOFF_BLOCKED",
+  "new_tests": 8,
+  "targeted_tests_passed": 108,
+  "source_references": [
+    {
+      "path": "portfolio/paper_cash_reconciliation.py",
+      "sha256": "682b87efc8580107951d42d5d366a58aae5635970897c1f998c814c24a55f884"
+    },
+    {
+      "path": "tests/test_paper_cash_reconciliation.py",
+      "sha256": "4253cd1746d36c919303c4a13e0f2a236be36bf4b8da64843be48c26e23fe4f6"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": "risk-policy-v11j-implementation-status-v1",
+  "phase": "v1.1j",
+  "status": "SYNTHETIC_RESET_AND_MONITORING_CONTRACTS_COMPLETE",
+  "v11_started": true,
+  "v11_complete": false,
+  "approver_identity": null,
+  "decision_timestamp": null,
+  "named_owner_identity": null,
+  "implemented": [
+    "Recorded owner-specified reset authority/order and monitoring range",
+    "Ordered next-NY-trading-day, fresh reconciliation, explicit approval checks",
+    "Designated-human/external-authentication/unused-nonce fixture checks",
+    "Independent latch/hard-stop rejection",
+    "Monotonic event and 1-5 second active-scope timer deadline diagnostics",
+    "Fail-closed missed deadline and clock regression indication"
+  ],
+  "qualification": {
+    "new_operations_tests_passed": 26,
+    "targeted_tests_passed": 259,
+    "followup_operations_readiness_tests_passed": 38,
+    "postgres_not_rerun": "No database/runtime code changed."
+  },
+  "not_implemented": [
+    "Actual named owner identity and external authentication integration",
+    "Qualified next-trading-day calendar",
+    "Durable authenticated nonce consumption and latch reset transaction",
+    "Actual event subscription/timer scheduling and production monitor",
+    "Trusted data providers and deployment"
+  ],
+  "limitations": [
+    "Reset diagnostic never performs a reset",
+    "Authentication/nonce/calendar assertions remain explicit synthetic fixtures",
+    "One-second default is a test/configuration choice within owner-approved 1-5 second range",
+    "Daily reset cannot clear cumulative/manual/other independent latch reasons",
+    "Monitoring diagnostic schedules no work itself; deadline failure is an indication for future controller integration"
+  ],
+  "configured_research_cap_usd": "1000",
+  "funding_confirmed": false,
+  "execution_available": false,
+  "paper_execution_approved": false,
+  "live_execution_approved": false,
+  "forward_paper_sessions": 0,
+  "oos_2026": "SEALED",
+  "source_references": [
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/input-register-v7.json",
+      "sha256": "3e7e3002311291f8820ee9e3ad3d14e028a159d11a8307d5e1b035ba92414ed5"
+    },
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/reset-and-monitoring-rules.json",
+      "sha256": "56ee02b7b2afe68062765a9a0d904a73bb4b94c4d6b9308152a802c6fbd3e3e4"
+    },
+    {
+      "path": "docs/examples/risk-policy-v11i/implementation-status.json",
+      "sha256": "e79aa70a1a98dc3e2dbf04c708d5f51c6385b2a070fb24b77280ef47168e3053"
+    },
+    {
+      "path": "conf/investment-policy-v03.json",
+      "sha256": "77a02f530540a7d59d61835d0a38466ae49846852585474cc9b9e36a0f0d2fd0"
+    },
+    {
+      "path": "risk/operations_v11.py",
+      "sha256": "9a4ea7800faa867d0fc4c08057567184b03ca92f7ee4bb7a1680b8b36146bbc5"
+    },
+    {
+      "path": "risk/readiness_v11.py",
+      "sha256": "aa062402d2ce001d5a2bf76d11026e493c65809470c9d9f625e6e04e01ddc8bb"
+    },
+    {
+      "path": "tests/test_operations_v11.py",
+      "sha256": "2b37596d7deec745aff3e5b528fa53dc63b41b243d9108cd3ff21dab499783a1"
+    },
+    {
+      "path": "tests/test_readiness_v11.py",
+      "sha256": "0a5fa7a7d937e51da93d01d29157c7c5e7da8ea93b8e0c310e9add2e5abedccc"
+    }
+  ]
+}

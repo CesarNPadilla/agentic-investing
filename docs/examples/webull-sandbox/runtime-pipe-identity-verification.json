@@ -1,0 +1,47 @@
+{
+  "schema_version": "runtime-pipe-identity-verification-v1",
+  "Observation": {
+    "SchemaVersion": "runtime-pipe-identity-fixture-v1",
+    "ObservedAtUtc": "2026-10-08T18:39:48.8666360Z",
+    "OsClientMatchesRuntime": true,
+    "ServerIdentityRestored": true,
+    "RuntimeDisabledAfterTest": true,
+    "ChildExitCode": 0,
+    "ReviewedChildSha256": "D2DE3B8C54663AE35CF171D70AC5380927ABD1E3302882DC20D76A424781D05B",
+    "MediumPipeLabelVerified": true,
+    "Scope": "ELEVATED_OWNER_DOTNET_PIPE_FIXTURE_ONLY",
+    "NativePythonCrossIdentityQualified": false,
+    "RemoteClientDenialQualified": false,
+    "ControllerAdmitted": false,
+    "ResetPerformed": false,
+    "ExecutionAvailable": false,
+    "TrialStarted": false
+  },
+  "Startup": {
+    "SchemaVersion": "runtime-pipe-startup-diagnostic-v1",
+    "BeforeLabel": "",
+    "AfterLabel": "S:(ML;;NW;;;ME)",
+    "RuntimeRequestedAccessMask": 1048707,
+    "MediumLabelVerified": true,
+    "ExecutionAvailable": false,
+    "TrialStarted": false
+  },
+  "RetainedClientMatchesReviewedSource": true,
+  "RetainedClientDigestMatches": true,
+  "RuntimeDisabledIndependentlyVerified": true,
+  "ClientErrorLogEmpty": true,
+  "CurrentBatchStepsCompleted": 4,
+  "CurrentBatchStepsTotal": 4,
+  "CurrentBatchVerificationPercent": 100,
+  "TrialLaunchPercent": 0,
+  "ExecutionAvailable": false,
+  "TrialStarted": false,
+  "LiveAuthorized": false,
+  "scope": "ELEVATED_OWNER_DOTNET_SERVER_AND_RUNTIME_CLIENT_FIXTURE_ONLY",
+  "overall_webull_readiness_percent": null,
+  "source_digests": {
+    "scripts/test_paper_runtime_pipe_identity.ps1": "da01faaf84e460f2cc021212bafeb1a5c3f2d06c74779d681fd7aa3d23c4e739",
+    "scripts/paper_pipe_fixture_security.ps1": "4f4da7eb8fa01aeac4da3c5c0ea879c879051aeff56aeda809ca84cca40c5b73",
+    "docs/webull-pipe-identity-preparation.md": "799f174aaf27a0fd5aab0a2328b5e3fd8a1785912123b6f164a211f042a953c0"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "owner-authentication-decision-v1",
+  "provenance": {
+    "type": "EXPLICIT_USER_QUESTION_REPLY",
+    "question_verbatim": "The paper observer is latched after a failed startup quote check. Your reset policy requires owner authentication outside the agent runtime. Which method should the separate recovery control use? This choice will not clear the latch or authorize trading.",
+    "answer_verbatim": "Windows Hello/passkey in a separate local owner-control app"
+  },
+  "mechanism": "LOCAL_WINDOWS_HELLO_PLATFORM_PASSKEY",
+  "owner_enrollment_completed": false,
+  "external_reset_qualified": false,
+  "reset_authorized": false,
+  "execution_available": false,
+  "trial_started": false
+}

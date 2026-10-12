@@ -1,0 +1,29 @@
+{
+  "schema_version": "guardian-supervisor-short-launch-repair-v1",
+  "trigger": "Owner-reported Process.Start parameter incorrect before child startup",
+  "cause": "Inline encoded probe exceeds documented credentialed launch command-line bound",
+  "old_base64_characters": 2616,
+  "new_full_command_line_characters": 279,
+  "reference": "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-createprocesswithlogonw",
+  "protected_literal_probe_hash_acl_verified": true,
+  "probe_compile_verified": true,
+  "native_short_launch_and_unauthorized_identity_rejection_verified": true,
+  "credential_prompted_during_engineering_verification": false,
+  "launch_repair_engineering_percent": 100,
+  "actual_guardian_supervision_percent": 0,
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "installed_release_modified": false,
+  "service_deployed": false,
+  "reset_authorized": false,
+  "execution_available": false,
+  "trial_started": false,
+  "trial_launch_percent": 0,
+  "private_observation_digests": {
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\guardian-supervisor-short-launch-preparation.json": "3d66117f4be175c61ec1c52a7c1cb81e479da6b13b66bdcb9654735f949a1a71"
+  },
+  "source_digests": {
+    "scripts/test_webull_guardian_supervisor.ps1": "984087b58786816ed1dcb51dbb09933651a3ce40e9b78d0bfa5cbf8b02d737c6",
+    "docs/webull-guardian-process-supervision.md": "0ab400120fb714af5fead3bf0bd188a22762b0942ef8e387836d5605b7cac9b2"
+  }
+}

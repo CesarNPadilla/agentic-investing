@@ -1,0 +1,33 @@
+{
+  "schema_version": "webull-runtime-directory-authority-verification-v1",
+  "fixture_observed_at_utc": "2026-10-08T19:11:54.7798341Z",
+  "scope": "NATIVE_DIRECTORY_AUTHORITY_HANDLES_ONLY",
+  "actual_runtime_denied_handle_checks": 27,
+  "directories_checked": 9,
+  "positive_control_runtime_ownership_verified": true,
+  "client_result_matches_protected_receipt": true,
+  "retained_client_matches_source": true,
+  "retained_client_digest_matches_receipt": true,
+  "client_exit_code": 0,
+  "stderr_empty": true,
+  "runtime_disabled_verified": true,
+  "current_directories_protected_and_administrator_owned": true,
+  "unchanged_dacls_and_owners": "OWNER_WRAPPER_VERIFIED_BEFORE_AFTER_NO_INDEPENDENT_PRE_RUN_SNAPSHOT_RETAINED",
+  "directory_verification_steps_complete": 3,
+  "directory_verification_steps_total": 3,
+  "directory_verification_percent": 100,
+  "protected_service_deployed": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "trial_launch_percent": 0,
+  "private_evidence_digests": {
+    "C:\\ProgramData\\AgenticInvestingPaper\\Receipts\\directory-authority-result-7f15ff1bbba844e1be058109a0ba6d02.json": "f674560e036a4bdd65b8100859ca37a332d5c9620b1dab491cbcf4a66706ef0f",
+    "C:\\ProgramData\\AgenticInvestingPaper\\Code\\directory-authority-client-7f15ff1bbba844e1be058109a0ba6d02.ps1": "062b23bd1f931aa13e98093f79e429e351c43aaec6cbc0f660a6be2f190bcc7f"
+  },
+  "source_digests": {
+    "scripts/test_paper_runtime_directory_authority.ps1": "3090315fa3c1076b5691b73cedd270b327d487c9c673969470696e982c099eca",
+    "tests/test_paper_directory_authority_fixture.py": "c53dde26e0528739ec142eccdc4ea5267f4024b3628393e154d7718cbb8a7a8c"
+  }
+}

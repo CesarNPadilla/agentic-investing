@@ -1,0 +1,10 @@
+{
+  "schema_version": "paper-clock-policy-v1",
+  "scope": "ALPACA_PAPER_PLUMBING_TRIAL_ONLY",
+  "source": "time.windows.com,0x9",
+  "source_hostname": "time.windows.com",
+  "max_error_seconds": 1,
+  "decision": "APPROVED",
+  "provenance_path": "docs/examples/alpaca-paper-month/clock-policy-decision.json",
+  "execution_available": false
+}

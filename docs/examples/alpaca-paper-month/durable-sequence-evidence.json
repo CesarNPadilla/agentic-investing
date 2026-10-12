@@ -1,0 +1,25 @@
+{
+  "schema_version": "paper-durable-sequence-evidence-v1",
+  "assessment_date": "2026-10-05",
+  "targeted_tests_passed": 38,
+  "completed_criteria": 21,
+  "required_criteria": 36,
+  "overall_percent": 58,
+  "trial_started": false,
+  "execution_available": false,
+  "continuous_runner_integration_verified": false,
+  "source_references": [
+    {
+      "path": "strategies/paper_plumbing_state.py",
+      "sha256": "62194075acaa9c16c64f014980d743e0414ddf29b29bf3e846639da51762815f"
+    },
+    {
+      "path": "tests/test_paper_plumbing_state.py",
+      "sha256": "8d8503b5593793ea893c95b505b964a063d5dd172785ba8e1c41eac65867bfef"
+    },
+    {
+      "path": "docs/alpaca-paper-durable-sequence.md",
+      "sha256": "9330482e404edc13fa98b1b193e620e282584eebb338a9ce1f520903a0295087"
+    }
+  ]
+}

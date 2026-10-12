@@ -1,0 +1,35 @@
+{
+  "schema_version": "webull-pipe-read-attributes-correction-v1",
+  "retained_failure": "CLIENT_CONNECT_UNAUTHORIZED_ACCESS",
+  "failure_log_sha256": "bffd96f3aa283068925fb6b9b8bc3e3eead8a1265b4f9f96145ba6bc4ecffca6",
+  "retained_startup_evidence": {
+    "SchemaVersion": "runtime-pipe-startup-diagnostic-v1",
+    "BeforeLabel": "",
+    "AfterLabel": "S:(ML;;NW;;;ME)",
+    "RuntimeRequestedAccessMask": 1048579,
+    "MediumLabelVerified": true,
+    "ExecutionAvailable": false,
+    "TrialStarted": false
+  },
+  "runtime_disabled_after_failure_verified": true,
+  "restrictive_acl_denial_reproduced": true,
+  "read_attributes_addition_connection_passed": true,
+  "old_granted_access_mask": 1048579,
+  "corrected_granted_access_mask": 1048707,
+  "runtime_instance_creation_or_acl_change_granted": false,
+  "selected_tests_passed": 394,
+  "actual_runtime_retry": "REQUIRED_LOCAL_OWNER_EXECUTION",
+  "current_batch_verification_percent": 75,
+  "trial_launch_percent": 0,
+  "controller_admitted": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "source_digests": {
+    "scripts/test_paper_runtime_pipe_identity.ps1": "da01faaf84e460f2cc021212bafeb1a5c3f2d06c74779d681fd7aa3d23c4e739",
+    "scripts/paper_pipe_fixture_security.ps1": "4f4da7eb8fa01aeac4da3c5c0ea879c879051aeff56aeda809ca84cca40c5b73",
+    "tests/test_paper_pipe_label_fixture.py": "010f45c3481aaaead601b90764782273402759dd1ac4b44ebde9d443c78a2db8",
+    "docs/webull-pipe-identity-preparation.md": "3e97f1306bad30f6b55fe2ff9382faba3251cc7dec55eff750f5da5647331dd9"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "schema_version": "paper-trial-readiness-progress-v5",
+  "assessment_date": "2026-10-05",
+  "method": "Equal-weight acceptance checklist; curated evidence snapshot, not effort or execution authorization",
+  "completed_criteria": 23,
+  "required_criteria": 36,
+  "overall_percent": 64,
+  "steps": [
+    {
+      "step": "Account and baseline",
+      "completed": 4,
+      "required": 4,
+      "percent": 100
+    },
+    {
+      "step": "Plumbing strategy",
+      "completed": 4,
+      "required": 4,
+      "percent": 100
+    },
+    {
+      "step": "Quotes and calendar",
+      "completed": 3,
+      "required": 4,
+      "percent": 75
+    },
+    {
+      "step": "Status and clock",
+      "completed": 3,
+      "required": 4,
+      "percent": 75
+    },
+    {
+      "step": "Reconciliation and settlement",
+      "completed": 3,
+      "required": 4,
+      "percent": 75
+    },
+    {
+      "step": "Loss stops and resets",
+      "completed": 2,
+      "required": 4,
+      "percent": 50
+    },
+    {
+      "step": "Paper order lifecycle",
+      "completed": 3,
+      "required": 4,
+      "percent": 75
+    },
+    {
+      "step": "Continuous runner",
+      "completed": 1,
+      "required": 4,
+      "percent": 25
+    },
+    {
+      "step": "Trial launch",
+      "completed": 0,
+      "required": 4,
+      "percent": 0
+    }
+  ],
+  "real_status_probe": {
+    "authenticated": true,
+    "status_subscription_acknowledged": true,
+    "initial_status_verified": false,
+    "transport_probe_responses": 3,
+    "transport_probe_verified": true,
+    "execution_available": false,
+    "blockers": [
+      "INITIAL_STATUS_BOOTSTRAP_UNVERIFIED",
+      "CONTINUOUS_STREAM_HEALTH_UNQUALIFIED"
+    ]
+  },
+  "targeted_tests_passed": 167,
+  "trial_started": false,
+  "execution_available": false,
+  "live_authorized": false,
+  "source_references": [
+    {
+      "path": "docs/examples/alpaca-paper-month/trial-readiness-progress-v4.json",
+      "sha256": "7773a0571bebbac0ff7da42f866a79f017edfbd978f1a701195969111d2115d2"
+    },
+    {
+      "path": "docs/examples/alpaca-paper-month/clock-stream-qualified-evidence.json",
+      "sha256": "8e368be83bac6d6cfab26873c81f63bf4867e27e60ec54bf0fef7503c2003f5a"
+    },
+    {
+      "path": "conf/paper-clock-policy.json",
+      "sha256": "1dc7f841d0fb6be69506b9c3bdc1263da1055fc2dcf0719a96fa0286d2d67f8c"
+    },
+    {
+      "path": "risk/paper_clock.py",
+      "sha256": "06bc5643c5a9f13c7b510a77934b8f1f24c2a862d4479953d6d13cb9d01efb1a"
+    },
+    {
+      "path": "scripts/check_alpaca_status_stream.py",
+      "sha256": "8456535459cf821da85e7fd388c323bb679671c8e3135a530ec59eab0813f937"
+    },
+    {
+      "path": "tests/test_status_stream_probe.py",
+      "sha256": "a96656b012ac41e86c3d9c0f94dc3f81c56daf4d85582767b3533bccd52819e2"
+    },
+    {
+      "path": "docs/alpaca-paper-clock-qualified.md",
+      "sha256": "35ef27bb3283a1a3d1a3cc4c82aa768ff2f8ba5bcd59b8ab053ce27b76d27c81"
+    }
+  ],
+  "new_accepted_criteria": [
+    "Owner-approved clock source/error policy qualifies against fresh real Windows Time evidence; runtime continues checking each cycle"
+  ],
+  "paper_order_lifecycle_limits": [
+    "Real mutations blocked",
+    "Full integrated runner recovery/broker acceptance still pending",
+    "Buy consumed costs remain retained; no sleeve rebasing on sales inferred"
+  ],
+  "integrated_observer": {
+    "real_cycles_completed": 2,
+    "account_cash_and_positions_matched": true,
+    "status_clock_cutoff_baseline_and_reset_blockers_preserved": true,
+    "order_mutations": 0,
+    "trial_started": false
+  },
+  "qualification_scope": "Clock current evidence passes; bounded websocket pongs verified; initial trading status and continuous stream remain blocked"
+}

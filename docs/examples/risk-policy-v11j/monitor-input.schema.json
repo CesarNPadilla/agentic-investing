@@ -1,0 +1,70 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "timer_seconds": {
+      "default": 1,
+      "maximum": 5,
+      "minimum": 1,
+      "title": "Timer Seconds",
+      "type": "integer"
+    },
+    "now_monotonic": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Now Monotonic"
+    },
+    "last_completed_check_monotonic": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Last Completed Check Monotonic"
+    },
+    "open_orders": {
+      "minimum": 0,
+      "title": "Open Orders",
+      "type": "integer"
+    },
+    "open_positions": {
+      "minimum": 0,
+      "title": "Open Positions",
+      "type": "integer"
+    },
+    "event": {
+      "default": "IDLE",
+      "enum": [
+        "FILL",
+        "ORDER",
+        "TIMER",
+        "IDLE"
+      ],
+      "title": "Event",
+      "type": "string"
+    }
+  },
+  "required": [
+    "now_monotonic",
+    "open_orders",
+    "open_positions"
+  ],
+  "title": "MonitoringInput",
+  "type": "object"
+}

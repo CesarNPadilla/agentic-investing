@@ -1,0 +1,31 @@
+{
+  "schema_version": "paper-daily-loss-evidence-audit-v1",
+  "targeted_tests_passed": 39,
+  "completed_criteria": 23,
+  "required_criteria": 36,
+  "overall_percent": 64,
+  "status_source": "ALPACA_ONLY_FAIL_CLOSED",
+  "nasdaq_feed": "DEFERRED",
+  "replacement_instrument_scope_decision": "PENDING",
+  "current_intc_plan_enabled": false,
+  "trial_started": false,
+  "execution_available": false,
+  "source_references": [
+    {
+      "path": "risk/paper_daily_loss.py",
+      "sha256": "d27abb71c61489254db5edd6b78f9594689fa560a00deaaab9f0b00467317620"
+    },
+    {
+      "path": "tests/test_paper_daily_loss.py",
+      "sha256": "d305929ca9951f56347c44b546f4cd6c8450e674139dd137827b70bf08ae94b7"
+    },
+    {
+      "path": "docs/alpaca-paper-daily-loss-evidence-audit.md",
+      "sha256": "33225bc9af992f131400c401293ceea2744b24f05f0967ca9ad4e58e22e67868"
+    },
+    {
+      "path": "docs/examples/alpaca-paper-month/status-source-decision.json",
+      "sha256": "7c003f975e86b7c161215f7cd9ca4773d92cce64e9a4eac9b649bf08365b942c"
+    }
+  ]
+}

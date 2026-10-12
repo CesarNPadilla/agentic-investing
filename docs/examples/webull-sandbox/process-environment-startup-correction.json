@@ -1,0 +1,39 @@
+{
+  "schema_version": "webull-process-environment-startup-correction-v1",
+  "failed_observed_at_utc": "2026-10-08T19:52:36.6454880Z",
+  "failure": "ONE_UNEXPECTED_ENVIRONMENT_VARIABLE",
+  "original_unexpected_name_persisted": false,
+  "exact_launch_flag_reproduction_extra_name": "PSExecutionPolicyPreference",
+  "diagnosis": "REPRODUCED_OMISSION_CONSISTENT_WITH_FAILURE_ORIGINAL_UNNAMED_VARIABLE_NOT_INDEPENDENTLY_IDENTIFIED",
+  "seven_process_denials_retained": true,
+  "synthetic_parent_marker_absent": true,
+  "failed_client_stderr_empty": true,
+  "acceptance_receipt_written": false,
+  "runtime_disabled_verified": true,
+  "replacement_environment_block_count": 13,
+  "expected_post_startup_variable_count": 14,
+  "startup_policy_exact_value_required": "Bypass",
+  "unexpected_names_rejected": true,
+  "unexpected_names_now_retained_without_values": true,
+  "selected_tests_passed": 445,
+  "same_owner_environment_tests_passed": 15,
+  "native_process_helper_tests_passed": 9,
+  "process_environment_batch_percent_rounded": 67,
+  "actual_revised_runtime_fixture": "PENDING_DIRECT_LOCAL_CREDENTIAL_ENTRY",
+  "machine_or_user_execution_policy_changed": false,
+  "execution_available": false,
+  "reset_performed": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "trial_launch_percent": 0,
+  "source_digests": {
+    "scripts/test_paper_runtime_process_environment.ps1": "27b9a291859e5748750a8a13566dbef6e537e9ae5d5fff493ed77f2a59922083",
+    "tests/test_paper_runtime_environment.py": "bd5da1e9008eec04b7984918d5dd9e33929cd29cf7a85f4271b04661cf9091ab",
+    "tests/test_paper_process_environment_fixture.py": "0aea1483fc72f5941be14c7a4c0a06f0ad4f45c353188dd0e69777a8523a479f",
+    "workers/paper_runtime_environment.py": "810b4d24a8e96bc937fe00b96299aa0c99d76d2bcb295a2280c49fabb3124e46",
+    "docs/webull-runtime-process-environment.md": "1f454dc5706aded6b1c8d15b9e368da74534a1bfd9bada5a5381b4a6d6751800"
+  },
+  "private_failure_evidence_digests": {
+    "C:\\ProgramData\\AgenticInvestingPaper\\Logs\\process-environment-client-result-2049e1a138844527848b022f82432c97.json": "7a80c53d3d725b8253ac3cc67aa0a7b2073e154ead3d7228e172fc6cbd720b41"
+  }
+}

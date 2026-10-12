@@ -1,0 +1,22 @@
+{
+  "schema_version": "runtime-account-verification-v1",
+  "account_name": "AgenticPaperRuntime",
+  "observation": {
+    "AccountExists": true,
+    "Enabled": false,
+    "UsersMember": true,
+    "UnexpectedGroupCount": 0,
+    "AdministratorsMember": false,
+    "ObservedAtUtc": "2026-10-07T18:25:12.5270570Z"
+  },
+  "owner_followup": "done",
+  "account_provisioning_verified": true,
+  "effective_token_privileges_qualified": false,
+  "acl_isolation_qualified": false,
+  "execution_available": false,
+  "trial_started": false,
+  "source_digests": {
+    "scripts/prepare_paper_runtime_account.ps1": "217be2292eccca1c05fdc3480d4c58d560ede188d781754ceb510fe4a81b0585",
+    "docs/webull-runtime-acl-plan.md": "85419582ee2f65a58f2f06b918c7c928166de29750e3bbfdefa4a530d0318f37"
+  }
+}

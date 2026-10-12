@@ -1,0 +1,39 @@
+{
+  "schema_version": "guardian-protected-config-loader-actual-verification-v1",
+  "owner_report_provenance": "Current conversation owner reported successful fixture and exact wrapper receipt path; retained artifacts independently verified",
+  "receipt_id": "c586a8342cea4d8e880914d4430aec31",
+  "observed_fixture_time_utc": "2026-10-10T21:26:23.899980+00:00",
+  "configuration_current_at_fixture_time_verified": true,
+  "actual_guardian_process_verified": true,
+  "actual_configuration_role_bindings_verified": true,
+  "exact_protected_file_acl_objects_verified": 2,
+  "retained_source_literal_verified": true,
+  "clean_diagnostics_verified": true,
+  "package_payloads_verified": 694,
+  "package_protected_objects_verified": 800,
+  "actual_guardian_loader_fixture_percent": 100,
+  "real_signed_host_operation_percent": 0,
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "real_configuration_provisioned": false,
+  "real_signature_reference_or_journal_used": false,
+  "service_deployed": false,
+  "reset_authorized": false,
+  "execution_available": false,
+  "trial_started": false,
+  "trial_launch_percent": 0,
+  "overall_readiness_percent": null,
+  "private_evidence_digests": {
+    "C:\\ProgramData\\AgenticInvestingGuardian\\Receipts\\guardian-config-loader-wrapper-c586a8342cea4d8e880914d4430aec31.json": "e83440a9bca388ffc92b895855f55c45a210a75da5200df7b9080ac195c592f1",
+    "C:\\ProgramData\\AgenticInvestingGuardian\\Receipts\\guardian-config-loader-c586a8342cea4d8e880914d4430aec31.json": "116fb185ea1c839b979f00d9bed7c8caf2eedf4311a29cedb95b43ecae6f319d",
+    "C:\\ProgramData\\AgenticInvestingGuardian\\Code\\HostConfig-c586a8342cea4d8e880914d4430aec31.json": "7a947d684bd709284d19af4c2b4f732c1cfc5c1ff660e66382e591b56a34d85f",
+    "C:\\ProgramData\\AgenticInvestingGuardian\\Code\\guardian-config-loader-c586a8342cea4d8e880914d4430aec31.py": "8d7cffd5005e8e205dc244807db551c3bf6be051b404fcb869007d30b1e988f6",
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\guardian-config-loader-accepted-audit.json": "cb831924ca92e2a38862dcf7c491ff56d43c86e9bea7b14243db7919c3d7ddbd"
+  },
+  "source_digests": {
+    "scripts/test_webull_guardian_config_loader.ps1": "0c989430e325987fdb51f5847179dd4824302c7f353d28f4d0092d0f29a9fa36",
+    "security/windows_protected_config.py": "f151ff87b76c8b76eb19e392c9ebca01aa91158bf80c97f932978d3c6a1b6d06",
+    "security/webull_guardian_host_config.py": "57fd373184b2da8b8d7147aad27c2765b41540000e30f00e6383bcfeb2790905",
+    "docs/webull-protected-config-loader.md": "df132b2af1ea07eba788eb4b9c77e3ac9bb38a07f006b6411d7ea7952e6cdd7a"
+  }
+}

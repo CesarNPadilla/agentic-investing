@@ -1,0 +1,16 @@
+{
+  "schema_version": "owner-verification-audit-evidence-v1",
+  "source_digests": {
+    "security/paper_owner_passkey.py": "9b02bf37182212056b264c109536ae2463193c34d429507285960a6b0348fec1",
+    "tests/test_paper_owner_passkey.py": "521fa289758b9cef5867aa413175a131483a0baae680b3331e879c9b63d9a128",
+    "docs/alpaca-paper-owner-enrollment-check.md": "f2e283d7914f23f8eb5aa11451aba034218c48688741d425160028ab02ecc3df",
+    "docs/examples/alpaca-paper-month/owner-enrollment-check.json": "4d8c9b3110898589e41e5c3d9e5e349438c9c78f55544bf8710ec9ed6298e007"
+  },
+  "cryptographic_fixture_tests_passed": 2,
+  "ruff": "PASS",
+  "real_enrollment_present": true,
+  "real_durable_authentication_test_pending": true,
+  "reset_authorized": false,
+  "execution_available": false,
+  "trial_started": false
+}

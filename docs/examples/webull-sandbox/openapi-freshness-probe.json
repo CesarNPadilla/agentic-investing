@@ -1,0 +1,61 @@
+{
+  "schema_version": "webull-openapi-freshness-probe-v1",
+  "user_confirmation": {
+    "source": "Current user instruction",
+    "exact_text": "Webull **OpenAPI** subscription is active , please try",
+    "status": "OWNER_REPORTED_ACTIVE_NOT_INDEPENDENT_ENTITLEMENT_RECORD"
+  },
+  "endpoint": "api.sandbox.webull.com",
+  "samples": [
+    {
+      "http_status": 200,
+      "symbol": "SCHB",
+      "bid": "29.8500",
+      "ask": "29.8600",
+      "quote_time_raw": 1791396702347,
+      "timestamp_interpretation": "UNIX_MILLISECONDS_PENDING_SCHEMA_QUALIFICATION",
+      "interpreted_quote_time_utc": "2026-10-07T18:11:42.347000+00:00",
+      "received_time_utc": "2026-10-07T18:11:43.431643+00:00",
+      "age_seconds_under_millisecond_interpretation": 1.085,
+      "within_30_second_age_bound_under_interpretation": true,
+      "valid_positive_uncrossed_prices": true,
+      "raw_response_sha256": "3c48abab2b7c259304220eb7a8a280b696e7a68ab8555a9790889bcf3b8db126",
+      "request_seconds": 0.155
+    },
+    {
+      "http_status": 200,
+      "symbol": "SCHB",
+      "bid": "29.8500",
+      "ask": "29.8600",
+      "quote_time_raw": 1791396702347,
+      "timestamp_interpretation": "UNIX_MILLISECONDS_PENDING_SCHEMA_QUALIFICATION",
+      "interpreted_quote_time_utc": "2026-10-07T18:11:42.347000+00:00",
+      "received_time_utc": "2026-10-07T18:11:44.570237+00:00",
+      "age_seconds_under_millisecond_interpretation": 2.223,
+      "within_30_second_age_bound_under_interpretation": true,
+      "valid_positive_uncrossed_prices": true,
+      "raw_response_sha256": "3c48abab2b7c259304220eb7a8a280b696e7a68ab8555a9790889bcf3b8db126",
+      "request_seconds": 0.138
+    },
+    {
+      "http_status": 200,
+      "symbol": "SCHB",
+      "bid": "29.8500",
+      "ask": "29.8600",
+      "quote_time_raw": 1791396702347,
+      "timestamp_interpretation": "UNIX_MILLISECONDS_PENDING_SCHEMA_QUALIFICATION",
+      "interpreted_quote_time_utc": "2026-10-07T18:11:42.347000+00:00",
+      "received_time_utc": "2026-10-07T18:11:45.713001+00:00",
+      "age_seconds_under_millisecond_interpretation": 3.366,
+      "within_30_second_age_bound_under_interpretation": true,
+      "valid_positive_uncrossed_prices": true,
+      "raw_response_sha256": "3c48abab2b7c259304220eb7a8a280b696e7a68ab8555a9790889bcf3b8db126",
+      "request_seconds": 0.142
+    }
+  ],
+  "schema_time_unit_qualified": false,
+  "halt_status_qualified": false,
+  "execution_available": false,
+  "trial_started": false,
+  "order_mutations": 0
+}

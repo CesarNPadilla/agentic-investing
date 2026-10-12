@@ -1,0 +1,142 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "account_checks_passed": {
+      "title": "Account Checks Passed",
+      "type": "boolean"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "daily_net_pnl": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Daily Net Pnl"
+    },
+    "daily_loss_limit": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Daily Loss Limit"
+    },
+    "gross_exposure_limit": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Gross Exposure Limit"
+    },
+    "security_exposure_limit": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Security Exposure Limit"
+    },
+    "projected_gross_exposure": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Projected Gross Exposure"
+    },
+    "projected_security_exposure": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Projected Security Exposure"
+    },
+    "existing_security_breach": {
+      "title": "Existing Security Breach",
+      "type": "boolean"
+    },
+    "daily_loss_breach": {
+      "default": false,
+      "title": "Daily Loss Breach",
+      "type": "boolean"
+    },
+    "human_review_required": {
+      "default": false,
+      "title": "Human Review Required",
+      "type": "boolean"
+    },
+    "execution_available": {
+      "const": false,
+      "default": false,
+      "title": "Execution Available",
+      "type": "boolean"
+    },
+    "production_trusted": {
+      "const": false,
+      "default": false,
+      "title": "Production Trusted",
+      "type": "boolean"
+    },
+    "automatic_liquidation": {
+      "const": false,
+      "default": false,
+      "title": "Automatic Liquidation",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "account_checks_passed",
+    "reason_codes",
+    "daily_loss_limit",
+    "projected_gross_exposure",
+    "projected_security_exposure",
+    "existing_security_breach"
+  ],
+  "title": "AccountDiagnostic",
+  "type": "object"
+}

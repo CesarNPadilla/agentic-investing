@@ -1,0 +1,25 @@
+{
+  "schema_version": "guardian-exchange-source-snapshot-fix-v1",
+  "observed_at_utc": "2026-10-09T15:40:17.321168+00:00",
+  "cause": "ONEDRIVE_REPARSE_SOURCE_METADATA_REJECTED_BY_OVERBROAD_SOURCE_OBJECT_GUARD",
+  "fix": "PIN_BYTE_SNAPSHOT_WRITE_NEW_ORDINARY_PROTECTED_FILE_NO_REPARSE_METADATA_COPY",
+  "fixture_directory": "C:\\ProgramData\\AgenticInvestingGuardian\\Code\\ExchangeFixture-52532d09-5f5c-4244-a8ee-e414f0435eed",
+  "ordinary_protected_files_verified": 3,
+  "protected_interpreter_probe_import_passed": true,
+  "powershell_parse_passed": true,
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "credential_prompted": false,
+  "pipe_started": false,
+  "cross_account_exchange_qualified": false,
+  "execution_available": false,
+  "reset_authorized": false,
+  "trial_started": false,
+  "source_digests": {
+    "scripts/probe_webull_guardian_exchange.py": "b7a50af41926b75b46ddc0ffaf56eafffe65632dbaaafcb2b4a0f8784c36a656",
+    "security/windows_guardian_exchange_pipe.py": "34d5b29975ad1d03e1ebd7ca2dafaef15559f6b5a651caf5f52d53088f71df72",
+    "security/windows_guardian_exchange_client.py": "2836c66c9c12f83908a86163e50e60f7e284ac4b0fc12ab231033fbe9425e412",
+    "scripts/test_webull_guardian_exchange.ps1": "24cb003e3d0604acdf4674880df1418686de31072224a9105633b262c9fdc93d",
+    "docs/webull-guardian-review-integration.md": "4113f8419e20bdf35933259ede7a807863d640f275b984d9d9e37cdca22eb9b2"
+  }
+}

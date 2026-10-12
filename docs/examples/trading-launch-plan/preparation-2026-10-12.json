@@ -1,0 +1,31 @@
+{
+  "schema_version": "trading-launch-plan-preparation-v1",
+  "provenance": "User requested phase continuation, paper/live blockers and a visual flow with date estimates. Conditional forecasts are not approved launch dates.",
+  "current_phase": "PHASE_3_PRE_PAPER_RELEASE_QUALIFICATION",
+  "next_work_package": "WEBULL_SOURCE_AND_RUNTIME_RELEASE_QUALIFICATION",
+  "planning_artifacts_prepared": true,
+  "interactive_calculations_checked": [
+    "Both January/60-session scenarios",
+    "Calendar-month boundaries",
+    "Month-end clamp",
+    "Non-session rollover",
+    "Reject dates outside calendar coverage"
+  ],
+  "calendar_source": "https://www.nyse.com/trade/hours-calendars",
+  "calendar_review_client_date": "2026-10-12",
+  "forecast_confidence": "LOW_CONDITIONAL_ENGINEERING_ESTIMATE_NOT_COMMITMENT",
+  "trial_launch_percent": 0,
+  "overall_readiness_percent": null,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "policy_strategy_and_historical_data_modified": false,
+  "source_digests": {
+    "scripts/report_trading_launch_plan.py": "2fa1c877f6c19d00595218f69e8f46a5583e2ff4af3dfe58508e7948094be44e",
+    "docs/trading-launch-plan.md": "2ef7e811de969937dab8b31680d04282184c82b9f2407d343b0ee029fdff0b73",
+    "docs/webull-release-work-package.md": "a696772a17bcfd1f7fb67e021acbcf38786ad6ee455855f5c04399e01d22408e",
+    "docs/visuals/trading-launch-plan.template.html": "b338978fad85099a95c0c9343ded47a0dac7150eb8b62d700051cf1004a7b502",
+    "docs/visuals/trading-launch-plan.html": "39557bc7b7122bb7fdc3d21b3ecfee407e799604a61a4f7f1c75be0d289451f7",
+    "docs/examples/trading-launch-plan/plan-2026-10-12.json": "02508449ac31ad1ccb977485e2ca2abd60f26b742cc62136e1617585dabef7e1"
+  }
+}

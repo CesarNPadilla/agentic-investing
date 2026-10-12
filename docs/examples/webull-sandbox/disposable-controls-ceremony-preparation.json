@@ -1,0 +1,69 @@
+{
+  "schema_version": "disposable-controls-ceremony-preparation-v1",
+  "provenance": {
+    "source": "Explicit user answer to integrated ceremony purpose question in this session",
+    "instruction": "A clearly labeled disposable controls-test review (recommended)",
+    "scope": "DISPOSABLE_CONTROLS_TEST_REVIEW_ONLY_NOT_REAL_ACCOUNT_RESET_OR_TRADING"
+  },
+  "scope_selection_percent": 100,
+  "engineering_percent": 100,
+  "protected_package_installation_percent": 100,
+  "local_ceremony_preparation_percent": 100,
+  "actual_disposable_controls_ceremony_percent": 0,
+  "purpose": "WEBULL_DISPOSABLE_CONTROLS_TEST_ONLY",
+  "account_blueprint": {
+    "purpose": "DISPOSABLE_CONTROLS_TEST_ONLY",
+    "account": "SYNTHETIC_NO_BROKER_ACCOUNT"
+  },
+  "plan_blueprint": {
+    "purpose": "DISPOSABLE_CONTROLS_TEST_ONLY",
+    "operation": "PASSKEY_GUARDIAN_RETENTION_TEST",
+    "reset_authorized": false,
+    "execution_available": false,
+    "trial_started": false
+  },
+  "account_blueprint_sha256": "a54e8a1c283194dd74eed7a58551f3dfa67f113f67f66b87c8c654df4a18ddc6",
+  "plan_blueprint_sha256": "48ad320cae7aa9553f2f41b9bececa2f1f705d943e0e0fae3435eb072f53225a",
+  "signed_domain_separate_from_real_precondition_review": true,
+  "schema_action_pairs_validated": true,
+  "test_batches_passed": [
+    90,
+    49
+  ],
+  "test_batches_overlap": false,
+  "package_manifest_sha256": "9982aad73ea736f2853accd4d209f812212d5a7d08b8270a4e2fbec54a64526b",
+  "package_payload_hashes_verified": 706,
+  "package_exact_acl_objects_verified": 812,
+  "guardian_lifecycle": "BOUNDED_OWNER_STARTED_CEREMONY_ONLY",
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "listener_started": false,
+  "credential_prompted": false,
+  "actual_passkey_used": false,
+  "guardian_host_started": false,
+  "service_deployed": false,
+  "reset_authorized": false,
+  "execution_available": false,
+  "trial_started": false,
+  "trial_launch_percent": 0,
+  "overall_readiness_percent": null,
+  "source_digests": {
+    "security/webull_review_signature.py": "d1c62b6c1b15343ba428b965f95d346d0f2158cb1c4e8eb6b5f918e49827b2c8",
+    "security/webull_owner_review_app.py": "fcb903561eb8307a973a7477e4bc77d08959376d6a41fd6875f634512833e7b6",
+    "security/webull_guardian_release.py": "6fd46f3dc2fb95466cefa1425efed0035032064261187bfb669898b7cf1842f5",
+    "scripts/install_webull_guardian_release.ps1": "79e5e0513bb7be01c3d85d91088e5ae6ec01ec782ac19db47281dbae1bdbfa20",
+    "scripts/prepare_webull_review_layout.ps1": "fbf1304efc984ceed40033c87a5e3919622df1f1ef43ffe796e9e488f18ddef4",
+    "scripts/webull_disposable_controls_ceremony.py": "eb82832676bfa8a4a87b807c63069611c36a66022915ff23819616a5912093e5",
+    "scripts/test_webull_disposable_controls_ceremony.ps1": "6f1fc2929b78b13261aed2e768ccf8074f4b7fc084a01984ca2448e3b51c0966",
+    "tests/test_webull_disposable_controls.py": "76c7c35f8245c20efdf91123282cee02e0dad1f38cd8e2e948ebe0275fcc978d",
+    "docs/webull-disposable-controls-ceremony.md": "8cf0e73f9fcf153c15ab0b1fcce9a19e17defc2d26dee6e15b4e4dc503d7b68d"
+  },
+  "private_evidence_digests": {
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\disposable-controls-package-preparation.json": "85f20c8fb61064f934f89352a7037dff2fb08953d7ec77a68ee1811a1e833d13",
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\disposable-controls-package-audit.json": "085747bfe73159e4744c888c624bd30adba8b15551fc9dec40c79dfd24113d84",
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\disposable-controls-ceremony-preparation.json": "3026e3f57d61e10a426b359f6511cd857c14acb7e79c92e025c2e4850fb7df48",
+    "C:\\ProgramData\\AgenticInvestingGuardian\\Code\\HostConfig-bc15e34d13964a0eae094c6a857f9bb2.json": "ac11d9ab1cae8d4406a1ec2faf9a5b7a31552c80a645ec6f60331af0cf05736c",
+    "C:\\ProgramData\\AgenticInvestingGuardian\\Code\\ControlsOwnerBootstrap-bc15e34d13964a0eae094c6a857f9bb2.py": "a134f4cfd4c48a875eaf250227329dec07a20bb1e6b51a2961759a4fc65392d8",
+    "C:\\ProgramData\\AgenticInvestingGuardian\\Receipts\\layout-preparation-86e9a7b7d47645b8b80c0d6d75645f9f.json": "a05c7c568c113226bd3165b468cf681cf409fa2519c00fd00f462b017e3b2b91"
+  }
+}

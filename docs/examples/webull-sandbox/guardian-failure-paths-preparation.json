@@ -1,0 +1,97 @@
+{
+  "schema_version": "webull-guardian-failure-paths-preparation-v1",
+  "observed_at_utc": "2026-10-09T14:15:36.558145+00:00",
+  "engineering_native_failure_paths_percent": 100,
+  "engineering_native_failure_paths": {
+    "schema_version": "guardian-installed-engineering-failure-paths-v1",
+    "observed_at_utc": "2026-10-09T14:11:39.614583+00:00",
+    "installed_manifest_sha256": "2cb10942c251ffec2976168ff56661181845dd2e72d0ef724a4efe32210cbad6",
+    "process_scope": "ENGINEERING_IDENTITY_WITH_FIXTURE_GUARDIAN_OWNER_ROLE_ALIASES",
+    "scenarios": [
+      {
+        "scenario": "missing_client",
+        "passed": true,
+        "reference_handler_calls": 0,
+        "pipe_closed": true,
+        "no_thread_impersonation_token": true,
+        "elapsed_seconds": 0.164,
+        "execution_available": false,
+        "reset_performed": false,
+        "trial_started": false
+      },
+      {
+        "scenario": "partial_frame",
+        "passed": true,
+        "reference_handler_calls": 0,
+        "pipe_closed": true,
+        "no_thread_impersonation_token": true,
+        "elapsed_seconds": 1.511,
+        "execution_available": false,
+        "reset_performed": false,
+        "trial_started": false
+      },
+      {
+        "scenario": "oversized_frame",
+        "passed": true,
+        "reference_handler_calls": 0,
+        "pipe_closed": true,
+        "no_thread_impersonation_token": true,
+        "elapsed_seconds": 0.166,
+        "execution_available": false,
+        "reset_performed": false,
+        "trial_started": false
+      },
+      {
+        "scenario": "wrong_owner_identity",
+        "passed": true,
+        "reference_handler_calls": 0,
+        "pipe_closed": true,
+        "no_thread_impersonation_token": true,
+        "elapsed_seconds": 0.175,
+        "execution_available": false,
+        "reset_performed": false,
+        "trial_started": false
+      }
+    ],
+    "actual_guardian_account_lifecycle_qualified": false,
+    "other_identity_against_actual_guardian_qualified": false,
+    "service_deployed": false,
+    "execution_available": false,
+    "reset_performed": false,
+    "trial_started": false
+  },
+  "actual_guardian_failure_paths_preparation_percent": 67,
+  "actual_guardian_fixture_executed": false,
+  "wrapper_syntax_verified": true,
+  "explicit_guardian_identity_check_positive_and_negative_verified": true,
+  "owner_guardian_role_collision_rejected_before_pipe_creation": true,
+  "child_file_exact_access_rules_protected_dacl_and_admin_ownership_roundtrip_passed": true,
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "installed_package_changed": false,
+  "service_deployed": false,
+  "real_reference_created": false,
+  "execution_available": false,
+  "reset_performed": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "trial_launch_percent": 0,
+  "webull_readiness_percent": null,
+  "next_owner_action": "Run scripts/test_webull_guardian_failure_paths.ps1 in elevated 64-bit PowerShell; enter only AgenticGuardian password locally; share output/result path",
+  "limitations": [
+    "Engineering identity aliases do not qualify actual guardian process or unrelated local identity",
+    "Actual guardian-token failure paths/self-caller rejection still pending",
+    "Remote hosts and deployed owner-app/service lifecycle unqualified",
+    "Real signed reference/journal/reset integration and provider contracts pending"
+  ],
+  "source_digests": {
+    "scripts/check_webull_guardian_failure_paths.py": "303a276243fada84648dff4ff96d025b2a54dde3ff50c3df93d585593045ee2d",
+    "scripts/test_webull_guardian_failure_paths.ps1": "5cec17da9877acbb182f86461b107f11dcb80ba0c2a6f47141d11ccda3a4491e",
+    "docs/webull-guardian-failure-paths.md": "f5cf2de265663c9daebedef993767e2b5a851ce32e6ebbc8344b05e519415982",
+    "docs/webull-trial-current-status.md": "2cfd2130f12c7535bf513d5875679c2181ddc5df19222e09926e6b296bbc0e80",
+    "docs/webull-trial-unblock-plan.md": "7d5098f8b6a5732aa4d1b5526598c5779583caf537cb8ed706c3cd14852d0c1f",
+    "docs/webull-review-recovery-authority.md": "adbc66cb0510d7ce3b1817204878dddd68d9f3e745021f6d61cb9dc36ac3fcb2",
+    "docs/roadmap.md": "8d022bc37972293cb83f433f1de754e775457dfda356d9101136547c853a97c7",
+    "docs/decisions.md": "a464e3f2a051481b9490eabbb9c17fbd5366a3fa8082fd3956effdd1320911a8"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "readonly-recovery-applied-v1",
+  "checked_at_utc": "2026-10-06T14:11:57.042391+00:00",
+  "owner_reply_verbatim": "done, procced",
+  "signed_recovery_acknowledgements_verified": 1,
+  "original_failed_checks_still_incomplete": 1,
+  "unacknowledged_incomplete_checks": 0,
+  "resumed_monitor": {
+    "completed": true,
+    "diagnostic_cycles": 3,
+    "timer_callbacks_completed": 2,
+    "broker_events_received": 0,
+    "cash_matches": true,
+    "positions_match": true
+  },
+  "cash_activity_current_blockers": [
+    "CASH_ACTIVITY_BASELINE_DAY_AMBIGUOUS"
+  ],
+  "risk_latches_preserved": true,
+  "execution_available": false,
+  "trial_started": false,
+  "external_risk_reset_qualified": false
+}

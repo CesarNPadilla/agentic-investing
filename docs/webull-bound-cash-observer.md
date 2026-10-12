@@ -1,0 +1,11 @@
+# Selected cash-account evidence adapter
+
+The read-only `WebullCashEvidenceReader` validates the private sandbox selection, its account-binding digest, disabled execution flags and cash-account class before requesting data. Every observation discovers the account again and requires one matching cash account. It brackets position/open-order reads with two balance reads and rejects changed equity/cash, non-USD assets, nonfinite/negative numbers or inconsistent reported cash breakdowns. Existing exposure is reported with a human-review blocker; no liquidation or adoption occurs.
+
+The actual fixed-host sandbox observation reverified the selected account and stable USD 1,000,000 equity/cash. Reported settled cash was USD 1,000,000, unsettled cash zero; positions and returned open orders were empty. [Observation evidence](examples/webull-sandbox/bound-cash-observation.json) contains no account identifier. The separate experimental sleeve ceiling stays USD 1,000. This intraday observation is not a fixed New York midnight baseline.
+
+The reader accepts an injected SDK client; the actual probe constructed it with `api.sandbox.webull.com`. The reader does not independently attest that injected client's transport configuration. A production runtime must own a fixed-host client factory and enforce endpoint/credential isolation at its transport boundary. This diagnostic module is not yet admitted into an execution service.
+
+Nine new tests cover binding/selection rejection, discovery mismatch, balance consistency and drift, and blocked existing exposure. All 339 selected control/paper/Webull evidence tests pass. Ruff, JSON, source digests and diff checks pass. Provider exceptions outside the parser's validation contract must be sanitized by a future process boundary; no raw broker exception should enter an owner-facing report.
+
+Activity publication, authoritative account as-of coherence, midnight baseline/flows and runtime integration remain explicit blockers. No Webull ledger opening balance is promoted, no real order call is exposed by the reader, and no broker credentials or Alpaca state were changed. Next work is conservative Webull activity normalization and durable accounting, with protected controller/reset implementation proceeding independently. Live trading and trial launch remain disabled.

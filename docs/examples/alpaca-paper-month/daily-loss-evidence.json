@@ -1,0 +1,30 @@
+{
+  "schema_version": "paper-daily-loss-evidence-v1",
+  "assessment_date": "2026-10-05",
+  "targeted_tests_passed": 159,
+  "completed_criteria": 22,
+  "required_criteria": 36,
+  "overall_percent": 61,
+  "actual_boundary_source_qualified": false,
+  "actual_baseline_created": false,
+  "trial_started": false,
+  "execution_available": false,
+  "source_references": [
+    {
+      "path": "risk/paper_daily_loss.py",
+      "sha256": "d1441801db888b2b5260f04e679e587da41bdd19e99b53ece7eff97c78dc4462"
+    },
+    {
+      "path": "workers/paper_trial_observer.py",
+      "sha256": "a542d55d6bbf6de09a7e0b21168f42d3b467f151b21e36b03f8d9f7fc28c3b8f"
+    },
+    {
+      "path": "tests/test_paper_daily_loss.py",
+      "sha256": "56f983f7aad0eff644bfd4a5736e8cf5b063bf1088ddb65e8478656b8d518517"
+    },
+    {
+      "path": "docs/alpaca-paper-daily-loss.md",
+      "sha256": "7d1d75c13c5a01e28b08f8acc676c774638c774e819bde024d1d3becdcea22d8"
+    }
+  ]
+}

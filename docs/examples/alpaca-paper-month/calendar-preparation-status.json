@@ -1,0 +1,27 @@
+{
+  "schema_version": "nyse-paper-calendar-preparation-v1",
+  "status": "BOUNDED_PUBLISHED_SCHEDULE_TESTED_RUNTIME_PENDING",
+  "source_url": "https://www.nyse.com/trade/hours-calendars",
+  "source_review_date": "2026-10-05",
+  "coverage": "2026-01-01 through 2026-12-31",
+  "new_calendar_tests": 15,
+  "targeted_tests_passed": 67,
+  "market_status_verified": false,
+  "extraordinary_closures_verified": false,
+  "runtime_integrated": false,
+  "execution_available": false,
+  "source_references": [
+    {
+      "path": "conf/nyse-calendar-2026.json",
+      "sha256": "08d9e98ff42eb234e3cee842ef4fa3458d233a1a9558e33ea350d3edc7b33b62"
+    },
+    {
+      "path": "market_data/nyse_calendar.py",
+      "sha256": "ac10a5799ab40740b775758d158ef0798ad0c92250da79da54800e1936769b3e"
+    },
+    {
+      "path": "tests/test_nyse_calendar.py",
+      "sha256": "bd099c4f46d0f9fcebf2f47de4a31ca9f90ca42935da26c349d961f5000894b2"
+    }
+  ]
+}

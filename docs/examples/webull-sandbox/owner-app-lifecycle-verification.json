@@ -1,0 +1,72 @@
+{
+  "schema_version": "owner-app-lifecycle-verification-v1",
+  "observed_at_utc": "2026-10-09T14:33:26.313834+00:00",
+  "engineering_missing_state_lifecycle_percent": 100,
+  "receipt_path": "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\owner-app-lifecycle-fe588ec0aae948b8baed08d39cd6b74f\\result.json",
+  "receipt_sha256": "b512d4249a5823b0542e1b5e610b02ec0e22b253304126db350a5ca771e83324",
+  "receipt": {
+    "observed_at": "2026-10-09T14:32:46.302237+00:00",
+    "scope": "INSTALLED_OWNER_APP_ENGINEERING_TOKEN_MISSING_STATE_FORCED_PROCESS_SHUTDOWN",
+    "checks": [
+      {
+        "case": "page",
+        "status": 200
+      },
+      {
+        "case": "javascript",
+        "status": 200
+      },
+      {
+        "case": "missing_review",
+        "status": 409
+      },
+      {
+        "case": "missing_begin",
+        "status": 409
+      },
+      {
+        "case": "no_challenge",
+        "status": 403
+      },
+      {
+        "case": "wrong_host",
+        "status": 403
+      },
+      {
+        "case": "wrong_origin",
+        "status": 403
+      },
+      {
+        "case": "absent_origin",
+        "status": 403
+      },
+      {
+        "case": "no_openapi",
+        "status": 404
+      },
+      {
+        "case": "no_docs",
+        "status": 404
+      }
+    ],
+    "private_state_created": false,
+    "listener_closed": true,
+    "standard_owner_token_qualified": false,
+    "graceful_shutdown_qualified": false,
+    "guardian_integration_qualified": false,
+    "execution_available": false,
+    "reset_authorized": false,
+    "trial_started": false,
+    "script_sha256": "7166b8730176db26209988b3a1f9ca257ac1aaeb896533e8f226107cefe2bb53"
+  },
+  "retained_log_digests": {
+    "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.txt": "f7e2d73e4fe309f8f61f807927c7ee1ac51ff3dcd29161159c47b336eea08b16"
+  },
+  "source_digests": {
+    "scripts/check_webull_owner_app_lifecycle.py": "7166b8730176db26209988b3a1f9ca257ac1aaeb896533e8f226107cefe2bb53",
+    "docs/webull-owner-app-lifecycle.md": "7d431318c62a797aaeeb7f70fb6ff280bde0ce1d580015ac7b3104fde4ed3ec7"
+  },
+  "trial_launch_percent": 0,
+  "live_authorized": false
+}

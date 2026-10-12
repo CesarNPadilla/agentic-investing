@@ -1,0 +1,64 @@
+{
+  "schema_version": "paper-midnight-status-integration-evidence-v1",
+  "assessment_date": "2026-10-05",
+  "targeted_tests_passed": 181,
+  "completed_criteria": 23,
+  "required_criteria": 36,
+  "overall_percent": 64,
+  "actual_midnight_evidence_retained": true,
+  "account_binding_matched": true,
+  "boundary_source_kind": "ALPACA_PAPER_CONTINUOUS_HISTORY",
+  "boundary_payload_sha256": "fe80fafaf35d6d5d956b5100892c9af99dfadd1e8b6f9086492d7584ff5db84e",
+  "daily_flow_reconciliation_qualified": false,
+  "real_status_monitor": {
+    "duration_requested_seconds": 20,
+    "completed": true,
+    "events_observed": 0,
+    "observed_status": "UNKNOWN",
+    "initial_status_verified": false
+  },
+  "actual_observer_quote_read_failed": true,
+  "daily_diagnostic_completed_before_quote_failure": true,
+  "supplemental_status_source_decision": "PENDING",
+  "order_mutations": 0,
+  "trial_started": false,
+  "execution_available": false,
+  "source_references": [
+    {
+      "path": "integrations/brokers/alpaca_paper_boundary.py",
+      "sha256": "bf2eda4b19b3e6bc28e6f16c564bb41bc75d81855603c9f403a31ee22e190608"
+    },
+    {
+      "path": "scripts/retain_paper_boundary.py",
+      "sha256": "3060406407e366ba9d2ee039d4de84e55c13c2d1ea6c175aecb7866576ef4aaa"
+    },
+    {
+      "path": "risk/paper_daily_loss.py",
+      "sha256": "f4c86d22fe6a2c98286274743f1db49846de4a70b67076844a8fed655fdee7f2"
+    },
+    {
+      "path": "workers/paper_trial_observer.py",
+      "sha256": "127820a62cd86b853dc588b26b4ccbb7fdf76197027a412c9dca33d8df5d6f9d"
+    },
+    {
+      "path": "scripts/check_alpaca_status_stream.py",
+      "sha256": "2410bdc41fe94f8c09ad40a51cd32d9de245693e5b956d9dfb770c408d603a2b"
+    },
+    {
+      "path": "tests/test_alpaca_paper_boundary.py",
+      "sha256": "aa8cdf7896a5fa438f82b8b10fb0571307f539ec16b2a07f8f3be8c311ea1fc6"
+    },
+    {
+      "path": "tests/test_paper_trial_observer.py",
+      "sha256": "dd80e935262605c6481e9e59ccfe608035bb6b0b6bf28c57e7deaefd3f060bd8"
+    },
+    {
+      "path": "tests/test_status_stream_probe.py",
+      "sha256": "600d5f7005852be51632093ec9e2a9c271d6f7ea9e96f98e3079aa53b03824d7"
+    },
+    {
+      "path": "docs/alpaca-paper-midnight-status-integration.md",
+      "sha256": "04b1f371b101732244ed038d4666456ffaff07d8e06b57b500e5cf5677e21be8"
+    }
+  ]
+}

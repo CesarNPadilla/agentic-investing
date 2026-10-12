@@ -1,0 +1,88 @@
+{
+  "schema_version": "guardian-failure-client-absolute-path-fix-v1",
+  "observed_at_utc": "2026-10-09T14:21:58.569960+00:00",
+  "reported_failed_scenario": "partial_frame",
+  "retained_diagnostic_path": "C:\\ProgramData\\AgenticInvestingGuardian\\Logs\\guardian-failure-ac14a3c0905045aebd97888e1fde75f4-partial_frame-stderr.txt",
+  "retained_diagnostic_sha256": "bc7b387d9fbc0009b768ea5506ab03889306bf8f8423f4309ba57bd3cde2ea33",
+  "diagnosed_cause": "Bare powershell.exe unavailable in deliberately System32-only PATH; client not launched",
+  "fix": "Resolve explicit SystemRoot/System32/WindowsPowerShell/v1.0/powershell.exe",
+  "restricted_environment_unchanged": true,
+  "transport_deadlines_unchanged": true,
+  "pipe_permissions_unchanged": true,
+  "engineering_token_restricted_environment_checks": {
+    "schema_version": "guardian-installed-engineering-failure-paths-v1",
+    "observed_at_utc": "2026-10-09T14:20:22.736942+00:00",
+    "installed_manifest_sha256": "2cb10942c251ffec2976168ff56661181845dd2e72d0ef724a4efe32210cbad6",
+    "process_scope": "ENGINEERING_IDENTITY_WITH_FIXTURE_GUARDIAN_OWNER_ROLE_ALIASES",
+    "scenarios": [
+      {
+        "scenario": "missing_client",
+        "passed": true,
+        "reference_handler_calls": 0,
+        "pipe_closed": true,
+        "no_thread_impersonation_token": true,
+        "elapsed_seconds": 0.163,
+        "execution_available": false,
+        "reset_performed": false,
+        "trial_started": false
+      },
+      {
+        "scenario": "partial_frame",
+        "passed": true,
+        "reference_handler_calls": 0,
+        "pipe_closed": true,
+        "no_thread_impersonation_token": true,
+        "elapsed_seconds": 1.513,
+        "execution_available": false,
+        "reset_performed": false,
+        "trial_started": false
+      },
+      {
+        "scenario": "oversized_frame",
+        "passed": true,
+        "reference_handler_calls": 0,
+        "pipe_closed": true,
+        "no_thread_impersonation_token": true,
+        "elapsed_seconds": 0.153,
+        "execution_available": false,
+        "reset_performed": false,
+        "trial_started": false
+      },
+      {
+        "scenario": "wrong_owner_identity",
+        "passed": true,
+        "reference_handler_calls": 0,
+        "pipe_closed": true,
+        "no_thread_impersonation_token": true,
+        "elapsed_seconds": 0.152,
+        "execution_available": false,
+        "reset_performed": false,
+        "trial_started": false
+      }
+    ],
+    "actual_guardian_account_lifecycle_qualified": false,
+    "other_identity_against_actual_guardian_qualified": false,
+    "service_deployed": false,
+    "execution_available": false,
+    "reset_performed": false,
+    "trial_started": false,
+    "client_startup_reproduced_restricted_environment": true
+  },
+  "targeted_regression_tests_passed": 8,
+  "actual_guardian_fixture_complete": false,
+  "actual_guardian_failure_paths_preparation_percent": 67,
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "installed_package_changed": false,
+  "execution_available": false,
+  "reset_performed": false,
+  "trial_started": false,
+  "trial_launch_percent": 0,
+  "source_digests": {
+    "scripts/check_webull_guardian_failure_paths.py": "ccce7e67d5afa053449ef93238013980054b6f4f436bf0997754243bce932520",
+    "tests/test_webull_guardian_failure_environment.py": "a3c342eb7324a100b2b90973de21a0dcc6bae2bb9f148213a7ea84a2962bb2f4",
+    "docs/webull-guardian-failure-paths.md": "784ba4bc99b09046d32f0809d23ebd0d100e4866e5e0757ec0c46653d2acf7b6",
+    "docs/webull-review-recovery-authority.md": "f85d7be08a841b28e3aec50923480edda9a7515a2c5a8e74c773239b5f75e934",
+    "docs/webull-trial-unblock-plan.md": "90f869e5f9b764a5da8ed1000b6674aadc0f3a66f0b187ad250092839a46aec1"
+  }
+}

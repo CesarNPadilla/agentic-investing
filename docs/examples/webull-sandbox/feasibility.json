@@ -1,0 +1,106 @@
+{
+  "schema_version": "webull-retail-sandbox-feasibility-v1",
+  "observed_at_utc": "2026-10-07T17:58:01.502490+00:00",
+  "sdk_version": "3.0.2",
+  "endpoint": "api.sandbox.webull.com",
+  "order_mutations": 0,
+  "execution_available": false,
+  "trial_started": false,
+  "account_bound": false,
+  "probes": {
+    "accounts": {
+      "http_status": 200
+    },
+    "INDIVIDUAL_MARGIN_balance": {
+      "http_status": 200
+    },
+    "INDIVIDUAL_MARGIN_positions": {
+      "http_status": 200
+    },
+    "INDIVIDUAL_MARGIN_open_orders": {
+      "http_status": 200
+    },
+    "INDIVIDUAL_MARGIN_cash_activities": {
+      "http_status": 200
+    },
+    "INDIVIDUAL_CASH_balance": {
+      "http_status": 200
+    },
+    "INDIVIDUAL_CASH_positions": {
+      "http_status": 200
+    },
+    "INDIVIDUAL_CASH_open_orders": {
+      "http_status": 200
+    },
+    "INDIVIDUAL_CASH_cash_activities": {
+      "http_status": 200
+    },
+    "SCHB_instrument": {
+      "http_status": 200
+    },
+    "SCHB_snapshot": {
+      "http_status": 200
+    },
+    "SCHB_quotes": {
+      "http_status": 200
+    }
+  },
+  "configured_account_matches": 0,
+  "account_count": 5,
+  "equity_accounts": [
+    {
+      "account_class": "INDIVIDUAL_MARGIN",
+      "total_asset_currency": "USD",
+      "total_net_liquidation_value": "1000000.00",
+      "total_cash_balance": "1000000.00",
+      "settled_cash_field_present": false,
+      "positions_count": 0,
+      "open_orders_count": 0,
+      "activity_response_available": true
+    },
+    {
+      "account_class": "INDIVIDUAL_CASH",
+      "total_asset_currency": "USD",
+      "total_net_liquidation_value": "1000000.00",
+      "total_cash_balance": "1000000.00",
+      "settled_cash_field_present": true,
+      "positions_count": 0,
+      "open_orders_count": 0,
+      "activity_response_available": true
+    }
+  ],
+  "instrument_response_available": true,
+  "snapshot_response_available": true,
+  "quotes_response_available": true,
+  "market_status_verified": false,
+  "real_time_entitlement_verified": false,
+  "accounting_completeness_verified": false,
+  "scope": "READ_ONLY_RETAIL_SANDBOX_EVALUATION",
+  "user_instruction_provenance": {
+    "source": "Current user message",
+    "exact_text": "yes please, use this sandbox credentials if needed \"C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\webull.sandbox.env\"",
+    "identity_verification": "NOT_INFERRED",
+    "instruction_timestamp": "NOT_PROVIDED"
+  },
+  "blockers": [
+    "ACCOUNT_SELECTION_REQUIRED",
+    "CONFIGURED_ACCOUNT_ID_NOT_MATCHED",
+    "DEDICATED_1000_BASELINE_NOT_ESTABLISHED",
+    "REAL_TIME_ENTITLEMENT_UNVERIFIED",
+    "INITIAL_HALT_STATUS_UNVERIFIED",
+    "RECONNECT_GAP_CONTRACT_UNQUALIFIED",
+    "ACTIVITY_PUBLICATION_AND_SNAPSHOT_COHERENCE_UNQUALIFIED",
+    "PROTECTED_RESET_AUTHORITY_UNQUALIFIED",
+    "WEBULL_RUNTIME_NOT_INTEGRATED"
+  ],
+  "documentation_sources": [
+    "https://developer.webull.com/apis/docs/sdk/",
+    "https://developer.webull.com/apis/docs/market-data-api/faq/",
+    "https://developer.webull.com/apis/docs/reference/custom/subscribe-trade-events/",
+    "https://developer.webull.com/apis/docs/reference/trade-cash-activity-by-type/"
+  ],
+  "source_digests": {
+    "scripts/evaluate_webull_sandbox.py": "902057d475f045a75a274c9c94929abb2fc38bb4e01cf8781595291d1f8161ab",
+    "docs/webull-sandbox-feasibility.md": "a968c242fe917dfb2277f0a5d1e052963593c45994a93ccd22a5e10a6842c9b9"
+  }
+}

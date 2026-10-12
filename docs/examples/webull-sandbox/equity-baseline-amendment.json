@@ -1,0 +1,32 @@
+{
+  "schema_version": "webull-equity-baseline-amendment-v1",
+  "status": "OWNER_DESIGN_APPROVED_RUNTIME_PENDING",
+  "provenance": {
+    "source": "Current explicit user instruction",
+    "exact_text": "Let's use the equity account balances available and replace the required 1,000, that was given as a sample only and can be updated"
+  },
+  "whole_account_baseline": {
+    "mode": "ACTUAL_SELECTED_SANDBOX_ACCOUNT_EQUITY",
+    "previous_dedicated_equity_usd": "1000",
+    "previous_requirement_superseded": true,
+    "account_selection": "PENDING",
+    "fresh_bound_baseline": "PENDING"
+  },
+  "whole_account_limits": {
+    "daily_loss_fraction": "0.01",
+    "daily_loss_denominator": "fixed New York calendar-day start-of-day total account equity",
+    "gross_fraction": "1.00",
+    "security_fraction": "0.10",
+    "exposure_denominator": "current total account equity"
+  },
+  "experimental_sleeve_ceiling_usd": "1000",
+  "experimental_sleeve_ceiling_changed": false,
+  "executable_policy_changed": false,
+  "trial_started": false,
+  "execution_available": false,
+  "live_authorized": false,
+  "source_digests": {
+    "docs/webull-sandbox-equity-amendment.md": "15ff5c018d0ff273ff114e64345fe538cb46fb3ab8924551440783c442064d7d",
+    "docs/examples/webull-sandbox/feasibility.json": "3a96ad4650c5a5921d0daf52c2abef1a306ca4c2a0012bbbf470311e8ba45b63"
+  }
+}

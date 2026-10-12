@@ -1,0 +1,24 @@
+{
+  "schema_version": "paper-status-source-decision-evidence-v1",
+  "completed_criteria": 23,
+  "required_criteria": 36,
+  "overall_percent": 64,
+  "decision_recorded": true,
+  "status_gate_qualified": false,
+  "trial_started": false,
+  "execution_available": false,
+  "source_references": [
+    {
+      "path": "docs/examples/alpaca-paper-month/status-source-decision.json",
+      "sha256": "7c003f975e86b7c161215f7cd9ca4773d92cce64e9a4eac9b649bf08365b942c"
+    },
+    {
+      "path": "docs/alpaca-paper-process-supervision.md",
+      "sha256": "df84ba472460986ea7bef3ca3895bf15e8b5164d9554480cdb722538fedb4ef3"
+    },
+    {
+      "path": "docs/alpaca-paper-month.md",
+      "sha256": "367e887bb5486f9079943ac2dd346c471f8f0f6f816333dc20e9ba7fec76a346"
+    }
+  ]
+}

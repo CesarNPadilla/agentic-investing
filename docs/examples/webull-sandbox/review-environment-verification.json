@@ -1,0 +1,43 @@
+{
+  "schema_version": "webull-protected-review-environment-verification-v1",
+  "observed_at_utc": "2026-10-08T21:16:43.2464685Z",
+  "installed_directory": "C:\\ProgramData\\AgenticInvestingPaper\\OwnerControl\\WebullReviewEnvironment-f2eb1b3b90ce7a79",
+  "manifest_sha256": "f2eb1b3b90ce7a79346ab72189ced4f59eda14ac9c89ddccda2139cc74cbd33b",
+  "payload_files_verified": 678,
+  "manifest_verified": true,
+  "acl_objects_verified": 780,
+  "administrator_ownership_and_exact_protected_acls": true,
+  "runtime_direct_grants_present": false,
+  "runtime_account_enabled": false,
+  "environment_installation_percent": 100,
+  "protected_environment_installed": true,
+  "actual_runtime_token_access_qualified": false,
+  "complete_native_loading_qualified": false,
+  "controller_lifecycle_qualified": false,
+  "actual_owner_signing_qualified": false,
+  "independent_recovery_anchor_qualified": false,
+  "app_started": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "trial_launch_percent": 0,
+  "provenance": {
+    "authorization_source": "Current owner instruction",
+    "exact_text": "this session is now on elevated permission, try if not i'll run those commands",
+    "engineering_elevation_verified": true,
+    "installer_exit_code": 0,
+    "independent_live_audit_exit_code": 0
+  },
+  "source_digests": {
+    "scripts/audit_webull_review_environment.ps1": "14c5a5fa3b0a360a75d670215701aed2cebe25d162eeaac7f02f89b50bcf7169",
+    "scripts/install_webull_review_environment.ps1": "e509fbb8ca00312ef95d604c368d3e98e4c4cd6b6a12eed6af1d577f10470adb",
+    "scripts/webull_review_protection.ps1": "2cc6f30f1c04efabef6eaebdbc32eb4b94e84d9e6dc390289f0a40b40008d002",
+    "docs/webull-review-environment-install.md": "912da2c738f6320d3692984afd1200a81a18c809da5e1f4e0f99923f6d72f4a8",
+    "docs/webull-trial-current-status.md": "0cace7093f2a1892d9a8502bbc547bb511eb50660dae7f2c488d60b240c8bfa3",
+    "docs/webull-trial-unblock-plan.md": "26b68d6163e885f26771ed2c5a8c540e1a96f1f504b2f9f1ee10ef14fc9ef467",
+    "docs/roadmap.md": "7301d5fd41b20c69f1556b20af8b78e9160f7b90cf3876eb7b1b73bbde1b83d8",
+    "docs/examples/webull-sandbox/review-installed-environment-probe.json": "12a090ff41c39d738bfd21cdd4a3cf22a3b01f4df7829075a21c2e61aef5fdca"
+  },
+  "native_probe_scope": "OBSERVED_MODULE_PATHS_ONLY_NOT_COMPLETE_ADVERSARIAL_LOADING_OR_CONTROLLER_LIFECYCLE"
+}

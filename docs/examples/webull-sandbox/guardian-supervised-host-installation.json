@@ -1,0 +1,41 @@
+{
+  "schema_version": "guardian-supervised-host-installation-v1",
+  "client_reporting_date": "2026-10-10",
+  "installed_manifest_sha256": "5deef8dd171e545944d13f8f79d610c0c7c9bdbd33e27685a1fb6d53f4a818ea",
+  "installed_directory": "C:\\ProgramData\\AgenticInvestingGuardian\\Code\\GuardianRelease-5deef8dd171e5459",
+  "payload_hashes_verified": 692,
+  "protected_acl_objects_verified": 798,
+  "native_supervision_tests_passed": 9,
+  "related_tests_passed": 23,
+  "installed_engineering_smoke_cases_passed": 3,
+  "fixture_compile_and_argument_encoding_verified": true,
+  "native_supervision_engineering_percent": 100,
+  "protected_package_installation_percent": 100,
+  "guardian_fixture_preparation_percent": 100,
+  "actual_guardian_fixture_percent": 0,
+  "next_owner_command": "& 'C:\\Users\\cesar\\OneDrive\\AI\\agentic-investing\\scripts\\test_webull_guardian_supervisor.ps1'",
+  "missing_input": "Existing guardian password entered locally; never shared",
+  "private_observation_digests": {
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\guardian-supervised-host-installed-audit.json": "60c4168b45e5293dd91f942dbc2dde86ca870c17be66f9520a41eadeedd04d05",
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\supervised-host-smoke-de390d25c7dc456297bbede58fcfd40b\\result.json": "894b9a099f177b4e7eb107ceb23f7d9adb42fdcc4a8c4e4d1b55a7d297134a53"
+  },
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "service_deployed": false,
+  "real_reference_used": false,
+  "reset_authorized": false,
+  "execution_available": false,
+  "trial_started": false,
+  "trial_launch_percent": 0,
+  "forward_sessions_completed": 0,
+  "forward_sessions_required": 60,
+  "overall_readiness_percent": null,
+  "source_digests": {
+    "security/windows_review_process_supervisor.py": "3ca6ad678a3f1490c10a088af166ffc52dd7b4c8d5d307b4de7baea3273a27e2",
+    "tests/test_windows_review_process_supervisor.py": "aa3c5cadbd07e21b45df5ec73134d15d6b12eda4636ce4659b8432106c9e4f46",
+    "security/webull_guardian_release.py": "3912330682dca2e3d45c7e72c4895a9fdb091afe7fdf5b60ec0a113b22ad5e7d",
+    "scripts/install_webull_guardian_release.ps1": "47044206d74cbe994e66d8c2805f39e28df1c87c98b4c387687e556c147f6453",
+    "scripts/test_webull_guardian_supervisor.ps1": "423b80598fa015dc3e09d49c987f8046cea113b6e6633c2679c7493821e8aa98",
+    "docs/webull-guardian-process-supervision.md": "9d54578edb458525f401ab8a883d25e0813cde55f1c4c26e33dfc4c2d7116a93"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "webull-cash-account-selection-v1",
+  "account_class": "INDIVIDUAL_CASH",
+  "environment": "sandbox",
+  "endpoint": "api.sandbox.webull.com",
+  "observed_started_at_utc": "2026-10-07T18:02:08.890526+00:00",
+  "observed_finished_at_utc": "2026-10-07T18:02:09.630561+00:00",
+  "observed_equity_usd": "1000000.00",
+  "observed_cash_usd": "1000000.00",
+  "reported_settled_cash_usd": "1000000.00",
+  "reported_unsettled_cash_usd": "0.00",
+  "experimental_sleeve_ceiling_usd": "1000",
+  "accounting_asof_qualified": false,
+  "daily_midnight_baseline_qualified": false,
+  "execution_available": false,
+  "trial_started": false,
+  "user_provenance": {
+    "source": "Current explicit user message",
+    "exact_text": "Cash"
+  },
+  "fresh_account_observation": true,
+  "account_selected": true,
+  "positions_count": 0,
+  "returned_open_orders_count": 0,
+  "private_selection_record_created": true,
+  "credential_file_modified": false,
+  "order_mutations": 0,
+  "baseline_status": "OBSERVATION_ONLY_NOT_QUALIFIED",
+  "source_digests": {
+    "docs/examples/webull-sandbox/equity-baseline-amendment.json": "4787f4483d3062a1a5287ffc197a69a48a43f86534392c1dec79883456d90023"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": "guardian-protected-config-loader-preparation-v1",
+  "native_loader_tests_passed": 12,
+  "combined_tests_passed": 39,
+  "installed_manifest_sha256": "c46afdaf67cb70f437507f5975791c5fb461a3cfdf1774a72b4c9ae573774c41",
+  "payload_files_verified": 694,
+  "protected_acl_objects_verified": 800,
+  "installed_engineering_protected_read_parse_verified": true,
+  "engineering_role_input_scope": "Disposable fixture role inputs, not independent production provisioning",
+  "native_loader_engineering_percent": 100,
+  "protected_loader_installation_percent": 100,
+  "guardian_fixture_preparation_percent": 100,
+  "actual_guardian_loader_fixture_percent": 0,
+  "credentialed_command_line_characters": 490,
+  "next_owner_command": "& 'C:\\Users\\cesar\\OneDrive\\AI\\agentic-investing\\scripts\\test_webull_guardian_config_loader.ps1'",
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "real_configuration_provisioned": false,
+  "service_deployed": false,
+  "reset_authorized": false,
+  "execution_available": false,
+  "trial_started": false,
+  "trial_launch_percent": 0,
+  "overall_readiness_percent": null,
+  "private_observation_digests": {
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\guardian-config-loader-audit.json": "c23d45aca9382d1bb30c719e4c1f21bb8e67789cf6f3c01a2625294e4cf0ccf6",
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\guardian-config-loader-fixture-preparation.json": "5d56021162d07cb0455f157126ee88cde9e12dbc87151e9ced7e93e75508fff6"
+  },
+  "source_digests": {
+    "security/windows_protected_config.py": "f151ff87b76c8b76eb19e392c9ebca01aa91158bf80c97f932978d3c6a1b6d06",
+    "tests/test_windows_protected_config_native.py": "0abb93a62c2a84db15e6dec6937f277ebefd63b36a801869de68886dfa88aeee",
+    "security/webull_guardian_host_config.py": "57fd373184b2da8b8d7147aad27c2765b41540000e30f00e6383bcfeb2790905",
+    "security/webull_guardian_release.py": "37faeb6b6ee0712d92d5d11357670ec59a50f6027da2325cab44b3b0f8efd735",
+    "scripts/install_webull_guardian_release.ps1": "ff5048965b675eaf3c9708e32bb33d1e7d2af90fa3d70d9d645e2b50457a1053",
+    "scripts/test_webull_guardian_config_loader.ps1": "0c989430e325987fdb51f5847179dd4824302c7f353d28f4d0092d0f29a9fa36",
+    "docs/webull-protected-config-loader.md": "68ee43717b9f67eaa760331e1fd09ed6fc342dc895d8d4ebbc0b0b8e11bdcf87"
+  }
+}

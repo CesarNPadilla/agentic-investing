@@ -1,0 +1,50 @@
+{
+  "schema_version": "guardian-elevated-reply-verification-v1",
+  "observed_at_utc": "2026-10-09T15:46:32.226901+00:00",
+  "elevated_owner_reply_verification_percent": 100,
+  "wrapper_receipt_path": "C:\\ProgramData\\AgenticInvestingGuardian\\Receipts\\exchange-wrapper-result-539b0d22-7311-410d-b9b0-8a8d984db460.json",
+  "wrapper_receipt_sha256": "a11b39521e59f335e0fcbcf0de52dea84e286a85003e2f12a37ec82af2b50f24",
+  "wrapper_receipt": {
+    "schema_version": "guardian-exchange-fixture-v1",
+    "probe_id": "539b0d22-7311-410d-b9b0-8a8d984db460",
+    "source_digests": {
+      "security\\windows_guardian_exchange_pipe.py": "34d5b29975ad1d03e1ebd7ca2dafaef15559f6b5a651caf5f52d53088f71df72",
+      "security\\windows_guardian_exchange_client.py": "2836c66c9c12f83908a86163e50e60f7e284ac4b0fc12ab231033fbe9425e412",
+      "probe_webull_guardian_exchange.py": "b7a50af41926b75b46ddc0ffaf56eafffe65632dbaaafcb2b4a0f8784c36a656"
+    },
+    "receipt_sha256": "53cbfcdb63738ae2e0d62c1a8d137272a153be53d5beefec5a4ca6fbcfeb74f7",
+    "wrapper_sha256": "24cb003e3d0604acdf4674880df1418686de31072224a9105633b262c9fdc93d",
+    "guardian_disabled": true,
+    "runtime_disabled": true,
+    "standard_owner_client_qualified": false,
+    "real_reference_used": false,
+    "execution_available": false,
+    "reset_authorized": false,
+    "trial_started": false
+  },
+  "guardian_receipt_path": "C:\\ProgramData\\AgenticInvestingGuardian\\Receipts\\exchange-result-539b0d22-7311-410d-b9b0-8a8d984db460.json",
+  "guardian_receipt_sha256": "53cbfcdb63738ae2e0d62c1a8d137272a153be53d5beefec5a4ca6fbcfeb74f7",
+  "guardian_receipt": {
+    "synthetic_request_only": true,
+    "execution_available": false,
+    "reset_authorized": false,
+    "trial_started": false,
+    "owner_pipe_identity_observed": true,
+    "probe_id": "539b0d22-7311-410d-b9b0-8a8d984db460",
+    "guardian_reply_receipt_verified": true
+  },
+  "retained_fixture_exact_acl_objects": 5,
+  "log_digests": {
+    "server-stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "server-stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "client-stdout": "f4528b180e7bf7543dc925f0ad8298e997950b1488652e6cc4260dfd52199ba2",
+    "client-stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "standard_owner_reply_qualified": false,
+  "trial_launch_percent": 0,
+  "execution_available": false,
+  "reset_authorized": false,
+  "trial_started": false
+}

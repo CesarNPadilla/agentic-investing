@@ -1,0 +1,24 @@
+{
+  "schema_version": "paper-status-source-decision-v1",
+  "decision": "KEEP_ALPACA_ONLY_FAIL_CLOSED_DEFER_NASDAQ",
+  "provenance": {
+    "type": "EXPLICIT_USER_INSTRUCTION",
+    "instruction_verbatim": "Keep Alpaca-only status, fail-closed, and defer the Nasdaq feed. For this trial it adds work without adding much safety. Add it before any live-money phase, or before you trade individual stocks."
+  },
+  "current_status_source": "ALPACA_ONLY",
+  "nasdaq_feed": "DEFERRED",
+  "unknown_status_blocks_orders": true,
+  "missing_status_blocks_orders": true,
+  "quiet_stream_proves_trading": false,
+  "nasdaq_required_before": [
+    "ANY_LIVE_MONEY_PHASE",
+    "TRADING_INDIVIDUAL_STOCKS"
+  ],
+  "current_plumbing_symbol": "INTC",
+  "current_plumbing_symbol_is_individual_stock": true,
+  "application_to_current_plan": "INTC orders remain blocked under the before-individual-stock condition. No alternative security or strategy is selected by this instruction.",
+  "existing_status_gate_qualified": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false
+}

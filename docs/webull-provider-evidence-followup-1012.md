@@ -1,0 +1,14 @@
+# Webull provider evidence follow-up — October 12
+
+The real passkey/guardian disposable controls test is complete. It tests authentication, process separation and write-ahead retention; it supplies no evidence about Webull market/account semantics. The [provider request](webull-provider-evidence-questions.md) remains prepared and unsent. Webull's API/support team supplies the technical answers; the owner submits it through authenticated support and shares the response. No API keys, signed requests or account identifiers should be included.
+
+Fresh public-documentation review:
+
+- [Retail trade events](https://developer.webull.com/apis/docs/reference/custom/subscribe-trade-events/) describes order-status notifications and still documents subscription type 1. The prior installed-SDK type-7 observation remains a separate unresolved compatibility question; no SDK or subscription was changed.
+- [Data streaming](https://developer.webull.com/apis/docs/market-data-api/data-streaming-api/) requires resubscription after a network disconnect. Its notification example carries transport counters. Those observations do not establish security halt bootstrap or complete missed-event recovery; that is our inference, not a provider assertion that such contracts cannot exist.
+- [Instrument events](https://developer.webull.com/apis/docs/reference/fd-events/instruments-events/) documents property-status events with replay cursors under Broker API. Retail sandbox availability and applicable exchange/regulatory halt coverage have not been established. No Broker API feature is adopted into this retail trial.
+- The retrievable [depths](https://developer.webull.com/apis/docs/reference/quotes/) and [cash activities](https://developer.webull.com/apis/docs/reference/trade-cash-activity-by-type/) references did not establish the required quote-time semantics, coherent economic as-of boundary, late corrections or publication-completeness contract. This describes the evidence reviewed, not all Webull capabilities or unpublished support guarantees.
+
+All four provider questions remain open. Ask Webull for supported retail cash sandbox endpoints/contracts for SCHB: current halt status at startup/reconnect; quote timestamp and entitlement semantics; cash/activity effective time and coherent New York opening equity; and order-event type/coverage plus disconnect reconciliation. Their response must identify retail applicability and relevant entitlement/sandbox limitations. Support evidence will be evaluated before any gate changes.
+
+Protected current-key/revocation/history, clock and remote-host qualification, real account review, atomic reset admission and paper runtime/activation remain separate engineering/owner gates. No provider switch, paid feed, policy exception, broker order or trial is activated. Completed local fixtures require no rerun. Trial launch remains 0%, forward evidence 0/60; no overall readiness percentage is assigned.

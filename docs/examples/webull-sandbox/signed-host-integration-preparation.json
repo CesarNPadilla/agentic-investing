@@ -1,0 +1,39 @@
+{
+  "schema_version": "webull-signed-host-integration-preparation-v1",
+  "engineering_related_tests_passed": 53,
+  "followup_fixture_and_package_tests_passed": 15,
+  "installed_signature_and_bootstrap_verified": true,
+  "package_manifest_sha256": "800ab34b3c240536017d8fc3fa8fcdb93e169fbacc47ef7f9933936f41d4c6ae",
+  "payload_hashes_verified": 697,
+  "protected_acl_objects_verified": 803,
+  "integrated_fixture_engineering_percent": 100,
+  "protected_package_installation_percent": 100,
+  "cross_account_fixture_preparation_percent": 100,
+  "actual_cross_account_signed_host_percent": 0,
+  "credentialed_command_line_characters": 681,
+  "next_owner_command": "& 'C:\\Users\\cesar\\OneDrive\\AI\\agentic-investing\\scripts\\test_webull_signed_host.ps1'",
+  "synthetic_key_only": true,
+  "real_owner_passkey_used": false,
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "host_started_during_preparation": false,
+  "service_deployed": false,
+  "reset_authorized": false,
+  "execution_available": false,
+  "trial_started": false,
+  "trial_launch_percent": 0,
+  "overall_readiness_percent": null,
+  "private_observation_digests": {
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\signed-host-fixture-preparation.json": "df5b251dd14db4172e3bf1739e068edd04f946074d24e5d284ec6faae88056a6",
+    "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\guardian-signed-host-package-audit.json": "da6319cdd0e68aa080eab4272baaba91b56ab42d1520ec386c1f6802e6692f1a"
+  },
+  "source_digests": {
+    "scripts/webull_signed_host_fixture.py": "dab9d650301ece77a1ad431d959a9c938757c6771e9fef8a53353aab0ec72b5f",
+    "scripts/test_webull_signed_host.ps1": "6a411b48fd4e23c2b386d03b842574525fa1b53e1400a7a4b09e6ca60cb0818f",
+    "scripts/prepare_webull_review_layout.ps1": "13ba3b237fa205d662d40a1ec3df407b51f21e6a2d3ce3b90e8aba71a92dca81",
+    "tests/test_webull_signed_host_fixture.py": "a108d45eed56590543b44c8b16032d8e94d77434949909113954b20445138c2a",
+    "security/webull_guardian_release.py": "93b1f517dbfd1b7d8c0d5511c6abd11eb68181009d42c8819bfe43a34b5cb62e",
+    "scripts/install_webull_guardian_release.ps1": "6cecbfb7a3a0e4649032de009b2f4815651dd145832c9f8470cde080f6e69544",
+    "docs/webull-signed-host-integration.md": "5f7cb546a506e51066d8ae40129972f142bdaa8ca74ffde880d35b3c032fad0d"
+  }
+}

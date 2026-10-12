@@ -1,0 +1,19 @@
+{
+  "schema_version": "webull-quote-event-qualification-v1",
+  "selected_tests_passed": 330,
+  "quote_parser": "DIAGNOSTIC_ONLY",
+  "first_actual_quote_attempt": "REJECTED_CAUSE_NOT_RETAINED",
+  "subsequent_actual_quote": "PARSED_WITH_BLOCKERS",
+  "event_subscription_acknowledged": true,
+  "event_health_qualified": false,
+  "replay_qualified": false,
+  "execution_available": false,
+  "trial_started": false,
+  "source_digests": {
+    "market_data/webull_evidence.py": "0a5f8932d117b55a0d1e0cbf3a77ac8e0b30f6a4770279125632978a2a74b124",
+    "tests/test_webull_quote_evidence.py": "b220580acff57667e42e2372f12b1a4eaf90850014b03c196ddc36307d131cfc",
+    "docs/webull-quote-event-integration.md": "b250a1654276ffad5513e03c6aedf9fff7eca2ea726bbcc908b119ddb9e439ea",
+    "docs/examples/webull-sandbox/quote-adapter-observation.json": "9af79f4b65745507371427f6860883c1d3dd080295864d30a1e1dfd9eb1660d1",
+    "docs/examples/webull-sandbox/bounded-event-probe.json": "ea980cf2bcdf073f473035a8eb3d505886e1a2cabdfb54274d66152666e06629"
+  }
+}

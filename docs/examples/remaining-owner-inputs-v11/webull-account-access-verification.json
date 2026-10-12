@@ -1,0 +1,17 @@
+{
+  "schema_version": "webull-account-access-verification-v1",
+  "status": "READ_ONLY_ACCOUNT_LIST_SUCCEEDED",
+  "credential_file": "C:/Users/cesar/AppData/Local/AgenticInvesting/webull.env",
+  "operation": "GET account list via existing Webull SDK adapter",
+  "account_list_access_verified": true,
+  "account_details_recorded": false,
+  "account_binding_verified": false,
+  "market_data_entitlement_verified": false,
+  "order_submission_authorized": false,
+  "source_references": [
+    {
+      "path": "scripts/webull_production_read.py",
+      "sha256": "e61978992b1a03c1e31ab6ecc299fec2d40b44ea05dc09fc264ae0f11abb109d"
+    }
+  ]
+}

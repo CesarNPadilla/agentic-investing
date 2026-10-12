@@ -1,0 +1,20 @@
+{
+  "schema_version": "webull-cash-page-acquisition-v1",
+  "page_sha256": [
+    "8fe32e407a1038ee38753b70e5374b3a46d6ae9d5f16cd5b73c53abaca8f5ed0"
+  ],
+  "pages_read": 1,
+  "returned_records": 0,
+  "currently_returned_pages_exhausted": true,
+  "requested_window": "PROVIDER_DEFAULT_LAST_7_DAYS",
+  "external_flow_total": null,
+  "blockers": [
+    "ACTIVITY_PUBLICATION_UNQUALIFIED",
+    "ACTIVITY_EFFECTIVE_TIME_UNQUALIFIED",
+    "ACCOUNT_ASOF_UNQUALIFIED"
+  ],
+  "execution_available": false,
+  "trial_started": false,
+  "selected_cash_binding_reverified": true,
+  "surrounding_observed_balances_equal": true
+}

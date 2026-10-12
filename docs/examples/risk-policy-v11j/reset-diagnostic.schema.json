@@ -1,0 +1,40 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "synthetic_reset_preconditions_passed": {
+      "title": "Synthetic Reset Preconditions Passed",
+      "type": "boolean"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "reset_performed": {
+      "const": false,
+      "default": false,
+      "title": "Reset Performed",
+      "type": "boolean"
+    },
+    "human_authentication_production_verified": {
+      "const": false,
+      "default": false,
+      "title": "Human Authentication Production Verified",
+      "type": "boolean"
+    },
+    "execution_available": {
+      "const": false,
+      "default": false,
+      "title": "Execution Available",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "synthetic_reset_preconditions_passed",
+    "reason_codes"
+  ],
+  "title": "ResetDiagnostic",
+  "type": "object"
+}

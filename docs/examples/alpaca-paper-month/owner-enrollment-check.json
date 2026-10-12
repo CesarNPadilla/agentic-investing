@@ -1,0 +1,16 @@
+{
+  "schema_version": "owner-enrollment-check-v1",
+  "checked_at_utc": "2026-10-06T12:49:37.888561+00:00",
+  "owner_reply_verbatim": "Done, please proceed",
+  "credential_present": true,
+  "actual_enrollment_timestamp_utc": "2026-10-06T12:48:05.315824+00:00",
+  "credential_file_sha256": "b16cd23aa4b03c324f3207e9df2b4ae927a300216ef0ad227543a36c60b4a4bf",
+  "identity_independently_verified": false,
+  "previous_authentication_test_durable_evidence_available": false,
+  "external_reset_qualified": false,
+  "unfinished_journal_count": 1,
+  "unfinished_journal_sha256": "2179d1e4a3feaaef52313a0b67571dd1ac8647f5a33ff578ba084e9b7f339120",
+  "latch_preserved": true,
+  "execution_available": false,
+  "trial_started": false
+}

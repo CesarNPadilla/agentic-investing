@@ -1,0 +1,16 @@
+{
+  "schema_version": "webull-bound-cash-adapter-qualification-v1",
+  "selected_tests_passed": 339,
+  "actual_bound_observation_completed": true,
+  "accounting_asof_qualified": false,
+  "midnight_baseline_qualified": false,
+  "injected_transport_independently_attested": false,
+  "execution_available": false,
+  "trial_started": false,
+  "source_digests": {
+    "integrations/brokers/webull_cash_evidence.py": "11d9f38d0db7efa287ac34ba4fde3ee15de90fc8dcc4058f90ea819cbbd58a3a",
+    "tests/test_webull_cash_evidence.py": "1e0d33bf47668549702773bb3bfc564eb466098511178fa8e3b7c114ba235c1a",
+    "docs/webull-bound-cash-observer.md": "95650676ef1568b5c55543dd4121dd3d12bd2cad2c1492e8b0c0c4df99fa1a16",
+    "docs/examples/webull-sandbox/bound-cash-observation.json": "dbe071f71fe59d3407c3a47f99241c9c109548f247e4702d2490fc98fdce644d"
+  }
+}

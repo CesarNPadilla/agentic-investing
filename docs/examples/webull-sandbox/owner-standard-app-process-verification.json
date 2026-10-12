@@ -1,0 +1,87 @@
+{
+  "schema_version": "owner-standard-app-process-verification-v1",
+  "observed_at_utc": "2026-10-09T15:48:13.501192+00:00",
+  "standard_owner_missing_state_process_percent": 100,
+  "wrapper_receipt_path": "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\owner-standard-process-5a05b9acae5b4eb2802e2b4e15eb05b0\\wrapper-result.json",
+  "wrapper_receipt_sha256": "8049484b1a9429cd440ebc94e3bb2f4876dfa08db1786d18329145047e32692f",
+  "wrapper_receipt": {
+    "schema_version": "owner-standard-app-process-wrapper-v1",
+    "receipt_path": "C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\staging\\owner-app-lifecycle-fa8fb8caaa1d407eaee581c7e7579268\\result.json",
+    "receipt_sha256": "9dadbd73b58a339f0c45fb9a49cf86843fd328162530e9443c0eeecf32b739e3",
+    "launcher_sha256": "861b65e1b1b2e05a6f0102a5489cdc166ed29497877178f0a7b56f015ea0774e",
+    "driver_sha256": "215482c3479ec3fb675656d52594ba6c1bba0a8146b8753e75068a5e712ac0e1",
+    "bootstrap_sha256": "ff769cd86f591313d630e265882f191c000e5dc753be399aa3bcf0b7ba600433",
+    "standard_owner_process_verified": true,
+    "guardian_disabled": true,
+    "runtime_disabled": true,
+    "execution_available": false,
+    "reset_authorized": false,
+    "trial_started": false
+  },
+  "app_receipt": {
+    "observed_at": "2026-10-09T15:47:11.747353+00:00",
+    "scope": "INSTALLED_OWNER_APP_STANDARD_OWNER_TOKEN_MISSING_STATE_FORCED_PROCESS_SHUTDOWN",
+    "checks": [
+      {
+        "case": "page",
+        "status": 200
+      },
+      {
+        "case": "javascript",
+        "status": 200
+      },
+      {
+        "case": "missing_review",
+        "status": 409
+      },
+      {
+        "case": "missing_begin",
+        "status": 409
+      },
+      {
+        "case": "no_challenge",
+        "status": 403
+      },
+      {
+        "case": "wrong_host",
+        "status": 403
+      },
+      {
+        "case": "wrong_origin",
+        "status": 403
+      },
+      {
+        "case": "absent_origin",
+        "status": 403
+      },
+      {
+        "case": "no_openapi",
+        "status": 404
+      },
+      {
+        "case": "no_docs",
+        "status": 404
+      }
+    ],
+    "private_state_created": false,
+    "listener_closed": true,
+    "standard_owner_token_qualified": true,
+    "graceful_shutdown_qualified": false,
+    "guardian_integration_qualified": false,
+    "execution_available": false,
+    "reset_authorized": false,
+    "trial_started": false,
+    "script_sha256": "215482c3479ec3fb675656d52594ba6c1bba0a8146b8753e75068a5e712ac0e1"
+  },
+  "launcher_helper_sha256": "e21b0558a566f3ad5868407f8de923ce6264e1cd6f622f59e12e2d848e81ae86",
+  "private_state_created": false,
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "guardian_reply_standard_owner_qualified": false,
+  "graceful_shutdown_qualified": false,
+  "service_deployed": false,
+  "execution_available": false,
+  "reset_authorized": false,
+  "trial_started": false,
+  "trial_launch_percent": 0
+}

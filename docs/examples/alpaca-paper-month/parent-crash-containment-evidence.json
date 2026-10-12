@@ -1,0 +1,22 @@
+{
+  "schema_version": "paper-parent-crash-containment-v1",
+  "checked_at_utc": "2026-10-06T14:38:27.959324+00:00",
+  "source_digests": {
+    "workers/windows_child_job.py": "05c8f2b77c88d5bada157567d6d802dbc32782b476ff7dd1c8d21535f58091b3",
+    "workers/paper_startup_gate.py": "360dbfe0151747c27472e6cbf993f146b2722bdba222ea1b3988f040bbb0d4ef",
+    "workers/paper_event_process_supervisor.py": "0af070dbd03d851adfbc5e33c459f7b5d6deaddbbd96d79f2cc1dc870598c6ab",
+    "scripts/observe_paper_events.py": "e2c57e98e46ba21cf4dfeec35fc10d1e221500d522a1e519b8d73e3ad64a8318",
+    "tests/test_paper_parent_crash.py": "dba266233e062486cba8a1585b59a3259ccf033d4fb7b39c60cc3bcca9e535e8",
+    "docs/alpaca-paper-parent-crash-containment.md": "20bb5151b74afd050987fc1c47af7bfdaef6a54cd411e78845435e2ea3fbc9af"
+  },
+  "selected_tests_passed": 299,
+  "actual_parent_death_child_termination_test": "PASS",
+  "actual_assignment_failure_test": "PASS",
+  "actual_dedicated_account_monitor_completed": true,
+  "actual_monitor_checks_completed": 3,
+  "private_gate_files_remaining": 0,
+  "persistent_service_qualified": false,
+  "risk_latches_preserved": true,
+  "execution_available": false,
+  "trial_started": false
+}

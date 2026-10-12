@@ -1,0 +1,27 @@
+{
+  "schema_version": "guardian-standard-reply-preparation-v1",
+  "observed_at_utc": "2026-10-09T15:49:02.537267+00:00",
+  "preparation_percent": 100,
+  "actual_standard_owner_reply_percent": 0,
+  "standard_owner_missing_state_app_percent": 100,
+  "elevated_owner_reply_percent": 100,
+  "powershell_syntax_passed": true,
+  "protected_fixture_source_snapshot_passed": true,
+  "protected_interpreter_probe_import_passed": true,
+  "shared_primary_token_launcher_actual_process_passed": true,
+  "next_required_input": "EXISTING_GUARDIAN_PASSWORD_AT_LOCAL_SECURE_PROMPT",
+  "source_digests": {
+    "scripts/test_webull_guardian_exchange.ps1": "19313dde2ca0d4b54198f1dcab93d087aae67ff7cd56f1d831cfdfbe143ccaf6",
+    "scripts/probe_webull_guardian_exchange.py": "8259bb266f3f2dd2a6d313d5a0240347171631b4072788cf50c878e96f837fd3",
+    "scripts/webull_standard_owner_process.ps1": "e21b0558a566f3ad5868407f8de923ce6264e1cd6f622f59e12e2d848e81ae86",
+    "scripts/test_webull_owner_app_standard_process.ps1": "861b65e1b1b2e05a6f0102a5489cdc166ed29497877178f0a7b56f015ea0774e",
+    "scripts/check_webull_owner_app_lifecycle.py": "215482c3479ec3fb675656d52594ba6c1bba0a8146b8753e75068a5e712ac0e1",
+    "docs/webull-guardian-review-integration.md": "f2663de07b2b78c7209782835b764c23564fefbd264dcbd041971f9d370663f9"
+  },
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "execution_available": false,
+  "reset_authorized": false,
+  "trial_started": false,
+  "trial_launch_percent": 0
+}

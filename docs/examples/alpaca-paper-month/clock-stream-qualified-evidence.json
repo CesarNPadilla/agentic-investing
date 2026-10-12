@@ -1,0 +1,25 @@
+{
+  "schema_version": "paper-clock-stream-qualified-evidence-v1",
+  "observed_at": "2026-10-05T17:46:28.971115+00:00",
+  "clock": {
+    "checks_passed": true,
+    "blockers": [],
+    "reported_error_bound_seconds": "0.3668512",
+    "execution_available": false
+  },
+  "stream": {
+    "authenticated": true,
+    "status_subscription_acknowledged": true,
+    "initial_status_verified": false,
+    "transport_probe_responses": 3,
+    "transport_probe_verified": true,
+    "execution_available": false,
+    "blockers": [
+      "INITIAL_STATUS_BOOTSTRAP_UNVERIFIED",
+      "CONTINUOUS_STREAM_HEALTH_UNQUALIFIED"
+    ]
+  },
+  "order_mutations": 0,
+  "trial_started": false,
+  "execution_available": false
+}

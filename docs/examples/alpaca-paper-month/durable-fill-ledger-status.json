@@ -1,0 +1,31 @@
+{
+  "schema_version": "paper-durable-fill-ledger-v1",
+  "status": "DURABLE_FILL_REPLAY_TESTED_EXECUTION_BLOCKED",
+  "private_ledger_initialized": true,
+  "real_activity_import_succeeded": true,
+  "real_fills_observed": 0,
+  "new_tests": 6,
+  "targeted_tests_passed": 100,
+  "fees_flows_reconciled": false,
+  "settlement_verified": false,
+  "execution_available": false,
+  "trial_started": false,
+  "source_references": [
+    {
+      "path": "portfolio/paper_fill_ledger.py",
+      "sha256": "109364bafd86381d81c57ebd78b7759eab193346afb523cf48d5917dcb660d77"
+    },
+    {
+      "path": "scripts/reconcile_alpaca_paper_fills.py",
+      "sha256": "1f7858a8fc29f3104d5dd8a9de3d467e3e83e38dfed8f95bfc993df05b96da24"
+    },
+    {
+      "path": "tests/test_paper_fill_ledger.py",
+      "sha256": "0fba52277d8b0d7dc91447c7ec0d079f381e5c86adb3baa7f1f8f586d0d3f73d"
+    },
+    {
+      "path": "risk/paper_state.py",
+      "sha256": "e89d45a7edc467b25001778444ff5c00f2b1f08d690bdbe0feea1fb2faf00cc1"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "windows-runtime-boundary-decision-v1",
+  "provenance": {
+    "source": "Current owner message",
+    "exact_text": "a dedicated non-admin Windows runtime account"
+  },
+  "chosen_boundary": "DEDICATED_LOCAL_NON_ADMIN_RUNTIME_ACCOUNT",
+  "proposed_account_name": "AgenticPaperRuntime",
+  "observed_account_exists": false,
+  "engineering_process_elevated": false,
+  "provisioning_executed": false,
+  "planned_creation_state": "DISABLED",
+  "isolation_qualified": false,
+  "execution_available": false,
+  "trial_started": false,
+  "source_digests": {
+    "scripts/prepare_paper_runtime_account.ps1": "217be2292eccca1c05fdc3480d4c58d560ede188d781754ceb510fe4a81b0585",
+    "docs/webull-windows-runtime-boundary.md": "0ace40f187d23a042c9b4e6078d64e5affd73480417c562ea49c2c9100197c7e"
+  },
+  "provisioning_script_correction": {
+    "reason": "Description exceeded New-LocalUser 48-character limit",
+    "corrected_description_length": 33,
+    "account_created_by_failed_attempt": false,
+    "description_limit_validated_against_installed_cmdlet": true
+  }
+}

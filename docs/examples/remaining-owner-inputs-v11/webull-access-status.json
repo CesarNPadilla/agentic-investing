@@ -1,0 +1,16 @@
+{
+  "schema_version": "webull-access-status-v1",
+  "provenance": {
+    "source": "explicit user response in current conversation",
+    "instruction_verbatim": "Not enabled yet, can I use Alpaca or FMP already setup here?",
+    "decision_timestamp": null
+  },
+  "webull_openapi_and_realtime_access_confirmed": false,
+  "status": "USER_REPORTS_NOT_ENABLED",
+  "alternative_quote_source_selected": null,
+  "alternatives_under_review": [
+    "Alpaca",
+    "FMP"
+  ],
+  "execution_available": false
+}

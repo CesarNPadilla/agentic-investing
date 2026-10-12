@@ -1,0 +1,19 @@
+{
+  "schema_version": "runtime-token-test-preparation-v1",
+  "syntax_validated": true,
+  "actual_runtime_test_executed": false,
+  "requires_owner_local_credential_entry": true,
+  "temporary_enablement_scope": "BOUNDED_DUMMY_FILE_TEST_ONLY",
+  "broker_calls": 0,
+  "execution_available": false,
+  "trial_started": false,
+  "source_digests": {
+    "scripts/test_paper_runtime_access.ps1": "0e655fc231670a6564668d5ed7fbb381bcb279efb8841106d68b75225ac86a09",
+    "docs/webull-runtime-acl-plan.md": "b881f8d7381c4951d243223e92ff2fad3377cdfcd71204556f9ee5e7bb3be67a"
+  },
+  "latest_attempt": "OWNER_REPORTED_CHILD_EXIT_FAILURE_NO_RESULT_RETAINED",
+  "account_disabled_after_failed_attempt_verified": true,
+  "failure_cause": "NOT_ESTABLISHED",
+  "diagnostic_update": "CAPTURE_CHILD_STDERR_STDOUT_AND_PROCESS_ONLY_POLICY_FOR_FIXED_PROBE",
+  "superseded_by_scoped_actual_evidence": "docs/examples/webull-sandbox/runtime-access-verification.json"
+}

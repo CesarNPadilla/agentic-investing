@@ -1,0 +1,208 @@
+{
+  "schema_version": "remaining-owner-inputs-v11-v6",
+  "status": "ACCOUNT_LIMITS_DAY_AND_EXISTING_BREACH_RULE_RECORDED_OTHER_INPUTS_REQUIRED",
+  "approval_responses_modified": false,
+  "source_references": [
+    {
+      "path": "docs/examples/risk-policy-v103/decision-register.json",
+      "sha256": "e0b25acd22a913082d88b959677f586849b49d32750ecc0635e5262a9da85f87"
+    },
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/input-register.json",
+      "sha256": "02a8dfbe50982b0e7e81efd7e2d3608869f9b4c3c9d7f7ab1d92e61710cccb06"
+    },
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/whole-account-dollar-stop.json",
+      "sha256": "f46e2f62619b1f276868edfe7b21c6a8d7c61864983aa57f67be607cb246c0a3"
+    },
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/input-register-v2.json",
+      "sha256": "06490591c681cf3f6434a311d364c4e98204dc6b0fe58c42b2d210649ed1fdf2"
+    },
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/whole-account-percentage-limits.json",
+      "sha256": "31b71de74cb55592d509f4880d634ef3c3156b4ecbeb9abcbfabc376f0059933"
+    },
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/input-register-v3.json",
+      "sha256": "d3964ebfe1eccd4deb194399773782b8f6935f0b64d0824239e08587afe958a3"
+    },
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/security-concentration-limit.json",
+      "sha256": "36eb674313e288925f192f4370de35521ead2baf4d62cfe47d8affcdef7474c6"
+    },
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/input-register-v4.json",
+      "sha256": "3968bbc736bdf0ed15019879e8ed9db3c5871b680f019dc21912dcb275a9be95"
+    },
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/denominator-timing-confirmation.json",
+      "sha256": "92ab011217a5a7edc0a0621fbfbff5096c8104b534e983821480f4054bceae89"
+    },
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/input-register-v5.json",
+      "sha256": "98e406cadee5b49e16d157e59daa9de59fcb9585ce3ff32cb6f6f0d0024daf27"
+    },
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/account-day-and-existing-breach.json",
+      "sha256": "b507a695085d4befb6a5b5b0af60eeb2f99e1b9c393b1a6e080404cbdf0b3ba8"
+    }
+  ],
+  "items": [
+    {
+      "stable_id": "PROD-ACCOUNT-DAILY-LOSS",
+      "recorded_human_decision": "APPROVE_AS_PROPOSED",
+      "approved_proposal_text": "No numerical threshold proposed; decide amount and approval method",
+      "concrete_response": {
+        "fraction": "0.01",
+        "display_value": "1%",
+        "denominator": "total account equity",
+        "supersedes_usd_1_stop": true,
+        "denominator_evaluation_time": "start_of_day",
+        "active": false,
+        "remaining_method_blocker": "PROD-ACCOUNT-DAILY-METHOD"
+      },
+      "blocking_dependency": "Account-wide flow-adjusted equity, timezone, marks, reconciliation and human threshold"
+    },
+    {
+      "stable_id": "PROD-ACCOUNT-DAILY-METHOD",
+      "recorded_human_decision": "APPROVE_AS_PROPOSED",
+      "approved_proposal_text": "Realized plus unrealized net fees; remove deposits/withdrawals; select timezone, start equity, frequency and reset",
+      "concrete_response": {
+        "timezone": "America/New_York",
+        "day_boundary": "local calendar midnight",
+        "check_frequency": null,
+        "reset_procedure": null,
+        "active": false
+      },
+      "blocking_dependency": "Trusted account data and owner-approved methodology"
+    },
+    {
+      "stable_id": "PROD-GROSS-EXPOSURE",
+      "recorded_human_decision": "APPROVE_AS_PROPOSED",
+      "approved_proposal_text": "Choose limit and account-equity or other explicit denominator",
+      "concrete_response": {
+        "fraction": "1.00",
+        "display_value": "100%",
+        "denominator": "total account equity",
+        "denominator_evaluation_time": "current_snapshot",
+        "active": false
+      },
+      "blocking_dependency": "Complete whole-portfolio positions, prices and pending orders"
+    },
+    {
+      "stable_id": "PROD-SECURITY-CONCENTRATION",
+      "recorded_human_decision": "APPROVE_AS_PROPOSED",
+      "approved_proposal_text": "Choose limit, denominator and new-buy treatment for existing breaches",
+      "concrete_response": {
+        "fraction": "0.10",
+        "display_value": "10%",
+        "denominator": "total account equity",
+        "denominator_evaluation_time": "current_snapshot",
+        "existing_breach_new_buy_rule": "Retain/report existing holdings; block additional buys in the breached security; require human review; no automatic liquidation",
+        "active": false
+      },
+      "blocking_dependency": "Whole-portfolio inventory and owner rule"
+    },
+    {
+      "stable_id": "PROD-SECTOR-CORRELATION",
+      "recorded_human_decision": "APPROVE_AS_PROPOSED",
+      "approved_proposal_text": "Choose sector taxonomy, correlation method and thresholds or defer with blocker",
+      "concrete_response": null,
+      "blocking_dependency": "Reliable classification, lookback and owner rule"
+    },
+    {
+      "stable_id": "PROD-EXISTING-HOLDINGS",
+      "recorded_human_decision": "APPROVE_AS_PROPOSED",
+      "approved_proposal_text": "Report all holdings; no auto-liquidation; decide new-buy restrictions on breaches",
+      "concrete_response": {
+        "rule": "Retain/report existing holdings; block additional buys in the breached security; require human review; no automatic liquidation",
+        "active": false
+      },
+      "blocking_dependency": "Whole-portfolio policy and reconciliation"
+    },
+    {
+      "stable_id": "OPS-QUOTE-SOURCE",
+      "recorded_human_decision": "APPROVE_AS_PROPOSED",
+      "approved_proposal_text": "Select entitled source with event/receipt time, bid/ask, status and provenance",
+      "concrete_response": null,
+      "blocking_dependency": "Trusted quote qualification"
+    },
+    {
+      "stable_id": "OPS-SNAPSHOT-SOURCE",
+      "recorded_human_decision": "APPROVE_AS_PROPOSED",
+      "approved_proposal_text": "Select complete coherent account/position/order/transaction source",
+      "concrete_response": null,
+      "blocking_dependency": "Read-side reconciliation qualification"
+    },
+    {
+      "stable_id": "OPS-SESSION-CALENDAR",
+      "recorded_human_decision": "APPROVE_AS_PROPOSED",
+      "approved_proposal_text": "Select versioned NY exchange calendar including holiday and early close",
+      "concrete_response": null,
+      "blocking_dependency": "Calendar and broker capability qualification"
+    },
+    {
+      "stable_id": "OPS-CLOCK",
+      "recorded_human_decision": "APPROVE_AS_PROPOSED",
+      "approved_proposal_text": "Approve UTC sync, skew detection and audit",
+      "concrete_response": null,
+      "blocking_dependency": "Trusted clock monitoring"
+    },
+    {
+      "stable_id": "OPS-ROLES",
+      "recorded_human_decision": "APPROVE_AS_PROPOSED",
+      "approved_proposal_text": "Designate policy owner, risk reviewer, implementation owner, deployment approver and live approver",
+      "concrete_response": null,
+      "blocking_dependency": "Human identities and separation audit"
+    },
+    {
+      "stable_id": "OPS-KILL-OWNER",
+      "recorded_human_decision": "APPROVE_AS_PROPOSED",
+      "approved_proposal_text": "Designate authenticated human role; never LLM",
+      "concrete_response": null,
+      "blocking_dependency": "Role assignment and audit"
+    },
+    {
+      "stable_id": "OPS-OUTAGE",
+      "recorded_human_decision": "APPROVE_AS_PROPOSED",
+      "approved_proposal_text": "Immediately block new entries; persistent latch decision unresolved",
+      "concrete_response": null,
+      "blocking_dependency": "Data-halt versus global latch policy"
+    },
+    {
+      "stable_id": "OPS-EXCEPTIONS",
+      "recorded_human_decision": "APPROVE_AS_PROPOSED",
+      "approved_proposal_text": "No executable exception path; decide whether any scoped mechanism allowed",
+      "concrete_response": null,
+      "blocking_dependency": "Owner and reviewer decision"
+    },
+    {
+      "stable_id": "PROD-EXCEPTIONS",
+      "recorded_human_decision": "APPROVE_AS_PROPOSED",
+      "approved_proposal_text": "No exception path unless separately approved; hard stops and missing evidence nonwaivable",
+      "concrete_response": null,
+      "blocking_dependency": "Policy hierarchy and authorized exception roles"
+    },
+    {
+      "stable_id": "CAP-B",
+      "recorded_human_decision": "APPROVE_AS_PROPOSED",
+      "approved_proposal_text": "Owner-reviewed $1,000 funded sleeve baseline; no funding assumed",
+      "concrete_response": null,
+      "blocking_dependency": "Actual deposit evidence and attribution inventory"
+    },
+    {
+      "stable_id": "CAP-C",
+      "recorded_human_decision": "APPROVE_AS_PROPOSED",
+      "approved_proposal_text": "Separate environment-specific execution authorization; no current authorization",
+      "concrete_response": null,
+      "blocking_dependency": "CAP-A, CAP-B, approved controls, environment qualification and separate human authorization"
+    }
+  ],
+  "approver_identity": null,
+  "decision_timestamp": null,
+  "configured_research_cap_usd": "1000",
+  "funding_confirmed": false,
+  "execution_available": false,
+  "v11_complete": false
+}

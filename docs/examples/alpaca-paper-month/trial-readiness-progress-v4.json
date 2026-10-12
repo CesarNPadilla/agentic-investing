@@ -1,0 +1,116 @@
+{
+  "schema_version": "paper-trial-readiness-progress-v4",
+  "assessment_date": "2026-10-05",
+  "method": "Equal-weight acceptance checklist; curated evidence snapshot, not effort or execution authorization",
+  "completed_criteria": 22,
+  "required_criteria": 36,
+  "overall_percent": 61,
+  "steps": [
+    {
+      "step": "Account and baseline",
+      "completed": 4,
+      "required": 4,
+      "percent": 100
+    },
+    {
+      "step": "Plumbing strategy",
+      "completed": 4,
+      "required": 4,
+      "percent": 100
+    },
+    {
+      "step": "Quotes and calendar",
+      "completed": 3,
+      "required": 4,
+      "percent": 75
+    },
+    {
+      "step": "Status and clock",
+      "completed": 2,
+      "required": 4,
+      "percent": 50
+    },
+    {
+      "step": "Reconciliation and settlement",
+      "completed": 3,
+      "required": 4,
+      "percent": 75
+    },
+    {
+      "step": "Loss stops and resets",
+      "completed": 2,
+      "required": 4,
+      "percent": 50
+    },
+    {
+      "step": "Paper order lifecycle",
+      "completed": 3,
+      "required": 4,
+      "percent": 75
+    },
+    {
+      "step": "Continuous runner",
+      "completed": 1,
+      "required": 4,
+      "percent": 25
+    },
+    {
+      "step": "Trial launch",
+      "completed": 0,
+      "required": 4,
+      "percent": 0
+    }
+  ],
+  "real_status_probe": {
+    "authenticated": true,
+    "status_subscription_acknowledged": true,
+    "initial_status_verified": false,
+    "continuous_health_verified": false
+  },
+  "targeted_tests_passed": 156,
+  "trial_started": false,
+  "execution_available": false,
+  "live_authorized": false,
+  "source_references": [
+    {
+      "path": "docs/examples/alpaca-paper-month/trial-readiness-progress-v3.json",
+      "sha256": "53e99fc6bae2d5238fa89611601e7bbb299b4052c268262de820e9425a688428"
+    },
+    {
+      "path": "strategies/paper_plumbing_roundtrip.py",
+      "sha256": "ead76624c81b3093ba718657ac4b184b509dd1b5b1041dbf45a71f196300c600"
+    },
+    {
+      "path": "strategies/paper_plumbing_state.py",
+      "sha256": "62194075acaa9c16c64f014980d743e0414ddf29b29bf3e846639da51762815f"
+    },
+    {
+      "path": "workers/paper_plumbing_fixture.py",
+      "sha256": "fb2777d9857b1b1c0616130acba51511fbb9c9cfcad14017cf92af5e163cda23"
+    },
+    {
+      "path": "tests/test_paper_plumbing_fixture.py",
+      "sha256": "911fb18282562adaf4ce6db0ff0daac2c122b2974c20c85497637f039fa12dd0"
+    },
+    {
+      "path": "docs/alpaca-paper-plumbing-qualification.md",
+      "sha256": "30864f038f1bc6aa97c62e3c1bc2458d1f8d2e985e7d0bb244b18db28753457b"
+    }
+  ],
+  "new_accepted_criteria": [
+    "Frozen plumbing entry/owned exit/daily re-entry sequence integrated with durable claims and fill-backed order reservations in fixtures"
+  ],
+  "paper_order_lifecycle_limits": [
+    "Real mutations blocked",
+    "Full integrated runner recovery/broker acceptance still pending",
+    "Buy consumed costs remain retained; no sleeve rebasing on sales inferred"
+  ],
+  "integrated_observer": {
+    "real_cycles_completed": 2,
+    "account_cash_and_positions_matched": true,
+    "status_clock_cutoff_baseline_and_reset_blockers_preserved": true,
+    "order_mutations": 0,
+    "trial_started": false
+  },
+  "qualification_scope": "Mock transport only; no real broker orders or continuous runner acceptance"
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": "paper-clock-policy-decision-v1",
+  "decision": "APPROVED",
+  "scope": "ALPACA_PAPER_PLUMBING_TRIAL_ONLY",
+  "source_hostname": "time.windows.com",
+  "max_reported_error_seconds": 1,
+  "provenance": {
+    "type": "EXPLICIT_USER_QUESTION_REPLY",
+    "question_item_id": "[\"request_user_input_async\",\"call_4p7iVzAdHacEgOk0KRnLuRSr\",0]",
+    "question": "The clock policy is still unspecified. Should the paper trial require Windows Time using time.windows.com with a maximum reported error bound of 1 second? The last recorded bound was about 8.49 seconds, so this choice would require improving synchronization before launch; it would not authorize trading immediately.",
+    "answer": "Use the 1-second bound; fix synchronization before launch"
+  },
+  "implementation_note": "Windows Time currently reports the configured source as time.windows.com,0x9. The suffix is its existing peer mode, not a different hostname. No time-source change is approved by this record.",
+  "launch_authorized_by_this_decision": false,
+  "execution_available": false
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": "webull-synthetic-reset-review-qualification-v1",
+  "selected_tests_passed": 467,
+  "targeted_reset_review_tests_passed": 22,
+  "evidence_class": "SYNTHETIC_ONLY",
+  "scenarios": {
+    "complete_synthetic_prerequisites": {
+      "schema_version": "webull-synthetic-reset-review-v1",
+      "synthetic_preconditions_passed": true,
+      "reason_codes": [],
+      "production_owner_approval_verified": false,
+      "approval_consumed": false,
+      "controller_admitted": false,
+      "reset_performed": false,
+      "execution_available": false,
+      "trial_started": false
+    },
+    "provider_unknown_even_with_synthetic_approval": {
+      "schema_version": "webull-synthetic-reset-review-v1",
+      "synthetic_preconditions_passed": false,
+      "reason_codes": [
+        "PROVIDER_SOURCE_CONTRACTS_UNQUALIFIED"
+      ],
+      "production_owner_approval_verified": false,
+      "approval_consumed": false,
+      "controller_admitted": false,
+      "reset_performed": false,
+      "execution_available": false,
+      "trial_started": false
+    }
+  },
+  "implementation_verification_steps_complete": 2,
+  "implementation_verification_steps_total": 2,
+  "implementation_verification_batch_percent": 100,
+  "production_owner_signature_verified": false,
+  "durable_approval_consumption_qualified": false,
+  "protected_controller_deployed": false,
+  "executable_risk_policy_modified": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "trial_launch_percent": 0,
+  "source_digests": {
+    "security/webull_reset_review.py": "8f6fb0cbe2836c72cb716387d9b876359e154e137427bb79d96dfd6341635300",
+    "tests/test_webull_reset_review.py": "2f062bc2520645ce710604cd2ab16a4ff02019a5756daa0ce0f37a2a0efcd0a3",
+    "security/webull_control_request.py": "9f1c067ecb5e74b8d8a2d0c295db8dd0a8d34da8682cf7e7a262f4752b00a29c",
+    "risk/operations_v11.py": "9a4ea7800faa867d0fc4c08057567184b03ca92f7ee4bb7a1680b8b36146bbc5",
+    "risk/sleeve_v11.py": "83d77bab8a5e4a5d25572cd09ade23d4707572f304986d44cd59066fcf6324db",
+    "market_data/nyse_calendar.py": "ac10a5799ab40740b775758d158ef0798ad0c92250da79da54800e1936769b3e",
+    "conf/nyse-calendar-2026.json": "08d9e98ff42eb234e3cee842ef4fa3458d233a1a9558e33ea350d3edc7b33b62",
+    "docs/webull-reset-review-prerequisites.md": "9b9bb526920c198059e38bf57ef63f6d8c9341a09870dec10b206d979fb28473",
+    "docs/webull-control-request-boundary.md": "dd9256c1beae6660410179f4a143a5312ac7b164b972514dd5ced16f00b243d3",
+    "docs/webull-trial-current-status.md": "d772b7a6258b7de91e475bbe1518a2e57a50655adac6e5def1b4e416625211b1"
+  }
+}

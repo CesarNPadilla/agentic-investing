@@ -1,0 +1,14 @@
+{
+  "schema_version": "owner-real-verification-evidence-v1",
+  "source_digests": {
+    "docs/examples/alpaca-paper-month/owner-real-verification.json": "2866a19e8278a0d2fd4e397de6a08c84bcea042f5d0d2c220911ce03c52f4fe3",
+    "docs/examples/alpaca-paper-month/etf-regular-session-quote.json": "da0d4bf0bbc3a14bd235f30e548e628c9b7e33ffb9f111e346150c8deed8909c",
+    "docs/alpaca-paper-owner-enrollment-check.md": "e902a30ef01be02160b414d110fc1e098d0c7675e6357f3255bd336f21f8baa8",
+    "docs/alpaca-paper-month.md": "295f76be39f6810b59f66340464b724a273e8a8e69ff058f5b8c6353174a8290"
+  },
+  "cryptographic_reverification": "PASS",
+  "code_changes": false,
+  "reset_authorized": false,
+  "execution_available": false,
+  "trial_started": false
+}

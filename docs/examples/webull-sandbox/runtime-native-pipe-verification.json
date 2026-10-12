@@ -1,0 +1,38 @@
+{
+  "schema_version": "webull-runtime-native-pipe-verification-v1",
+  "fixture_observed_at_utc": "2026-10-08T18:56:04.562647+00:00",
+  "scope": "SYNTHETIC_NATIVE_OWNER_RUNTIME_PIPE_ONLY",
+  "native_cross_account_registration_qualified": true,
+  "retained_journal_matches_result": true,
+  "retained_request_count": 1,
+  "runtime_identity_binding_matches": true,
+  "retained_client_matches_source": true,
+  "startup_and_owner_gate_verified": true,
+  "client_and_server_stderr_empty": true,
+  "runtime_disabled_verified": true,
+  "process_exit_codes": "OWNER_WRAPPER_REPORTED_SUCCESS_NOT_PERSISTED_IN_RESULT",
+  "native_transport_batch_steps_complete": 3,
+  "native_transport_batch_steps_total": 3,
+  "native_transport_batch_percent": 100,
+  "actual_remote_host_denial_tested": false,
+  "protected_service_deployed": false,
+  "owner_approval_verified": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "trial_launch_percent": 0,
+  "private_evidence_digests": {
+    "C:\\ProgramData\\AgenticInvestingPaper\\Receipts\\native-pipe-result-004b7908827948518bd9e7213a62bf5e.json": "b23ee350a03dfef47743ccdb14e0d0f3b9d7d3b5fc44214e86cb77670bc5934c",
+    "C:\\ProgramData\\AgenticInvestingPaper\\Receipts\\native-pipe-ready-004b7908827948518bd9e7213a62bf5e.json": "1489816aca8ef5ec9dc476127fe1d4be7cd1af06c1b4fb9acdc7dd6421d5f49c",
+    "C:\\ProgramData\\AgenticInvestingPaper\\RiskState\\native-pipe-synthetic-004b7908827948518bd9e7213a62bf5e.sqlite": "3c328305c3d3062e9916f63f7f19de9ce234d757ce6a4fe6164cc39b0a2c2fa0",
+    "C:\\ProgramData\\AgenticInvestingPaper\\Code\\native-pipe-client-004b7908827948518bd9e7213a62bf5e.ps1": "925c2546a8c9e401b7cf8f49d7929ba799ed5dc2bbd8e21d711ebb3de2206967"
+  },
+  "source_digests": {
+    "scripts/test_paper_runtime_native_pipe.ps1": "fa274ee8c285be2eafc517851527cacb7cf082dbb4cd939563140239bd3c111a",
+    "scripts/probe_paper_native_pipe.py": "071a048fb086824b18241ffc601b536637acb981f6c071bccf943f5f600c09d8",
+    "security/windows_local_request_pipe.py": "bc59e4cfca73cb752a4d3c21b8aaec79e5b53719b083b881284935855908bf75",
+    "security/webull_request_journal.py": "9660f33bfa5ba971ea9a8915fc4d4286a6933ce2abfdb68bf8aaf7bd924e3337",
+    "security/webull_pipe_registration.py": "b4491fcf1139d27f5efd93d9ded874b06611f9c68b3aec386e28962275a7e5b1"
+  }
+}

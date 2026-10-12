@@ -1,0 +1,32 @@
+{
+  "schema_version": "webull-activity-observation-store-qualification-v1",
+  "selected_tests_passed": 352,
+  "observation": {
+    "retained_observations": 1,
+    "execution_available": false,
+    "trial_started": false,
+    "external_flow_total": null,
+    "authoritative_ledger": false,
+    "schema_version": "webull-activity-store-observation-v1",
+    "selected_account_revalidated": true,
+    "pages_read": 1,
+    "returned_records": 0,
+    "blockers": [
+      "ACTIVITY_PUBLICATION_UNQUALIFIED",
+      "ACTIVITY_EFFECTIVE_TIME_UNQUALIFIED",
+      "ACCOUNT_ASOF_UNQUALIFIED"
+    ],
+    "independently_anchored": false,
+    "deletion_detection": false
+  },
+  "protected_runtime_deployed": false,
+  "accounting_gate_promoted": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "source_digests": {
+    "portfolio/webull_activity_store.py": "01baea63b92add0b01cafd0585e2994f809752cfba38521762d81c734445dd6b",
+    "tests/test_webull_activity_store.py": "1709df6c71963a4731d5087686905d605c67b9d2deb9a685f2e8a4472c73f577",
+    "docs/webull-activity-observation-store.md": "3f4190bbb23a9b216f06aeb1b742700d57f6318bdafca4bbd8dcac342f5f81a7"
+  }
+}

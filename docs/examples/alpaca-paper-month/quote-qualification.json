@@ -1,0 +1,29 @@
+{
+  "schema_version": "alpaca-paper-quote-qualification-v1",
+  "symbol": "AAPL",
+  "purpose": "read-only provider probe, not strategy selection",
+  "execution_available": false,
+  "runtime_started": false,
+  "read_succeeded": true,
+  "quote_event_time": "2026-10-02T20:00:02.423920+00:00",
+  "quote_received_time": "2026-10-03T15:23:31.072736+00:00",
+  "raw_sha256": "c1b2444b47ce18e99986fe767136d11c4dea484b56d64973e7d31950fb2896f1",
+  "source": "alpaca-iex-best-bid-ask",
+  "bid_ask_valid": true,
+  "market_status": "UNKNOWN",
+  "blockers": [
+    "MARKET_STATUS_UNVERIFIED",
+    "RUNTIME_INTEGRATION_PENDING",
+    "QUOTE_TIME"
+  ],
+  "source_references": [
+    {
+      "path": "market_data/alpaca_evidence.py",
+      "sha256": "80481437217501d3ae10b7803918277ef1cdff0ad774275ce21f936ab2eb7580"
+    },
+    {
+      "path": "tests/test_alpaca_quote_evidence.py",
+      "sha256": "7706da31db7c4af68870bc907ad465ccd718d16cd0451cf80981930f3f1ec7fe"
+    }
+  ]
+}

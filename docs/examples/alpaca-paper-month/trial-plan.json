@@ -1,0 +1,69 @@
+{
+  "schema_version": "alpaca-paper-month-v1",
+  "status": "ACCOUNT_PREFLIGHT_PASSED_CONTROLS_AND_STRATEGY_PENDING",
+  "authorization": {
+    "source": "explicit user instructions in current conversation",
+    "request_verbatim": "Webull API access is here \"C:\\Users\\cesar\\AppData\\Local\\AgenticInvesting\\webull.env\", for for Alpaca let's **run the test at the meantime for a month.** Alpaca's paper account is free, so paper-trade the agent throughout that month.",
+    "scope_clarification_verbatim": "Prepare account and controls first",
+    "decision_timestamp": null,
+    "live_authorized": false
+  },
+  "broker": "Alpaca paper",
+  "endpoint": "https://paper-api.alpaca.markets",
+  "market_data_feed": "iex",
+  "duration": "one calendar month from actual qualified start",
+  "started_at": null,
+  "ends_at": null,
+  "strategy_id": null,
+  "strategy_version": null,
+  "symbols": [],
+  "sleeve_budget_usd": "1000",
+  "account_equity_baseline": null,
+  "funding_is_simulated": true,
+  "controls": {
+    "original_sleeve_policy": "Preserve N01-N10 and their original denominators/trigger/reset semantics",
+    "whole_account_daily_loss_fraction": "0.01",
+    "daily_loss_denominator": "flow-adjusted start-of-day total paper account equity",
+    "gross_exposure_fraction": "1.00",
+    "security_concentration_fraction": "0.10",
+    "exposure_denominator": "current total paper account equity",
+    "timezone": "America/New_York",
+    "calendar": "NYSE published holiday and early-close schedule",
+    "monitoring": "every fill/order plus 1-5 seconds while orders or positions are open",
+    "reset": "next NY trading day, fresh reconciliation, explicit externally authenticated owner approval",
+    "live_endpoint_allowed": false
+  },
+  "required_before_start": [
+    "Frozen strategy/version and allowed symbols",
+    "Dedicated account baseline and sleeve attribution (no account reset assumed)",
+    "Qualified IEX bid/ask/event/receipt/status evidence with documented single-exchange limitation",
+    "NYSE calendar integration and bounded coverage",
+    "Persisted account reconciliation, reservations, loss latches and externally authenticated reset",
+    "Paper-only order adapter with idempotency and uncertain-response reconciliation",
+    "Durable runner, restart recovery, monitoring and scheduled end-of-trial stop",
+    "Validation of integrated controls before first paper order"
+  ],
+  "runtime_started": false,
+  "orders_submitted": 0,
+  "qualifying_forward_sessions": 0,
+  "qualification_requirement_sessions": 60,
+  "month_trial_waives_qualification_requirement": false,
+  "source_references": [
+    {
+      "path": "scripts/check_alpaca_paper.py",
+      "sha256": "d13b3800d56e583430cfb8cce798ba40d10c1fe807cf57da8dc56099793d4163"
+    },
+    {
+      "path": "tests/test_alpaca_paper_preflight.py",
+      "sha256": "f84b1e99ef27a1c7657520e9a34c71c0310cc7de74b04d3afccf43999640c3fc"
+    },
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/input-register-v8.json",
+      "sha256": "e2e8e5c10282c5a2388caa3ca5b3940e1982f705647aa1a1a88ad3e2cbf2c2eb"
+    },
+    {
+      "path": "conf/investment-policy-v03.json",
+      "sha256": "77a02f530540a7d59d61835d0a38466ae49846852585474cc9b9e36a0f0d2fd0"
+    }
+  ]
+}

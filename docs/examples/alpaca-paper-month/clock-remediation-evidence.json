@@ -1,0 +1,43 @@
+{
+  "schema_version": "paper-clock-remediation-evidence-v1",
+  "assessment_date": "2026-10-05",
+  "source": "time.windows.com,0x9",
+  "original_poll_settings": {
+    "MinPollInterval": 10,
+    "MaxPollInterval": 15,
+    "SpecialPollInterval": 16384
+  },
+  "updated_poll_settings": {
+    "MinPollInterval": 6,
+    "MaxPollInterval": 10,
+    "SpecialPollInterval": 64
+  },
+  "configuration_backup_created": true,
+  "service_restarted": true,
+  "resync_succeeded": true,
+  "reported_error_bound_seconds": "7.9569742",
+  "clock_checks_passed": false,
+  "blockers": [
+    "CLOCK_REPORTED_ERROR_BOUND"
+  ],
+  "targeted_tests_passed": 17,
+  "completed_criteria": 22,
+  "required_criteria": 36,
+  "overall_percent": 61,
+  "trial_started": false,
+  "execution_available": false,
+  "source_references": [
+    {
+      "path": "docs/alpaca-paper-clock-remediation.md",
+      "sha256": "54e1d475fef87237a19de9361b010aca810edb7cd85f379463e58eae626ca26e"
+    },
+    {
+      "path": "conf/paper-clock-policy.json",
+      "sha256": "1dc7f841d0fb6be69506b9c3bdc1263da1055fc2dcf0719a96fa0286d2d67f8c"
+    },
+    {
+      "path": "risk/paper_clock.py",
+      "sha256": "06bc5643c5a9f13c7b510a77934b8f1f24c2a862d4479953d6d13cb9d01efb1a"
+    }
+  ]
+}

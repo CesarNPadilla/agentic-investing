@@ -1,0 +1,33 @@
+{
+  "schema_version": "paper-sequence-deadline-evidence-v1",
+  "assessment_date": "2026-10-05",
+  "completed_criteria": 21,
+  "required_criteria": 36,
+  "overall_percent": 58,
+  "targeted_tests_passed": 20,
+  "runtime_integration_verified": false,
+  "trial_started": false,
+  "execution_available": false,
+  "source_references": [
+    {
+      "path": "strategies/paper_plumbing_roundtrip.py",
+      "sha256": "ead76624c81b3093ba718657ac4b184b509dd1b5b1041dbf45a71f196300c600"
+    },
+    {
+      "path": "workers/paper_observation_deadline.py",
+      "sha256": "7ff47fb9c8fd3c83fbce7cee087c3bf46ea708ae3ca7c0a59a99095199443c3b"
+    },
+    {
+      "path": "tests/test_paper_plumbing_roundtrip.py",
+      "sha256": "cf023c4458bde41625a875f57cdddd38bd7089a5e7f79c3dee5bd4539abc9a7b"
+    },
+    {
+      "path": "tests/test_paper_observation_deadline.py",
+      "sha256": "8f55dcdd80c1357de3848354d68b1b48d53e324893394d885791a579f874cafb"
+    },
+    {
+      "path": "docs/alpaca-paper-sequence-deadlines.md",
+      "sha256": "16116aeb0480cc69e6a74b720b8dd0476e553fecda4ba73b95613fdbcb64efda"
+    }
+  ]
+}

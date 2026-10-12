@@ -1,0 +1,13 @@
+# Paper fee/flow classification and cash comparison
+
+Implemented pure reconciliation of documented FEE, CSD and CSW net cash effects against the durable trade ledger. [Alpaca activity documentation](https://docs.alpaca.markets/us/v1.4.2/docs/account-activities) distinguishes USD fees, positive deposits and negative withdrawals. Finite amounts and consistent signs are required; fees affect cash/P&L, deposits/withdrawals are separately reported as external flows. Other activity types remain unmapped and block. This derived comparison does not mutate ledger cash, erase unknown-activity latches, certify complete publication or authorize execution.
+
+Mapping requires event dates within the opening baseline and activity acquisition cutoff. Date-only events on the intraday bootstrap or cutoff day are ambiguous and remain unapplied. Fully aware timestamps are required for precise intraday attribution. No exact deposit/fee timestamp is invented from a date. Existing historical activity mapping is unchanged.
+
+Account comparison binds the account digest, checks bracket stability/block flags, snapshot freshness, ledger cutoff alignment and derived cash. Empty position inventories compare with an empty ledger; nonempty inventories remain blocked pending complete quantity evidence. Cash balance or buying power is not settled cash. Publication completeness and settled cash always remain unverified; a positive equality result is an observed match, not full reconciliation qualification.
+
+A fresh real private-ledger acquisition succeeded with zero activities. Current paper cash and empty positions match the ledger. The separate activity and snapshot reads have a cutoff gap, which remains explicitly blocked along with publication completeness and settlement. This observed equality clears no runtime gate. No raw account/credential data or order operation occurred.
+
+Validation: 8 new cash tests and 100 prior targeted tests pass (108 total). Tests cover fee/deposit/withdrawal scope, contradictory signs/nonfinite effects, ambiguous day boundaries, unknown activities, cash mismatch, nonempty inventory, stale snapshots and acquisition gaps. Ruff checks, [status JSON](examples/alpaca-paper-month/cash-reconciliation-status.json), source digests and git diff --check pass.
+
+Next: coherent account/activity/position quantity reconciliation with late-publication handling, explicit paper settlement evidence, durable actual loss monitoring, clock/status/reset integration and order lifecycle/runner scheduling. The month-long plumbing trial remains unstarted and live execution remains disabled.

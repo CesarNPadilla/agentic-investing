@@ -1,0 +1,28 @@
+{
+  "schema_version": "whole-account-dollar-stop-owner-input-v1",
+  "stable_id": "PROD-ACCOUNT-DAILY-LOSS",
+  "amount": "1",
+  "currency": "USD",
+  "scope": "Whole account, including non-sleeve holdings; distinct from sleeve daily loss",
+  "status": "OWNER_AMOUNT_RECORDED_METHOD_AND_ACTIVATION_BLOCKED",
+  "confirmation_context": {
+    "assistant_prompt": "Please confirm explicitly: **?Set the whole-account daily-loss stop to $1?** if that is the amount you intend. Your ?yes? could refer to either option.",
+    "user_reply": "yes",
+    "interpretation": "Latest yes is assent to the immediately preceding explicit $1 proposition; earlier ambiguous responses alone were not used."
+  },
+  "approver_identity": null,
+  "decision_timestamp": null,
+  "active": false,
+  "measurement_method": null,
+  "timezone": null,
+  "baseline_rule": null,
+  "check_frequency": null,
+  "reset_procedure": null,
+  "execution_available": false,
+  "source_references": [
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/input-register.json",
+      "sha256": "02a8dfbe50982b0e7e81efd7e2d3608869f9b4c3c9d7f7ab1d92e61710cccb06"
+    }
+  ]
+}

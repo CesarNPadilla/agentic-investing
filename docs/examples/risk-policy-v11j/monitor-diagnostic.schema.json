@@ -1,0 +1,33 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "check_due": {
+      "title": "Check Due",
+      "type": "boolean"
+    },
+    "fail_closed_required": {
+      "title": "Fail Closed Required",
+      "type": "boolean"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "execution_available": {
+      "const": false,
+      "default": false,
+      "title": "Execution Available",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "check_due",
+    "fail_closed_required",
+    "reason_codes"
+  ],
+  "title": "MonitoringDiagnostic",
+  "type": "object"
+}

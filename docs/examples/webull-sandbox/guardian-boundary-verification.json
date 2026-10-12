@@ -1,0 +1,61 @@
+{
+  "schema_version": "webull-guardian-boundary-verification-v1",
+  "observed_at_utc": "2026-10-08T22:00:27.502572+00:00",
+  "guardian_actual_token_fixture_percent": 100,
+  "guardian_actual_token_dummy_operations_verified": 5,
+  "owner_standard_directory_boundary_percent": 100,
+  "standard_token_source": "EXISTING_SAME_OWNER_NON_ELEVATED_EXPLORER_DUPLICATED_FOR_SECURITY_IMPERSONATION",
+  "denied_handles_verified": 37,
+  "read_controls_verified": 6,
+  "descriptors_unchanged": true,
+  "native_guardian_transport_deployed": false,
+  "guardian_transport_implementation_percent": 100,
+  "guardian_transport_injected_tests_passed": 6,
+  "targeted_transport_and_guardian_regressions_passed": 36,
+  "selected_regression_tests_passed": 564,
+  "guardian_disabled": true,
+  "runtime_disabled": true,
+  "real_reference_created": false,
+  "service_deployed": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "trial_launch_percent": 0,
+  "webull_readiness_percent": null,
+  "provenance": {
+    "owner_evidence": "Current owner instruction reports guardian-access-result-1902c008d13f44f8af0a342f40b05e80.json success",
+    "independent_verification": "Retained probe matches repository child source; five dummy contents and empty stdout/stderr verified; local accounts inspected disabled",
+    "standard_owner_verification": "Handle-only native same-owner standard desktop-token check run in elevated engineering session; no account enable or directory descriptor mutation"
+  },
+  "retained_receipts": [
+    {
+      "path": "C:\\ProgramData\\AgenticInvestingGuardian\\Receipts\\guardian-access-result-1902c008d13f44f8af0a342f40b05e80.json",
+      "sha256": "81347f3db5854b9cb2a957103ea95784ecfd3468bd80ccce7b7f587344a2fc19"
+    },
+    {
+      "path": "C:\\ProgramData\\AgenticInvestingGuardian\\Receipts\\owner-boundary-result-b7c90b87e40f4537ab5285d91a5b1e4a.json",
+      "sha256": "7873007c51368f0c4f899e9e2aba38f5193065bfcb71a4ded0cf07e9a4f889a8"
+    }
+  ],
+  "limitations": [
+    "Dummy files and directory handles only, not deployed app/service privileges",
+    "No actual cross-account guardian pipe session",
+    "No remote-host denial test",
+    "No real passkey signing, guardian reference or reset",
+    "Provider accounting/status/event contracts remain unresolved"
+  ],
+  "source_digests": {
+    "scripts/test_webull_guardian_access.ps1": "99ccec218817ec9f8952ef0c586c805679b5b68cc952b7181087ef18e46d4a8f",
+    "scripts/test_webull_guardian_owner_boundary.ps1": "016bba1817a080ebcd42e1341548934552f4d2b51f6e3412f2a9f0420f0a7148",
+    "security/windows_guardian_request_pipe.py": "0dffbdf741f5ce40bab78374cab7dda4766c9e0068018b615661559abd0b3cfb",
+    "security/windows_local_request_pipe.py": "63804143dcb06af361cbdcb40223495c4f1adb5e4d36c117eaf3fef466d172d7",
+    "tests/test_windows_guardian_request_pipe.py": "d0138a2936bb354b0a9de536c129e0f4cafa90b68eca82fba4263bcad199c724",
+    "docs/webull-guardian-reference-protocol.md": "6eb6ea9940c2bc3bfe855a4a76429693012635de1168344a6386e73c7cdfbffd",
+    "docs/webull-trial-current-status.md": "1bca3d831bff9c3088e0ce54c7e396c795b3c9e1b2de2ee4701aee0115fc0cff",
+    "docs/webull-trial-unblock-plan.md": "fd0223652e98cc938ce8ddec51a7c18c4433ccafb96fd386191ababdb02487e4",
+    "docs/webull-review-recovery-authority.md": "a9fd3ab8287a04646f140a3a3e80e7663c1a2a518bf89d40a5f7d1641f01c5a9",
+    "docs/roadmap.md": "3d4832434d0768a7dad23adbb0820d90218f17a72174e607d31019a4edd8d790",
+    "docs/decisions.md": "eb4ad7dca72ed31cdc56f28812df770fc0e2262609400db86554fef7e012612a"
+  }
+}

@@ -83,7 +83,7 @@ def build_current_readiness(root: Path):
         "runtime_integration": "Synthetic libraries are not wired to the runtime API/broker boundary.",
         "whole_account_loss": "Whole-account threshold, measurement/day/reset choices remain unspecified.",
         "portfolio_exposure": "Whole-portfolio limits/denominators and concentration/correlation rules remain unspecified.",
-        "trusted_sources_clock": "No real trusted quote/snapshot/calendar source or monitored clock qualification.",
+        "trusted_sources_clock": "Webull quote/account APIs and NYSE calendar selected; entitlement, source coherence, calendar integration and clock qualification pending.",
         "roles_reset": "Human operational roles and authenticated correction/reset workflow are missing.",
         "funding_attribution": "Owner plans USD 1,000 funding; actual deposit and sleeve attribution unconfirmed.",
         "environment_qualification": "No qualified named paper/live environment release.",
@@ -98,6 +98,36 @@ def build_current_readiness(root: Path):
         "audit_integrity": "No externally anchored immutable production audit qualification.",
         "live_authorization": "No separate explicit live release permission.",
     }
+    owner_path = root/"docs/examples/remaining-owner-inputs-v11/input-register-v5.json"
+    newer_owner = root/"docs/examples/remaining-owner-inputs-v11/input-register-v6.json"
+    if newer_owner.exists():
+        owner_path = newer_owner
+    latest_owner = root/"docs/examples/remaining-owner-inputs-v11/input-register-v7.json"
+    if latest_owner.exists():
+        owner_path = latest_owner
+    selected_owner = root/"docs/examples/remaining-owner-inputs-v11/input-register-v8.json"
+    if selected_owner.exists():
+        owner_path = selected_owner
+    if owner_path.exists():
+        owner_raw = owner_path.read_bytes()
+        owner = json.loads(owner_raw)
+        selected = {row["stable_id"]: row["concrete_response"] for row in owner["items"]}
+        expected = {"PROD-ACCOUNT-DAILY-LOSS": ("0.01", "start_of_day"),
+                    "PROD-GROSS-EXPOSURE": ("1.00", "current_snapshot"),
+                    "PROD-SECURITY-CONCENTRATION": ("0.10", "current_snapshot")}
+        for key, (fraction, timing) in expected.items():
+            response = selected[key]
+            if (response["fraction"] != fraction or response["denominator_evaluation_time"] != timing
+                    or response["denominator"] != "total account equity" or response["active"] is not False):
+                raise ValueError("Unrecognized owner limits require fresh reviewed package")
+        for ref in owner["source_references"]:
+            target = (root/ref["path"]).resolve()
+            if not target.is_relative_to(root) or hashlib.sha256(target.read_bytes()).hexdigest() != ref["sha256"]:
+                raise ValueError("Owner input source digest mismatch")
+        references.append({"path": owner_path.relative_to(root).as_posix(),
+                           "sha256": hashlib.sha256(owner_raw).hexdigest()})
+        descriptions["whole_account_loss"] = "Recorded 1% of start-of-day total account equity; day/reset/trusted methodology and runtime enforcement remain incomplete."
+        descriptions["portfolio_exposure"] = "Recorded gross 100% and per-security 10% of current total account equity; sector/correlation and existing-breach rules and runtime integration remain incomplete."
     items = tuple(ReadinessItem(requirement_id=key,
         status="SYNTHETIC_ONLY" if key in {"runtime_integration", "authenticated_approval", "backup_recovery_monitoring"} else "BLOCKED",
         explanation=descriptions[key]) for key in REQUIRED)

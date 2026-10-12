@@ -1,0 +1,74 @@
+{
+  "schema_version": "paper-daily-activity-integration-evidence-v1",
+  "observed_at": "2026-10-05T20:53:35.562762+00:00",
+  "targeted_tests_passed": 186,
+  "completed_criteria": 23,
+  "required_criteria": 36,
+  "overall_percent": 64,
+  "real_observer_report": {
+    "account_observed": true,
+    "ledger_imported": true,
+    "quote_observed": true,
+    "active_scope": false,
+    "cash_matches": true,
+    "positions_match": true,
+    "daily_loss": {
+      "daily_net_pnl": null,
+      "daily_loss_limit": "10.00000000",
+      "daily_loss_breach": false,
+      "blockers": [
+        "DAILY_EXTERNAL_FLOWS_UNRECONCILED"
+      ],
+      "execution_available": false,
+      "automatic_liquidation": false
+    },
+    "daily_activity": {
+      "activity_count": 0,
+      "observed_external_flow_total": "0",
+      "observed_fee_total": "0",
+      "external_flow_total_for_risk": null,
+      "blockers": [
+        "DAILY_ACTIVITY_PUBLICATION_UNVERIFIED"
+      ],
+      "execution_available": false
+    },
+    "blockers": [
+      "DAILY_ACTIVITY_PUBLICATION_UNVERIFIED",
+      "DAILY_EXTERNAL_FLOWS_UNRECONCILED",
+      "EXTERNAL_RESET_UNQUALIFIED",
+      "LEDGER_SNAPSHOT_CUTOFF_GAP",
+      "MARKET_STATUS_UNVERIFIED",
+      "ORDER_RUNNER_NOT_QUALIFIED",
+      "OUTSIDE_REGULAR_SESSION",
+      "PUBLICATION_COMPLETENESS_UNVERIFIED",
+      "QUOTE_TIME",
+      "RUNTIME_INTEGRATION_PENDING",
+      "SETTLED_CASH_UNVERIFIED",
+      "STATUS_BOOTSTRAP_UNQUALIFIED"
+    ],
+    "execution_available": false,
+    "trial_started": false
+  },
+  "supplemental_status_source_decision": "PENDING",
+  "order_mutations": 0,
+  "trial_started": false,
+  "execution_available": false,
+  "source_references": [
+    {
+      "path": "portfolio/paper_daily_flows.py",
+      "sha256": "2eaf087c0df9f2d4641d659766a12ab95e225a8a236d03461f4ec14bb9dbb1a2"
+    },
+    {
+      "path": "workers/paper_trial_observer.py",
+      "sha256": "d1452e01ba390d053cadce3b85ff850e48a75d22cec86d334069f0d190fb98eb"
+    },
+    {
+      "path": "tests/test_paper_daily_flows.py",
+      "sha256": "37cac0d176c7f65f98e340ea2a440a9be9b1e4bc9a942dbec5443197b4901aa4"
+    },
+    {
+      "path": "docs/alpaca-paper-daily-activity-integration.md",
+      "sha256": "32d030b93df83f3ee2cd1a020bc91c7b73c10d01e72de2f3d9aa526a8ec3ed5e"
+    }
+  ]
+}

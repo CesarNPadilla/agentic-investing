@@ -1,0 +1,27 @@
+{
+  "schema_version": "guarded-signed-native-integration-verification-v1",
+  "observed_at_utc": "2026-10-09T15:54:15.096085+00:00",
+  "signed_native_engineering_integration_percent": 100,
+  "new_native_scenarios": 3,
+  "related_tests_passed": 69,
+  "scenarios": [
+    "SUCCESS",
+    "LOST_PREPARE_ACK_RETAINS_INTENT_NO_CONSUMPTION",
+    "LOST_CONFIRM_ACK_RETAINS_CONSUMPTION_AND_CONFIRMATION"
+  ],
+  "test_identity_scope": "ENGINEERING_IDENTITIES_WITH_INJECTED_GUARDIAN_CALLER_DISPATCH_AND_CLOCK",
+  "actual_owner_signature_qualified": false,
+  "actual_cross_account_signed_reference_qualified": false,
+  "source_digests": {
+    "tests/test_webull_guarded_review_native.py": "9f5edc7e89d04f765ff52dae2ee1fb6922f0778d1c8e3c0bdd0d20666d192339",
+    "security/webull_guarded_review.py": "b5c26b035cfee60fbd2356a4f65a075bab2371b1acfc9bdce5cad2cbe209c74c",
+    "security/webull_guardian_reference.py": "259f0fe76b35ff3fcdbf55c1575d55c2cd4b8205aa4593da7cc872fa21eada25",
+    "security/windows_guardian_exchange_client.py": "2836c66c9c12f83908a86163e50e60f7e284ac4b0fc12ab231033fbe9425e412",
+    "security/windows_guardian_exchange_pipe.py": "34d5b29975ad1d03e1ebd7ca2dafaef15559f6b5a651caf5f52d53088f71df72",
+    "docs/webull-guardian-review-integration.md": "ea87da6e2b18657f02ab1af907f984f2fbac71ac349bfa5366d779361011ebe4"
+  },
+  "execution_available": false,
+  "reset_authorized": false,
+  "trial_started": false,
+  "trial_launch_percent": 0
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": "webull-runtime-private-file-verification-v1",
+  "fixture_observed_at_utc": "2026-10-08T19:32:50.0305907Z",
+  "scope": "NATIVE_PRIVATE_FILE_HANDLES_ONLY",
+  "fixed_file_targets": 4,
+  "actual_denied_handle_checks": 20,
+  "positive_dummy_owner_verified": true,
+  "positive_read_write_controls_reported": true,
+  "retained_client_matches_source": true,
+  "retained_client_digest_matches_receipt": true,
+  "child_result_matches_protected_receipt": true,
+  "persisted_client_exit_code": 0,
+  "stderr_empty": true,
+  "runtime_disabled_verified": true,
+  "metadata_owner_dacl_unchanged": "OWNER_WRAPPER_VERIFIED_NO_INDEPENDENT_PRE_RUN_SNAPSHOT_RETAINED",
+  "private_file_batch_steps_complete": 3,
+  "private_file_batch_steps_total": 3,
+  "private_file_batch_percent": 100,
+  "process_environment_isolation_qualified": false,
+  "protected_service_deployed": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "trial_launch_percent": 0,
+  "private_evidence_digests": {
+    "C:\\ProgramData\\AgenticInvestingPaper\\Receipts\\private-file-boundary-result-2d6b7e6269e84d1a9637db526db0c88b.json": "dc976564af616c81e03d710d7a57642f0bc5339485a5d783d663eb3054bbc900",
+    "C:\\ProgramData\\AgenticInvestingPaper\\Code\\private-file-boundary-client-2d6b7e6269e84d1a9637db526db0c88b.ps1": "5236b42f1a148abb2bfbd5e1c09fff60e21fbb2c97b16f44255c7713d4642492"
+  },
+  "source_digests": {
+    "scripts/test_paper_runtime_private_file_boundary.ps1": "70f77635ad1379f8e9435a228b11168e66b57ef3e210a76df0152b61b8576476",
+    "tests/test_paper_private_file_boundary_fixture.py": "661d9453b3775c847e8e5bbba7ff65cb02a5dd3437810a4a70414ccdf5c5f7d4"
+  }
+}

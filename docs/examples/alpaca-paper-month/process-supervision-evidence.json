@@ -1,0 +1,38 @@
+{
+  "schema_version": "paper-process-supervision-evidence-v1",
+  "assessment_date": "2026-10-05",
+  "targeted_tests_passed": 202,
+  "real_bounded_batch": {
+    "completed": true,
+    "cycles_completed": 2
+  },
+  "hung_child_termination_test_passed": true,
+  "sqlite_child_lock_release_and_rollback_test_passed": true,
+  "completed_criteria": 23,
+  "required_criteria": 36,
+  "overall_percent": 64,
+  "persistent_trading_service_qualified": false,
+  "global_hard_timer_qualified": false,
+  "supplemental_status_source_decision": "PENDING",
+  "order_mutations": 0,
+  "trial_started": false,
+  "execution_available": false,
+  "source_references": [
+    {
+      "path": "workers/paper_process_supervisor.py",
+      "sha256": "bc4f2dc87d8e0294c1c93fe27423fdba32dd4cf1b801a4064089941070c68730"
+    },
+    {
+      "path": "scripts/supervise_paper_observation.py",
+      "sha256": "1ede1ed4b5db6af505eba14c6f76f53b79403031bdfb94225626a8d0ec5f98dc"
+    },
+    {
+      "path": "tests/test_paper_process_supervisor.py",
+      "sha256": "e3d1caf6eaae4903e727451af233edf87fc4d995685611e97033b6a830e99dcb"
+    },
+    {
+      "path": "docs/alpaca-paper-process-supervision.md",
+      "sha256": "8960f9533a94280196f8c8efb3622515c1e54d3d80cf29060d74cba202088b14"
+    }
+  ]
+}

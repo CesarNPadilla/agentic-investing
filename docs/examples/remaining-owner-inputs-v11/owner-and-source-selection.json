@@ -1,0 +1,47 @@
+{
+  "schema_version": "owner-and-source-selection-v1",
+  "status": "DECLARED_NOT_AUTHENTICATED_OR_QUALIFIED",
+  "provenance": {
+    "source": "explicit user instruction in current conversation",
+    "instruction_verbatim": "I will use my webulll account. Full Name. CESAR NIETO PADILLA, ID, cesar.nieto@outlook.com, Use Your webull own market data feed, for a first live phase, use Webull account API. Trading calendar use NYSE's published holiday and early-close schedule",
+    "source_message_id": null,
+    "decision_timestamp": null
+  },
+  "declared_owner": {
+    "full_name": "CESAR NIETO PADILLA",
+    "external_user_id": "cesar.nieto@outlook.com",
+    "id_kind": "user supplied email identifier",
+    "authentication_verified": false,
+    "brokerage_account_id": null
+  },
+  "reset_authority": {
+    "role": "human_account_owner",
+    "authentication": "outside_agent_runtime",
+    "agent_may_reset": false
+  },
+  "sources": {
+    "quotes": {
+      "provider": "Webull OpenAPI Market Data API",
+      "entitlement_verified": false,
+      "qualified": false,
+      "documentation": "https://developer.webull.com/apis/docs/market-data-api/overview/"
+    },
+    "account_snapshot": {
+      "provider": "Webull account API",
+      "broker": "Webull",
+      "account_binding_verified": false,
+      "qualified": false
+    },
+    "session_calendar": {
+      "provider": "NYSE published holiday and early-close schedule",
+      "timezone": "America/New_York",
+      "documentation": "https://www.nyse.com/trade/hours-calendars",
+      "qualified": false
+    }
+  },
+  "intended_first_live_broker": "Webull",
+  "live_release_authorized": false,
+  "funding_confirmed": false,
+  "execution_available": false,
+  "other_operational_roles_assigned": false
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": "webull-guardian-provisioning-preparation-v1",
+  "account_name": "AgenticGuardian",
+  "account_name_length": 15,
+  "description_length": 35,
+  "prepared_target_root": "C:\\ProgramData\\AgenticInvestingGuardian",
+  "provisioning_steps": {
+    "owner_boundary_choice_recorded": "VERIFIED",
+    "script_syntax_and_disposable_six_directory_acl_roundtrip": "VERIFIED",
+    "owner_local_password_creation_and_independent_inspection": "PENDING"
+  },
+  "guardian_provisioning_percent": 67,
+  "selected_regression_tests_passed": 538,
+  "disposable_acl_roundtrip_tests_passed": 1,
+  "guardian_account_exists_at_check": false,
+  "guardian_tree_exists_at_check": false,
+  "engineering_process_elevated": true,
+  "local_owner_password_entry_required": true,
+  "provisioning_script_executed": false,
+  "runtime_account_enabled_at_check": false,
+  "actual_guardian_token_or_owner_standard_token_qualification": false,
+  "service_created": false,
+  "service_logon_granted": false,
+  "credential_copy_performed": false,
+  "real_reference_created": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "live_authorized": false,
+  "trial_started": false,
+  "trial_launch_percent": 0,
+  "webull_readiness_percent": null,
+  "source_digests": {
+    "scripts/prepare_webull_guardian.ps1": "8e47c03ca7ffc6276ab138b67442ffbd032c050ce11a784a901e0f3a2658f7f3",
+    "tests/test_webull_guardian_provisioning.py": "43e0d95f160cfdd6e7f1796e29a4ddd8a0aa47f8a2ba90b439a4a5204348d505",
+    "docs/webull-guardian-provisioning.md": "81649544550117d4a2f3eeb13ad0493c8c50fd8dc539cdeeaa4e10822ecac255",
+    "docs/webull-review-recovery-authority.md": "ea9f91ae463f5bafcbba30e5c702c24aecdd74ae47effb005c644202f2c55f21",
+    "docs/webull-trial-current-status.md": "32b9ede1196cfc31ce38946f32ef3419e2b0beda2a29b4a23008b7ffaaa3b722",
+    "docs/webull-trial-unblock-plan.md": "36c2ba884095b132711df40ce1bb504463de39d48e163200afccd16abe80ba1e",
+    "docs/decisions.md": "9aed4137585a5a740df0a2586b0d5663dabb71b7f89375d71367e256d0daff22",
+    "docs/roadmap.md": "b3a18cd017ba23c645e16ba69065df88839441458853aee614c0de243305814b",
+    "docs/examples/webull-sandbox/guardian-authority-decision.json": "24cd23678b91a4669cb833dbcd2361edf9a328dd095ae8f186834c65da1fd50c"
+  }
+}

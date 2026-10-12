@@ -1,0 +1,222 @@
+{
+  "$defs": {
+    "ExternalFlow": {
+      "additionalProperties": false,
+      "properties": {
+        "flow_id": {
+          "minLength": 1,
+          "title": "Flow Id",
+          "type": "string"
+        },
+        "posted_at": {
+          "format": "date-time",
+          "title": "Posted At",
+          "type": "string"
+        },
+        "amount": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Amount"
+        }
+      },
+      "required": [
+        "flow_id",
+        "posted_at",
+        "amount"
+      ],
+      "title": "ExternalFlow",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "evidence_class": {
+      "const": "SYNTHETIC_ONLY",
+      "default": "SYNTHETIC_ONLY",
+      "title": "Evidence Class",
+      "type": "string"
+    },
+    "day_baseline_at": {
+      "format": "date-time",
+      "title": "Day Baseline At",
+      "type": "string"
+    },
+    "start_of_day_total_equity": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Start Of Day Total Equity"
+    },
+    "as_of": {
+      "format": "date-time",
+      "title": "As Of",
+      "type": "string"
+    },
+    "current_total_equity": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Current Total Equity"
+    },
+    "external_flows": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ExternalFlow"
+      },
+      "title": "External Flows",
+      "type": "array"
+    },
+    "gross_marked_positions": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Gross Marked Positions"
+    },
+    "gross_pending_buys": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Gross Pending Buys"
+    },
+    "security_marked_position": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Security Marked Position"
+    },
+    "security_pending_buys": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Security Pending Buys"
+    },
+    "quantity": {
+      "exclusiveMinimum": 0,
+      "title": "Quantity",
+      "type": "integer"
+    },
+    "conservative_price": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Conservative Price"
+    },
+    "estimated_fees": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "default": "0",
+      "title": "Estimated Fees"
+    },
+    "unreserved_settled_cash": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Unreserved Settled Cash"
+    },
+    "all_holdings_and_orders_complete": {
+      "default": false,
+      "title": "All Holdings And Orders Complete",
+      "type": "boolean"
+    },
+    "ledger_marks_and_fees_reconciled": {
+      "default": false,
+      "title": "Ledger Marks And Fees Reconciled",
+      "type": "boolean"
+    },
+    "day_boundary_verified": {
+      "default": false,
+      "title": "Day Boundary Verified",
+      "type": "boolean"
+    },
+    "kill_switch_latched": {
+      "default": true,
+      "title": "Kill Switch Latched",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "day_baseline_at",
+    "start_of_day_total_equity",
+    "as_of",
+    "current_total_equity",
+    "gross_marked_positions",
+    "gross_pending_buys",
+    "security_marked_position",
+    "security_pending_buys",
+    "quantity",
+    "conservative_price",
+    "unreserved_settled_cash"
+  ],
+  "title": "SyntheticAccountInput",
+  "type": "object"
+}

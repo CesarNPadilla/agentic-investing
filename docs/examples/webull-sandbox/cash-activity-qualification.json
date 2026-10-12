@@ -1,0 +1,17 @@
+{
+  "schema_version": "webull-cash-activity-qualification-v1",
+  "selected_tests_passed": 346,
+  "protocol": "SDK_LIST_ACTIVITIES_PAGINATION_KEY",
+  "publication_completeness": false,
+  "effective_time_qualified": false,
+  "flow_total_evaluated": false,
+  "ledger_applied": false,
+  "execution_available": false,
+  "trial_started": false,
+  "source_digests": {
+    "portfolio/webull_cash_activity_evidence.py": "3aebec2ad6fd2f2b61bc6099b058e0d4e78bdf33fc712212b640d229730ce9c6",
+    "tests/test_webull_cash_activity_evidence.py": "d9b4e124df4d1b7bb704a346fc9c351be46c79f35c52b252f8bc2fb3f86e8c16",
+    "docs/webull-cash-activity-acquisition.md": "1edac6fc78c59d9a6b3ef9d6c53c5b9155fa9812ebe86b095ee808eebe9fbca3",
+    "docs/examples/webull-sandbox/cash-activity-acquisition.json": "a785dd8533fd0aa911adbad15702dfe36b30b8c209d8aee9b74fa33d6f4acd99"
+  }
+}

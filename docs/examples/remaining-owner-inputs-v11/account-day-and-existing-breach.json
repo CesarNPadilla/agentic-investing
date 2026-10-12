@@ -1,0 +1,25 @@
+{
+  "schema_version": "account-day-and-existing-breach-owner-input-v1",
+  "responses": [
+    {
+      "question": "Which time zone and day boundary should define whole-account start-of-day equity?",
+      "answer": "America/New_York calendar day"
+    },
+    {
+      "question": "For existing holdings already above the 10% per-security cap, should the system retain/report them, block additional buys in that security, and require human review without automatic liquidation?",
+      "answer": "Retain/report, block new buys, human review"
+    }
+  ],
+  "day_timezone": "America/New_York",
+  "day_boundary": "local calendar midnight",
+  "existing_breach_rule": "Retain/report existing holdings; block additional buys in the breached security; require human review; no automatic liquidation",
+  "approver_identity": null,
+  "decision_timestamp": null,
+  "active": false,
+  "source_references": [
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/input-register-v5.json",
+      "sha256": "98e406cadee5b49e16d157e59daa9de59fcb9585ce3ff32cb6f6f0d0024daf27"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "subscribed": true,
+  "heartbeat_count": 0,
+  "order_event_count": 0,
+  "source_error": false,
+  "schema_version": "webull-bounded-event-probe-v1",
+  "endpoint": "events-api.sandbox.webull.com",
+  "maximum_observation_seconds": 12,
+  "retry_enabled": false,
+  "termination": "BOUNDED_DIAGNOSTIC_PROCESS_ENDED",
+  "replay_coverage_verified": false,
+  "execution_available": false,
+  "trial_started": false,
+  "order_mutations": 0
+}

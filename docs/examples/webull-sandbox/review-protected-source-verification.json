@@ -1,0 +1,134 @@
+{
+  "schema_version": "webull-protected-review-source-verification-v1",
+  "observed_at_utc": "2026-10-08T21:04:16.7313916Z",
+  "installed_directory": "C:\\ProgramData\\AgenticInvestingPaper\\OwnerControl\\WebullReviewSource-3f83d3a65cead1c1",
+  "manifest_sha256": "3f83d3a65cead1c1aa1ca0d9446df741694fc520470ed6b65d140f9eb5e0ad43",
+  "installed_source_files_verified": 6,
+  "manifest_verified": true,
+  "installed_objects_acl_verified": 9,
+  "checked_objects": [
+    {
+      "relative_path": ".",
+      "administrator_owned": true,
+      "protected_exact_acl": true,
+      "runtime_direct_grant": false
+    },
+    {
+      "relative_path": "security",
+      "administrator_owned": true,
+      "protected_exact_acl": true,
+      "runtime_direct_grant": false
+    },
+    {
+      "relative_path": "review-release.json",
+      "administrator_owned": true,
+      "protected_exact_acl": true,
+      "runtime_direct_grant": false
+    },
+    {
+      "relative_path": "security/webull_owner_review_app.html",
+      "administrator_owned": true,
+      "protected_exact_acl": true,
+      "runtime_direct_grant": false
+    },
+    {
+      "relative_path": "security/webull_owner_review_app.js",
+      "administrator_owned": true,
+      "protected_exact_acl": true,
+      "runtime_direct_grant": false
+    },
+    {
+      "relative_path": "security/webull_owner_review_app.py",
+      "administrator_owned": true,
+      "protected_exact_acl": true,
+      "runtime_direct_grant": false
+    },
+    {
+      "relative_path": "security/webull_review_checkpoint.py",
+      "administrator_owned": true,
+      "protected_exact_acl": true,
+      "runtime_direct_grant": false
+    },
+    {
+      "relative_path": "security/webull_review_journal.py",
+      "administrator_owned": true,
+      "protected_exact_acl": true,
+      "runtime_direct_grant": false
+    },
+    {
+      "relative_path": "security/webull_review_signature.py",
+      "administrator_owned": true,
+      "protected_exact_acl": true,
+      "runtime_direct_grant": false
+    }
+  ],
+  "runtime_account_enabled": false,
+  "protected_source_installed": true,
+  "source_installation_percent": 100,
+  "protected_interpreter_dependencies_qualified": false,
+  "actual_runtime_token_access_qualified": false,
+  "independent_recovery_anchor_qualified": false,
+  "actual_owner_signing_qualified": false,
+  "service_deployed": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "trial_launch_percent": 0,
+  "next_preparation_inventory": {
+    "executable": "C:\\Users\\cesar\\OneDrive\\AI\\agentic-investing\\.venv\\Scripts\\python.exe",
+    "base_prefix": "C:\\Users\\cesar\\AppData\\Local\\Python\\pythoncore-3.14-64",
+    "prefix": "C:\\Users\\cesar\\OneDrive\\AI\\agentic-investing\\.venv",
+    "isolated": true,
+    "ignore_environment": true,
+    "no_user_site": true,
+    "dont_write_bytecode": true,
+    "sys_path": [
+      "C:\\Users\\cesar\\AppData\\Local\\Python\\pythoncore-3.14-64\\python314.zip",
+      "C:\\Users\\cesar\\AppData\\Local\\Python\\pythoncore-3.14-64\\DLLs",
+      "C:\\Users\\cesar\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib",
+      "C:\\Users\\cesar\\AppData\\Local\\Python\\pythoncore-3.14-64",
+      "C:\\Users\\cesar\\OneDrive\\AI\\agentic-investing\\.venv",
+      "C:\\Users\\cesar\\OneDrive\\AI\\agentic-investing\\.venv\\Lib\\site-packages"
+    ],
+    "modules": {
+      "fastapi": {
+        "version": "0.141.1",
+        "origin": "C:\\Users\\cesar\\OneDrive\\AI\\agentic-investing\\.venv\\Lib\\site-packages\\fastapi\\__init__.py"
+      },
+      "uvicorn": {
+        "version": "0.54.0",
+        "origin": "C:\\Users\\cesar\\OneDrive\\AI\\agentic-investing\\.venv\\Lib\\site-packages\\uvicorn\\__init__.py"
+      },
+      "fido2": {
+        "version": "2.2.1",
+        "origin": "C:\\Users\\cesar\\OneDrive\\AI\\agentic-investing\\.venv\\Lib\\site-packages\\fido2\\__init__.py"
+      },
+      "pydantic": {
+        "version": "2.13.5",
+        "origin": "C:\\Users\\cesar\\OneDrive\\AI\\agentic-investing\\.venv\\Lib\\site-packages\\pydantic\\__init__.py"
+      },
+      "cryptography": {
+        "version": "50.0.1",
+        "origin": "C:\\Users\\cesar\\OneDrive\\AI\\agentic-investing\\.venv\\Lib\\site-packages\\cryptography\\__init__.py"
+      }
+    },
+    "protected_execution_environment_qualified": false,
+    "complete_import_closure_qualified": false,
+    "native_library_search_qualified": false,
+    "app_started": false
+  },
+  "provenance": {
+    "owner_evidence": "Current owner message reports successful pinned installer output",
+    "independent_check": "Read-only live installed inventory, hash, ownership/ACL and runtime-state inspection"
+  },
+  "source_digests": {
+    "scripts/audit_webull_review_source.ps1": "6d5a42b1cd1b579f90cd53b9e27eaa2bf84beea7d83ece9aebba3c43ae30d163",
+    "scripts/install_webull_review_source.ps1": "25c80ce2e19c3566c38ee0c8a98981e1101cf9c8fb6cf658264c023235aae311",
+    "security/webull_review_release.py": "efe6e05326bab1e778b8e205bd75bca63bba81d54a77737accdb70e02ad07ac8",
+    "docs/webull-review-protected-source-install.md": "e12b37abfebec7080bb9f698f5fa0ff7d590aa241554ec1f6f2d977bea234eb6",
+    "docs/webull-trial-current-status.md": "1cfa1464d251eca1a04fea25a5358ed5eec05798801acfeaa40090718bab17ee",
+    "docs/webull-trial-unblock-plan.md": "3d65b11422d8487669fe3e1e8281a5e87550104119beb9cd00bf8f2bda845d2b",
+    "docs/roadmap.md": "54df933d09e25998ff068acc8cdfd782a5854296214abeeadca023dea52891fe"
+  }
+}

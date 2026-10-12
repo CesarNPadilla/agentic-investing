@@ -1,0 +1,31 @@
+{
+  "schema_version": "alpaca-paper-quote-preparation-v1",
+  "status": "READ_ONLY_BID_ASK_ADAPTER_COMPLETE_INTEGRATION_PENDING",
+  "source": "alpaca-iex-bid-ask",
+  "source_documentation": "https://docs.alpaca.markets/us/reference/stocklatestquotes-1",
+  "test_count": 39,
+  "authenticated_read_smoke_passed": true,
+  "smoke_reason_codes": [
+    "QUOTE_TIME",
+    "QUOTE_STATUS_UNVERIFIED"
+  ],
+  "market_status_qualified": false,
+  "production_trusted": false,
+  "clock_qualified": false,
+  "runtime_started": false,
+  "orders_submitted": 0,
+  "source_references": [
+    {
+      "path": "market_data/alpaca_paper_evidence.py",
+      "sha256": "620cd182b24b63069bd12397470a7780c9890f7e4f471074a5c5cb3c3200bb3a"
+    },
+    {
+      "path": "tests/test_alpaca_paper_evidence.py",
+      "sha256": "843e939218268d1825ca2f294ab9062cfa65336c88d48cffb444f3e8c126b42c"
+    },
+    {
+      "path": "docs/examples/alpaca-paper-month/trial-plan.json",
+      "sha256": "f201b801f8f2c7cee4e48a4453d375ad7c450f4bbd914ec58dcf7865444cb880"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "webull-bound-cash-observation-v1",
+  "environment": "sandbox",
+  "account_class": "INDIVIDUAL_CASH",
+  "started_at_utc": "2026-10-08T03:44:23.237293+00:00",
+  "finished_at_utc": "2026-10-08T03:44:24.180213+00:00",
+  "observed_equity_usd": "1000000.00",
+  "observed_cash_usd": "1000000.00",
+  "reported_settled_cash_usd": "1000000.00",
+  "reported_unsettled_cash_usd": "0.00",
+  "positions_count": 0,
+  "returned_open_orders_count": 0,
+  "balance_bracket_stable": true,
+  "blockers": [
+    "ACCOUNT_ACTIVITY_PUBLICATION_UNQUALIFIED",
+    "ACCOUNT_ASOF_UNQUALIFIED",
+    "MIDNIGHT_BASELINE_UNQUALIFIED",
+    "RUNTIME_INTEGRATION_PENDING"
+  ],
+  "experimental_sleeve_ceiling_usd": "1000",
+  "execution_available": false,
+  "trial_started": false
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": "paper-etf-scope-decision-v1",
+  "decision": "ETF_ONLY_PLUMBING_TRIAL_KEEP_INTC_DISABLED",
+  "provenance": {
+    "type": "EXPLICIT_USER_INSTRUCTION",
+    "instruction_verbatim": "ETF-only plumbing trial, and keep INTC disabled."
+  },
+  "trial_purpose": "CONTROL_PLUMBING_ONLY",
+  "allowed_instrument_category": "ETF_ONLY",
+  "intc_enabled": false,
+  "individual_stock_orders_allowed": false,
+  "selected_etf_symbol": null,
+  "replacement_strategy_version": null,
+  "paper_account_budget_usd": "1000",
+  "existing_limits_preserved": true,
+  "status_source": "ALPACA_ONLY_FAIL_CLOSED",
+  "nasdaq_feed": "DEFERRED",
+  "runtime_activation_granted_by_this_decision": false,
+  "trial_started": false,
+  "execution_available": false,
+  "live_authorized": false
+}

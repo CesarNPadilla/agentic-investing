@@ -1,0 +1,99 @@
+{
+  "schema_version": "paper-event-risk-integration-evidence-v1",
+  "observed_at": "2026-10-06T01:11:55.827397+00:00",
+  "targeted_tests_passed": 194,
+  "duration_requested_seconds": 6,
+  "real_monitor_report": {
+    "stream": {
+      "authenticated": true,
+      "subscribed": true,
+      "monitor_completed": true,
+      "events_received": 0,
+      "event_checks_completed": 0,
+      "timer_callbacks_completed": 2,
+      "execution_available": false,
+      "trial_started": false,
+      "blockers": [
+        "TRADE_EVENT_RUNTIME_UNQUALIFIED",
+        "PERSISTENT_SUPERVISION_UNQUALIFIED"
+      ]
+    },
+    "diagnostic_cycles": 3,
+    "latest_diagnostic": {
+      "account_observed": true,
+      "ledger_imported": true,
+      "quote_observed": true,
+      "active_scope": false,
+      "cash_matches": true,
+      "positions_match": true,
+      "daily_loss": {
+        "daily_net_pnl": null,
+        "daily_loss_limit": "10.00000000",
+        "daily_loss_breach": false,
+        "blockers": [
+          "DAILY_EXTERNAL_FLOWS_UNRECONCILED"
+        ],
+        "execution_available": false,
+        "automatic_liquidation": false
+      },
+      "daily_activity": {
+        "activity_count": 0,
+        "observed_external_flow_total": "0",
+        "observed_fee_total": "0",
+        "external_flow_total_for_risk": null,
+        "blockers": [
+          "DAILY_ACTIVITY_PUBLICATION_UNVERIFIED"
+        ],
+        "execution_available": false
+      },
+      "blockers": [
+        "DAILY_ACTIVITY_PUBLICATION_UNVERIFIED",
+        "DAILY_EXTERNAL_FLOWS_UNRECONCILED",
+        "EXTERNAL_RESET_UNQUALIFIED",
+        "LEDGER_SNAPSHOT_CUTOFF_GAP",
+        "MARKET_STATUS_UNVERIFIED",
+        "ORDER_RUNNER_NOT_QUALIFIED",
+        "OUTSIDE_REGULAR_SESSION",
+        "PUBLICATION_COMPLETENESS_UNVERIFIED",
+        "QUOTE_TIME",
+        "RUNTIME_INTEGRATION_PENDING",
+        "SETTLED_CASH_UNVERIFIED",
+        "STATUS_BOOTSTRAP_UNQUALIFIED"
+      ],
+      "execution_available": false,
+      "trial_started": false
+    },
+    "execution_available": false,
+    "trial_started": false
+  },
+  "completed_criteria": 23,
+  "required_criteria": 36,
+  "overall_percent": 64,
+  "persistent_runner_qualified": false,
+  "hard_timer_qualified": false,
+  "order_mutations": 0,
+  "trial_started": false,
+  "execution_available": false,
+  "source_references": [
+    {
+      "path": "workers/paper_event_observer.py",
+      "sha256": "7dad02c9ed2ebcc1fa4ff1b788f84790fb5ba3a653228dd0a42b6b939d90d50a"
+    },
+    {
+      "path": "scripts/observe_paper_events.py",
+      "sha256": "09008d784b1dc306d4f16ad447da564744b2aaf0e929da6442f05ebd1c80d11a"
+    },
+    {
+      "path": "scripts/check_alpaca_trade_updates.py",
+      "sha256": "ce1163ce09e5fa54ea0c6967ae827f29ac9bacb7035183a146444d95c59b985a"
+    },
+    {
+      "path": "tests/test_paper_event_observer.py",
+      "sha256": "b4e035959541b1a47d953bab85f3f49c9ec642ca6942cfdfe38fbc93716e6544"
+    },
+    {
+      "path": "docs/alpaca-paper-event-risk-integration.md",
+      "sha256": "b00702e333b9496242edfe1c7ed34c471fec3cfdc8abae3790f0f93b084b8d29"
+    }
+  ]
+}

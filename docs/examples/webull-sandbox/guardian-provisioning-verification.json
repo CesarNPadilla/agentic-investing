@@ -1,0 +1,81 @@
+{
+  "schema_version": "webull-guardian-provisioning-verification-v1",
+  "observed_at_utc": "2026-10-08T21:34:08.8285595Z",
+  "account_name": "AgenticGuardian",
+  "guardian_disabled": true,
+  "users_only_membership": true,
+  "distinct_from_owner_and_runtime": true,
+  "runtime_disabled": true,
+  "directory_checks": [
+    {
+      "relative_path": ".",
+      "guardian_rights": "ReadAndExecute",
+      "owner_rights": "ReadAndExecute",
+      "administrator_owned": true,
+      "protected_exact_acl": true,
+      "runtime_direct_grant": false
+    },
+    {
+      "relative_path": "Code",
+      "guardian_rights": "ReadAndExecute",
+      "owner_rights": "ReadAndExecute",
+      "administrator_owned": true,
+      "protected_exact_acl": true,
+      "runtime_direct_grant": false
+    },
+    {
+      "relative_path": "Config",
+      "guardian_rights": "ReadAndExecute",
+      "owner_rights": "ReadAndExecute",
+      "administrator_owned": true,
+      "protected_exact_acl": true,
+      "runtime_direct_grant": false
+    },
+    {
+      "relative_path": "References",
+      "guardian_rights": "Modify",
+      "owner_rights": "ReadAndExecute",
+      "administrator_owned": true,
+      "protected_exact_acl": true,
+      "runtime_direct_grant": false
+    },
+    {
+      "relative_path": "Receipts",
+      "guardian_rights": "Modify",
+      "owner_rights": "ReadAndExecute",
+      "administrator_owned": true,
+      "protected_exact_acl": true,
+      "runtime_direct_grant": false
+    },
+    {
+      "relative_path": "Logs",
+      "guardian_rights": "Modify",
+      "owner_rights": "ReadAndExecute",
+      "administrator_owned": true,
+      "protected_exact_acl": true,
+      "runtime_direct_grant": false
+    }
+  ],
+  "new_directories_verified": 6,
+  "empty_child_directories_verified": 5,
+  "guardian_provisioning_percent": 100,
+  "actual_token_access_qualified": false,
+  "guardian_service_deployed": false,
+  "real_reference_created": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "trial_launch_percent": 0,
+  "provenance": {
+    "owner_evidence": "Current owner message reports successful prepare_webull_guardian.ps1 output",
+    "independent_check": "Live local account/group enumeration and exact ACL/ownership/empty-directory inspection"
+  },
+  "source_digests": {
+    "scripts/prepare_webull_guardian.ps1": "8e47c03ca7ffc6276ab138b67442ffbd032c050ce11a784a901e0f3a2658f7f3",
+    "docs/webull-guardian-provisioning.md": "986db41d50627a80c2b4f61b0f268bb6165c64efe73bd1f57d10146db0c29c21",
+    "docs/webull-trial-current-status.md": "07ed9a3d46b94135cad10cfab4fb93827a15c75efc28240d7eeb20b7747a584f",
+    "docs/webull-trial-unblock-plan.md": "fdc6001267000e9dc047595dcfbb1393ef1c8b77351170d614b17e818220e2c2",
+    "docs/roadmap.md": "abdc6bed49c4c0b6b0e140b45a2ffb55ef952ed6d5a27e63ce9fb69e219062f2"
+  }
+}

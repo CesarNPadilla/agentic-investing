@@ -1,0 +1,104 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "evidence_class": {
+      "const": "SYNTHETIC_ONLY",
+      "default": "SYNTHETIC_ONLY",
+      "title": "Evidence Class",
+      "type": "string"
+    },
+    "latch_reasons": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Latch Reasons",
+      "type": "array"
+    },
+    "breach_new_york_day": {
+      "format": "date",
+      "title": "Breach New York Day",
+      "type": "string"
+    },
+    "next_trading_day": {
+      "format": "date",
+      "title": "Next Trading Day",
+      "type": "string"
+    },
+    "calendar_verified": {
+      "default": false,
+      "title": "Calendar Verified",
+      "type": "boolean"
+    },
+    "designated_owner_id": {
+      "minLength": 1,
+      "title": "Designated Owner Id",
+      "type": "string"
+    },
+    "approving_human_id": {
+      "minLength": 1,
+      "title": "Approving Human Id",
+      "type": "string"
+    },
+    "authentication_source": {
+      "enum": [
+        "EXTERNAL_SYNTHETIC_VERIFIER",
+        "AGENT_RUNTIME"
+      ],
+      "title": "Authentication Source",
+      "type": "string"
+    },
+    "authentication_verified": {
+      "default": false,
+      "title": "Authentication Verified",
+      "type": "boolean"
+    },
+    "reconciled_at": {
+      "format": "date-time",
+      "title": "Reconciled At",
+      "type": "string"
+    },
+    "reconciliation_complete": {
+      "default": false,
+      "title": "Reconciliation Complete",
+      "type": "boolean"
+    },
+    "no_independent_hard_stop": {
+      "default": false,
+      "title": "No Independent Hard Stop",
+      "type": "boolean"
+    },
+    "approved_at": {
+      "format": "date-time",
+      "title": "Approved At",
+      "type": "string"
+    },
+    "explicit_human_approval": {
+      "default": false,
+      "title": "Explicit Human Approval",
+      "type": "boolean"
+    },
+    "approval_nonce": {
+      "minLength": 1,
+      "title": "Approval Nonce",
+      "type": "string"
+    },
+    "nonce_unused": {
+      "default": false,
+      "title": "Nonce Unused",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "latch_reasons",
+    "breach_new_york_day",
+    "next_trading_day",
+    "designated_owner_id",
+    "approving_human_id",
+    "authentication_source",
+    "reconciled_at",
+    "approved_at",
+    "approval_nonce"
+  ],
+  "title": "SyntheticDailyResetEvidence",
+  "type": "object"
+}

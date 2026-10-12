@@ -1,0 +1,13 @@
+# Retail Webull cash-activity acquisition
+
+The installed official SDK provides `list_activities` with the newer pagination-key protocol, alongside the deprecated legacy `get_activities` cursor protocol. The new collector explicitly uses the newer method and requires its `data` array response. It bounds acquisition to ten pages, rejects malformed or repeated pagination keys, preserves every returned dictionary unchanged, and records each raw response digest. Page count is bounded; an independent process deadline still belongs in future runtime supervision.
+
+Unknown records and repeats remain retained, not guessed into flow categories or deduplicated without verified identifiers. No amount, economic effective time, correction semantics or publication watermark is invented. No activities are applied to a ledger. `external_flow_total` remains null even for an empty response.
+
+The actual selected-cash-account check reverified discovery/binding before acquisition and again afterward. One page returned zero records, with no next pagination key. Surrounding observed cash/equity values matched. [Public evidence](examples/webull-sandbox/cash-activity-acquisition.json) records returned-page exhaustion only; private acquisition records remain outside the repository. Equal values and empty pages do not establish publication completeness, a coherent server timestamp or zero external flows.
+
+The current request uses the documented provider default last-seven-day window. It is not a complete New York calendar-day flow query, because explicit filter timestamp semantics remain to be qualified. The [retail endpoint documentation](https://developer.webull.com/apis/docs/reference/trade-cash-activity-by-type/) describes cash activities and that default; it does not establish the missing accounting guarantees in the reviewed rendered page. Legacy acquisition observations remain historical and are not silently reinterpreted using the new pagination protocol.
+
+Seven new tests cover empty pages, unknown/repeated record preservation, page limits, malformed responses and cursor loops. All 346 selected control/paper/Webull tests pass. Ruff, JSON, source digests and diff checks pass. No orders, private credential changes, latch resets or trial activation occurred.
+
+Next: qualify populated retail schemas and effective-time/filter contracts, then implement immutable correction-aware activity storage and accounting against the separate selected Webull account. Synthetic fixtures can verify mechanics but cannot establish a provider contract. Protected controller admission and halt/status/clock integration remain parallel engineering gates. Trading stays disabled.

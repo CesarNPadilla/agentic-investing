@@ -1,0 +1,14 @@
+{
+  "schema_version": "paper-settlement-rule-v1",
+  "status": "OWNER_APPROVED_PAPER_ONLY",
+  "provenance": {
+    "question": "Alpaca?s paper account does not establish settled cash from its cash balance alone. For this controls trial, approve an explicit simulation rule: the verified initial $1,000 is simulated settled cash; later sale proceeds stay unavailable until the next NYSE trading day, and unexplained cash changes block. This would apply only to paper testing.",
+    "answer": "Approve the paper settlement rule",
+    "decision_timestamp": null
+  },
+  "initial_simulated_settled_cash_usd": "1000",
+  "sale_release": "next NYSE trading day at New York calendar midnight",
+  "unexplained_cash_changes": "BLOCK",
+  "production_applicable": false,
+  "execution_available": false
+}

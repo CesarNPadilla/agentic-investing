@@ -1,0 +1,86 @@
+{
+  "SchemaVersion": "paper-runtime-acl-verification-v1",
+  "ObservedAtUtc": "2026-10-08T03:36:21.8764260Z",
+  "Directories": [
+    {
+      "Area": "Root",
+      "Protected": true,
+      "AdministratorOwned": true,
+      "ExactRulesMatch": true,
+      "RuntimeRights": "ReadAndExecute",
+      "ChildCount": 8
+    },
+    {
+      "Area": "Code",
+      "Protected": true,
+      "AdministratorOwned": true,
+      "ExactRulesMatch": true,
+      "RuntimeRights": "ReadAndExecute",
+      "ChildCount": 0
+    },
+    {
+      "Area": "Config",
+      "Protected": true,
+      "AdministratorOwned": true,
+      "ExactRulesMatch": true,
+      "RuntimeRights": "ReadAndExecute",
+      "ChildCount": 0
+    },
+    {
+      "Area": "Logs",
+      "Protected": true,
+      "AdministratorOwned": true,
+      "ExactRulesMatch": true,
+      "RuntimeRights": "Modify",
+      "ChildCount": 0
+    },
+    {
+      "Area": "Outbox",
+      "Protected": true,
+      "AdministratorOwned": true,
+      "ExactRulesMatch": true,
+      "RuntimeRights": "Modify",
+      "ChildCount": 0
+    },
+    {
+      "Area": "Receipts",
+      "Protected": true,
+      "AdministratorOwned": true,
+      "ExactRulesMatch": true,
+      "RuntimeRights": "ReadAndExecute",
+      "ChildCount": 0
+    },
+    {
+      "Area": "RiskState",
+      "Protected": true,
+      "AdministratorOwned": true,
+      "ExactRulesMatch": true,
+      "RuntimeRights": "None",
+      "ChildCount": 0
+    },
+    {
+      "Area": "BrokerSecrets",
+      "Protected": true,
+      "AdministratorOwned": true,
+      "ExactRulesMatch": true,
+      "RuntimeRights": "None",
+      "ChildCount": 0
+    },
+    {
+      "Area": "OwnerControl",
+      "Protected": true,
+      "AdministratorOwned": true,
+      "ExactRulesMatch": true,
+      "RuntimeRights": "None",
+      "ChildCount": 0
+    }
+  ],
+  "RuntimeDisabled": true,
+  "RuntimeTokenTested": false,
+  "ExecutionAvailable": false,
+  "TrialStarted": false,
+  "source_digests": {
+    "scripts/prepare_paper_runtime_directories.ps1": "226c479695efb5171a133c1f82db004cd44a287fddb871394e41b3ed73a4c651",
+    "docs/webull-runtime-acl-plan.md": "17b25d6c37ea814c6ad13422819c39b6d687a1df9b5c7182f56ed526b7f77ecf"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-10-06T18:09:17.438614+00:00",
+  "scope": "EMPTY_ACCOUNT_READ_ONLY_DIAGNOSTICS",
+  "task": {
+    "name": "AgenticInvesting-PaperReadOnlyObserver",
+    "state": "Disabled",
+    "enabled": false,
+    "trigger_count": 0,
+    "restart_count": 0,
+    "multiple_instances": "IgnoreNew",
+    "run_level": "Limited",
+    "logon_type": "Interactive",
+    "execution_time_limit": "PT24H",
+    "started": false
+  },
+  "initial_smoke": {
+    "windows_completed": 2,
+    "checks_completed": 8
+  },
+  "final_code_smoke": {
+    "status": "COMPLETE",
+    "windows_completed": 1,
+    "execution_available": false,
+    "trial_started": false
+  },
+  "selected_tests_passed": 312,
+  "execution_available": false,
+  "trial_started": false,
+  "readiness_percentage": null,
+  "source_digests": {
+    "workers/paper_readonly_service.py": "0442e0a8c1b2c55b9ed38dfc6caee1f760debaa3c333f339ba9513633c2db2c9",
+    "scripts/run_paper_readonly_service.py": "164c3338ddf3ec455e19cbdac3be4b4031ef40c435cd93cecf7c6962ef3004fb",
+    "tests/test_paper_readonly_service.py": "c258d0a2500070c9dafa650a2d9b5055c36c6da26c84b7e3f596863a594eb41e",
+    "docs/alpaca-paper-readonly-service.md": "ab2a95d206a17c06693d34a91e882b98621f050892767a417429f4a6ad470ec7",
+    "docs/alpaca-paper-month.md": "d9d98164c071d87a67ddaec992bd38a3b71273651dce4727ff8639c3e676cf64"
+  },
+  "remaining_blockers": [
+    "CASH_ACTIVITY_BASELINE_DAY_AMBIGUOUS",
+    "DAILY_ACTIVITY_PUBLICATION_UNVERIFIED",
+    "DAILY_EXTERNAL_FLOWS_UNRECONCILED",
+    "EXTERNAL_RESET_UNQUALIFIED",
+    "LEDGER_SNAPSHOT_CUTOFF_GAP",
+    "MARKET_STATUS_UNVERIFIED",
+    "ORDER_RUNNER_NOT_QUALIFIED",
+    "PUBLICATION_COMPLETENESS_UNVERIFIED",
+    "RUNTIME_INTEGRATION_PENDING",
+    "SETTLED_CASH_UNVERIFIED",
+    "STATUS_BOOTSTRAP_UNQUALIFIED"
+  ]
+}

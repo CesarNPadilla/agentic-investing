@@ -1,0 +1,18 @@
+{
+  "schema_version": "whole-account-denominator-timing-owner-input-v1",
+  "assistant_proposal": "Daily-loss stop: 1% of start-of-day equity, keeping that day?s loss threshold stable. Gross exposure and per-security concentration: 100% and 10% of current equity, tightening during drawdowns.",
+  "user_reply": "Ok, please procced with the next phase",
+  "interpretation": "Assent to the immediately preceding denominator distinction and authorization to continue implementation; no production activation inferred.",
+  "approver_identity": null,
+  "decision_timestamp": null,
+  "daily_loss_denominator": "start-of-day total account equity",
+  "gross_exposure_denominator": "current total account equity",
+  "security_concentration_denominator": "current total account equity",
+  "active": false,
+  "source_references": [
+    {
+      "path": "docs/examples/remaining-owner-inputs-v11/input-register-v4.json",
+      "sha256": "3968bbc736bdf0ed15019879e8ed9db3c5871b680f019dc21912dcb275a9be95"
+    }
+  ]
+}

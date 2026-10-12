@@ -1,0 +1,119 @@
+{
+  "schema_version": "paper-trial-readiness-progress-v3",
+  "assessment_date": "2026-10-05",
+  "method": "Equal-weight acceptance checklist; curated evidence snapshot, not effort or execution authorization",
+  "completed_criteria": 21,
+  "required_criteria": 36,
+  "overall_percent": 58,
+  "steps": [
+    {
+      "step": "Account and baseline",
+      "completed": 4,
+      "required": 4,
+      "percent": 100
+    },
+    {
+      "step": "Plumbing strategy",
+      "completed": 3,
+      "required": 4,
+      "percent": 75
+    },
+    {
+      "step": "Quotes and calendar",
+      "completed": 3,
+      "required": 4,
+      "percent": 75
+    },
+    {
+      "step": "Status and clock",
+      "completed": 2,
+      "required": 4,
+      "percent": 50
+    },
+    {
+      "step": "Reconciliation and settlement",
+      "completed": 3,
+      "required": 4,
+      "percent": 75
+    },
+    {
+      "step": "Loss stops and resets",
+      "completed": 2,
+      "required": 4,
+      "percent": 50
+    },
+    {
+      "step": "Paper order lifecycle",
+      "completed": 3,
+      "required": 4,
+      "percent": 75
+    },
+    {
+      "step": "Continuous runner",
+      "completed": 1,
+      "required": 4,
+      "percent": 25
+    },
+    {
+      "step": "Trial launch",
+      "completed": 0,
+      "required": 4,
+      "percent": 0
+    }
+  ],
+  "real_status_probe": {
+    "authenticated": true,
+    "status_subscription_acknowledged": true,
+    "initial_status_verified": false,
+    "continuous_health_verified": false
+  },
+  "targeted_tests_passed": 143,
+  "trial_started": false,
+  "execution_available": false,
+  "live_authorized": false,
+  "source_references": [
+    {
+      "path": "docs/examples/alpaca-paper-month/trial-readiness-progress-v2.json",
+      "sha256": "a788050a2c20c8205617e3404d2197f2dab85624cd5a629259a5f1193b02fdc2"
+    },
+    {
+      "path": "integrations/brokers/alpaca_paper_orders.py",
+      "sha256": "d509e5fea60f7052e213f9f3312b3b1c16cd79b4db51aca6ae7f44b097c16ca2"
+    },
+    {
+      "path": "risk/paper_order_lifecycle.py",
+      "sha256": "0098c48881480b2510b97b9854dbdff5891c469164f08e0f38750c5a8332746d"
+    },
+    {
+      "path": "workers/paper_trial_observer.py",
+      "sha256": "f7940f3559c642baa7553ea68a694f6dcefa5ba0ec830cadbcf53bd0e565254c"
+    },
+    {
+      "path": "scripts/observe_paper_trial.py",
+      "sha256": "af1d45036977b5d768c5d848b44c3c21a779f46cecee30aee3eb567c90aa0729"
+    },
+    {
+      "path": "tests/test_paper_order_lifecycle.py",
+      "sha256": "0779470e144bf45a7200f7001a09377249ea9787db2e31e3dfd0763e3b60bf45"
+    },
+    {
+      "path": "tests/test_paper_trial_observer.py",
+      "sha256": "ca592eddcae4b8b576e2daee2587f348a2498d7d84dcd86193beccd5eeaf013d"
+    }
+  ],
+  "new_accepted_criteria": [
+    "Partial/terminal buy reservations and sell-share reservations integrated with matching durable fill identities in fixtures"
+  ],
+  "paper_order_lifecycle_limits": [
+    "Real mutations blocked",
+    "Full integrated runner recovery/broker acceptance still pending",
+    "Buy consumed costs remain retained; no sleeve rebasing on sales inferred"
+  ],
+  "integrated_observer": {
+    "real_cycles_completed": 2,
+    "account_cash_and_positions_matched": true,
+    "status_clock_cutoff_baseline_and_reset_blockers_preserved": true,
+    "order_mutations": 0,
+    "trial_started": false
+  }
+}

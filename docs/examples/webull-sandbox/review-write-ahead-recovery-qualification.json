@@ -1,0 +1,50 @@
+{
+  "schema_version": "webull-review-write-ahead-recovery-qualification-v1",
+  "evidence_class": "SYNTHETIC_KEYS_DISPOSABLE_REFERENCE_AND_JOURNAL_ONLY",
+  "targeted_tests_passed": 11,
+  "actual_abrupt_process_exit_tests_passed": 2,
+  "selected_regression_tests_passed": 537,
+  "implementation_verification_batch_percent": 100,
+  "qualified_scopes": [
+    "Durable exclusive intent before review journal consumption",
+    "Interrupted write and journal deletion block retry against surviving reference",
+    "Restart/concurrency replay rejection",
+    "Missing/altered references, forged signature and missing journal fail closed"
+  ],
+  "recovery_authority_choice": "PENDING",
+  "proposed_choices": [
+    "DEDICATED_NON_ADMIN_GUARDIAN_IDENTITY",
+    "OWNER_HELD_OFFLINE_REFERENCE"
+  ],
+  "independent_reference_writer_provisioned": false,
+  "new_guardian_account_created": false,
+  "joint_reference_and_journal_rollback_detection_qualified": false,
+  "host_power_loss_qualified": false,
+  "protected_installed_source_modified": false,
+  "protected_environment_modified": false,
+  "installed_owner_app_integrated_with_intent": false,
+  "actual_owner_signing_performed": false,
+  "real_review_state_or_reference_created": false,
+  "runtime_account_enabled_at_check": false,
+  "service_created": false,
+  "broker_calls_performed": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "trial_launch_percent": 0,
+  "webull_readiness_percent": null,
+  "source_digests": {
+    "security/webull_review_intent.py": "5c3ff9ed6104dcccd84f8318f969d27a7ab0df48ffc24e213fa409b2c60683cc",
+    "tests/test_webull_review_intent.py": "c771aed6fae8952712beb32c8a0cfa4e5820d9a4e7fcf968212d186e349013e5",
+    "security/webull_review_journal.py": "72c4c049bb0e14b3f0afec6a61a355c88aafe410e42114d01c3746cc83545883",
+    "security/webull_review_signature.py": "0f50553ebd5a5bb5f231dcbbf618e580cad21feebb6f945bd5ce3dd50261a219",
+    "docs/webull-review-recovery-authority.md": "3c9ed2be795bb95bc64258655754024abbae81cf192b7462080a6a5230b340fc",
+    "docs/webull-trial-current-status.md": "5711d2cd3d53351fdf7852aa8788ad115a6d5ff4c9e429eb35dd3d9c40efafc8",
+    "docs/webull-trial-unblock-plan.md": "dbf4fa351729c160b196d9d351a3dc6009eccb1f1cb01129a617e699782e608b",
+    "docs/decisions.md": "e53e2b4ef6dc53f91d3188e77198a89fc874e6befd390bf64380d0f419a1f758",
+    "docs/roadmap.md": "85cbb5019a2b4141c3a13580e783d684d22649a80d46da2ce596e2865d6af8d0",
+    "risk/operations_v11.py": "9a4ea7800faa867d0fc4c08057567184b03ca92f7ee4bb7a1680b8b36146bbc5",
+    "risk/sleeve_v11.py": "83d77bab8a5e4a5d25572cd09ade23d4707572f304986d44cd59066fcf6324db"
+  }
+}

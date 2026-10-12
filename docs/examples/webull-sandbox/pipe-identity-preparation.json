@@ -1,0 +1,32 @@
+{
+  "schema_version": "webull-pipe-identity-preparation-v1",
+  "selected_tests_passed": 392,
+  "native_failure_path_tests_passed": 4,
+  "actual_same_user_native_pipe_test_passed": true,
+  "staged_bridge_tests_passed": 5,
+  "owner_dotnet_connection_identity_smoke_passed": true,
+  "owner_cross_account_fixture_status": "PREPARED_NOT_EXECUTED_REQUIRES_LOCAL_CREDENTIAL_ENTRY",
+  "current_batch_verification_steps_complete": 3,
+  "current_batch_verification_steps_total": 4,
+  "current_batch_verification_percent": 75,
+  "webull_overall_readiness_percent": null,
+  "trial_launch_percent": 0,
+  "native_runtime_cross_identity_qualified": false,
+  "protected_controller_transport_deployed": false,
+  "owner_approval_verified": false,
+  "controller_admitted": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "source_digests": {
+    "security/windows_pipe_identity.py": "4e09953491f8bb22edfca94ba176cf675436d8f2ddd0ed401581eb184c765810",
+    "security/webull_pipe_registration.py": "b4491fcf1139d27f5efd93d9ded874b06611f9c68b3aec386e28962275a7e5b1",
+    "security/webull_request_journal.py": "9660f33bfa5ba971ea9a8915fc4d4286a6933ce2abfdb68bf8aaf7bd924e3337",
+    "tests/test_windows_pipe_identity.py": "c0bb443dcd56339d834456b0137a88bf3e0a44e6125c0378f77fcaa01f5e6855",
+    "tests/test_windows_pipe_identity_native.py": "96814f023a87ba98c0d4d0604af7ac3667149d7a36963298b6ba49ddab0016b9",
+    "tests/test_webull_pipe_registration.py": "e605af46b2be52f46ab648a7cf016ff72f0320837ca1cab4a1ea7dc812d47730",
+    "scripts/test_paper_runtime_pipe_identity.ps1": "cd9678f3c9f8c298bb9d63578aafa7ef3955df2628f742b7f250f48d1d9d244c",
+    "docs/webull-pipe-identity-preparation.md": "cafb511ef47c51f2e6f6be1ef7f8a1d688ff4de34f047b48c37be7af58fa68f8"
+  }
+}

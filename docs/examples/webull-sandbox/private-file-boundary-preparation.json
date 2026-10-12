@@ -1,0 +1,40 @@
+{
+  "schema_version": "webull-private-file-boundary-preparation-v1",
+  "scope": "FIXTURE_PREPARATION_AND_THREE_FILE_METADATA_AUDIT_ONLY",
+  "selected_tests_passed": 421,
+  "native_dummy_file_tests_passed": 7,
+  "credential_contents_read": false,
+  "credentials_copied": false,
+  "broker_calls": 0,
+  "metadata_audit_targets": [
+    "WebullProduction",
+    "WebullSandbox",
+    "OwnerPublicCredential"
+  ],
+  "specified_runtime_or_broad_aces_found": 0,
+  "audited_target_acls_inherited": true,
+  "actual_runtime_private_file_fixture": "NOT_EXECUTED_REQUIRES_DIRECT_LOCAL_CREDENTIAL_ENTRY",
+  "actual_runtime_private_file_denial_qualified": false,
+  "planned_fixed_file_targets": 4,
+  "planned_rights_per_file": 5,
+  "planned_denial_checks": 20,
+  "private_file_batch_steps_complete": 2,
+  "private_file_batch_steps_total": 3,
+  "private_file_batch_percent_rounded": 67,
+  "directory_verification_batch_percent": 100,
+  "native_transport_batch_percent": 100,
+  "runtime_disabled_verified": true,
+  "protected_service_deployed": false,
+  "reset_performed": false,
+  "execution_available": false,
+  "trial_started": false,
+  "live_authorized": false,
+  "trial_launch_percent": 0,
+  "source_digests": {
+    "scripts/test_paper_runtime_private_file_boundary.ps1": "70f77635ad1379f8e9435a228b11168e66b57ef3e210a76df0152b61b8576476",
+    "tests/test_paper_private_file_boundary_fixture.py": "661d9453b3775c847e8e5bbba7ff65cb02a5dd3437810a4a70414ccdf5c5f7d4",
+    "tests/test_paper_directory_authority_fixture.py": "c53dde26e0528739ec142eccdc4ea5267f4024b3628393e154d7718cbb8a7a8c",
+    "docs/webull-runtime-private-file-boundary.md": "621b46eff31f11ebb79346619115e636ed8a882b57241e7bcf026e0de7a57bf7",
+    "docs/webull-runtime-directory-authority.md": "57318da5da9d667cd17f4e30e13ba34565e7cb22ce5e86e30c10185c21532fa2"
+  }
+}

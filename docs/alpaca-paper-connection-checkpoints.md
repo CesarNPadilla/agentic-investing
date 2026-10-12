@@ -1,0 +1,9 @@
+# Connection checkpoints and interrupted-stream recovery
+
+The bounded event observer now claims a durable connection record before subscribing. After authentication and subscription acknowledgement, it performs a new account/activity/quote diagnostic before processing any fill/order event. The record stores the diagnostic's digest with its observing state. Missing or failed source checks prevent event dispatch. The parent watchdog receives the completed checkpoint through the existing ordered receipt protocol.
+
+A completed bounded window closes its record without claiming uninterrupted event coverage. A later bounded connection must authenticate and perform another checkpoint. Failed or interrupted records block automatic restart and require separately scoped recovery; the earlier quote-check acknowledgement cannot resolve them. Failed records cannot be silently promoted to closed/successful state. Ending a normal window also retains `PAPER_CONNECTION_CONTINUITY_UNQUALIFIED` in the global risk latch.
+
+This is fail-closed reconnect preparation, not automatic retry or trading recovery. There is no replay cursor, source publication guarantee, or proof that missed broker events are reconstructed. Activity replay, complete gap reconciliation, security-status bootstrap, independently protected risk-reset authority and persistent service behavior still need qualification.
+
+The actual dedicated-account supervised run completed four diagnostics: startup, the new check after authentication, and bounded timer checks. Cash and positions matched, quotes were observed, and execution remained disabled. All 303 selected paper-control tests passed. Tests verify callback ordering, checkpoint failure before event dispatch, failed/interrupted restart refusal and mandatory new checkpoints on later bounded connections. No paper orders or qualifying forward sessions were counted; the month trial remains unstarted.

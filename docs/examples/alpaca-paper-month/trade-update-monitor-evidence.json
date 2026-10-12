@@ -1,0 +1,43 @@
+{
+  "schema_version": "paper-trade-update-monitor-evidence-v1",
+  "observed_at": "2026-10-05T22:20:30.546920+00:00",
+  "targeted_tests_passed": 190,
+  "duration_requested_seconds": 5,
+  "account_binding_matched_before_and_after": true,
+  "real_probe": {
+    "authenticated": true,
+    "subscribed": true,
+    "monitor_completed": true,
+    "events_received": 0,
+    "event_checks_completed": 0,
+    "timer_callbacks_completed": 0,
+    "execution_available": false,
+    "trial_started": false,
+    "blockers": [
+      "TRADE_EVENT_RUNTIME_UNQUALIFIED",
+      "PERSISTENT_SUPERVISION_UNQUALIFIED"
+    ]
+  },
+  "completed_criteria": 23,
+  "required_criteria": 36,
+  "overall_percent": 64,
+  "event_risk_runtime_qualified": false,
+  "hard_timer_qualified": false,
+  "order_mutations": 0,
+  "trial_started": false,
+  "execution_available": false,
+  "source_references": [
+    {
+      "path": "scripts/check_alpaca_trade_updates.py",
+      "sha256": "a1533f957b38e94d854d1eff93afe7472e1447eed0745d17a2d5abada72af5b1"
+    },
+    {
+      "path": "tests/test_paper_trade_update_probe.py",
+      "sha256": "9db1c3ad404e7b00752564b2fe2688679fa1f29a288913de75cde016360a88a7"
+    },
+    {
+      "path": "docs/alpaca-paper-trade-update-monitor.md",
+      "sha256": "4dfb17f3651dc85db57fcead0eb33710527eaa9d958b26cf562704f0371b3aec"
+    }
+  ]
+}
